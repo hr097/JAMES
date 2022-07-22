@@ -1,0 +1,16 @@
+Student Dashboard:
+
+Features available :
+
+ - Students can view their attendance
+ - Grouping on the basis of absence and presence
+ - Sorting based on descending order
+ - Availability of attendance rate per setup 
+ - Single search bar availability based on date and attendance
+ - Slider to set filter to display data accordingly
+ - Display data subjectwise, latest on top
+ - Virtual ID card of student available
+ - About Us sections includes 9 developer profiles (task to be done at last)
+
+
+
