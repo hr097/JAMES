@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+        content="AMS,JP Dawer,Attendance Managment System,Web Application,IoT Integration Web App,RFID based Attendance Management System" />
+    <meta name="description"
+        content="J P Dawer Institute & Department of ICT has RFID based Automatic Attendance Managment System with Web Application User Interface for student as well faculties and Full features System Admin Panel" />
+    <meta name="author" content="TEAM JPD AMS" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Faculty</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../venders/feather/feather.css">
+    <link rel="stylesheet" href="../venders/ti-icons/css/themify-icons.css">
+
+    <!-- endinject -->
+
+    <!-- Plugin css for this page -->
+
+    <link rel="stylesheet" type="text/css" href="../css/select.dataTables.min.css">
+    <!-- End plugin css for this page -->
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style2.css">
+
+    <link rel="shortcut icon" href="../Assets/favicon.png" />
+</head>
+
+<body>
+
+    <!-------------------------------------------------------Nav-Bar Start------------------------------------------------------->
+    <div class="container-scroller" style="background-color: #F5F7FF;">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center">
+
+
+                <button class="navbar-toggler navbar-toggler-right  align-self-center ml-3" type="button"
+                    data-toggle="minimize">
+                    <span class="icon-menu"></span>
+                </button>
+
+                <a class="navbar-brand brand-logo mr-3" href="../index.html"><img src="../Assets/logo.svg"
+                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="../index.html"><img src="../Assets/logo-mini.svg"
+                        alt="logo" width="34px" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+
+
+
+                <!-------------------------------------------------------Profile Start------------------------------------------------------->
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                            <img src="../Assets/profile.jpg" alt="profile" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                            aria-labelledby="profileDropdown">
+                            <a class="dropdown-item" href="../html/profile.html">
+                                <i class="icon-head menu-icon"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item">
+                                <i class="ti-power-off text-primary"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-------------------------------------------------------Profile End------------------------------------------------------->
+
+            </div>
+        </nav>
+        <!-------------------------------------------------------Nav-Bar End------------------------------------------------------->
+
+        <!-------------------------------------------------------Side Nav-Bar Start------------------------------------------------------->
+        <div class="container-fluid page-body-wrapper">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                          <i class="icon-layout menu-icon ti-user"></i>
+                          <span class="menu-title">Student</span>
+                          <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="./createstud.html">Register
+                                        Student</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="./editstud.html">Modify
+                                        Student</a></li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+                          <i class="icon-columns menu-icon"></i>
+                          <span class="menu-title">Faculty</span>
+                          <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="form-elements">  
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="./createfaculty.html">Register
+                                        Faculty</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="./editfaculty.html">Modify
+                                        Faculty</a></li>
+                            </ul>
+                        </div>
+                      </li>
+
+            </nav>
+            <!-------------------------------------------------------Side Nav-Bar End------------------------------------------------------->
+
+            <!--Faculty Form Start-->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-12  grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Register Faculty</h4>
+                                    <form class="forms-sample">
+                                        <!--email-->
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <input type="text" class="form-control" id="login_email"
+                                                placeholder="Enter VNSGU Address">
+                                        </div>
+                                        <!--psd and confirm psd-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input type="password" class="form-control" id="psd"
+                                                        placeholder="Enter Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Confirm Password</label>
+                                                <input type="password" class="form-control" id="confirm_psd"
+                                                    placeholder="Confirm Password">
+                                            </div>
+                                        </div>
+                                        <!--FID and Faculty Type-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>FID</label>
+                                                    <input type="number" class="form-control" id="spid"
+                                                        placeholder="Enter Faculty ID">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label>Faculty Type</label>
+                                                    <select class="form-control">
+                                                        <option>Teaching</option>
+                                                        <option>LAB</option>
+                                                        <option>Staff</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--First Name & Last Name-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>First Name</label>
+                                                    <input type="text" class="form-control" id="fname"
+                                                        placeholder="Enter First name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Last Name</label>
+                                                <input type="text" class="form-control" id="lname"
+                                                    placeholder="Enter Last name">
+                                            </div>
+                                        </div>
+
+                                        <!--gender & email-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group col-md-6">
+                                                    <label>Gender</label>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" class="form-check-input"
+                                                                            name="gender" value="">
+                                                                        Male
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input type="radio" class="form-check-input"
+                                                                        name="gender" value="">
+                                                                    Female
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Email Address</label>
+                                                <input type="text" class="form-control" id="email"
+                                                    placeholder="Enter VNSGU Address">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input">
+                                                        Same as login email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Contact No & Joining Year-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group date">
+                                                    <label>Joining Year</label>
+                                                    <input type="date" class="form-control" id="yearPicker"
+                                                        name="yearpicker">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6 ">
+                                                <label>Contact No</label>
+                                                <input type="number" class="form-control" id="contact_no"
+                                                    placeholder="Mobile Number">
+                                            </div>
+                                        </div>
+
+                                        <!--Post-->
+
+                                        <div class="form-group">
+                                            <label>Post</label>
+                                            <select class="form-control">
+                                                <option>Professor</option>
+                                                <option>Visiting Faculty</option>
+                                                <option>Assistant Faculty</option>
+                                            </select>
+                                        </div>
+
+                                        <!--Profile Image-->
+                                        <div class="form-group">
+                                            <label>Profile Picture</label>
+                                            <input type="file" name="img[]" class="file-upload-default">
+                                            <div class="input-group col-xs-12">
+                                                <input type="text" class="form-control file-upload-info" disabled
+                                                    placeholder="Upload Profile Image">
+                                                <span class="input-group-append">
+                                                    <button class="file-upload-browse btn btn-primary"
+                                                        type="button">Upload</button>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mr-2 mt-3">Create
+                                            Student</button>
+                                        <button class="btn btn-light mt-3">Clear</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--Faculty Form End-->
+                    </div>
+                </div>
+
+
+
+                <!-- plugins:js -->
+                <script src="../venders/js/vendor.bundle.base.js"></script>
+                <!-- endinject -->
+
+                <!-- inject:js -->
+                <script src="../js/off-canvas.js"></script>
+                <script src="../js/hoverable-collapse.js"></script>
+                <script src="../js/template.js"></script>
+
+                <!-- endinject -->
+
+
+
+
+</body>
+
+</html>
