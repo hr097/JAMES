@@ -9,7 +9,7 @@
 1) Harshil Ramani    (Lead architect-Database)
 2) Tulsi Rathod      (Frontend-JavaScript)
 3) Drashti Dhola     (Embedded C++)
-4) Krish Bhanderi    (Android)
+4) Krish Bhanderi    (Backend-Php & Android)
 5) Meet Makwana      (Frontend-Bootstrap)
 6) Archit Ghevariya  (Frontend-HTML-CSS)
 7) Jaydev Jadav      (Backend-PHP-(laravel))
