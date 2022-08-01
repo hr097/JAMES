@@ -5,14 +5,15 @@
 
 
 --------------------------------------------------------------------------------------------
-1) Harshil Ramani (Lead architect/ Embedded in C++/JS developer )
-2) Tulsi Rathod (Software developer in python/HTML/CSS3/JS)
-3) Drashti Dhola (Embedded C++ / JS Developer)
-4) Krish Bhanderi (Android Developer)
-5) Meet Makwana (CSS/JS Developer)
-6) Archit Ghevariya(CSS3/HTML developer)
-7) Jaydev Jadav (JS/PHP developer)
-8) Shikkha Tikiwala (HR manager of Team / UX/UI designer)
-9) Shubham Khunt (HTML5/CSS3/JS/React developer)
-10) Parth mistry (Php laravel and MYSQL expert developer)
+
+1) Harshil Ramani    (Lead architect-Database)
+2) Tulsi Rathod      (Frontend-JavaScript)
+3) Drashti Dhola     (Embedded C++)
+4) Krish Bhanderi    (Android)
+5) Meet Makwana      (Frontend-Bootstrap)
+6) Archit Ghevariya  (Frontend-HTML-CSS)
+7) Jaydev Jadav      (Backend-PHP-(laravel))
+8) Shikkha Tikiwala  (HR-UX/UI designer)
+9) Parth mistry     (Backend-PHP(laravel))
+
 -------------------------------------------------------------------------------------------
