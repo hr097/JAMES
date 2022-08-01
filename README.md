@@ -14,7 +14,7 @@ Project JAMES is made for educational institution like J.P. Dower where numerous
 3) Admin panel to control user access and to gain full-flege control of system
 4) Staff Account to generate cutomized attedance reports such as Students-wise,Semester-wise,Date-wise.
 
-                                         [3] Tools and Technology of 'JPD AMS':
+                                        [3] Tools and Technology of 'JPD AMS':
 
   I] FRONTEND:
   
