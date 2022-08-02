@@ -6,7 +6,7 @@
 
 --------------------------------------------------------------------------------------------
 
-1) Harshil Ramani    (O/A-Tester)
+1) Harshil Ramani    (Q/A-Tester)
 2) Tulsi Rathod      (Frontend-JavaScript)
 3) Drashti Dhola     (Embedded C++)
 4) Krish Bhanderi    (Backend-Php & Android)
