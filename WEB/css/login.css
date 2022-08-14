@@ -3,9 +3,8 @@ body {
     font-weight: 700;
 }
 
-/* Login page start */
 .title {
-    color: #4b49ac
+    color: #4b49ac;
 }
 
 .fieldstyle {
@@ -16,14 +15,15 @@ body {
     border: 2px solid #000000;
 }
 
-.rememtxt {
-    font-size: 15px;
+.rememberme-txt{
     cursor: pointer;
+    font-size:0.9em;
 }
 
-#forgotpass {
+#forgot-password{
     border: none;
     cursor: pointer;
+    font-size:0.9em;
 }
 
 .loginbox {
@@ -31,11 +31,7 @@ body {
     border: 0.01em solid #d3d3d3;
 }
 
-/* Login page end */
 
-
-
-/* Forgot password page start */
 .forgot-page-title {
     font-size: 17px;
 }
@@ -45,6 +41,8 @@ body {
     margin-bottom: -10px;
     font-size: 12px;
 }
+
+
 /* remove up-down arrow in number field */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -56,7 +54,3 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-
-/* Forgot password page end */
-
-
