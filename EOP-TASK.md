@@ -5,3 +5,4 @@
 5) database users creation and id password alteration in php pages
 6) email id change of admin which will be vnsgu id
 7) code comment in backend.
+8)session fixation and hijackinng XSS prevention
