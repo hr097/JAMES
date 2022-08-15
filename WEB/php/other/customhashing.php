@@ -75,14 +75,14 @@ return $string;
 
 //Generate the hash value of the password
 
-$hash = crypt('Jpdadmin@000','$5$n$8Jsn*B&!94jhr');
+$hash = crypt('Mscit@2020','$5$n$8Jsn*B&!94jhr');
 
 //Check the password value is submitted by the user or not
 
 echo $hash." HELLO<br>";
 
-$pswd = password_verify("Jpdadmin@000", $hash);
+$pswd = password_verify("Mscit@2020", $hash);
 
 echo $pswd;
 
-?> 
+?>  
