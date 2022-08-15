@@ -24595,7 +24595,7 @@ select.tt-hint {
     padding: .4375rem .75rem;
     border: 0;
     outline: 1px solid #CED4DA;
-    color: #c9c8c8;
+    color: #c9c8c8; 
 }
 
 select.form-control:focus,

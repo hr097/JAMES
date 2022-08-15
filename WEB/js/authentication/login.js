@@ -1,24 +1,23 @@
 
 /* Validation for login */
 
-$(document).ready(function(){ 
+$(document).ready(function(){
+  
+    function showError(message) //  for displaying error messages
+    {     
+        $("#error-message").css("display","block"); 
+        $("#message").text(message); 
+        setTimeout(function() {$("#message").text("");$("#error-message").css("display", "none");},3000); //remove error message
+    }
 
+    function userExists(email,password)
+    {
+
+      /* ajax code to validate user credentials */
+
+    }
 
     $("#login").click(function(){
-      
-      function showError(message) //  for displaying error messages
-      {     
-           $("#error-message").css("display","block"); 
-           $("#message").text(message); 
-           setTimeout(function() {$("#message").text("");$("#error-message").css("display", "none");},3000); //remove error message
-      }
-      function userExists(email,password)
-      {
-
-        /* ajax code to validate user cerdentials */
-
-      }
-    
       let email = $("#username"); 
       let password = $("#password");
 
@@ -50,23 +49,22 @@ $(document).ready(function(){
       {
             let result = userExists(email);
 
-            result ="0";
+            result ="3"; // remove this 
             
-            if(result === "1")
+            if(result === "-1")
             {
                 showError("User not exist.");
             }
-            else if(result=== "2")
+            else if(result=== "-2")
             {
                 showError("User credentials unmatched.");
             }
-            else if(result=== "0")
-            {           
+            else
+            {   
+                document.getElementById('usertype').value = result;        
                 document.getElementById("userlogin").submit();
             }
-
       }
-
     });
   });
 

@@ -42,8 +42,8 @@
    
     <!-- css  -->
     <link rel="stylesheet" href="./css/template.css">
-    <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
 
     <!--javaScript-->
     <script src="./js/script.js" type="text/javascript" defer=true></script>
@@ -80,18 +80,18 @@
                                         <ul id="message" style="list-style-type:none;"></ul>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-lg fieldstyle" name="username" id="username" placeholder="Enter your email">
+                                    <div class="form-group psd-icon">
+                                        <input type="text" class="form-control form-control-lg fieldstyle" name="username" id="username" style="" placeholder="Enter your email"><br>
+                                        <input type="password" class="form-control form-control-lg fieldstyle" name="password" id="password" placeholder="Enter your password">
+                                        <i class="bi bi-eye-slash eye-icon" id="togglePassword"></i>  
+                                        <input type="hidden" id="usertype" name="user" value="0">
                                     </div>
 
-                                    <div class="form-group psd-icon">
-                                        <i class="bi bi-eye-slash eye-icon" id="togglePassword"></i>
-                                        <input type="password" class="form-control form-control-lg fieldstyle" name="password" id="password" placeholder="Enter your password">
-                                    </div>
+                                    
 
                                      <div class="my-2 d-flex justify-content-between align-items-center">
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-info ml-1 mt-1" id="remember-me">
+                                            <input type="checkbox" class="form-check-info ml-1 mt-1" name="remember-user" id="remember-me">
                                             <label for="remember-me" class="rememberme-txt unselectable mt-0" >Remember me</label>
                                         </div>
                                         <a class="auth-link text-black" style="margin-top:-6px;" id="forgotpassword">Forgot password?</a>
@@ -107,8 +107,5 @@
            </div>
         </div>
     </div>
-
-
-
 </body>
 </html>

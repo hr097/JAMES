@@ -7,6 +7,14 @@
 echo $_POST['username'];
 echo "<br>";
 echo $_POST['password'];
+echo "<br>";
+echo $_POST['user'];
+echo "<br>";
+
+if(isset($_POST['remember-user']))
+{
+    echo "true set cookie";
+}
 
 
 ?>

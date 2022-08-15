@@ -10,6 +10,7 @@ body {
 
 .fieldstyle {
     border: 1px solid #000000;
+    color:black;
 }
 
 .fieldstyle:focus {
