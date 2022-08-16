@@ -1,24 +1,44 @@
 *************************************************
 
-select * from Courses;
-select * from Subjects;
-select * from Course_subject_map;
-select * from Users_role;
-select * from Users;
-select * from Students;
-select * from Faculties;
-select * from Subject_faculty_year_map;
-select * from Rfid_uid_spid_map;
-select * from Ams_api;
+1)select * from Courses;
+2)select * from Subjects;
+3)select * from Course_subject_map;
+4)select * from Users_role;
+5)select * from Users;
+6)select * from Students;
+7)select * from Faculties;
+8)select * from Subject_faculty_year_map;
+9)select * from Rfid_uid_spid_map;
+10)select * from Ams_api;
+11)select * from Ams_setup_course_subject_map;
+12)select * from Ams_setup_faculties_map;
+13)select * Ams_setup_students_map;
+14)select * Ams_attendance_master;
 
 **************************************************
+user creation:
 
-to see all constraints of a table use below syantx:
+CREATE USER 'ams-authenticator'@'localhost' IDENTIFIED BY 'amsauth@000';
+CREATE USER 'ams-admin'@'localhost' IDENTIFIED BY 'amsadmin@444';
+CREATE USER 'ams-student'@'localhost' IDENTIFIED BY 'amsstudent@111';
+CREATE USER 'ams-faculty'@'localhost' IDENTIFIED BY 'amsfaculty@222';
+CREATE USER 'ams-manager'@'localhost' IDENTIFIED BY 'amsmanager@333';
+
+granting privileges:
+
+
+
+******************************************************
+
+1)to see all constraints of a table use below syantx:
 
 select COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_COLUMN_NAME, REFERENCED_TABLE_NAME from information_schema. KEY_COLUMN_USAGE where TABLE_NAME = '__YOUR_TABLE_NAME__';
 
+*** to list all.... tables data from information schema;
 
-to see all database constraint:
+select * from information_schema. KEY_COLUMN_USAGE where TABLE_NAME = '__YOUR_TABLE_NAME__';
+
+2)to see all database constraint:
 
 SELECT tc.constraint_schema,tc.constraint_name,tc.table_name,tc.constraint_type,kcu.table_name,kcu.column_name,kcu.referenced_table_name,kcu.referenced_column_name,rc.update_rule,rc.delete_rule
 
@@ -38,6 +58,10 @@ AND tc.table_name = rc.table_name
 
 WHERE tc.constraint_schema = 'James';
 
+3)Auto increment reset:
+
+ALTER TABLE Courses AUTO_INCREMENT= CURRENT VALUE;
+
 ******************************************************
 
 1)TABLE CREATION AND SCHEMA:
@@ -55,9 +79,6 @@ Unique constraint:
 
 ALTER TABLE Courses ADD CONSTRAINT UNQ_course_name UNIQUE(course_name,total_semester);
 
-Auto increment reset:
-
-ALTER TABLE Courses AUTO_INCREMENT= CURRENT VALUE;
 
 Pre-defined record added:
 
@@ -146,7 +167,7 @@ pre-defined records:
 
 insert into Users_role(role) values('Student');
 insert into Users_role(role) values('Faculty');
-insert into Users_role(role) values('Management');
+insert into Users_role(role) values('Manager');
 insert into Users_role(role) values('Admin');
 
 *- ------------------------ Users ----------------------------------*
@@ -178,7 +199,7 @@ insert into Users values('sachaudhari@vnsgu.ac.in','$5$n$ywUHXmYf/xRif7m.zsmDWl5
 insert into Users values('office.jpdams@vnsgu.ac.in','$5$n$EDvl9B82HI3xMdcPOK9eOmNjU5K2UQdXXKQPDGIxT6C',3);
 
 
-*- ------------------- ---- Students  ----------------------------------*
+*- ------------------------ Students  ----------------------------------*
 
 CREATE TABLE Students(spid VARCHAR(10),fname varchar(256) NOT NULL,mname varchar(256) NOT NULL,lname varchar(256) NOT NULL,gender CHAR(1) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,course_id INTEGER NOT NULL,joining_year YEAR NOT NULL,cur_semester INTEGER NOT NULL,cur_division CHAR(1) NOT NULL,cur_roll_no SMALLINT NOT NULL, stud_status BOOLEAN ,PRIMARY KEY(spid));
 
@@ -190,6 +211,8 @@ ALTER TABLE Students ADD CONSTRAINT CHK_stud_joining_year CHECK(joining_year>='2
 ALTER TABLE Students ADD CONSTRAINT CHK_stud_cur_sem CHECK(cur_semester>=1 AND cur_semester<=50);
 ALTER TABLE Students ADD CONSTRAINT CHK_stud_cur_division CHECK(cur_division>='A' AND cur_division<='Z');
 ALTER TABLE Students ADD CONSTRAINT CHK_stud_cur_roll_no CHECK(cur_roll_no>=1 AND cur_roll_no<=10000);
+ALTER TABLE Students ADD CONSTRAINT CHK_stud_status CHECK(stud_status=TRUE OR stud_status=FALSE);
+
 
 foreign key constraint:
 
@@ -241,6 +264,8 @@ ALTER TABLE Faculties ADD CONSTRAINT CHK_fac_gender CHECK(gender='M' OR gender='
 ALTER TABLE Faculties ADD CONSTRAINT CHK_fac_dob CHECK(dob>='1920-01-01');
 ALTER TABLE Faculties ADD CONSTRAINT CHK_fac_joining_year CHECK(joining_year>='1995');
 
+ALTER TABLE Faculties ADD CONSTRAINT CHK_fac_status CHECK(fac_status=TRUE OR fac_status=FALSE);
+
 default constraint:
 
 ALTER TABLE Faculties ALTER fac_status SET DEFAULT TRUE;
@@ -261,7 +286,7 @@ insert into  Faculties values('FID12349','Chaudhri','Shailesh','A---bhai','M','1
 *-------------------------- Subject_faculty_year_map  ----------------------------------*
 
 
-CREATE TABLE Subject_faculty_year_map(cs_id INTEGER ,fid VARCHAR(8),year YEAR NOT NULL,PRIMARY KEY(cs_id,fid,year));
+CREATE TABLE Subject_faculty_year_map(cs_id INTEGER ,fid VARCHAR(8),year YEAR,PRIMARY KEY(cs_id,fid,year));
 
 check constraint:
 
@@ -314,7 +339,7 @@ insert into  Rfid_uid_spid_map values('05 8F DB 52 29 71 00','2020049935');
 *-------------------------- Ams_api --------------------------------*
 
 
-CREATE TABLE Ams_api(reading_no INTEGER AUTO_INCREMENT,reader_no SMALLINT NOT NULL,reading_date date NOT NULL,reading_time TIME NOT NULL,spid VARCHAR(10) NOT NULL,PRIMARY KEY(reading_no));
+CREATE TABLE Ams_api(reading_no INTEGER AUTO_INCREMENT,reader_no SMALLINT NOT NULL,reading_date DATE NOT NULL,reading_time TIME NOT NULL,spid VARCHAR(10) NOT NULL,PRIMARY KEY(reading_no));
 
 
 foreign key constraint:
@@ -325,6 +350,7 @@ ALTER TABLE  Ams_api ADD CONSTRAINT FK_api_spid FOREIGN KEY(spid) REFERENCES Stu
 check constraint:
 
 ALTER TABLE Ams_api ADD CONSTRAINT CHK_reader_no CHECK(reader_no>=1 AND reader_no<=100);
+ALTER TABLE Ams_api ADD CONSTRAINT CHK_reading_date CHECK(reading_date>='2022-01-01');
 
 default:
 
@@ -338,3 +364,184 @@ ALTER reading_time SET DEFAULT CURRENT_TIME();
 predefined record :
 
 insert into Ams_api(reader_no,spid) values(5,'2020049910');
+
+
+*-------------------------- Ams_setup_course_subject_map --------------------------------*
+
+----------------------------------------------|
+NOTE: This is master table of ams_setup   |
+----------------------------------------------|
+
+CREATE TABLE  Ams_setup_course_subject_map(ams_setup_id INTEGER AUTO_INCREMENT,cs_id INTEGER NOT NULL,year YEAR NOT NULL,PRIMARY KEY(ams_setup_id));
+
+foreign key constraint:
+
+ALTER TABLE Ams_setup_course_subject_map
+ADD CONSTRAINT FK_ams_setup_cs_id_map
+FOREIGN KEY (cs_id) REFERENCES Course_subject_map(cs_id);
+
+check constraint:
+
+ALTER TABLE  Ams_setup_course_subject_map ADD CONSTRAINT CHK_ams_setup_cs_id_map_year CHECK(year>='2022');
+
+unique constraint:
+
+ALTER TABLE  Ams_setup_course_subject_map
+ADD CONSTRAINT UNQ_ams_setup_per_year UNIQUE(cs_id,year);
+
+prefined records:
+
+insert into  Ams_setup_course_subject_map(cs_id,year) values(1,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(2,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(3,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(4,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(5,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(6,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(7,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(8,2022);
+
+*-------------------------- Ams_setup_faculties_map  --------------------------------*
+
+
+CREATE TABLE Ams_setup_faculties_map(ams_setup_id INTEGER ,fid VARCHAR(8),setup_status BOOLEAN NOT NULL,PRIMARY KEY(ams_setup_id,fid));
+
+foreign key constraint:
+
+ALTER TABLE  Ams_setup_faculties_map
+ADD CONSTRAINT FK_fac_ams_setup_id_map
+FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id);
+
+ALTER TABLE  Ams_setup_faculties_map
+ADD CONSTRAINT FK_ams_setup_fid_map
+FOREIGN KEY (fid) REFERENCES Faculties(fid);
+
+default:
+
+ALTER TABLE Ams_setup_faculties_map ALTER setup_status SET DEFAULT TRUE;
+
+check constraint :
+
+ALTER TABLE  Ams_setup_faculties_map ADD CONSTRAINT CHK_setup_status CHECK(setup_status=TRUE OR setup_status=FALSE);
+
+
+
+--------------just for record because I have created status_column_later--------
+
+ALTER TABLE Ams_setup_faculties_map
+ADD setup_status BOOLEAN NOT NULL DEFAULT TRUE;
+----------------------------------------------------------------------------
+
+predefined records:
+
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(4,'FID12345');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(4,'FID12348');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(6,'FID12347');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(7,'FID12346');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(1,'FID12345');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(9,'FID12348');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(10,'FID12348');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(11,'FID12348');
+
+
+*-------------------------- Ams_setup_students_map --------------------------------*
+
+
+CREATE TABLE Ams_setup_students_map(ams_setup_id INTEGER NOT NULL,spid VARCHAR(10) NOT NULL,p_days SMALLINT NOT NULL,a_days SMALLINT NOT NULL,PRIMARY KEY(ams_setup_id,spid));
+
+
+default constraint:
+
+ALTER TABLE Ams_setup_students_map
+ALTER a_days SET DEFAULT 0;
+
+ALTER TABLE Ams_setup_students_map
+ALTER p_days SET DEFAULT 0;
+
+check constraint:
+
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT CHK_a_days CHECK(a_days>=0 AND a_days<=100000);
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT CHK_p_days CHECK(p_days>=0 AND p_days<=100000);
+
+foreign key constraint:
+
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_stud_ams_setup_id_map FOREIGN KEY(ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id);
+
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_ams_setup_spid_map FOREIGN KEY(spid) REFERENCES Students(spid);
+
+predefined records:
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049910');
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049935');
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049812');
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049819');
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049836');
+
+
+*-------------------------- Ams_attendance_master --------------------------------*
+
+CREATE TABLE Ams_attendance_master(att_no BIGINT AUTO_INCREMENT,spid VARCHAR(10) NOT NULL,ams_setup_id  INTEGER NOT NULL,att_date DATE NOT NULL,att_time TIME NOT NULL,att_status BOOLEAN NOT NULL,PRIMARY KEY(att_no));
+
+foreign key constraint:
+
+ALTER TABLE  Ams_attendance_master ADD CONSTRAINT FK_attedance_spid_map FOREIGN KEY (spid) REFERENCES Students(spid);
+
+ALTER TABLE  Ams_attendance_master ADD CONSTRAINT FK_attendance_ams_setup_map FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id);
+
+default constraint:
+
+ALTER TABLE Ams_attendance_master
+ALTER att_date SET DEFAULT CURRENT_DATE();
+
+ALTER TABLE Ams_attendance_master
+ALTER att_time SET DEFAULT CURRENT_TIME();
+
+check constraint:
+
+ALTER TABLE Ams_attendance_master ADD CONSTRAINT CHK_att_date CHECK(att_date>='2022-01-01');
+ALTER TABLE  Ams_attendance_master ADD CONSTRAINT CHK_att_status CHECK(att_status=TRUE OR att_status=FALSE);
+
+
+predefined records:
+
+insert into Ams_attendance_master(spid,ams_setup_id,att_status) values('2020049910',1,0); 
+insert into Ams_attendance_master(spid,ams_setup_id,att_status) values('2020049910',1,1); 
+......
