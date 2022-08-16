@@ -1,0 +1,41 @@
+What enhancements we can make *
+Normalization of table... ==== pending......
+subject_faculty_year_map remove? ==== pending....
+to check all valid consraint and values === pending....
+testing constraint by inputing records ===  pending....
+trigger 
+view
+index creating and discussion;
+
+API hosting and making... === pending.... Shikkha
+Auto deletion of AMS_api table; === pending....
+changes in documents; === Drashti
+attendance insert krvati vakhte time difference last attendance thi 1 hour  === Cancel;
+
+
+auto transfer features of students; === pending....
+auto transfer roll no and div...sem..... === 
+
+ams login for first sem ====
+
+backup and recovery of db....; == pending....
+select into use it means same db another table data transfer or we may chose ams_back_up_db on another server;
+time scheduling backup;
+
+1)ams_api:-
+
+Students can have multiple contacts and multiple emaills === cancel
+for that we can make separate table;
+
+add enrolment number and login....it....
+
+ we can merge column of fname lname and mname and run time we can
+ extract it would it be a good idea ? === ....make some changes.....
+
+
+TRIGGER:
+
+ams_api_table trigger for deletion when attendance master  insert record.
+All table delete records move to back tb....
+
+
