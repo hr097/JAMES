@@ -1,0 +1,16 @@
+What enhancements we can make *
+Normalization of table...
+subject_faculty_year_map remove?
+to check all valid consraint and values
+testing constraint by inputing records
+trigger
+view
+index creating and discussion;
+API hosting and making...
+Auto deletion of AMS_api table;
+changes in documents;
+attendance insert krvati vakhte time difference last attendance thi 1 hour
+backup and recovery of db....;
+select into use it means same db another table data transfer or we may chose ams_back_up_db on another server;
+time scheduling backup;
+auto transfer features of students;
