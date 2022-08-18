@@ -10,6 +10,6 @@
 2) Archit Ghevariya   (Frontend Developer)
 3) Drashti Dhola      (Embedded C++ & IoT developer)
 4) Shubham Khunt      (Frontend Developer)
-5) Shikkha Tikiwala   (HR Manager -UX/UI designer)
+5) Shikhaa Tikiwala   (HR Manager -UX/UI designer)
 
 -------------------------------------------------------------------------------------------
