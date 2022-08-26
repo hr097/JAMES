@@ -67,13 +67,45 @@
     padding: 8px;
     margin:10px;
     }
-
+    input[type="submit"]{
+    background-color: black; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+    input[type="submit"]:hover {
+    background-color: white;
+    color: black;
+    border:1px solid black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    a
+    {
+        text-decoration: none;
+    }
+    label
+    {
+        font-size:1.2em;
+    }
+    input[type=text] {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
     </style>
 
 </head>
 
 <body>
-
+<center style="font-size:0.9em;position:relative;top:5px;">
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <h3 id="errorMessage" style="color:blue;">
         <?php 
@@ -87,13 +119,6 @@
         <h1>Order Details:</h1> 
 
         <label for="spo"><input type="checkbox" id="spo" name="spo">Show pending only</label>
-
-        <br><br>
-
-        <table id="orderstable">
-            
-        </table>
-
         <br><br>
         <label for="orderid">order id: </label>
         <input type="text" maxlength="30" id="orderid" name="orderid" placeholder="Enter order id" required="true"> 
@@ -104,6 +129,12 @@
      <br>
      <a href="admin.php">Back to Dashboard</a> 
 
+     <br><br>
+
+    <table id="orderstable">
+        
+    </table>
+    </center>
 </body>
 
 </html>

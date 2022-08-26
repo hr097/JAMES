@@ -97,7 +97,13 @@
                     if($GLOBALS['error']!=="")
                     {
                         echo $GLOBALS['error'];
-                        echo "<script type='text/javascript'> setTimeout(function(){document.getElementById('errorMessage').innerHTML='';},2000);</script>";
+                        echo "<script type='text/javascript'> 
+                        setTimeout(
+                            function(){
+                                document.getElementById('errorMessage').innerHTML='';
+                            },2000);
+                            </script>
+                            ";
                     }
                 ?>
                 </h5>
@@ -121,7 +127,7 @@
                <br>
 				</form>
 			</div>
-			<a href="index.php" class="text-center d-block mt-2">Already have an acoount? </a>
+			<a href="index.php" class="text-center d-block mt-2">Already have an acoount ? </a>
 		</div>
 	</div>
 </div>

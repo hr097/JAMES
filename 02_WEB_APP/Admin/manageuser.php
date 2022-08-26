@@ -68,12 +68,46 @@
     margin:10px;
     }
 
+    input[type="submit"]{
+    background-color: black; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+    input[type="submit"]:hover {
+    background-color: white;
+    color: black;
+    border:1px solid black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    a
+    {
+        text-decoration: none;
+    }
+    label
+    {
+        font-size:1.2em;
+    }
+    input[type=text] {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
     </style>
 
 </head>
 
 <body>
 
+<center style="font-size:0.9em;">
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <h3 id="errorMessage" style="color:blue;">
         <?php 
@@ -86,20 +120,20 @@
         </h3>
         <h1>User Details:</h1>
 
-        <table id="userstable">
-            
-        </table>
-
-        <br><br>
-        <label for="username">username: </label>
+        <label for="username">Username: </label>
         <input type="text" maxlength="30" id="username" name="username" placeholder="Enter username" required="true"> 
         <br><br>
         
         <input type="submit" name="delete" value="delete">
     </form>
      <br>
-     <a href="admin.php">Back to Dashboard</a> 
+     <a href="admin.php">Back to Dashboard</a>
+     <br><br> 
+     <table id="userstable">
+            
+    </table>
 
+     </center>
 </body>
 
 </html>
