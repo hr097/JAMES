@@ -26,7 +26,7 @@ CREATE USER 'ams-manager'@'localhost' IDENTIFIED BY 'amsmanager@333';
 
 granting privileges:
 
-
+....pending
 
 ******************************************************
 
