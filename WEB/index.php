@@ -1,8 +1,8 @@
 <?php
 
+//if cookies are set then redirect to login.php
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en-IN">
@@ -103,7 +103,6 @@
                                         <a class="btn btn-primary btn-icon-text" id="login" style="width:150px;">Login</a>
                                     </div>
                                     <!-- Remember me , forgot password and  login button : End -->
-
 
                             </form>
                             <!-- Form : End -->

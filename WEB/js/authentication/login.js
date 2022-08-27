@@ -10,11 +10,19 @@ $(document).ready(function(){
         setTimeout(function() {$("#message").text("");$("#error-message").css("display", "none");},3000); //remove error message
     }
 
-    function userExists(email,password)
-    {
+    function userExists(uname) // check if user exists or not
+    {    
+        const response = null;
+        $.post("user_exists.php",
+        {
+          _un: uname,
+        },
+        function(data, status){
+          alert("Data: " + data + "\nStatus: " + status);
+          response = parseInt(data);
+        });
 
-      /* ajax code to validate user credentials */
-
+       return response; 
     }
 
     $("#login").click(function(){
@@ -30,11 +38,11 @@ $(document).ready(function(){
         showError("Invalid email format.");
         email.val(""); 
       }
-      else if(!(/^[a-zA-Z0-9._-]+@vnsgu.[a-zA-Z]{2,4}.[a-zA-Z]{2,4}$/.test(email.val()))) // check specified email regex
-      {
-        showError("Only institution email is allowed.");
-        email.val("");  
-      }
+      // else if(!(/^[a-zA-Z0-9._-]+@vnsgu.[a-zA-Z]{2,4}.[a-zA-Z]{2,4}$/.test(email.val()))) // check specified email regex
+      // {
+      //   showError("Only institution email is allowed.");
+      //   email.val("");  
+      // }
       else if(password.val()=="")
       {
         showError("Please enter your password");
@@ -48,23 +56,25 @@ $(document).ready(function(){
       else
       {
             let result = userExists(email);
-
-            result ="3"; // remove this 
             
-            if(result === "-1")
+            if(result === 0)
             {
                 showError("User not exist.");
             }
-            else if(result=== "-2")
+            else if(result === -1)
             {
                 showError("User credentials unmatched.");
             }
-            else
-            {   
-                document.getElementById('usertype').value = result;        
+            else if(result === 1 )
+            {          
                 document.getElementById("userlogin").submit();
             }
-      }
+            else
+            {
+              alert("Somrthing went wrong !");
+              window.location.reload();
+            }
+       }
     });
   });
 
