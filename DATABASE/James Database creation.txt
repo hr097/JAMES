@@ -16,6 +16,9 @@
 14)select * Ams_attendance_master;
 
 **************************************************
+
+help : https://www.strongdm.com/blog/mysql-create-user-manage-access-privileges-how-to
+
 user creation:
 
 CREATE USER 'ams-authenticator'@'localhost' IDENTIFIED BY 'amsauth@000';
@@ -26,7 +29,14 @@ CREATE USER 'ams-manager'@'localhost' IDENTIFIED BY 'amsmanager@333';
 
 granting privileges:
 
-....pending
+1)ams-auth user
+
+GRANT UPDATE, SELECT, REFERENCES on james.users TO 'ams-authenticator'@'localhost';
+GRANT UPDATE, SELECT, REFERENCES on user_roles TO 'ams-authenticator'@'localhost';
+
+2) ams-admin
+
+GRANT ALL ON james.* TO 'ams-admin'@'localhost' WITH GRANT OPTION;
 
 ******************************************************
 
@@ -68,7 +78,7 @@ ALTER TABLE Courses AUTO_INCREMENT= CURRENT VALUE;
 
 *- --------------------------------Courses  ----------------------------------*
 
-CREATE TABLE Courses(course_id INTEGER AUTO_INCREMENT,course_name VARCHAR(255) NOT NULL,total_semester INTEGER NOT NULL,PRIMARY KEY(course_id));
+CREATE TABLE _Courses(course_id INTEGER AUTO_INCREMENT,course_name VARCHAR(255) NOT NULL,total_semester INTEGER NOT NULL,PRIMARY KEY(course_id));
 
 Check  constraint:
 
@@ -154,31 +164,34 @@ insert into Course_subject_map(course_id,subject_id) values(3,7);
 insert into Course_subject_map(course_id,subject_id) values(3,8);
 
 
-*- ------------------- ----Users_role  ----------------------------------*
+*- ------------------- ----Users_role  ----------------------------------* OK
 
-CREATE TABLE Users_role(user_type SMALLINT AUTO_INCREMENT,role VARCHAR(255)NOT NULL,PRIMARY KEY(user_type));
-
+CREATE TABLE User_roles(user_type SMALLINT AUTO_INCREMENT,role_name VARCHAR(255)NOT NULL,PRIMARY KEY(user_type));
 
 unique constraint:
 
-ALTER TABLE Users_role ADD CONSTRAINT UNQ_role UNIQUE(role);
+ALTER TABLE User_roles ADD CONSTRAINT UNQ_user_role UNIQUE(role_name);
 
 pre-defined records:
 
-insert into Users_role(role) values('Student');
-insert into Users_role(role) values('Faculty');
-insert into Users_role(role) values('Manager');
-insert into Users_role(role) values('Admin');
+insert into User_roles(role_name) values('Student');
+insert into User_roles(role_name) values('Faculty');
+insert into User_roles(role_name) values('Manager');
+insert into User_roles(role_name) values('Admin');
 
-*- ------------------------ Users ----------------------------------*
+*- ------------------------ Users ----------------------------------* OK
 
-CREATE TABLE Users(email  VARCHAR(256),password VARCHAR(256) NOT NULL,user_type SMALLINT NOT NULL,PRIMARY KEY(email));
+CREATE TABLE Users(username  VARCHAR(256),password VARCHAR(1000) NOT NULL,user_token VARCHAR(1000) NOT NULL ,user_type SMALLINT NOT NULL,user_access BOOLEAN,PRIMARY KEY(username));
 
 foreign key:
 
 ALTER TABLE Users
 ADD CONSTRAINT FK_Users_role_map
-FOREIGN KEY (user_type) REFERENCES Users_role(user_type);
+FOREIGN KEY (user_type) REFERENCES User_roles(user_type);
+
+default constraint:
+
+ALTER TABLE Users ALTER user_access SET DEFAULT TRUE;
 
 predefined record:
 
