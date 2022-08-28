@@ -1,7 +1,7 @@
 <?php
 
 require_once("../php/amslib.php");
-require_once("./php/commanlib.php");
+require_once("../php/commonlib.php");
 
 $JAMES = new AMS(0);
 

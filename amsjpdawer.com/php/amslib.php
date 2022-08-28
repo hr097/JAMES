@@ -112,17 +112,18 @@ class AMS
 
     public function verify_user_token($token)
     {
-        $result = mysqli_query($this->db_connection,"select username,password from vw_users_auth where user_token='$token';");
+        $result = mysqli_query($this->db_connection,"select username,user_type from vw_users_auth where user_token='$token';");
 
         if(mysqli_num_rows($result)===1)
         {
             $user = mysqli_fetch_assoc($result);
-            $this->amsUserType = $user['user_type'];
 
+            $this->amsUserType = (string)$user['user_type'];
+  
             session_start();
             
             $_SESSION["_userId"] = $user['username'];
-            $_SESSION["_userType"] = $user['user_type'];
+            $_SESSION["_userType"] = $this->amsUserType;
             
             if($this->amsUserType==="1")
             {
@@ -149,7 +150,7 @@ class AMS
         else
         {
             setcookie("__u9RmdkJ6","", time() - 3600, "/");
-            ams_redirect("../index.php");
+            $this->ams_redirect("../index.php");
         }
 
     }

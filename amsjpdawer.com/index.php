@@ -1,8 +1,8 @@
 <?php
 
-require_once("./php/commanlib.php");
+require_once("./php/commonlib.php");
 
-if(count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]))
+if( count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]) )
 {
     redirect("login.php");
     exit();

@@ -42,7 +42,8 @@ $(document).ready(function(){
           _un: username.val(),
           _ps: password.val()
         },
-        function(data,status){
+        function(data,status)
+        {
           
             if(status == "success")
             {
@@ -51,7 +52,8 @@ $(document).ready(function(){
                 if(response=== 0)
                 {
                     showError("User not exists");
-                    username.val(""); 
+                    username.val("");
+                    password.val(""); 
                 }
                 else if(response=== -1)
                 {
@@ -74,7 +76,7 @@ $(document).ready(function(){
               showError("Something went wrong!");
               setTimeout( function(){window.location.reload();},2500);
             }
-          });
+        });
        }
     });
   });

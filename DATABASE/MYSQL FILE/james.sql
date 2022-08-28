@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2022 at 12:38 AM
+-- Generation Time: Aug 28, 2022 at 11:54 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -74,6 +74,28 @@ INSERT INTO `user_roles` (`user_type`, `role_name`) VALUES
 (3, 'Manager'),
 (1, 'Student');
 
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_users_auth`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_users_auth` (
+`username` varchar(256)
+,`password` varchar(1000)
+,`user_token` varchar(1000)
+,`user_type` smallint(6)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_users_auth`
+--
+DROP TABLE IF EXISTS `vw_users_auth`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_users_auth`  AS SELECT `users`.`username` AS `username`, `users`.`password` AS `password`, `users`.`user_token` AS `user_token`, `users`.`user_type` AS `user_type` FROM `users` WHERE `users`.`user_access` = 11  ;
+
 --
 -- Indexes for dumped tables
 --
@@ -83,7 +105,10 @@ INSERT INTO `user_roles` (`user_type`, `role_name`) VALUES
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`),
-  ADD KEY `FK_Users_role_map` (`user_type`);
+  ADD UNIQUE KEY `idx_userName` (`username`),
+  ADD UNIQUE KEY `UNQ_user_token` (`user_token`) USING HASH,
+  ADD UNIQUE KEY `idx_user_token` (`user_token`) USING HASH,
+  ADD KEY `idx_user_type` (`user_type`);
 
 --
 -- Indexes for table `user_roles`
@@ -110,7 +135,7 @@ ALTER TABLE `user_roles`
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `FK_Users_role_map` FOREIGN KEY (`user_type`) REFERENCES `user_roles` (`user_type`);
+  ADD CONSTRAINT `FK_Users_role_map` FOREIGN KEY (`user_type`) REFERENCES `user_roles` (`user_type`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

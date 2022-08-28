@@ -1,0 +1,18 @@
+1)user creation: [DONE] run all
+
+CREATE USER 'ams-authenticator'@'localhost' IDENTIFIED BY 'amsauth000';
+CREATE USER 'ams-admin'@'localhost' IDENTIFIED BY 'amsadmin444';
+CREATE USER 'ams-student'@'localhost' IDENTIFIED BY 'amsstudent111';
+CREATE USER 'ams-faculty'@'localhost' IDENTIFIED BY 'amsfaculty222';
+CREATE USER 'ams-manager'@'localhost' IDENTIFIED BY 'amsmanager333';
+
+*****************************************************
+
+2)granting privileges:
+
+1)ams-auth user
+
+GRANT SELECT on james.vw_users_auth TO 'ams-authenticator'@'localhost';
+
+
+*****************************************************
