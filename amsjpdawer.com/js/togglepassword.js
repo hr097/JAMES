@@ -13,5 +13,4 @@ togglePassword.addEventListener("click", function () {
     this.classList.toggle("bi-eye");
 });
 
-
 /* END: to hide and show password */

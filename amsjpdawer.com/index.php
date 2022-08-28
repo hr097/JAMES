@@ -40,11 +40,13 @@ if( count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]) )
    
     <!-- css  -->
     <link rel="stylesheet" href="./css/template.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/login.css">
 
     <!--javaScript-->
-    <script src="./js/script.js" type="text/javascript" defer=true></script>
+    <script src="./js/togglepassword.js" type="text/javascript" defer=true></script>
+    <script src="./js/modal.js" type="text/javascript" defer=true></script>
     <script src="./js/authentication/index.js" type="text/javascript" defer=true></script>
     <noscript>Your browser does not support Javascript!</noscript>
 
@@ -106,7 +108,7 @@ if( count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]) )
                                      </div>
 
                                     <div class="mt-2 text-center">
-                                        <input class="btn btn-primary btn-icon-text" name="login" id="login" style="width:150px;height:46px;" value="Login">
+                                        <input type="button" class="btn btn-primary btn-icon-text" name="login" id="login" style="width:150px;height:46px;" value="Login">
                                     </div>
                                     <!-- Remember me , forgot password and  login button : End -->
                             </form>
@@ -117,5 +119,18 @@ if( count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]) )
            </div>
         </div>
     </div>
+
+        <!-- Open modal
+        <button id="btn">Open Modal</button> -->
+        <!-- modal -->
+        <div id="modal" class="modal">
+        <!-- modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p class="msg unselectable">Are you sure you want to reset your password?</p>
+            <button id="yes-button" class="modal-btn">Confirm</button>
+            <button id="no-button" class="modal-btn">Cancel</button>
+        </div>
+        </div>
 </body>
 </html>
