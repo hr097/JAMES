@@ -1,29 +1,33 @@
 <?php
 
 require_once("./php/amslib.php");
+require_once("./php/commanlib.php");
 
+$JAMES = new AMS(0);
 
-if(isset($_POST['_username']) && isset($_POST['_password']) )
+if(isset($_COOKIES['__u9RmdkJ6"']))
 {
-    //* further code for pdo select query
-
-    echo "request came from authenticated user";
-
-    //*
+   $JAMES->verify_user_token(customDecrypt($_COOKIE["__u9RmdkJ6"]));
 }
-else if( isset($_GET['_authToken']) )
+else if(isset($_POST["login"]) && isset($_POST['_username']) && isset($_POST['_password']))
 {
-    // cookies based login here
+    $uname =  sanitizeInput($_POST["_username"]);
+    $pswd  =  sanitizeInput($_POST["_password"]);
+
+    if(isset($_POST['_rememberMe']) && $_POST['_rememberMe']==="on")
+    {
+        $JAMES->startSession($uname,$pswd,true);
+    }
+    else
+    {
+        $JAMES->startSession($uname,$pswd,false);
+    }
+    
 }
 else
-{
-    ams_redirect("../index.php");
+{   
+    $JAMES->ams_redirect("index.php");
 }
 
-
-if(isset($_POST['rememberMe']))
-{
-    //set cookies as a token only
-}
 
 ?>

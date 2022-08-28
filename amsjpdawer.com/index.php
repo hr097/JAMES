@@ -1,6 +1,12 @@
 <?php
 
-//if cookies are set then redirect to login.php
+require_once("./php/commanlib.php");
+
+if(count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]))
+{
+    redirect("login.php");
+    exit();
+}
 
 ?>
 
@@ -70,7 +76,7 @@
                             <!-- Logo,Header and title : End-->
 
                             <!-- Form : Start -->
-                            <form class="pt-3" id="userlogin" method="POST" action="login.php">
+                            <form class="pt-3" id="userlogin" method="POST" autocomplete="on" action="login.php">
 
                                     <!-- Error message -->
                                     <div class="alert alert-danger" id="error-message">
@@ -79,13 +85,13 @@
 
                                     <!-- Email and password : Start-->
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-lg fieldstyle" maxlength="256" name="username" id="username"placeholder="Enter your email">
+                                        <input type="text" class="form-control form-control-lg fieldstyle" maxlength="256" name="_username" id="username" placeholder="Enter your username">
                                     </div>
 
                                     <div class="form-group psd-icon">
                                         <i class="bi bi-eye-slash fa-lg eye-icon" id="togglePassword"></i>
-                                        <input type="password" class="form-control form-control-lg fieldstyle" minlength="8" maxlength="16" name="password" id="password" placeholder="Enter your password">
-                                        <input type="hidden" id="usertype" name="user" value="0">
+                                        <input type="password" class="form-control form-control-lg fieldstyle" minlength="8" maxlength="16" name="_password" id="password" placeholder="Enter your password">
+                                        <!-- <input type="hidden" id="usertype" name="user" value="0"> FOR CSRF SECURITY --> 
                                     </div>
                                     <!-- Email and password : End-->
 
@@ -93,14 +99,14 @@
                                     <!-- Remember me , forgot password and  login button : Start -->
                                      <div class="my-2 d-flex justify-content-between align-items-center">
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-info ml-1 mt-1" name="remember-user" id="remember-me">
+                                            <input type="checkbox" class="form-check-info ml-1 mt-1" name="_rememberMe" id="remember-me">
                                             <label for="remember-me" class="rememberme-txt unselectable mt-0" >Remember me</label>
                                         </div>
                                         <a class="auth-link text-black" style="margin-top:-6px;" id="forgotpassword">Forgot password?</a>
                                      </div>
 
                                     <div class="mt-2 text-center">
-                                        <a class="btn btn-primary btn-icon-text" id="login" style="width:150px;">Login</a>
+                                        <input class="btn btn-primary btn-icon-text" name="login" id="login" style="width:150px;height:46px;" value="Login">
                                     </div>
                                     <!-- Remember me , forgot password and  login button : End -->
                             </form>

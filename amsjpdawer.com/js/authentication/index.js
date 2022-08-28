@@ -5,24 +5,24 @@ function showError(message) //  for displaying error messages
 {     
     $("#error-message").css("display","block"); 
     $("#message").text(message); 
-    setTimeout(function(){$("#message").text("");$("#error-message").css("display", "none");},3000); //remove error message
+    setTimeout(function(){$("#message").text("");$("#error-message").css("display", "none");},2000); //remove error message
 }
 
 $(document).ready(function(){
   
     $("#login").click(function(){
 
-      let email = $("#username"); 
+      let username = $("#username"); 
       let password = $("#password");
 
-      if(email.val()=="") 
+      if(username.val()=="") 
       {
-        showError("Please enter your email address"); 
+        showError("Please enter your username"); 
       }
-      else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.val()))) // check normal regex
+      else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(username.val()))) // check normal regex
       {
-        showError("Invalid email format.");
-        email.val(""); 
+        showError("Invalid username format");
+        username.val(""); 
       }
       else if(password.val()=="")
       {
@@ -31,7 +31,7 @@ $(document).ready(function(){
       }
       else if(!(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,16}$/.test(password.val()))) //check regex pattern of password
       {
-        showError("Invalid password format.");
+        showError("Invalid password format");
         password.val("");
       }
       else
@@ -39,32 +39,40 @@ $(document).ready(function(){
       
         $.post("./api/validateuser.php",
         {
-          _un: email.val(),
+          _un: username.val(),
           _ps: password.val()
         },
         function(data,status){
           
-            alert("Data: " + data + "\nStatus: " + status);
-
-            result  = parseInt(data);
-            console.log(typeof result);
-
-            if(result === 0)
+            if(status == "success")
             {
-                showError("User not exists.");
-            }
-            else if(result === -1)
-            {
-                showError("User credentials doesn't matches.");
-            }
-            else if(result === 1 )
-            {          
-                document.getElementById("userlogin").submit();
+                response = parseInt(data);
+
+                if(response=== 0)
+                {
+                    showError("User not exists");
+                    username.val(""); 
+                }
+                else if(response=== -1)
+                {
+                    showError("Invalid credentials");
+                    username.val(""); 
+                    password.val("");
+                }
+                else if(response=== 1 )
+                {          
+                    document.getElementById("userlogin").submit();
+                }
+                else
+                {
+                  showError("Something went wrong!");
+                  setTimeout( function(){window.location.reload();},2500);
+                }
             }
             else
             {
-              alert("Something went wrong !");
-              window.location.reload();
+              showError("Something went wrong!");
+              setTimeout( function(){window.location.reload();},2500);
             }
           });
        }
