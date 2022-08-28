@@ -1,31 +1,17 @@
 
 /* Validation for login */
 
+function showError(message) //  for displaying error messages
+{     
+    $("#error-message").css("display","block"); 
+    $("#message").text(message); 
+    setTimeout(function(){$("#message").text("");$("#error-message").css("display", "none");},3000); //remove error message
+}
+
 $(document).ready(function(){
   
-    function showError(message) //  for displaying error messages
-    {     
-        $("#error-message").css("display","block"); 
-        $("#message").text(message); 
-        setTimeout(function() {$("#message").text("");$("#error-message").css("display", "none");},3000); //remove error message
-    }
-
-    function userExists(uname) // check if user exists or not
-    {    
-        const response = null;
-        $.post("user_exists.php",
-        {
-          _un: uname,
-        },
-        function(data, status){
-          alert("Data: " + data + "\nStatus: " + status);
-          response = parseInt(data);
-        });
-
-       return response; 
-    }
-
     $("#login").click(function(){
+
       let email = $("#username"); 
       let password = $("#password");
 
@@ -38,11 +24,6 @@ $(document).ready(function(){
         showError("Invalid email format.");
         email.val(""); 
       }
-      // else if(!(/^[a-zA-Z0-9._-]+@vnsgu.[a-zA-Z]{2,4}.[a-zA-Z]{2,4}$/.test(email.val()))) // check specified email regex
-      // {
-      //   showError("Only institution email is allowed.");
-      //   email.val("");  
-      // }
       else if(password.val()=="")
       {
         showError("Please enter your password");
@@ -55,15 +36,26 @@ $(document).ready(function(){
       }
       else
       {
-            let result = userExists(email);
-            
+      
+        $.post("./api/validateuser.php",
+        {
+          _un: email.val(),
+          _ps: password.val()
+        },
+        function(data,status){
+          
+            alert("Data: " + data + "\nStatus: " + status);
+
+            result  = parseInt(data);
+            console.log(typeof result);
+
             if(result === 0)
             {
-                showError("User not exist.");
+                showError("User not exists.");
             }
             else if(result === -1)
             {
-                showError("User credentials unmatched.");
+                showError("User credentials doesn't matches.");
             }
             else if(result === 1 )
             {          
@@ -71,13 +63,16 @@ $(document).ready(function(){
             }
             else
             {
-              alert("Somrthing went wrong !");
+              alert("Something went wrong !");
               window.location.reload();
             }
+          });
        }
     });
   });
 
 
   /* modal for forgot password */
+
+  /* --------------------------*/
 

@@ -1,9 +1,9 @@
 <?php
 
-require_once("../php/other/amslib.php");
+require_once("./php/amslib.php");
 
 
-if( isset($_POST['_username']) && isset($_POST['_password']) )
+if(isset($_POST['_username']) && isset($_POST['_password']) )
 {
     //* further code for pdo select query
 

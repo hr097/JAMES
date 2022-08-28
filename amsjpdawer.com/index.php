@@ -39,7 +39,7 @@
 
     <!--javaScript-->
     <script src="./js/script.js" type="text/javascript" defer=true></script>
-    <script src="./js/authentication/login.js" type="text/javascript" defer=true></script>
+    <script src="./js/authentication/index.js" type="text/javascript" defer=true></script>
     <noscript>Your browser does not support Javascript!</noscript>
 
     <!--jQuery file-->
@@ -70,7 +70,7 @@
                             <!-- Logo,Header and title : End-->
 
                             <!-- Form : Start -->
-                            <form class="pt-3" id="userlogin" method="POST" action="controller.php">
+                            <form class="pt-3" id="userlogin" method="POST" action="login.php">
 
                                     <!-- Error message -->
                                     <div class="alert alert-danger" id="error-message">
@@ -79,12 +79,12 @@
 
                                     <!-- Email and password : Start-->
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-lg fieldstyle" name="username" id="username"placeholder="Enter your email">
+                                        <input type="text" class="form-control form-control-lg fieldstyle" maxlength="256" name="username" id="username"placeholder="Enter your email">
                                     </div>
 
                                     <div class="form-group psd-icon">
                                         <i class="bi bi-eye-slash fa-lg eye-icon" id="togglePassword"></i>
-                                        <input type="password" class="form-control form-control-lg fieldstyle" name="password" id="password" placeholder="Enter your password">
+                                        <input type="password" class="form-control form-control-lg fieldstyle" minlength="8" maxlength="16" name="password" id="password" placeholder="Enter your password">
                                         <input type="hidden" id="usertype" name="user" value="0">
                                     </div>
                                     <!-- Email and password : End-->
@@ -103,7 +103,6 @@
                                         <a class="btn btn-primary btn-icon-text" id="login" style="width:150px;">Login</a>
                                     </div>
                                     <!-- Remember me , forgot password and  login button : End -->
-
                             </form>
                             <!-- Form : End -->
                         </div>

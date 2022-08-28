@@ -1,42 +1,29 @@
-*************************************************
-
-1)select * from Courses;
-2)select * from Subjects;
-3)select * from Course_subject_map;
-4)select * from Users_role;
-5)select * from Users;
-6)select * from Students;
-7)select * from Faculties;
-8)select * from Subject_faculty_year_map;
-9)select * from Rfid_uid_spid_map;
-10)select * from Ams_api;
-11)select * from Ams_setup_course_subject_map;
-12)select * from Ams_setup_faculties_map;
-13)select * Ams_setup_students_map;
-14)select * Ams_attendance_master;
-
-**************************************************
-
 help : https://www.strongdm.com/blog/mysql-create-user-manage-access-privileges-how-to
 
-user creation:
+1)user creation: [DONE]
 
-CREATE USER 'ams-authenticator'@'localhost' IDENTIFIED BY 'amsauth@000';
-CREATE USER 'ams-admin'@'localhost' IDENTIFIED BY 'amsadmin@444';
-CREATE USER 'ams-student'@'localhost' IDENTIFIED BY 'amsstudent@111';
-CREATE USER 'ams-faculty'@'localhost' IDENTIFIED BY 'amsfaculty@222';
-CREATE USER 'ams-manager'@'localhost' IDENTIFIED BY 'amsmanager@333';
+CREATE USER 'ams-authenticator'@'localhost' IDENTIFIED BY 'amsauth000';
+CREATE USER 'ams-admin'@'localhost' IDENTIFIED BY 'amsadmin444';
+CREATE USER 'ams-student'@'localhost' IDENTIFIED BY 'amsstudent111';
+CREATE USER 'ams-faculty'@'localhost' IDENTIFIED BY 'amsfaculty222';
+CREATE USER 'ams-manager'@'localhost' IDENTIFIED BY 'amsmanager333';
 
-granting privileges:
+2)granting privileges:
 
 1)ams-auth user
 
-GRANT UPDATE, SELECT, REFERENCES on james.users TO 'ams-authenticator'@'localhost';
-GRANT UPDATE, SELECT, REFERENCES on user_roles TO 'ams-authenticator'@'localhost';
+GRANT SELECT on james.vw_users_auth TO 'ams-authenticator'@'localhost';
 
-2) ams-admin
 
-GRANT ALL ON james.* TO 'ams-admin'@'localhost' WITH GRANT OPTION;
+*****************************************************
+
+Indexs :
+
+CREATE UNIQUE INDEX idx_userName ON Users (username);
+
+views:
+
+CREATE VIEW vw_users_auth AS SELECT username,password FROM Users WHERE user_access=1;
 
 ******************************************************
 

@@ -1,28 +1,26 @@
-MYSQL LOGIN:
+=>MYSQL LOGIN AS DB USER:
 
-ams-authenticator: amsauth@000
-ams-admin: amsadmin@444
--------------------------------------------- till now created
-ams-student: amsstudent@111
-ams-faculty: amsfaculty@222
-ams-management: amsmanager@333
+ams-authenticator: amsauth000
+ams-admin: amsadmin444
+ams-student: amsstudent111
+ams-faculty: amsfaculty222
+ams-management: amsmanager333
 
+=>AMS LOGIN:
 
-AMS LOGIN:
-
-
-admin.jpd.ams@vnsgu.ac.in = Jpdadmin@000
+password for student = Mscit@2020
+password for faculty: Faculty@2020
 password for admin =  Admin@2020
+password for manager = Office@2020
 
-password for students : Mscit@2020
+1)
 harshilramani.mscit20@vnsgu.ac.in    = 
 architghevariya.mscit20@vnsgu.ac.in = 
 shikhaatikiwala.mscit20@vnsgu.ac.in =
 drashtidhola.mscit20@vnsgu.ac.in = 
 shubhamkhunt.mscit20@vnsgu.ac.in = 
 
-password for faculty: Faculty@2020
-
+2)
 pydesai@vnsgu.ac.in =   FID12345
 pkpandya@vnsgu.ac.in = FID12346
 fgthakker@vnsgu.ac.in = C FID12347
@@ -30,7 +28,10 @@ vhsurati@vnsgu.ac.in  = FID12348
 sachaudhari@vnsgu.ac.in = FID12349
  
 
-office.jpdams@vnsgu.ac.in = Office@2020
+3)
+office.jpdams@vnsgu.ac.in
 
+4) 
+admin.jpd.ams@vnsgu.ac.in 
 
 
