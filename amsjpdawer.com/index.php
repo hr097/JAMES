@@ -19,11 +19,13 @@ if( count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]) )
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Search Engine use --->
-    <meta name="author" content="Team JPD-AMS"/>
-    <meta name="description" content="An efficient & relible Attendance Management System for J.P. Dower Institute of Information Science and Technology"/>
-    <meta name="key words" content="JPD AMS,Attendance Management System,J.P. Dower Institute of Information Science and Technology"/>
+    <meta name="author" content="Team JPD-AMS" />
+    <meta name="description"
+        content="An efficient & relible Attendance Management System for J.P. Dower Institute of Information Science and Technology" />
+    <meta name="key words"
+        content="JPD AMS,Attendance Management System,J.P. Dower Institute of Information Science and Technology" />
     <meta http-equiv="refresh" content="120">
 
 
@@ -33,11 +35,12 @@ if( count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]) )
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
     <!--bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
     <!-- bootstrap icon-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-   
+
     <!-- css  -->
     <link rel="stylesheet" href="./css/template.css">
     <link rel="stylesheet" href="./css/modal.css">
@@ -80,57 +83,67 @@ if( count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]) )
                             <!-- Form : Start -->
                             <form class="pt-3" id="userlogin" method="POST" autocomplete="on" action="login.php">
 
-                                    <!-- Error message -->
-                                    <div class="alert alert-danger" id="error-message">
-                                        <ul id="message" style="list-style-type:none;"></ul>
+                                <!-- Error message -->
+                                <div class="alert alert-danger" id="error-message">
+                                    <ul id="message" style="list-style-type:none;"></ul>
+                                </div>
+
+                                <!-- Email and password : Start-->
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg fieldstyle" maxlength="256"
+                                        name="_username" id="username" placeholder="Enter your username">
+                                </div>
+
+                                <div class="form-group psd-icon">
+                                    <i class="bi bi-eye-slash fa-lg eye-icon" id="togglePassword"></i>
+                                    <input type="password" class="form-control form-control-lg fieldstyle" minlength="8"
+                                        maxlength="16" name="_password" id="password" placeholder="Enter your password">
+                                    <!-- <input type="hidden" id="usertype" name="user" value="0"> FOR CSRF SECURITY -->
+                                </div>
+                                <!-- Email and password : End-->
+
+
+                                <!-- Remember me , forgot password and  login button : Start -->
+                                <div class="my-2 d-flex justify-content-between align-items-center">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-info ml-1 mt-1" name="_rememberMe"
+                                            id="remember-me">
+                                        <label for="remember-me" class="rememberme-txt unselectable mt-0">Remember
+                                            me</label>
                                     </div>
+                                    <a class="auth-link text-black" style="margin-top:-6px;" id="forgotpassword">Forgot
+                                        password?</a>
+                                </div>
 
-                                    <!-- Email and password : Start-->
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-lg fieldstyle" maxlength="256" name="_username" id="username" placeholder="Enter your username">
-                                    </div>
-
-                                    <div class="form-group psd-icon">
-                                        <i class="bi bi-eye-slash fa-lg eye-icon" id="togglePassword"></i>
-                                        <input type="password" class="form-control form-control-lg fieldstyle" minlength="8" maxlength="16" name="_password" id="password" placeholder="Enter your password">
-                                        <!-- <input type="hidden" id="usertype" name="user" value="0"> FOR CSRF SECURITY --> 
-                                    </div>
-                                    <!-- Email and password : End-->
-
-
-                                    <!-- Remember me , forgot password and  login button : Start -->
-                                     <div class="my-2 d-flex justify-content-between align-items-center">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-info ml-1 mt-1" name="_rememberMe" id="remember-me">
-                                            <label for="remember-me" class="rememberme-txt unselectable mt-0" >Remember me</label>
-                                        </div>
-                                        <a class="auth-link text-black" style="margin-top:-6px;" id="forgotpassword">Forgot password?</a>
-                                     </div>
-
-                                    <div class="mt-2 text-center">
-                                        <input type="submit" class="btn btn-primary btn-icon-text" name="login" id="login" style="width:150px;height:46px;" value="Login">
-                                    </div>
-                                    <!-- Remember me , forgot password and  login button : End -->
+                                <div class="mt-2 text-center">
+                                    <input type="submit" class="btn btn-primary btn-icon-text" name="login" id="login"
+                                        style="width:150px;height:46px;" value="Login">
+                                </div>
+                                <!-- Remember me , forgot password and  login button : End -->
                             </form>
                             <!-- Form : End -->
                         </div>
                     </div>
-               </div>
-           </div>
+                </div>
+            </div>
         </div>
     </div>
 
-        <!-- Open modal
+    <!-- Open modal
         <button id="btn">Open Modal</button> -->
-        <!-- modal -->
-        <div id="modal" class="modal">
+    <!-- modal -->
+    <div id="modal" class="modal">
         <!-- modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
             <p class="msg unselectable">Are you sure you want to reset your password?</p>
-            <button id="yes-button" class="modal-btn">Confirm</button>
-            <button id="no-button" class="modal-btn">Cancel</button>
+            <div class="row">
+                <button id="yes-button" class="modal-btn">Confirm</button>
+                <button id="no-button" class="modal-btn">Cancel</button>
+            </div>
+
         </div>
-        </div>
+    </div>
 </body>
+
 </html>
