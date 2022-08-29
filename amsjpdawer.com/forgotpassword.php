@@ -71,7 +71,7 @@
                                 <details>
                                 <summary>Need any hint finding registered email?</summary>
                                     <br>
-                                    <p style="text-align:center;">Username and registered email are same.</p>
+                                    <p style="text-align:center;color:hsl(258, 48%, 54%);">Username and registered email are same.</p>
                                 </details>
                             </div>
                             <!-- Request otp page : End -->

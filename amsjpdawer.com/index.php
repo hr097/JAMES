@@ -108,7 +108,7 @@ if( count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]) )
                                      </div>
 
                                     <div class="mt-2 text-center">
-                                        <input type="button" class="btn btn-primary btn-icon-text" name="login" id="login" style="width:150px;height:46px;" value="Login">
+                                        <input type="submit" class="btn btn-primary btn-icon-text" name="login" id="login" style="width:150px;height:46px;" value="Login">
                                     </div>
                                     <!-- Remember me , forgot password and  login button : End -->
                             </form>
