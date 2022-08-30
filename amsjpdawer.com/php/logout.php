@@ -1,21 +1,24 @@
 <?php
+require_once("../amslib.php");
 
-if(isset($_POST["logout"]))
+$JAMES = new AMS(0);
+$JAMES->init_user_session();
+
+if(isset($_POST["logout"])&&isset($_SESSION["_csrfToken"]))
 {
-    require_once("../php/commonlib.php");
-    session_unset();
-    session_destroy();
-
-    if(count($_COOKIE) > 0 && isset($_COOKIE["__u9RmdkJ6"]))
+    if($JAMES->checkCookies("__u9RmdkJ6")===true)
     {
     setcookie("__u9RmdkJ6","", time() - 3600, "/");
     }
-    redirect("../index.php");
+    
+    $JAMES->delete_user_session();
+
+    $JAMES->ams_redirect("../index.php");
     exit();
 }
 else
 {
-    redirect("../index.php");
+    $JAMES->ams_redirect("../index.php");
     exit();
 }
 ?>

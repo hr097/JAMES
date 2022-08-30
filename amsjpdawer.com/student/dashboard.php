@@ -1,21 +1,23 @@
 <?php
 
 
- require_once("../php/commonlib.php");
- init_user_session();
+ require_once("../amslib.php");
+ $JAMES = new AMS(0);
+ $JAMES->init_user_session();
 
- echo "This is student dashboard";
+ echo "This is Student dashboard";
 
  echo "<br>";
 
- if(isset($_SESSION["_userId"]) && isset($_SESSION["_userType"])&&$_SESSION["_userType"]==="1")
+ if($JAMES->checkSession()&&$_SESSION["_userType"]==="1")
  {
     echo "<br>".$_SESSION["_userId"];
     echo "<br>".$_SESSION["_userType"];
+    echo "<br>".$_SESSION["_csrfToken"];
  }
  else
  {
-  redirect("../index.php");
+  $JAMES->ams_redirect("../index.php");
  }
  
 ?>
