@@ -8,7 +8,8 @@ if($JAMES->checkCookies("__u9RmdkJ6")===true)
 {       
     $JAMES->verify_user_token($JAMES->customDecrypt($_COOKIE['__u9RmdkJ6']));
 }
-else if($JAMES->checkSession()===true)
+
+if($JAMES->checkSession()===true)
 {
     $type = (int) $_SESSION['_userType'];
     $JAMES->redirect_ams_user($type);
@@ -28,9 +29,8 @@ else if($JAMES->checkSession()===true)
     
     <!-- Search Engine use --->
     <meta name="author" content="Team JPD-AMS"/>
-    <meta name="description" content="An efficient & relible Attendance Management System for J.P. Dower Institute of Information Science and Technology"/>
+    <meta name="description" content="An efficient and relible Attendance Management System for J.P. Dower Institute of Information Science and Technology"/>
     <meta name="key words" content="JPD AMS,Attendance Management System,J.P. Dower Institute of Information Science and Technology"/>
-    <meta http-equiv="refresh" content="120">
 
 
     <!-- Google fonts -->

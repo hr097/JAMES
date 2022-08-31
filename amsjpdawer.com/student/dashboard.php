@@ -31,7 +31,7 @@
         </style>
     </head>
     <body>
-      <form action="../php/logout.php" method="post">
+      <form action="../logout.php" method="post">
       <input type="submit" name="logout" value="logout">
       </form>
     </body>

@@ -172,6 +172,24 @@ class AMS
         }
 
     }
+    private function generateOtp($length)
+    {
+    
+    $generator = "1357902468";
+  
+    $result = "";
+  
+    for ($i = 1; $i <= $length; $i++) {
+        $result .= substr($generator, (rand()%(strlen($generator))), 1);
+    }
+    
+    return $result;
+    }
+
+    private function sendOtpEmail()
+    {
+        return($this->generateOtp(6));
+    }
     
   //*--------------------------------------- PRIVATE END ---------------------------------------*/
 
@@ -240,7 +258,7 @@ class AMS
         }
         
     }
-
+   
     public function startSession($userName,$password,$ck=false)
     {    
 
@@ -263,6 +281,30 @@ class AMS
     }
     
     // NORMAL LOGIN::END()
+
+    // FORGOT PASSWORD::START()
+
+    public function user_exists($u) // verfiy user and return type of user
+    {   
+        $result = mysqli_query($this->db_connection,"select username,user_type from vw_users_auth where username='$u';");
+
+        if(mysqli_num_rows($result)===1)
+        {
+            $user = mysqli_fetch_assoc($result);
+
+            $this->amsUserType = $user['user_type'];
+            
+            $_SESSION["_resetUserId"] = $user['username'];
+             
+            return ($this->sendOtpEmail());
+        }
+        else
+        {
+            return 0;
+        }
+    }
+        
+    // FORGOT PASSWORD::END()
 
 
   //*--------------------------------------- PUBLIC END ---------------------------------------*/
