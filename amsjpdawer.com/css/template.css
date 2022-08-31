@@ -20888,38 +20888,6 @@ input:focus {
     outline: none;
 }
 
-@font-face {
-    font-family: 'Nunito';
-    src: url("../../fonts/Nunito/Nunito-Light.eot");
-    src: url("../../fonts/Nunito/Nunito-Light.eot?#iefix") format("embedded-opentype"), url("../../fonts/Nunito/Nunito-Light.woff2") format("woff2"), url("../../fonts/Nunito/Nunito-Light.woff") format("woff"), url("../../fonts/Nunito/Nunito-Light.ttf") format("truetype");
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Nunito';
-    src: url("../../fonts/Nunito/Nunito-Bold.eot");
-    src: url("../../fonts/Nunito/Nunito-Bold.eot?#iefix") format("embedded-opentype"), url("../../fonts/Nunito/Nunito-Bold.woff2") format("woff2"), url("../../fonts/Nunito/Nunito-Bold.woff") format("woff"), url("../../fonts/Nunito/Nunito-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Nunito';
-    src: url("../../fonts/Nunito/Nunito-SemiBold.eot");
-    src: url("../../fonts/Nunito/Nunito-SemiBold.eot?#iefix") format("embedded-opentype"), url("../../fonts/Nunito/Nunito-SemiBold.woff2") format("woff2"), url("../../fonts/Nunito/Nunito-SemiBold.woff") format("woff"), url("../../fonts/Nunito/Nunito-SemiBold.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Nunito';
-    src: url("../../fonts/Nunito/Nunito-Regular.eot");
-    src: url("../../fonts/Nunito/Nunito-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/Nunito/Nunito-Regular.woff2") format("woff2"), url("../../fonts/Nunito/Nunito-Regular.woff") format("woff"), url("../../fonts/Nunito/Nunito-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-}
-
 .bg-twitter {
     background: #4747A1;
 }
@@ -20997,7 +20965,6 @@ input:focus {
 
 body {
     font-size: 1rem;
-    font-family: "Nunito", sans-serif;
     font-weight: initial;
     line-height: normal;
     -webkit-font-smoothing: antialiased;
@@ -21273,7 +21240,6 @@ pre {
 code {
     padding: 5px;
     color: #FF4747;
-    font-family: "Nunito", sans-serif;
     font-weight: 300;
     font-size: 0.875rem;
     border-radius: 4px;
@@ -21290,7 +21256,6 @@ code {
     -webkit-transition: all 0.25s ease;
     -ms-transition: all 0.25s ease;
     font-size: calc(0.875rem - 0.05rem);
-    font-family: "Nunito", sans-serif;
     font-weight: 400;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
