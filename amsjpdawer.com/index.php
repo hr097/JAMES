@@ -8,8 +8,7 @@ if($JAMES->checkCookies("__u9RmdkJ6")===true)
 {       
     $JAMES->verify_user_token($JAMES->customDecrypt($_COOKIE['__u9RmdkJ6']));
 }
-
-if($JAMES->checkSession()===true)
+else if($JAMES->checkSession()===true)
 {
     $type = (int) $_SESSION['_userType'];
     $JAMES->redirect_ams_user($type);
@@ -93,12 +92,12 @@ if($JAMES->checkSession()===true)
 
                                     <!-- Email and password : Start-->
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-lg fieldstyle" maxlength="256" name="_username" id="username" placeholder="Enter your username">
+                                        <input type="text" autofocus="true" class="form-control form-control-lg fieldstyle" maxlength="256" id="username" placeholder="Enter your username">
                                     </div>
 
                                     <div class="form-group psd-icon">
                                         <i class="bi bi-eye-slash fa-lg eye-icon" id="togglePassword"></i>
-                                        <input type="password" class="form-control form-control-lg fieldstyle" minlength="8" maxlength="16" name="_password" id="password" placeholder="Enter your password">
+                                        <input type="password" class="form-control form-control-lg fieldstyle" minlength="8" maxlength="16" id="password" placeholder="Enter your password">
                                         <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>"> 
                                     </div>
                                     <!-- Email and password : End-->

@@ -8,11 +8,12 @@ CREATE USER 'ams-manager'@'localhost' IDENTIFIED BY 'amsmanager333';
 
 *****************************************************
 
-2)granting privileges:
+2)granting privileges: [] run only given below
 
 1)ams-auth user
 
 GRANT SELECT on james.vw_users_auth TO 'ams-authenticator'@'localhost';
-
+GRANT UPDATE on james.vw_users_auth TO 'ams-authenticator'@'localhost';
+GRANT REFERENCES on james.vw_users_auth TO 'ams-authenticator'@'localhost';
 
 *****************************************************

@@ -16,7 +16,7 @@ if(isset($_POST["logout"])&&isset($_SESSION["_csrfToken"]))
     $JAMES->ams_redirect("./index.php");
     exit();
 }
-else if(isset($_SESSION["_resetUserId"]))
+else if(isset($_SESSION["_resetUserId"])&&isset($_SESSION["_csrfToken"]))
 {
     $JAMES->delete_user_session();
     $JAMES->ams_redirect("./index.php");

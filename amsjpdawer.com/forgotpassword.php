@@ -86,7 +86,7 @@ else if($JAMES->checkSession()===true)
                                                 <ul class="message" id="message" style="list-style-type:none;"></ul>
                                     </div>
 
-                                        <input type="text" class="form-control form-control-lg fieldstyle" id="txtemail"
+                                        <input type="text" autofocus="true" class="form-control form-control-lg fieldstyle" id="txtemail"
                                             placeholder="Enter your registered email">
                                             <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>"> 
                                     </div>
@@ -102,10 +102,10 @@ else if($JAMES->checkSession()===true)
                                     </div>
                                 </form>
                                 <br>
-                                <details>
-                                <summary class="unselectable" style="font-size:0.8em;">Need help to find registered email?</summary>
-                                    <p class ="unselectable" style="text-align:center;color:#4815a8;margin-top:10px;font-size:0.7em;">registered email is the same as username.</p>
-                                </details>
+                                <!-- <details>
+                                <summary class="unselectable" style="font-size:0.8em;">Need help to find registered email?</summary> -->
+                                    <p class ="unselectable" style="text-align:center;text-decoration:underline;color:black;margin-top:10px;font-size:0.7em;"><span style="font-weight:bold;">NOTE:</span> registered email is the same as username.</p>
+                                <!-- </details> -->
                             </div>
                             <!-- Request otp page : End -->
 
@@ -139,7 +139,7 @@ else if($JAMES->checkSession()===true)
 
                                     <div class="form-group psd-icon">
                                         <i class="bi bi-eye-slash fa-lg eye-icon" id="togglePassword"></i>
-                                        <input type="password" id="password" minlength=6 maxlength="6" class="form-control form-control-lg fieldstyle" placeholder="Enter code here">
+                                        <input autofocus="true" type="password" id="password" minlength=6 maxlength="6" class="form-control form-control-lg fieldstyle" placeholder="Enter code here">
                                         <br>
                                         <a id="resendotplink" class="page-title unselectable" style="color:black;text-decoration:none;text-align:center;font-size:0.9em;"></a>
                                     </div>

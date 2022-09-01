@@ -94,7 +94,7 @@ $(document).ready(function(){
                 }
                 else
                 {
-                  showError("Something went wrong!");
+                  showError("Error occurred ! Try after some time");
                   setTimeout( function(){window.location.reload();},2500);
                 }
             }

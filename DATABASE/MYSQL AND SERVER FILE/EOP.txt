@@ -1,0 +1,24 @@
+update token after each logout
+directory listing prevent
+animation on each prompt box transition
+summary hover uper details show krvi and summary rakhvi k ny
+otp timer
+resent otp
+path changes linux ma upload kria
+php.ini configure
+database upload
+code clean
+comment well
+documentation
+server pr koi page na mle to redirect krvu error page pr
+index.php bdha page mathi remove krvu
+autofocus on fields form
+token update on cookies login ?? not so valuable
+
+email na configuration set krva =https://www.milople.com/blogs/how-to-send-mail-from-localhost-xampp-using-gmail/
+
+path bdha set krva each and everything
+database user bnavine privilege apva
+vnsgu admin vali email bdhe replace krvi including email
+and admin account
+
