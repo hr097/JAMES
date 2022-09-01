@@ -13,7 +13,6 @@
         content="An efficient & relible Attendance Management System for J.P. Dower Institute of Information Science and Technology" />
     <meta name="key words"
         content="JPD AMS,Attendance Management System,J.P. Dower Institute of Information Science and Technology" />
-    <meta http-equiv="refresh" content="120">
 
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,24 +20,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
     <!-- plugins:css -->
-    <link rel="stylesheet" href="/vendors/feather/feather.css">
-    <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="/vendors/datatables.net/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../vendors/datatables.net/dataTables.bootstrap4.css">
     <!-- endinject -->
 
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" type="text/css" href="/vendors/datatables.net/select.dataTables.min.css">
+    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="../vendors/datatables.net/select.dataTables.min.css">
     <!-- End plugin css for this page -->
 
     <!-- css  -->
-    <link rel="stylesheet" href="/css/template.css">
-    <link rel="stylesheet" href="/css/student.css">
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/student.css">
 
 
     <!-- page information and favicon-->
     <title>AMS | Student dashboard</title>
-    <link rel="shortcut icon" href="/assets/logos/favicon.ico">
+    <link rel="shortcut icon" href="../assets/logos/favicon.ico">
 </head>
 
 <body>
@@ -55,8 +54,8 @@
           <span class="icon-menu"></span>
         </button>
 
-        <a class="navbar-brand brand-logo mr-3" href="./index.php"><img src="/assets/logos/logo.svg" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="./index.php"><img src="/assets/logos/logo-mini.svg" alt="logo"
+        <a class="navbar-brand brand-logo mr-3" href="./dashboard.php"><img src="../assets/logos/logo.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="./dashboard.php"><img src="../assets/logos/logo-mini.svg" alt="logo"
             width="34px" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -71,7 +70,7 @@
           <li class="nav-item nav-profile dropdown">
             <p class="ac_type">Student Dashboard</p>
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="/assets/profiles/student-profile.jpg" alt="profile" />
+              <img src="../assets/profiles/student-profile.jpg" alt="profile" />
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item" href="./profile.php">
@@ -97,7 +96,7 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="./index.php">
+              <a class="nav-link" href="./dashboard.php">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Home</span>
               </a>
@@ -235,24 +234,24 @@
 
 
     <!-- plugins:js -->
-    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
 
     <!-- Plugin js for this page -->
-    <script src="/vendors/datatables.net/jquery.dataTables.js"></script>
-    <script src="/vendors/datatables.net/dataTables.bootstrap4.js"></script>
-    <script src="/vendors/datatables.net/dataTables.select.min.js"></script>
+    <script src="../vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="../vendors/datatables.net/dataTables.bootstrap4.js"></script>
+    <script src="../vendors/datatables.net/dataTables.select.min.js"></script>
     <!-- End plugin js for this page -->
 
     <!-- inject:js -->
-    <script src="/vendors/js/off-canvas.js"></script>
-    <script src="/vendors/js/hoverable-collapse.js"></script>
+    <script src="../vendors/js/off-canvas.js"></script>
+    <script src="../vendors/js/hoverable-collapse.js"></script>
     <script src="/js/template.js"></script>
     <!-- endinject -->
 
     <!-- Custom js for this page-->
-    <script src="/vendors/js/dashboard.js"></script>
-    <script src="/vendors/datatables.net/data-table.js"></script>
+    <script src="../vendors/js/dashboard.js"></script>
+    <script src="../vendors/datatables.net/data-table.js"></script>
 </body>
 
 </html>

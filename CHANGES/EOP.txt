@@ -22,3 +22,21 @@ database user bnavine privilege apva
 vnsgu admin vali email bdhe replace krvi including email
 and admin account
 
+
+archit : css errors on console remove
+js daily day dropdown for quick att.
+good morning and good noon dynamic
+
+
+home dashboard pr navbar click thay che ander bhara
+
+changes baki che pdf pramane ...
+
+path na issue che e resolve krva
+
+index == dashboard
+
+navbar n include and require use kro
+
+
+email is not sent due to google issue

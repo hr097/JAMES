@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------
  [Master Stylesheet]
 
-  Project:	SkyDash Admin
+  Project:	JPD AMS
   Version:	1.2.1
 -------------------------------------------------------------------*/
 
@@ -25826,7 +25826,7 @@ dl li {
     padding-left: 0;
     position: relative;
     margin-bottom: 0;
-    font-family: "Nunito", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .icon-data-list li {
@@ -29092,7 +29092,7 @@ table.dataTable tbody td.select-checkbox:after {
 
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed thead tr th.dow,
 .datepicker.datepicker-inline .datepicker-days table.table-condensed thead tr th.dow {
-    font-family: "Nunito", sans-serif;
+    font-family: "Poppins", sans-serif;
     color: #1F1F1F;
     font-size: 0.875rem;
     font-weight: initial;
@@ -31381,7 +31381,7 @@ div.tagsinput span.tag a {
 .sidebar {
     min-height: calc(100vh - 60px);
     background: #fff;
-    font-family: "Nunito", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
     padding: 0;
     width: 235px;
@@ -34492,7 +34492,7 @@ div.tagsinput span.tag a {
 .settings-panel .settings-heading {
     padding: 16px 0 13px 35px;
     font-size: 0.875rem;
-    font-family: "Nunito", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
     line-height: 1;
     color: rgba(0, 0, 0, 0.9);
@@ -34687,7 +34687,7 @@ div.tagsinput span.tag a {
 }
 
 .settings-panel .events p {
-    font-family: "Nunito", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
 }
 
