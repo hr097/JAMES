@@ -68,7 +68,7 @@ function generateCsrfToken() // to prevent csrf attacks
 
 function init_user_session() // start session and regenerate the session ID
 {   
-    //session_name("lxy2Se2k3Un23l5u5E657S9jsn0NI8d05f4AnU53r") ;
+    //session_name("lxy2Se2k3Un23l5u5E657S9jsn0NI8d05f4AnU53r");
     session_start();
     session_regenerate_id();
 }
@@ -223,8 +223,8 @@ class AMS
 
         $this->userName = "epiz_32461963";//! THIRD 
         $this->password = "lSWJGTSN8pn8";//! FOURTH 
-        $this->serverName = "185.27.134.10";//! THIRD 
-        $this->datebase = "epiz_32461963_james"; //! FOURTH 
+        $this->serverName = "sql107.epizy.com";//! THIRD 
+        $database = "epiz_32461963_james"; //! FOURTH 
         
         //! CHANGE : END
         $this->db_connection = mysqli_connect($this->serverName,$this->userName,$this->password,$database);
