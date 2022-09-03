@@ -29,7 +29,7 @@ sachaudhari@vnsgu.ac.in = FID12349
  
 
 3)
-office.jpdams@vnsgu.ac.in
+office.jpd.ams@vnsgu.ac.in
 
 4) 
 admin.jpd.ams@vnsgu.ac.in 
