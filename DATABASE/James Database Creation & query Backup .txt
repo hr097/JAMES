@@ -168,7 +168,7 @@ default constraint:
 
 ALTER TABLE Users ALTER user_access SET DEFAULT TRUE;
 
-predefined record:
+predefined record: (do not use)
 
 insert into Users values('admin.jpdams@vnsgu.ac.in','$5$n$cBX4Zr4YpJKr9VmFOfkWH0m7NcNibvEohyu9x90ngG4',4);
 

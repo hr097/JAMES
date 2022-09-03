@@ -2,6 +2,7 @@
 /* Validation for forget password */
 
 var email = $("#txtemail"); 
+email = email.toLowerCase();
 var csrfToken = $("#csrfToken");
 var code = $("#password");
 
