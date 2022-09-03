@@ -10,7 +10,7 @@ if(isset($_POST['_un'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfTo
        
         $response = $JAMES->user_exists($u);
         
-        sleep(1); //! need to remove
+        //sleep(1); //! need to remove
 
         echo $response;
 }

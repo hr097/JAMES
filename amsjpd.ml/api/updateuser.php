@@ -11,7 +11,7 @@ if(isset($_POST['_ps'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfTo
 
         $pswd = crypt($pswd,'$2a$10$1qAz2wSx3eDc4rFv5tGb5t');
         
-        sleep(1); //! need to remove this
+        //sleep(1); //! need to remove this
 
         if($JAMES->update_user($_SESSION['_resetUserId'],$pswd))
         {

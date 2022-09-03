@@ -38,9 +38,7 @@ index == dashboard
 
 navbar n include and require use kro
 
-
 email is not sent due to google issue
-
 
 error page set krvnu che infinity free ma
 

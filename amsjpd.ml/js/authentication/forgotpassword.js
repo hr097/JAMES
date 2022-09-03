@@ -81,7 +81,6 @@ function sendApiReq(apiNum) // send api request for code  on email
         },
         function(data,status)
         {     
-          
               if(status == "success")
               {    
                   response = parseInt(data);

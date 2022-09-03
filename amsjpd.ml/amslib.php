@@ -1,5 +1,13 @@
 <?php
 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require_once "vendor/autoload.php";
+
+
 const CLIPHERING = "AES-128-CTR"; // Store the cipher method
 const ENC_DEC_KEY = "kGj2Yb3Cu5cs121jsn53bEa774kI353uIa"; // encryption key and decryption key
 const ENC_DEC_IV = '0101010101010101'; // Non-NULL Initialization Vector for encryption-decryption
@@ -58,7 +66,8 @@ function generateCsrfToken() // to prevent csrf attacks
 }
 
 function init_user_session() // start session and regenerate the session ID
-{
+{   
+    session_name("lxy2Se2k3Un23l5u5E657S9jsn0NI8d05f4AnU53r") ;
     session_start();
     session_regenerate_id();
 }
@@ -108,6 +117,34 @@ function redirect_ams_user($type)
             $this->ams_redirect("./index.php");
         }
 }
+
+function set_server_configuration()
+{    
+    ini_set('session.use_strict_mode',1); //enable strict mode to prevent session fixation attacks
+    ini_set('session.use_trans_sid',0); //This will tell PHP not to include the identifier in the URL, and not to read the URL for identifiers.
+    ini_set('session.use_only_cookies',1);//This will tell PHP to never use URLs with session identifiers.
+    ini_set('session.hash_function', 'sha512');
+    ini_set('session.use_cookies',1); // to allow stire session ID in  clientside
+    //ini_set('session.hash_bits_per_character',6); //remove in php 7.0+
+    //ini_set('session.entropy_file','/dev/urandom'); //remove in php 7.0+
+    //ini_set('session.entropy_length',256);  //remove in php 7.0+
+    ini_set('session.cookie_httponly', 1);    // Prevents javascript XSS attacks aimed to steal the session ID
+    ini_set('session.use_only_cookies', 1);   // Prevent Session ID from being passed through  URLs
+
+    $secure = false; // if you only want to receive the cookie over HTTPS
+    $httponly = true; // prevent JavaScript access to session cookie
+    $samesite = 'Strict';
+
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'domain' => $_SERVER['HTTP_HOST'],
+        'secure' => $secure ,
+        'httponly' => $httponly,
+        'samesite' => $samesite
+    ]);
+}
+
 }
 
 //*--------------------------- COMMAN FUNCTION - END ------------------------------------//
@@ -121,11 +158,49 @@ class AMS
     private $password;
     private $amsUserType;
     private $amsUserToken;
-    private $adminEmail;
-    private $adminName;
 
-  //*--------------------------------------- PRIVATE AREA ---------------------------------------*/
-   
+   //*--------------------------------------- PRIVATE AREA ---------------------------------------*/
+    private function sendEmail($recipientAddress,$subject,$mailtemplate)
+    {
+            $mail = new PHPMailer(true);
+            //Enable SMTP debugging.
+             // $mail->SMTPDebug = 3;         for debugging                      
+            //Set PHPMailer to use SMTP.
+            $mail->isSMTP();            
+            //Set SMTP host name                          
+            $mail->Host = "smtp.gmail.com";
+            //Set this to true if SMTP host requires authentication to send email
+            $mail->SMTPAuth = true;                          
+            //Provide username and password     
+            $mail->Username = "ams.jpd@gmail.com";                 
+            $mail->Password = "wlvbwdxvlbkotlik";                           
+            //If SMTP requires TLS encryption then set it
+            $mail->SMTPSecure = "tls";                           
+            //Set TCP port to connect to
+            $mail->Port = 587;                                   
+
+            $mail->From = "ams.jpd@gmail.com";
+            $mail->FromName = "JPD AMS";
+
+            $mail->addAddress($recipientAddress);
+
+            $mail->isHTML(true);
+
+            $mail->Subject = $subject;
+            $mail->Body = $mailtemplate;
+
+            $mail->AltBody = "No email body!";
+
+            try {
+                $mail->send();
+               return (true);
+            } catch (Exception $e) {
+                // echo "Mailer Error: " . $mail->ErrorInfo;
+                return (false);
+            }
+
+    }
+
     private function ams_db_connect($database)
     {
         $this->db_connection = mysqli_connect($this->serverName,$this->userName,$this->password,$database);
@@ -199,25 +274,20 @@ class AMS
         $_SESSION['_userOtp'] = $otp;
         $username = $_SESSION['_resetUserId'];
 
-        //TODO: EMAIL SENDING CODE
-
-        $to = $username; 
-        $from = $this->adminEmail; 
-        $fromName = $this->adminName;
-    
-        $subject = "OTP Verification Code"; 
-    
-        $htmlContent = `
-
         
-       <!DOCTYPE html>
-       <html>
-       <head>
+        // > EMAIL CODE SENT BELOW
+
+
+        $htmlContent = "
+        
+      <!DOCTYPE html>
+      <html>
+      <head>
           <title></title>
-          <meta http-equiv="Content-Type" content="text/html, charset=utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <style type="text/css">
+          <meta http-equiv='Content-Type' content='text/html, charset=utf-8' />
+          <meta name='viewport' content='width=device-width, initial-scale=1'>
+          <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+          <style type='text/css'>
              
               body,
               table,
@@ -276,32 +346,32 @@ class AMS
               }
       
              
-              div[style*="margin: 16px 0;"] {
+              div[style*='margin: 16px 0;'] {
                   margin: 0 !important;
               }
           </style>
       </head>
       
-      <body style="background-color: #ffffff;margin: 0 !important; padding: 0 !important;">
+      <body style='background-color: #ffffff;margin: 0 !important; padding: 0 !important;'>
           
       
-          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <table border='0' cellpadding='0' cellspacing='0' width='100%'>
              
               <tr>
-                  <td align="center" style ="background: #5755a5">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                  <td align='center' style ='background: #5755a5'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                           <tr>
-                              <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
+                              <td align='center' valign='top' style='padding: 40px 10px 40px 10px;'> </td>
                           </tr>
                       </table>
                   </td>
               </tr>
               <tr>
-                  <td  align="center" style="padding: 0px 10px 0px 10px;background : #5755a5">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                  <td  align='center' style='padding: 0px 10px 0px 10px;background : #5755a5'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                           <tr>
-                              <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #4b49ac; font-family: poppins; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                                  <h1 style="font-size: 35px; font-weight: 500; margin: 2;"><b>Verification OTP</b></h1> <img src="https://live.staticflickr.com/65535/52097859173_5b6d3573df_n.jpg" width="250" height="120" style="display: block; border: 0px;" />
+                              <td bgcolor='#ffffff' align='center' valign='top' style='padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #4b49ac; font-family: poppins; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;'>
+                                  <h1 style='font-size: 35px; font-weight: 500; margin: 2;'><b>OTP Verification</b></h1> <img src='https://live.staticflickr.com/65535/52097859173_5b6d3573df_n.jpg' width='250' height='120' style='display: block; border: 0px;' />
                               </td>
                           </tr>
                       </table>
@@ -309,27 +379,27 @@ class AMS
               </tr>
               
               <tr>
-                  <td  align="center" style="padding: 0px 10px 0px 10px; background-color: #f4f4f4;">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                  <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #f4f4f4;'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                           <tr>
-                              <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 20px 30px; color: #000000; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;">
-                                  <p style="margin: 0; ">Hello,<br>`.$username.`<br> Your <b>verification code</b> for resetting your password is as below</p>
+                              <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 20px 30px; color: #000000; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
+                                  <p style='margin: 0; '>Hello,<br>$username<br> Your <b>verification code</b> to reset your password is as follows </p>
                               </td>
                           </tr>
                       </table>
                   </td>
               </tr>
               <tr>
-                <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                <td bgcolor='#f4f4f4' align='center' style='padding: 0px 10px 0px 10px;'>
+                    <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                       <tr>
-                        <td bgcolor="#ffffff" align="left">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <td bgcolor='#ffffff' align='left'>
+                            <table width='100%' border='0' cellspacing='0' cellpadding='0'>
                                 <tr>
-                                    <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 30px 30px;">
-                                        <table border="0" cellspacing="0" cellpadding="0">
+                                    <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 30px 30px;'>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td align="center" style="border-radius: 3px;background : #5755a5" ><a href="#" target="_blank" style="font-size: 20px; font-family: poppins; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 6px; border: 1px solid #87C7E8; display: inline-block;">`.$otp.`</a></td>
+                                                <td align='center' style='border-radius: 3px;background : #5755a5' ><a href='#' target='_blank' style='font-size: 20px; font-family: poppins; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 6px; border: 1px solid #87C7E8; display: inline-block;'>$otp</a></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -342,12 +412,12 @@ class AMS
               </tr>
               
               <tr>
-                <td  align="center" style="padding: 0px 10px 0px 10px; background-color: #f4f4f4;">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #f4f4f4;'>
+                    <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                         <tr>
-                            <td bgcolor="#ffffff" align="center" style="padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;">
-                                <p style="margin: 0; "> Please do not share this <b> verification code as<br> It's highly confidential!</b></p>
-                                <p style="margin:0;text-align: center;"><br>Regrads from,<br><b><a href = "#" style = "color:black">JPD AMS.</a></b></p>
+                            <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
+                                <p style='margin: 0; '> Please do not share this verification code as <br> it is <b>confidential</b> to user.</p>
+                                <p style='margin:0;text-align: center;'><br>Regards,<br><b><a href = '#' style = 'color:black'>JPD AMS.</a></b></p>
                             </td>
                         </tr>
                     </table>
@@ -355,12 +425,187 @@ class AMS
             </tr>
 
               <tr>
-                  <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 40px 10px;">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                  <td bgcolor='#f4f4f4' align='center' style='padding: 30px 10px 40px 10px;'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                           <tr>
-                              <td align="center" style="background : #5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;">
-                                  <h2 style="font-size:18px; font-weight: 400; color: #111111; margin: 0;">Have any questions for us or need more information ? 
-                                  <p style="margin: 0;"><a href="#" target="_blank" style="color: black;"><b>Just shoot us an email!<br> We are always here to help.</b></a><a style="color:#000000;font-size:16px;"><br>admin.jpd.ams@gmail.com</a></p>
+                              <td align='center' style='background : #5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
+                                  <h2 style='font-size:18px; font-weight: 400; color: #111111; margin: 0;'>Have any questions for us or need more information ? 
+                                  <p style='margin: 0;'><a href='#' target='_blank' style='color: black;'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#000000;font-size:16px;'><br>admin.jpd.ams@gmail.com</a></p>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+      </body>
+      
+      </html>
+                    
+        ";
+    
+        // > EMAIL CODE SENT BELOW
+ 
+        return(($this->sendEmail($username,"OTP Verfication Code",$htmlContent))?1:-1);
+
+    }
+    private function sendResetEmail()
+    {
+      // > EMAIL CODE SENT BELOW
+     $username = $_SESSION['_resetUserId'];
+      $htmlContent = "
+        
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title></title>
+          <meta http-equiv='Content-Type' content='text/html, charset=utf-8' />
+          <meta name='viewport' content='width=device-width, initial-scale=1'>
+          <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+          <style type='text/css'>
+             
+              body,
+              table,
+              td,
+              a {
+                  -webkit-text-size-adjust: 100%;
+                  -ms-text-size-adjust: 100%;
+              }
+      
+              table,
+              /* td {
+                  mso-table-lspace: 0pt;
+                  mso-table-rspace: 0pt;
+              } */
+      
+              img {
+                  -ms-interpolation-mode: bicubic;
+              }
+      
+              
+              img {
+                  border: 0;
+                  height: auto;
+                  line-height: 100%;
+                  outline: none;
+                  quotes: 23px; 
+                  text-decoration: none;
+              }
+      
+              table {
+                  border-collapse: collapse !important;
+              }
+      
+              body {
+                  height: 100% !important;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                  width: 100% !important;
+              }
+      
+            
+              a[x-apple-data-detectors] {
+                  color: inherit !important;
+                  text-decoration: none !important;
+                  font-size: inherit !important;
+                  font-family: inherit !important;
+                  font-weight: inherit !important;
+                  line-height: inherit !important;
+              }
+      
+         
+              @media screen and (max-width:600px) {
+                  h1 {
+                      font-size: 32px !important;
+                      line-height: 32px !important;
+                  }
+              }
+      
+             
+              div[style*='margin: 16px 0;'] {
+                  margin: 0 !important;
+              }
+          </style>
+      </head>
+      
+      <body style='background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;'>
+          
+      
+          <table border='0' cellpadding='0' cellspacing='0' width='100%'>
+             
+              <tr>
+                  <td align='center' style ='background-color: #5755a5'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                          <tr>
+                              <td align='center' valign='top' style='padding: 40px 10px 40px 10px;'> </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              <tr>
+                  <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #5755a5'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                          <tr>
+                              <td bgcolor='#ffffff' align='center' valign='top' style='padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #4b49ac; font-family: poppins; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;'>
+                                  <h1 style='font-size: 35px; font-weight: 500; margin: 2;'><b>Password updated</b></h1> <img src='https://live.staticflickr.com/65535/52097859173_5b6d3573df_n.jpg' width='250' height='120' style='display: block; border: 0px;' />
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              
+              <tr>
+                  <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #f4f4f4;'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                          <tr>
+                              <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 0px 30px; color: #000000; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
+                                <p style='margin: 0; '>Hello,<br>$username<br><br> Your <b>Password</b> has been updated recently.<br><br></p>
+                                <h5 id='cur_date'></h5>
+                                <script type='text/javascript'>
+                                var today = new Date();
+                                let hours = today.getHours();
+                                let minutes = today.getMinutes();
+                                
+                                // Check whether AM or PM
+                                let meredium = hours >= 12 ? 'PM' : 'AM'; 
+                                               
+                                // Find current hour in AM-PM Format
+                                hours = hours % 12; 
+                                               
+                                // To display '0' as '12'
+                                hours = hours ? hours : 12; 
+                                minutes = minutes < 10 ? '0' + minutes : minutes;
+                                               
+                               const dateTime = 'Date: '+today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear()+'<br> Time : ' + hours + ':' + minutes + ' ' + meredium ;
+                               
+                               document.getElementById('cur_date').innerHTML = dateTime;
+                            
+                               </script>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              
+              <tr>
+                <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #f4f4f4;'>
+                    <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                        <tr>
+                            <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
+                                <p style='margin: 0; '> Please login to your respective dashboard again using the new password.</p>
+                                <p style='margin:0;text-align: center;'><br>Regards from,<br><b><a href = '#' style = 'color:black'>JPD AMS.</a></b></p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+              <tr>
+                  <td bgcolor='#f4f4f4' align='center' style='padding: 30px 10px 40px 10px;'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                          <tr>
+                              <td align='center' style='background-color:#5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
+                                  <h2 style='font-size:18px; font-weight: 400; color: #111111; margin: 0;'>Have any questions for us or need more information ? </h2>
+                                  <p style='margin: 0;'><a href='#' target='_blank' style='color: black;'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#000000;font-size:16px;' ><br>admin.jpd.ams@gmail.com</a></p>
                               </td>
                           </tr>
                       </table>
@@ -371,21 +616,13 @@ class AMS
       
       </html>
                       
-        `;
+      ";
+            
+
+    // > EMAIL CODE SENT BELOW
+
+    return(($this->sendEmail($username,"Reset password",$htmlContent))?1:-1);
     
-        // Set content-type header for sending HTML email 
-        $headers = "MIME-Version: 1.0" . "\r\n"; 
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
-        // Additional headers 
-        $headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
-    
-        // Send email 
- 
-        return((mail($to, $subject, $htmlContent, $headers))?1:-1);
-    }
-    private function sendResetEmail()
-    {
-        //TODO: EMAIL SENDING CODE OF RESET PASSWORD
     }
 
     private function update_user_token($username)
@@ -493,17 +730,9 @@ class AMS
         if(mysqli_num_rows($result)===1)
         {
             $user = mysqli_fetch_assoc($result);
-
-            // $this->amsUserType = $user['user_type'];
-            
             $_SESSION["_resetUserId"] = $user['username'];
-
-             //_resetUserId is cookie name 
-            // $resetUid = $this->customEncrypt($user['username']); 
-
-            // setcookie("_h8lcbk5tnm0",$resetUid,(time() + 60),"/","",false,true); //! need to change values
              
-            return ($this->sendOtpEmail());
+            return($this->sendOtpEmail());
         }
         else
         {
@@ -519,10 +748,17 @@ class AMS
 
         if(mysqli_query($this->db_connection,$sql))
         {   
-            $this->sendResetEmail();
-            unset($_SESSION['_resetUserId']);
-            unset($_SESSION['_reset']);
-            return true;
+            if($this->sendResetEmail()===1)
+            {
+                unset($_SESSION['_resetUserId']);
+                unset($_SESSION['_reset']);
+                return true;
+            }
+            else
+            {    
+                return false;
+            }
+              
         }
         else
         {
@@ -531,16 +767,10 @@ class AMS
     }
     public function validateOtp($code)
     { 
-
         if((isset($_SESSION['_userOtp']) && $_SESSION['_userOtp']==$code))
         {
-            //$_SESSION['_reset'] = "1";
-            //_reset is cookie name
             unset($_SESSION['_userOtp']);
-            // $resetPermission = $this->customEncrypt("Authenticated");
-            //setcookie("_h8lsbk5r",$resetPermission,(time() + 300),"/","",false,true); //! need to change values ? 3 minutes for resetPermission
             $_SESSION['_reset'] = "1"; //! need to change values ? session is there
-            
             return 1;
         }
         else
@@ -567,11 +797,10 @@ class AMS
 
   function __construct($userType)
     {   
+        $this->set_server_configuration();
         $this->serverName = "localhost";
         $this->amsUserType=null;
         $this->amsUserToken=null;
-        $this->adminEmail="ams.jpd@gmail.com";
-        $this->adminName="JPD AMS";
 
         // if(is_null($userType))
         // {
