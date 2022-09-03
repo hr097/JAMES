@@ -1,5 +1,6 @@
 <?php
 
+//!unsecured Library
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -67,7 +68,6 @@ function generateCsrfToken() // to prevent csrf attacks
 
 function init_user_session() // start session and regenerate the session ID
 {   
-    session_name("lxy2Se2k3Un23l5u5E657S9jsn0NI8d05f4AnU53r") ;
     session_start();
     session_regenerate_id();
 }
@@ -123,14 +123,29 @@ function set_server_configuration()
     ini_set('session.use_strict_mode',1); //enable strict mode to prevent session fixation attacks
     ini_set('session.use_trans_sid',0); //This will tell PHP not to include the identifier in the URL, and not to read the URL for identifiers.
     ini_set('session.use_only_cookies',1);//This will tell PHP to never use URLs with session identifiers.
-    ini_set('session.hash_function', 'sha512');
+   
     ini_set('session.use_cookies',1); // to allow stire session ID in  clientside
+    
+    ini_set('session.cookie_httponly', 1);    // Prevents javascript XSS attacks aimed to steal the session ID
+    ini_set('session.use_only_cookies', 1);   // Prevent Session ID from being passed through  URLs
+    ini_set('session.name','lxy2Se2k3Un23l5u5E657S9jsn0NI8d05f4AnU53r'); // set session name
+    
+
+     /* extra things configuration in server */
+
+    // ini_set('display_errors',0); // for display error
+    // ini_set('display_startup_errors',0); // for display startup error
+    // ini_set('file_uploads',1); // turn on file upload
+    // ini_set('allow_url_include',0); // for allowing external link http/https files with include/require
+    // ini_set('mysqli.reconnect',1); // recomend the MYSQL
+    // ini_set('mysqli.rollback_on_cached_plink',1); //rollback changes in db when connection is half closed
+
+    //ini_set('session.hash_function', 'sha512'); // remove in php 7.0+
     //ini_set('session.hash_bits_per_character',6); //remove in php 7.0+
     //ini_set('session.entropy_file','/dev/urandom'); //remove in php 7.0+
     //ini_set('session.entropy_length',256);  //remove in php 7.0+
-    ini_set('session.cookie_httponly', 1);    // Prevents javascript XSS attacks aimed to steal the session ID
-    ini_set('session.use_only_cookies', 1);   // Prevent Session ID from being passed through  URLs
-
+    // int_set('upload_tmp_dir','___give___path__here'); // session storage path
+     
     $secure = false; // if you only want to receive the cookie over HTTPS
     $httponly = true; // prevent JavaScript access to session cookie
     $samesite = 'Strict';
@@ -195,7 +210,7 @@ class AMS
                 $mail->send();
                return (true);
             } catch (Exception $e) {
-                // echo "Mailer Error: " . $mail->ErrorInfo;
+                // echo "Mailer Error: " . $mail->ErrorInfo; // to print error if any
                 return (false);
             }
 
@@ -263,7 +278,7 @@ class AMS
     return $result;
     }
 
-    private function sendOtpEmail()
+    private function sendOtpEmail() // OTP EMAIL
     {   
         $otp = $this->generateOtp(6);
         while(strlen($otp)!==6)
@@ -430,7 +445,7 @@ class AMS
                           <tr>
                               <td align='center' style='background : #5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
                                   <h2 style='font-size:18px; font-weight: 400; color: #111111; margin: 0;'>Have any questions for us or need more information ? 
-                                  <p style='margin: 0;'><a href='#' target='_blank' style='color: black;'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#000000;font-size:16px;'><br>admin.jpd.ams@gmail.com</a></p>
+                                  <p style='margin: 0;'><a href='mailto:admin.jpd.ams@vnsgu.ac.in' target='_blank' style='color: black;'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#000000;font-size:16px;' ><br>admin.jpd.ams@vnsgu.ac.in</a></p>
                               </td>
                           </tr>
                       </table>
@@ -448,10 +463,11 @@ class AMS
         return(($this->sendEmail($username,"OTP Verfication Code",$htmlContent))?1:-1);
 
     }
-    private function sendResetEmail()
+    private function sendResetEmail() // RESET PASSWORD EMAIL
     {
       // > EMAIL CODE SENT BELOW
-     $username = $_SESSION['_resetUserId'];
+
+      $username = $_SESSION['_resetUserId'];
       $htmlContent = "
         
       <!DOCTYPE html>
@@ -591,8 +607,8 @@ class AMS
                     <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                         <tr>
                             <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
-                                <p style='margin: 0; '> Please login to your respective dashboard again using the new password.</p>
-                                <p style='margin:0;text-align: center;'><br>Regards from,<br><b><a href = '#' style = 'color:black'>JPD AMS.</a></b></p>
+                            <p style='margin: 0; '> Please login again to your respective dashboard using the new credentials.</p>
+                            <p style='margin:0;text-align: center;'><br>Regards from,<br><b><a href = '#' style = 'color:black'>JPD AMS.</a></b></p>
                             </td>
                         </tr>
                     </table>
@@ -605,7 +621,7 @@ class AMS
                           <tr>
                               <td align='center' style='background-color:#5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
                                   <h2 style='font-size:18px; font-weight: 400; color: #111111; margin: 0;'>Have any questions for us or need more information ? </h2>
-                                  <p style='margin: 0;'><a href='#' target='_blank' style='color: black;'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#000000;font-size:16px;' ><br>admin.jpd.ams@gmail.com</a></p>
+                                  <p style='margin: 0;'><a href='mailto:admin.jpd.ams@vnsgu.ac.in' target='_blank' style='color: black;'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#000000;font-size:16px;' ><br>admin.jpd.ams@vnsgu.ac.in</a></p>
                               </td>
                           </tr>
                       </table>
@@ -770,7 +786,7 @@ class AMS
         if((isset($_SESSION['_userOtp']) && $_SESSION['_userOtp']==$code))
         {
             unset($_SESSION['_userOtp']);
-            $_SESSION['_reset'] = "1"; //! need to change values ? session is there
+            $_SESSION['_reset'] = "1";
             return 1;
         }
         else
