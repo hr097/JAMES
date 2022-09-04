@@ -74,7 +74,7 @@
                                 <i class="icon-head menu-icon"></i>
                                 Profile
                             </a>
-                            <a class="dropdown-item" href="./index.php">
+                            <a class="dropdown-item" href="../logout.php">
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
                             </a>

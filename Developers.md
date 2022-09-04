@@ -6,7 +6,8 @@
 
 --------------------------------------------------------------------------------------------
 
-1) Harshil Ramani     (Lead architect)
+
+1) Harshil Ramani     (Lead architect & Backend developer)
 2) Archit Ghevariya   (Frontend Developer)
 3) Drashti Dhola      (Embedded C++ & IoT developer)
 4) Shubham Khunt      (Frontend Developer)

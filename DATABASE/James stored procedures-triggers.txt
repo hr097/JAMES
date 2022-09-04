@@ -9,14 +9,20 @@ getListByCourseSemDivWise('BscIT',5,B);
 
 getListByInActiveStud('MscIT'); // those who are alumni and table will be in backup data base
 
-
 2)Ams_api:
 
 getListBySemesterTime(5,'08:35','09:45');
 
+3)Faculties:
+
+getFacByDesignation('Teching Assistant');
+
+
+
+
 ******)Triggers :
 
-1)Students:
+1)Students/Faculties:
 
 when student completes like 10 th sem is updated to 11 th at that time  we use this trigger to delete record from here and shift to backup db.
 
@@ -33,7 +39,20 @@ SET NEW.semester := sem;
 END $$
 DELIMITER ;
 
+
+
+
 ******)Routines:
 
-1)Ams_api table daily clear at midnight 3:00 AM
+1)Ams_api 
+NOTE : Event scheduler ON krvu
+
+DELIMITER $$
+CREATE EVENT `deleteAmsApiDataDaily`
+  ON SCHEDULE EVERY 1 DAY STARTS '2022-09-05 03:00:00'
+  ON COMPLETION PRESERVE
+DO BEGIN
+  TRUNCATE TABLE ams_api;
+END$$
+DELIMITER ;
 
