@@ -32,6 +32,8 @@
 String Rfid_tag_ID = "";      // storing read tag ID
 String last_read_tag_ID = ""; // for storing last read tag ID to confirm once scanned card can't be rescanned immediately
 
+int readerNumber = 8; // Reader Number
+
 StaticJsonDocument<128> UID_JSON; // JSON storage for Api POST request
 
 // RFID reader configuration
@@ -41,11 +43,11 @@ MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance/object.
 // Wifi & API configuration
 
 // api configuration
-const char *serverName = "http://killing-winters.000webhostapp.com/api/add"; // Domain name with full URL path to an api for HTTP POST Request
+const char *serverName = "https://amsjpd.ml/rfid/addattendance.php"; // Domain name with full URL path to an api for HTTP POST Request
 
 //wifi configuration
-char WIFI_SSID[3][30] = {"Jeshvi","winter", "VNSGU"}; // Wifi ssid array to store multiple wifi because in case of one connection failure system can auto connect with another wifi available
-char WIFI_PASSWORD[3][30] = {"Winterisgreat97","password", "12345678"}; // ssid -password mapped
+char WIFI_SSID[3][30] = {"Noah","winter", "VNSGU"}; // Wifi ssid array to store multiple wifi because in case of one connection failure system can auto connect with another wifi available
+char WIFI_PASSWORD[3][30] = {"12345678","password", "12345678"}; // ssid -password mapped
 char connection_req_ssid[30]; // temporary SSID for debugging purpose
 int connection_index = 0; // counter for ssid and password from array
 
@@ -181,10 +183,12 @@ void setup()
 
 void sendToApi() // function to send Attedance data to an API
 {
-    UID_JSON["api_token"] = "40kbno9qesgzah1k5reiznwtr9yco2vlfgzw9nu5"; //Api Token for security
+    UID_JSON["_api_token"] = "1008kbno9qessgzah1k5rjsnnwtr9yco2vlfgzw9nu5261"; //Api Token for security
+    UID_JSON["_r_no"] = readerNumber;
+
     http.begin(client, serverName); //connection with Web-serevr & Api
     http.addHeader("Content-Type", "application/json"); //specifying Type of data
-
+  
     String httpRequestData = "";// prepare data to be send here as Plain Text But Json Format
 
     serializeJson(UID_JSON, httpRequestData); //convert to JSON
@@ -197,7 +201,7 @@ void sendToApi() // function to send Attedance data to an API
     Serial.println(httpResponseCode); //print Response code
     
     String payload = http.getString(); //wait for Api Response about given Attedance data
-    Serial.println(payload); //print Response
+    Serial.println(payload); //print Response //!CHECK HERE
 
     if(httpResponseCode == 200 && payload=="1")
     {   
@@ -208,7 +212,7 @@ void sendToApi() // function to send Attedance data to an API
     else
     {  
         Serial.println(" ");
-        Serial.println("Something went wrong:( ->(Rescan this card after another card scan !)");
+        Serial.println("Something went wrong:( ->(Rescan this card after sometime !)");
         digitalWrite(Invalid_card_status, HIGH);
     }
 
@@ -251,7 +255,7 @@ void loop()
 
                     if (Rfid_tag_ID.startsWith("05 8")) // check if UID is starting with proper Institution given card numbers
                     {
-                        UID_JSON["data"] = Rfid_tag_ID; // make property field in JSON Object
+                        UID_JSON["_uid"] = Rfid_tag_ID; // make property field in JSON Object
 
                         if (WiFi.status() == WL_CONNECTED) // if wifi connection is active
                         {

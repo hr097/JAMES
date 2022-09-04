@@ -16,4 +16,19 @@ GRANT SELECT on james.vw_users_auth TO 'ams-authenticator'@'localhost';
 GRANT UPDATE on james.vw_users_auth TO 'ams-authenticator'@'localhost';
 GRANT REFERENCES on james.vw_users_auth TO 'ams-authenticator'@'localhost';
 
+GRANT SELECT on james.rfid_uid_spid_map TO 'ams-authenticator'@'localhost';
+GRANT REFERENCES on james.rfid_uid_spid_map TO 'ams-authenticator'@'localhost';
+GRANT INSERT on james.ams_api TO 'ams-authenticator'@'localhost';
+
+GRANT REFERENCES on james.Students TO 'ams-authenticator'@'localhost';
+GRANT SELECT on james.Students TO 'ams-authenticator'@'localhost';
+
+??
+GRANT EXECUTE on james._____  TO 'ams-authenticator'@'localhost';
+....NAMES OF PROCEDURE
+??
+
+
+
+
 *****************************************************
