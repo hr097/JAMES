@@ -755,6 +755,32 @@ class AMS
             return 0;
         }
     }
+
+    public function RfidApi($uid,$rNo) 
+    {
+         $result = mysqli_query($this->db_connection,"select * from Rfid_uid_spid_map where uid='$uid';");
+
+        if(mysqli_num_rows($result)===1)
+        {
+            $result = mysqli_fetch_assoc($result);
+            
+            $spid = $result['spid'];
+
+            if(mysqli_query($this->db_connection,"insert into Ams_api(reader_no,spid) values($rNo,'$spid');"))
+            {
+                return 1;
+            }
+            else
+            {
+                return "Something went wrong!";
+            }
+           
+        }
+        else
+        {
+            return "Uid not found!";
+        }
+    }
     
     public function update_user($u,$p)
     {   

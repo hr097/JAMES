@@ -10,18 +10,19 @@
 
 require_once("../amslib.php");
 $JAMES = new AMS(0);
-$JAMES->init_user_session();
+// $JAMES->init_user_session();
 
 
-print_r($_SESSION);
+// print_r($_SESSION);
 
-echo "<br><br>cookies<br><br>";
+// echo "<br><br>cookies<br><br>";
 
-print_r($_COOKIE);
+// print_r($_COOKIE);
 // echo "<br>".$JAMES->customEncrypt("_reset");
 // echo "<br>".$JAMES->customEncrypt("_rUserId");
 
 
 // echo "<br> last: ".$JAMES->user_exists("harshilramani.mscit20@vnsgu.ac.in");
 
+echo $JAMES->sanitizeInput("05 85 52 02 4B B0 00");
 ?>
