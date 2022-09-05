@@ -1,14 +1,5 @@
 help : https://www.strongdm.com/blog/mysql-create-user-manage-access-privileges-how-to
 
-Indexs :
-
-CREATE UNIQUE INDEX idx_userName ON Users (username);
-CREATE UNIQUE INDEX idx_user_token ON Users (user_token);
-CREATE INDEX idx_user_type ON Users (user_type);
-
-views:
-
-CREATE OR REPLACE VIEW vw_users_auth AS SELECT username,password,user_token,user_type FROM Users WHERE user_access=1;
 
 ******************************************************
 
@@ -48,9 +39,9 @@ ALTER TABLE Courses AUTO_INCREMENT= CURRENT VALUE;
 
 1)TABLE CREATION AND SCHEMA:
 
-*- --------------------------------Courses  ----------------------------------*
+*- --------------------------------Courses  ----------------------------------* OK
 
-CREATE TABLE _Courses(course_id INTEGER AUTO_INCREMENT,course_name VARCHAR(255) NOT NULL,total_semester INTEGER NOT NULL,PRIMARY KEY(course_id));
+CREATE TABLE Courses(course_id INTEGER AUTO_INCREMENT,course_name VARCHAR(255) NOT NULL,total_semester INTEGER NOT NULL,PRIMARY KEY(course_id));
 
 Check  constraint:
 
@@ -69,7 +60,7 @@ insert into Courses values('','M.Sc I.C.T.',4);
 insert into Courses values('','B.Sc I.T.',6);
 
 
-*- -------------------------------- Subjects  ----------------------------------*
+*- -------------------------------- Subjects  ----------------------------------* OK
 
 
 CREATE TABLE Subjects(subject_id INTEGER AUTO_INCREMENT,subject_code INTEGER NOT NULL,subject_name VARCHAR(255) NOT NULL,semester INTEGER NOT NULL,PRIMARY KEY(subject_id));
@@ -96,34 +87,36 @@ Pre-defined record added:
  insert into Subjects values('',508,'Practical-12',5);
 
 
-*- ------------------- ----Course_subject_map  ----------------------------------*
+*- ------------------- ----Course_subject_map  ----------------------------------* OK
 
-CREATE TABLE Course_subject_map(cs_id INTEGER AUTO_INCREMENT,course_id INTEGER NOT NULL,subject_id INTEGER NOT NULL);
+CREATE TABLE Course_subject_map(cs_id INTEGER AUTO_INCREMENT,course_id INTEGER NOT NULL,subject_id INTEGER NOT NULL,primary key(cs_id));
 
 
 Foreign key constraint:
 
 ALTER TABLE Course_subject_map
 ADD CONSTRAINT FK_Course_map
-FOREIGN KEY (course_id) REFERENCES Courses(course_id);
+FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON UPDATE CASCADE;
 
 ALTER TABLE Course_subject_map
 ADD CONSTRAINT FK_subject_map
-FOREIGN KEY (subject_id) REFERENCES Subjects(subject_id);
+FOREIGN KEY (subject_id) REFERENCES Subjects(subject_id) ON UPDATE CASCADE;
 
 unique constraint:
 
 ALTER TABLE Course_subject_map ADD CONSTRAINT UNQ_course_subject_map UNIQUE(course_id,subject_id);
 
+**************************************************************************************
 predefined record:(mapping query)
 
 Stucture & logic :
 
 C_ID = select course_id from Courses where course_name='M.Sc I.T.';
-S_ID = select subject_id from Subjects where subject_name='Web developement-II';
+S_ID = select subject_id from Subjects where subject_name='Web development-II';
 
 insert into Course_subject_map(course_id,subject_id) values(C_ID,S_ID);
 
+*************************************************************************************
 queries:
 
 insert into Course_subject_map(course_id,subject_id) values(3,1);
@@ -168,7 +161,7 @@ default constraint:
 
 ALTER TABLE Users ALTER user_access SET DEFAULT TRUE;
 
-predefined record:
+predefined record: (do not use)
 
 insert into Users values('admin.jpdams@vnsgu.ac.in','$5$n$cBX4Zr4YpJKr9VmFOfkWH0m7NcNibvEohyu9x90ngG4',4);
 
@@ -187,9 +180,9 @@ insert into Users values('sachaudhari@vnsgu.ac.in','$5$n$ywUHXmYf/xRif7m.zsmDWl5
 insert into Users values('office.jpdams@vnsgu.ac.in','$5$n$EDvl9B82HI3xMdcPOK9eOmNjU5K2UQdXXKQPDGIxT6C',3);
 
 
-*- ------------------------ Students  ----------------------------------*
+*- ------------------------ Students  ----------------------------------* OK
 
-CREATE TABLE Students(spid VARCHAR(10),fname varchar(256) NOT NULL,mname varchar(256) NOT NULL,lname varchar(256) NOT NULL,gender CHAR(1) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,course_id INTEGER NOT NULL,joining_year YEAR NOT NULL,cur_semester INTEGER NOT NULL,cur_division CHAR(1) NOT NULL,cur_roll_no SMALLINT NOT NULL, stud_status BOOLEAN ,PRIMARY KEY(spid));
+CREATE TABLE Students(spid VARCHAR(10),name varchar(256) NOT NULL,gender CHAR(1) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,course_id INTEGER NOT NULL,joining_year YEAR NOT NULL,cur_semester INTEGER NOT NULL,cur_division CHAR(1) NOT NULL,cur_roll_no SMALLINT NOT NULL, stud_status BOOLEAN ,PRIMARY KEY(spid));
 
 check constraint :
 
@@ -206,15 +199,17 @@ foreign key constraint:
 
 ALTER TABLE Students
 ADD CONSTRAINT FK_stud_email
-FOREIGN KEY (email) REFERENCES Users(email);
+FOREIGN KEY (email) REFERENCES Users(username) ON UPDATE CASCADE;
 
 ALTER TABLE Students
 ADD CONSTRAINT FK_stud_course_id
-FOREIGN KEY(course_id) REFERENCES Courses(course_id);
+FOREIGN KEY(course_id) REFERENCES Courses(course_id)ON UPDATE CASCADE;
 
 unique constraint:
 
 ALTER TABLE Students ADD CONSTRAINT UNQ_stud_email UNIQUE(email);
+
+[PENDING...]
 //ALTER TABLE Students ADD CONSTRAINT UNQ_contact_no UNIQUE(contact_no);
 
 
@@ -224,27 +219,27 @@ ALTER TABLE Students ALTER stud_status SET DEFAULT TRUE;
 
 pre-defined records:
 
-insert into Students values('2020049910','Ramani','Harshil','Shaileshbhai','M','08-05-2003','harshilramani.mscit20@vnsgu.ac.in','+91 9624561892',3,'2020',5,'B',113,TRUE);
+insert into Students values('2020049910','Ramani Harshil Shaileshbhai','M','2003-05-08','harshilramani.mscit20@vnsgu.ac.in','+91 9624561892',3,'2020',5,'B',113,TRUE);
 
-insert into Students values('2020049819','Ghevariya','Archit','Nareshbhai','M','2003-03-05','architghevariya.mscit20@vnsgu.ac.in','+91 7383837798',3,'2020',5,'A',26,TRUE);
+insert into Students values('2020049819','Ghevariya Archit Nareshbhai','M','2003-03-05','architghevariya.mscit20@vnsgu.ac.in','+91 7383837798',3,'2020',5,'A',26,TRUE);
 
-insert into Students values('2020049812','Dhola','Drashti','Ishwarbhai','F','2002-11-15','dholadrashti.mscit20@vnsgu.ac.in','+91 9687630768',3,'2020',5,'A',19,TRUE);
+insert into Students values('2020049812','Dhola Drashti Ishwarbhai','F','2002-11-15','drashtidhola.mscit20@vnsgu.ac.in','+91 9687630768',3,'2020',5,'A',19,TRUE);
 
-insert into Students values('2020049836','Khunt','Shubham','Vinubhai','M','2003-07-18','shubhamkhunt.mscit20@vnsgu.ac.in','+91 8849178317',3,'2020',5,'A',42,TRUE);
+insert into Students values('2020049836','Khunt Shubham Vinubhai','M','2003-07-18','shubhamkhunt.mscit20@vnsgu.ac.in','+91 8849178317',3,'2020',5,'A',42,TRUE);
 
-insert into Students values('2020049935','Tikiwala','Shikhaa','Rupalkumar','F','2002-08-24','shikhaatikiwala.mscit20@vnsgu.ac.in','+91 8200290477',3,'2020',5,'B',138,TRUE);
+insert into Students values('2020049935','Tikiwala Shikhaa Rupalkumar','F','2002-08-24','shikhaatikiwala.mscit20@vnsgu.ac.in','+91 8200290477',3,'2020',5,'B',138,TRUE);
 
 
-*--------------------- ---- Faculties  ----------------------------------*
+*--------------------- ---- Faculties  ----------------------------------* *OK
 
- CREATE TABLE  Faculties(fid VARCHAR(8),fname varchar(256) NOT NULL,mname varchar(256) NOT NULL,lname varchar(256) NOT NULL,gender CHAR(1) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,joining_year YEAR NOT NULL,designation VARCHAR(256) NOT NULL,fac_status BOOLEAN ,PRIMARY KEY(fid));
+ CREATE TABLE  Faculties(fid VARCHAR(8),name varchar(256) NOT NULL,gender CHAR(1) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,joining_year YEAR NOT NULL,designation VARCHAR(256) NOT NULL,fac_status BOOLEAN ,PRIMARY KEY(fid));
 
 
 foreign key constraint:
 
 ALTER TABLE Faculties
 ADD CONSTRAINT FK_fac_email
-FOREIGN KEY (email) REFERENCES Users(email);
+FOREIGN KEY (email) REFERENCES Users(username) ON UPDATE CASCADE;
 
 check constraint:
 
@@ -260,18 +255,18 @@ ALTER TABLE Faculties ALTER fac_status SET DEFAULT TRUE;
 
 pre-defined records:
 
-insert into  Faculties values('FID12345','Desai','Pushpal','Y---BHAI','M','1960-01-01','pydesai@vnsgu.ac.in','+91 1234567890','2000','Associate Professor',TRUE);
+insert into  Faculties values('FID12345','Pushpal Desai','M','1960-01-01','pydesai@vnsgu.ac.in','+91 1234567890','2000','Associate Professor',TRUE);
 
-insert into  Faculties values('FID12346','Joshi','Payal','Dhavalbhai','F','1970-02-01','pkpandya@vnsgu.ac.in','+91 1234567891','2008','Assistant Professor',TRUE);
+insert into  Faculties values('FID12346','Payal Joshi','F','1970-02-01','pkpandya@vnsgu.ac.in','+91 1234567891','2008','Assistant Professor',TRUE);
 
-insert into  Faculties values('FID12347','Thakkar','Falguni','G---bhai','F','1980-02-07','fgthakker@vnsgu.ac.in','+91 1234567892','2009','Teaching Assistant',TRUE);
+insert into  Faculties values('FID12347','Falguni Thakkar','F','1980-02-07','fgthakker@vnsgu.ac.in','+91 1234567892','2009','Teaching Assistant',TRUE);
 
-insert into  Faculties values('FID12348','Surati','Vinny','H---bhai','F','1989-02-07','vhsurati@vnsgu.ac.in','+91 1234567893','2018','Teaching Assistant',TRUE);
+insert into  Faculties values('FID12348','Vinny Surati','F','1989-02-07','vhsurati@vnsgu.ac.in','+91 1234567893','2018','Teaching Assistant',TRUE);
 
-insert into  Faculties values('FID12349','Chaudhri','Shailesh','A---bhai','M','1980-02-08','sachaudhari@vnsgu.ac.in','+91 1234567894','2007','Assistant Professor',TRUE);
+insert into  Faculties values('FID12349','Shailesh Chaudhri','M','1980-02-08','sachaudhari@vnsgu.ac.in','+91 1234567894','2007','Assistant Professor',TRUE);
 
 
-*-------------------------- Subject_faculty_year_map  ----------------------------------*
+*-------------------------- Subject_faculty_year_map  ----------------------------------* * Not needed
 
 
 CREATE TABLE Subject_faculty_year_map(cs_id INTEGER ,fid VARCHAR(8),year YEAR,PRIMARY KEY(cs_id,fid,year));
@@ -302,7 +297,7 @@ insert into  Subject_faculty_year_map  values(7,'FID12345','2022');
 insert into  Subject_faculty_year_map  values(8,'FID12347','2022');
 
 
-*-------------------------- Rfid_uid_spid_map --------------------------------*
+*-------------------------- Rfid_uid_spid_map -----------------------------**OK
 
 
 
@@ -313,7 +308,7 @@ foreign key constraint:
 
 ALTER TABLE Rfid_uid_spid_map
 ADD CONSTRAINT FK_uid_spid_map
-FOREIGN KEY (spid) REFERENCES Students(spid); 
+FOREIGN KEY (spid) REFERENCES Students(spid) ON UPDATE CASCADE; 
 
 unique constraint:
 
@@ -324,22 +319,22 @@ predefined record:
 insert into  Rfid_uid_spid_map values('05 85 52 02 4B B0 00','2020049910');
 insert into  Rfid_uid_spid_map values('05 8F DB 52 29 71 00','2020049935');
 
-*-------------------------- Ams_api --------------------------------*
+*-------------------------- Ams_api --------------------------------**OK
 
 
-CREATE TABLE Ams_api(reading_no INTEGER AUTO_INCREMENT,reader_no SMALLINT NOT NULL,reading_date DATE NOT NULL,reading_time TIME NOT NULL,spid VARCHAR(10) NOT NULL,PRIMARY KEY(reading_no));
+CREATE TABLE Ams_api(reading_no INTEGER AUTO_INCREMENT,reader_no SMALLINT NOT NULL,reading_date DATE NOT NULL,reading_time TIME NOT NULL,spid VARCHAR(10) NOT NULL,semester SMALLINT,PRIMARY KEY(reading_no));
 
 
 foreign key constraint:
 
-ALTER TABLE  Ams_api ADD CONSTRAINT FK_api_spid FOREIGN KEY(spid) REFERENCES Students(spid); 
+ALTER TABLE  Ams_api ADD CONSTRAINT FK_api_spid FOREIGN KEY(spid) REFERENCES Rfid_uid_spid_map(spid) ON UPDATE CASCADE; 
 
 
 check constraint:
 
 ALTER TABLE Ams_api ADD CONSTRAINT CHK_reader_no CHECK(reader_no>=1 AND reader_no<=100);
 ALTER TABLE Ams_api ADD CONSTRAINT CHK_reading_date CHECK(reading_date>='2022-01-01');
-
+ALTER TABLE  Ams_api  ADD CONSTRAINT CHK_semester CHECK(semester>=1 AND semester<=50);
 default:
 
 ALTER TABLE Ams_api
@@ -351,10 +346,11 @@ ALTER reading_time SET DEFAULT CURRENT_TIME();
 
 predefined record :
 
-insert into Ams_api(reader_no,spid) values(5,'2020049910');
+insert into Ams_api(reader_no,spid,semester) values(5,'2020049910'); // as trigger is there
+insert into Ams_api(reader_no,spid,semester) values(5,'2020049935');
 
 
-*-------------------------- Ams_setup_course_subject_map --------------------------------*
+*-------------------------- Ams_setup_course_subject_map --------------------------------* LEFT...
 
 ----------------------------------------------|
 NOTE: This is master table of ams_setup   |

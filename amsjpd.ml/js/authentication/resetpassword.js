@@ -58,12 +58,14 @@ var span = document.getElementsByClassName("close")[0];
 // click on <span> (x), close the modal
   span.onclick = function() {
     $("#modal").css("display","none");
+    window.location.href = "./index.php";
   }
   
   // click anywhere outside of the modal close modal
   window.onclick = function(event) {
     if (event.target == modal) {
       $("#modal").css("display","none");
+      window.location.href = "./index.php";
     }
   }
   

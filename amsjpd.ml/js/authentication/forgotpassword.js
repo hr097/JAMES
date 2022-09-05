@@ -76,12 +76,11 @@ function sendApiReq(apiNum) // send api request for code  on email
 
         $.post("./api/verifyuser.php",
         {
-          _un: email.val(),
+          _un: email.val().toLowerCase(),
           _ct: csrfToken.val(),
         },
         function(data,status)
         {     
-          
               if(status == "success")
               {    
                   response = parseInt(data);

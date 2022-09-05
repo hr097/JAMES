@@ -44,7 +44,7 @@ $(document).ready(function(){
       
         $.post("./api/validateuser.php",
         {
-          _un: username.val(),
+          _un: username.val().toLowerCase(),
           _ps: password.val(),
           _ct: csrfToken.val(),
           _rm: rememberMe

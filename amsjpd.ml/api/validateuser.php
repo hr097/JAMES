@@ -1,5 +1,7 @@
 <?php
 
+//!unsecured API
+
 require_once("../amslib.php");
 $JAMES = new AMS(0);
 $JAMES->init_user_session();

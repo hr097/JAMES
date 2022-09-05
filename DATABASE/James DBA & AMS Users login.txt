@@ -23,13 +23,13 @@ shubhamkhunt.mscit20@vnsgu.ac.in =
 2)
 pydesai@vnsgu.ac.in =   FID12345
 pkpandya@vnsgu.ac.in = FID12346
-fgthakker@vnsgu.ac.in = C FID12347
+fgthakker@vnsgu.ac.in =  FID12347
 vhsurati@vnsgu.ac.in  = FID12348
 sachaudhari@vnsgu.ac.in = FID12349
  
 
 3)
-office.jpdams@vnsgu.ac.in
+office.jpd.ams@vnsgu.ac.in
 
 4) 
 admin.jpd.ams@vnsgu.ac.in 
