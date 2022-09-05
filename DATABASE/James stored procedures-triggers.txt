@@ -34,7 +34,7 @@ CREATE OR REPLACE TRIGGER insert_ams_api BEFORE INSERT ON Ams_api
 FOR EACH ROW
 BEGIN
 DECLARE sem int;
-SELECT semester into sem  FROM shubham where spid = NEW.spid;
+SELECT cur_semester into sem  FROM vw_students where spid = NEW.spid;
 SET NEW.semester := sem;
 END $$
 DELIMITER ;
