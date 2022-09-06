@@ -316,8 +316,9 @@ ALTER TABLE  Rfid_uid_spid_map ADD CONSTRAINT UNQ_spid_map UNIQUE (spid);
 
 predefined record:
 
-insert into  Rfid_uid_spid_map values('05 85 52 02 4B B0 00','2020049910');
-insert into  Rfid_uid_spid_map values('05 8F DB 52 29 71 00','2020049935');
+insert into  Rfid_uid_spid_map values('05 8F 15 AD 42 D1 00','2020049812');
+insert into  Rfid_uid_spid_map values('05 8F DB 52 29 71 00','2020049910');
+
 
 *-------------------------- Ams_api --------------------------------**OK
 
@@ -333,9 +334,15 @@ ALTER TABLE  Ams_api ADD CONSTRAINT FK_api_spid FOREIGN KEY(spid) REFERENCES Rfi
 check constraint:
 
 ALTER TABLE Ams_api ADD CONSTRAINT CHK_reader_no CHECK(reader_no>=1 AND reader_no<=100);
-ALTER TABLE Ams_api ADD CONSTRAINT CHK_reading_date CHECK(reading_date>='2022-01-01');
+
+// droped in live //
+ALTER TABLE Ams_api ADD CONSTRAINT  CHK_reading_date CHECK (reading_date>='2022-01-01' );
+//--------//
+
 ALTER TABLE  Ams_api  ADD CONSTRAINT CHK_semester CHECK(semester>=1 AND semester<=50);
 default:
+
+// dropped in live
 
 ALTER TABLE Ams_api
 ALTER reading_date SET DEFAULT CURRENT_DATE();
@@ -343,6 +350,7 @@ ALTER reading_date SET DEFAULT CURRENT_DATE();
 ALTER TABLE Ams_api
 ALTER reading_time SET DEFAULT CURRENT_TIME();
 
+// ---------//
 
 predefined record :
 
@@ -350,7 +358,7 @@ insert into Ams_api(reader_no,spid,semester) values(5,'2020049910'); // as trigg
 insert into Ams_api(reader_no,spid,semester) values(5,'2020049935');
 
 
-*-------------------------- Ams_setup_course_subject_map --------------------------------* LEFT...
+*-------------------------- Ams_setup_course_subject_map --------------------------------* OK
 
 ----------------------------------------------|
 NOTE: This is master table of ams_setup   |
@@ -362,7 +370,7 @@ foreign key constraint:
 
 ALTER TABLE Ams_setup_course_subject_map
 ADD CONSTRAINT FK_ams_setup_cs_id_map
-FOREIGN KEY (cs_id) REFERENCES Course_subject_map(cs_id);
+FOREIGN KEY (cs_id) REFERENCES Course_subject_map(cs_id) ON UPDATE CASCADE;
 
 check constraint:
 
@@ -383,8 +391,10 @@ insert into  Ams_setup_course_subject_map(cs_id,year) values(5,2022);
 insert into  Ams_setup_course_subject_map(cs_id,year) values(6,2022);
 insert into  Ams_setup_course_subject_map(cs_id,year) values(7,2022);
 insert into  Ams_setup_course_subject_map(cs_id,year) values(8,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(9,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(8,2022);
 
-*-------------------------- Ams_setup_faculties_map  --------------------------------*
+*-------------------------- Ams_setup_faculties_map  --------------------------------*OK
 
 
 CREATE TABLE Ams_setup_faculties_map(ams_setup_id INTEGER ,fid VARCHAR(8),setup_status BOOLEAN NOT NULL,PRIMARY KEY(ams_setup_id,fid));
@@ -393,11 +403,11 @@ foreign key constraint:
 
 ALTER TABLE  Ams_setup_faculties_map
 ADD CONSTRAINT FK_fac_ams_setup_id_map
-FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id);
+FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE;
 
 ALTER TABLE  Ams_setup_faculties_map
 ADD CONSTRAINT FK_ams_setup_fid_map
-FOREIGN KEY (fid) REFERENCES Faculties(fid);
+FOREIGN KEY (fid) REFERENCES Faculties(fid) ON UPDATE CASCADE;
 
 default:
 
@@ -417,17 +427,19 @@ ADD setup_status BOOLEAN NOT NULL DEFAULT TRUE;
 
 predefined records:
 
-insert into Ams_setup_faculties_map(ams_setup_id,fid) values(4,'FID12345');
-insert into Ams_setup_faculties_map(ams_setup_id,fid) values(4,'FID12348');
-insert into Ams_setup_faculties_map(ams_setup_id,fid) values(6,'FID12347');
-insert into Ams_setup_faculties_map(ams_setup_id,fid) values(7,'FID12346');
-insert into Ams_setup_faculties_map(ams_setup_id,fid) values(1,'FID12345');
-insert into Ams_setup_faculties_map(ams_setup_id,fid) values(9,'FID12348');
-insert into Ams_setup_faculties_map(ams_setup_id,fid) values(10,'FID12348');
-insert into Ams_setup_faculties_map(ams_setup_id,fid) values(11,'FID12348');
+
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(1,'FID12346');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(2,'FID12345');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(2,'FID12348');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(3,'FID12347');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(4,'FID12349');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(5,'FID12349');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(6,'FID12345');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(7,'FID12348');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(8,'FID12347');
 
 
-*-------------------------- Ams_setup_students_map --------------------------------*
+*-------------------------- Ams_setup_students_map --------------------------------* OK
 
 
 CREATE TABLE Ams_setup_students_map(ams_setup_id INTEGER NOT NULL,spid VARCHAR(10) NOT NULL,p_days SMALLINT NOT NULL,a_days SMALLINT NOT NULL,PRIMARY KEY(ams_setup_id,spid));
@@ -448,9 +460,9 @@ ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT CHK_p_days CHECK(p_days>=0 AN
 
 foreign key constraint:
 
-ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_stud_ams_setup_id_map FOREIGN KEY(ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id);
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_stud_ams_setup_id_map FOREIGN KEY(ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE;
 
-ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_ams_setup_spid_map FOREIGN KEY(spid) REFERENCES Students(spid);
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_ams_setup_spid_map FOREIGN KEY(spid) REFERENCES Students(spid) ON UPDATE CASCADE;
 
 predefined records:
 
@@ -459,48 +471,37 @@ insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049910');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049910');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049910');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049910');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049910');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049910');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049910');
+
 
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049935');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049935');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049935');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049935');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049935');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049935');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049935');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049935');
+
 
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049812');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049812');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049812');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049812');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049812');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049812');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049812');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049812');
+
 
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049819');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049819');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049819');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049819');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049819');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049819');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049819');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049819');
+
 
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049836');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049836');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049836');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049836');
 insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049836');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(9,'2020049836');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(10,'2020049836');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(11,'2020049836');
 
 
-*-------------------------- Ams_attendance_master --------------------------------*
+*-------------------------- Ams_attendance_master --------------------------------*OK
 
 CREATE TABLE Ams_attendance_master(att_no BIGINT AUTO_INCREMENT,spid VARCHAR(10) NOT NULL,ams_setup_id  INTEGER NOT NULL,att_date DATE NOT NULL,att_time TIME NOT NULL,att_status BOOLEAN NOT NULL,PRIMARY KEY(att_no));
 
@@ -508,7 +509,9 @@ foreign key constraint:
 
 ALTER TABLE  Ams_attendance_master ADD CONSTRAINT FK_attedance_spid_map FOREIGN KEY (spid) REFERENCES Students(spid);
 
-ALTER TABLE  Ams_attendance_master ADD CONSTRAINT FK_attendance_ams_setup_map FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id);
+// ON DELETE AS WELL UPDATE SO TRIGGER MUST BE CREATED  TO MOVE DATA INTO BACKUP DB..
+
+ALTER TABLE  Ams_attendance_master ADD CONSTRAINT FK_attendance_ams_setup_map FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 default constraint:
 

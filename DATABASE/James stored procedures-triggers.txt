@@ -39,8 +39,9 @@ SET NEW.semester := sem;
 END $$
 DELIMITER ;
 
+3) Ams_attendance_master
 
-
+on deletion of records this should be moved to backup table
 
 ******)Routines:
 
