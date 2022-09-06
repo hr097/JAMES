@@ -32,7 +32,7 @@
 String Rfid_tag_ID = "";      // storing read tag ID
 String last_read_tag_ID = ""; // for storing last read tag ID to confirm once scanned card can't be rescanned immediately
 
-int readerNumber = 8; // Reader Number
+String readerNumber = "8"; // Reader Number
 
 StaticJsonDocument<128> UID_JSON; // JSON storage for Api POST request
 
@@ -193,6 +193,10 @@ void sendToApi() // function to send Attedance data to an API
 
     serializeJson(UID_JSON, httpRequestData); //convert to JSON
 
+    int Length = httpRequestData.length();
+    
+    http.addHeader("Content-Length", String(Length)); //specifying Type of data
+
     Serial.println("POST Request Data to be send (JSON Format) : " + httpRequestData); //Simple string print of JSON data
 
     int httpResponseCode = http.POST(httpRequestData); //POST data to an api and get Response code from api
@@ -206,7 +210,7 @@ void sendToApi() // function to send Attedance data to an API
     if(httpResponseCode == 200 && payload=="1")
     {   
         Serial.println(" ");
-        Serial.println("-->Attedance verified by an Api ! ;)");
+        Serial.println("-->Attedance verified ! ;)");
         digitalWrite(Attendance_status, HIGH); // display status of Attedance verification
     }
     else
