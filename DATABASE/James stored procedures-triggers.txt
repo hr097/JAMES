@@ -33,15 +33,7 @@ when faculty permenently leaves at that time  we use this trigger to delete reco
 
 2)Ams_api: [DONE]
 
-DELIMITER $$
-CREATE OR REPLACE TRIGGER insert_ams_api BEFORE INSERT ON Ams_api
-FOR EACH ROW
-BEGIN
-DECLARE sem int;
-SELECT cur_semester into sem  FROM vw_students where spid = NEW.spid;
-SET NEW.semester := sem;
-END $$
-DELIMITER ;
+// done included in table file
 
 3) Ams_attendance_master
 
@@ -59,18 +51,13 @@ on deletion of records this should be moved to backup table
 
 on deletion of records this should be moved to backup table
 
+7) Users:
+
+deletion of Users table record move to bckp table
 
 ******)Routines:
 
 1)Ams_api 
 NOTE : Event scheduler ON krvu
 
-DELIMITER $$
-CREATE EVENT `deleteAmsApiDataDaily`
-  ON SCHEDULE EVERY 1 DAY STARTS '2022-09-05 03:00:00'
-  ON COMPLETION PRESERVE
-DO BEGIN
-  TRUNCATE TABLE ams_api;
-END$$
-DELIMITER ;
 

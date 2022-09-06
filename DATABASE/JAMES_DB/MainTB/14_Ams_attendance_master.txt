@@ -1,0 +1,16 @@
+CREATE TABLE Ams_attendance_master(att_no BIGINT AUTO_INCREMENT,spid VARCHAR(10) NOT NULL,ams_setup_id  INTEGER NOT NULL,att_date DATE NOT NULL,att_time TIME NOT NULL,att_status BOOLEAN NOT NULL,PRIMARY KEY(att_no));
+
+
+ALTER TABLE  Ams_attendance_master ADD CONSTRAINT FK_attendance_ams_setup_map FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE  Ams_attendance_master ADD CONSTRAINT FK_attedance_spid_map FOREIGN KEY (spid) REFERENCES Students(spid) ON UPDATE CASCADE;
+
+
+ALTER TABLE Ams_attendance_master
+ALTER att_date SET DEFAULT CURRENT_DATE();
+
+
+ALTER TABLE  Ams_attendance_master ADD CONSTRAINT CHK_att_status CHECK(att_status=TRUE OR att_status=FALSE);
+
+
+insert into Ams_attendance_master(spid,ams_setup_id,att_time,att_status) values('2020049910','08:11:08',1,0); 
+insert into Ams_attendance_master(spid,ams_setup_id,att_time,att_status) values('2020049910','09:11:08',1,1); 

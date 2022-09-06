@@ -1,0 +1,31 @@
+CREATE TABLE Ams_setup_faculties_map(ams_setup_id INTEGER ,fid VARCHAR(8),setup_status BOOLEAN NOT NULL,PRIMARY KEY(ams_setup_id,fid));
+
+
+ALTER TABLE  Ams_setup_faculties_map ADD CONSTRAINT FK_fac_ams_setup_id_map FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE  Ams_setup_faculties_map ADD CONSTRAINT FK_ams_setup_fid_map FOREIGN KEY (fid) REFERENCES Faculties(fid) ON UPDATE CASCADE;
+
+
+ALTER TABLE Ams_setup_faculties_map ALTER setup_status SET DEFAULT TRUE;
+
+
+ALTER TABLE  Ams_setup_faculties_map ADD CONSTRAINT CHK_setup_status CHECK(setup_status=TRUE OR setup_status=FALSE);
+
+
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(1,'FID12346');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(2,'FID12345');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(2,'FID12348');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(3,'FID12347');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(4,'FID12349');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(5,'FID12349');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(6,'FID12345');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(7,'FID12348');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(8,'FID12347');
+
+
+CREATE OR REPLACE VIEW vw_ams_setup_faculties_map AS SELECT ams_setup_id,fid FROM  Ams_setup_faculties_map  where setup_status=1;
+
+
+// not necessary ?
+
+CREATE INDEX idx_amsSetupFacMap ON Ams_setup_faculties_map(fid);

@@ -1,0 +1,40 @@
+CREATE TABLE Ams_api(reading_no INTEGER AUTO_INCREMENT,reader_no SMALLINT NOT NULL,reading_date DATE NOT NULL,reading_time TIME NOT NULL,spid VARCHAR(10) NOT NULL,semester SMALLINT,PRIMARY KEY(reading_no));
+
+
+ALTER TABLE  Ams_api ADD CONSTRAINT FK_api_spid FOREIGN KEY(spid) REFERENCES Rfid_uid_spid_map(spid) ON UPDATE CASCADE; 
+
+ALTER TABLE Ams_api ADD CONSTRAINT CHK_reader_no CHECK(reader_no>=1 AND reader_no<=100);
+
+ALTER TABLE  Ams_api  ADD CONSTRAINT CHK_semester CHECK(semester>=1 AND semester<=50);
+
+ALTER TABLE Ams_api ALTER reading_date SET DEFAULT CURRENT_DATE();
+
+insert into Ams_api(reader_no,reading_time,spid,semester) values(5,'08:11:08','2020049910'); 
+insert into Ams_api(reader_no,reading_time,spid,semester) values(5,'09:11:08','2020049935');
+
+
+CREATE INDEX idx_AmsReaderNo ON Ams_api(reader_no);
+CREATE INDEX idx_AmsSemster ON Ams_api(semester);
+
+// trigger
+
+DELIMITER $$
+CREATE OR REPLACE TRIGGER insert_ams_api BEFORE INSERT ON Ams_api
+FOR EACH ROW
+BEGIN
+DECLARE sem int;
+SELECT cur_semester into sem  FROM vw_students where spid = NEW.spid;
+SET NEW.semester := sem;
+END $$
+DELIMITER ;
+
+// routine
+
+DELIMITER $$
+CREATE EVENT `deleteAmsApiDataDaily`
+  ON SCHEDULE EVERY 1 DAY STARTS '2022-09-05 03:00:00'
+  ON COMPLETION PRESERVE
+DO BEGIN
+  TRUNCATE TABLE ams_api;
+END$$
+DELIMITER ;

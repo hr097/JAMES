@@ -1,0 +1,54 @@
+CREATE TABLE Ams_setup_students_map(ams_setup_id INTEGER NOT NULL,spid VARCHAR(10) NOT NULL,p_days SMALLINT NOT NULL,a_days SMALLINT NOT NULL,PRIMARY KEY(ams_setup_id,spid));
+
+
+ALTER TABLE Ams_setup_students_map ALTER a_days SET DEFAULT 0;
+
+ALTER TABLE Ams_setup_students_map ALTER p_days SET DEFAULT 0;
+
+
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT CHK_a_days CHECK(a_days>=0 AND a_days<=100000);
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT CHK_p_days CHECK(p_days>=0 AND p_days<=100000);
+
+
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_stud_ams_setup_id_map FOREIGN KEY(ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_ams_setup_spid_map FOREIGN KEY(spid) REFERENCES Students(spid) ON UPDATE CASCADE;
+
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049910');
+
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049935');
+
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049812');
+
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049819');
+
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049836');
+
+// not necessary ?
+
+CREATE INDEX idx_amsSetupStudMap ON  Ams_setup_students_map(spid);

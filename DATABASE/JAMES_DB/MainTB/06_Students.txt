@@ -1,0 +1,27 @@
+CREATE TABLE Students(spid VARCHAR(10),name varchar(256) NOT NULL,gender CHAR(1) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,course_id INTEGER NOT NULL,joining_year YEAR NOT NULL,cur_semester INTEGER NOT NULL,cur_division CHAR(1) NOT NULL,cur_roll_no SMALLINT NOT NULL, stud_status BOOLEAN ,PRIMARY KEY(spid));
+
+
+ALTER TABLE Students ADD CONSTRAINT CHK_stud_gender CHECK(gender='M' OR gender='F' OR gender='T' OR gender='O');
+ALTER TABLE Students ADD CONSTRAINT CHK_stud_dob CHECK(dob>='1990-01-01');
+ALTER TABLE Students ADD CONSTRAINT CHK_stud_joining_year CHECK(joining_year>='2000');
+ALTER TABLE Students ADD CONSTRAINT CHK_stud_cur_sem CHECK(cur_semester>=1 AND cur_semester<=50);
+ALTER TABLE Students ADD CONSTRAINT CHK_stud_cur_division CHECK(cur_division>='A' AND cur_division<='Z');
+ALTER TABLE Students ADD CONSTRAINT CHK_stud_cur_roll_no CHECK(cur_roll_no>=1 AND cur_roll_no<=10000);
+ALTER TABLE Students ADD CONSTRAINT CHK_stud_status CHECK(stud_status=TRUE OR stud_status=FALSE);
+
+
+ALTER TABLE Students ADD CONSTRAINT FK_stud_email FOREIGN KEY (email) REFERENCES Users(username) ON UPDATE CASCADE;
+
+ALTER TABLE Students ADD CONSTRAINT FK_stud_course_id FOREIGN KEY(course_id) REFERENCES Courses(course_id)ON UPDATE CASCADE;
+
+
+ALTER TABLE Students ADD CONSTRAINT UNQ_stud_email UNIQUE(email);
+
+
+ALTER TABLE Students ALTER stud_status SET DEFAULT TRUE;
+
+CREATE UNIQUE INDEX idx_StudSpid ON Students(spid);
+
+
+CREATE OR REPLACE VIEW vw_students AS  SELECT spid,name,gender,dob,email,contact_no,Courses.course_name,joining_year,cur_semester,cur_division,cur_roll_no FROM Students,Courses WHERE Students.course_id=Courses.course_id and Students.stud_status=1;
+
