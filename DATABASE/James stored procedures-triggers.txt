@@ -55,6 +55,10 @@ on deletion of records this should be moved to backup table
 
 deletion of Users table record move to bckp table
 
+8)Rfid_uid_spid_map:
+
+deletion of Users table record move to bckp table
+
 ******)Routines:
 
 1)Ams_api 
