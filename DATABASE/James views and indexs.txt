@@ -28,7 +28,13 @@ CREATE UNIQUE INDEX idx_subjectCode ON Subjects(subject_code);
 
 CREATE UNIQUE INDEX idx_FacSpid ON Faculties(fid);
 
-// below are not  necessary if wish then it can be removed
+7) Ams_setup_course_subject_map:[DONE]
+
+CREATE UNIQUE INDEX idx_amsSetupId ON  Ams_setup_course_subject_map(ams_setup_id); 
+
+
+
+***// below are not  necessary if wish then it can be removed
 
 1)Courses:  [ DONE]
 
@@ -46,6 +52,19 @@ CREATE INDEX idx_cs_id ON Course_subject_map(cs_id);
 
 CREATE INDEX idx_subjectName ON Subjects(subject_name);
 
+5) Ams_setup_course_subject_map : [DONE]
+
+CREATE INDEX idx_amsSetupCsIdMap  ON Ams_setup_course_subject_map(cs_id); 
+
+6)Ams_setup_faculties_map: [DONE]
+
+CREATE INDEX idx_amsSetupFacMap ON Ams_setup_faculties_map(fid);
+
+7)Ams_setup_students_map: [DONE]
+
+CREATE INDEX idx_amsSetupStudMap ON  Ams_setup_students_map(spid);
+
+
 
 ***************)views:
 
@@ -59,4 +78,10 @@ CREATE OR REPLACE VIEW vw_students AS  SELECT spid,name,gender,dob,email,contact
 3) Faculties:[DONE]
 
 CREATE OR REPLACE VIEW vw_faculties AS SELECT fid,name,gender,dob,email,contact_no,joining_year,designation FROM faculties where fac_status=1;
+
+
+4) Ams_setup_faculties_map: [DONE]
+
+CREATE OR REPLACE VIEW vw_ams_setup_faculties_map AS SELECT ams_setup_id,fid FROM  Ams_setup_faculties_map  where setup_status=1;
+
 

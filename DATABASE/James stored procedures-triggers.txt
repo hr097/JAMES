@@ -17,15 +17,19 @@ getListBySemesterTime(5,'08:35','09:45');
 
 getFacByDesignation('Teching Assistant');
 
+4)Ams_attendance_master:
 
-
+getStudAttBySpid('2020049910'); // spid
 
 ******)Triggers :
 
-1)Students/Faculties:
+1)Students:
 
-when student completes like 10 th sem is updated to 11 th at that time  we use this trigger to delete record from here and shift to backup db.
+when student completes like 10 th sem is updated to 11 th at that time  we use this trigger to delete record from here and shift to backup tb.
 
+2)Faculties:
+
+when faculty permenently leaves at that time  we use this trigger to delete record from here and shift to backup tb.
 
 2)Ams_api: [DONE]
 
@@ -42,6 +46,19 @@ DELIMITER ;
 3) Ams_attendance_master
 
 on deletion of records this should be moved to backup table
+
+4)Ams_setup_course_subject_map:
+
+on deletion of records this should be moved to backup table
+
+5)Ams_setup_faculties_map:
+
+on deletion of records this should be moved to backup table
+
+6)Ams_setup_students_map:
+
+on deletion of records this should be moved to backup table
+
 
 ******)Routines:
 
