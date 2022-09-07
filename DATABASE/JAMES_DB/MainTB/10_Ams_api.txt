@@ -3,6 +3,9 @@ CREATE TABLE Ams_api(reading_no INTEGER AUTO_INCREMENT,reader_no SMALLINT NOT NU
 
 ALTER TABLE  Ams_api ADD CONSTRAINT FK_api_spid FOREIGN KEY(spid) REFERENCES Rfid_uid_spid_map(spid) ON UPDATE CASCADE; 
 
+ALTER TABLE  Ams_api ADD CONSTRAINT FK_reader_readerNo FOREIGN KEY(reader_no) REFERENCES Ams_readers(reader_no) ON UPDATE CASCADE; 
+
+
 ALTER TABLE Ams_api ADD CONSTRAINT CHK_reader_no CHECK(reader_no>=1 AND reader_no<=100);
 
 ALTER TABLE  Ams_api  ADD CONSTRAINT CHK_semester CHECK(semester>=1 AND semester<=50);
