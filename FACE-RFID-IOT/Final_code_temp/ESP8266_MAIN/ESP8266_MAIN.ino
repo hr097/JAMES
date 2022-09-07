@@ -17,14 +17,14 @@
 #include <ESP8266WiFi.h>        // library for connecting wifi & internet
 //#include <HTTPClient.h> //library to connect with API
 
-#define SS_PIN 21  //(D21)- SDA pin of rfid reader
-#define RST_PIN 22 //(D22)- Reset pin of rfid reader
+#define SS_PIN 15  //(D21)- SDA pin of rfid reader
+#define RST_PIN 16 //(D22)- Reset pin of rfid reader
 
 #define Rfid_status 2          // D2  - Rfid read status [Blue light]
-#define Attendance_status 4    // D4  - Attedance Verified status [Green light]
+//#define Attendance_status 4    // D4  - Attedance Verified status [Green light]
 #define Invalid_card_status 15 // D15 - Invalid card scanned / failure (verification of attedance) [Red light] 
 #define Internet_status 5      // D5  - System connection with Active Internet connection
-#define control_status 13      // D13 - System control pin ESP32 & READER Online/Offline
+#define control_status 4      // D2esp - System control pin ESP32 & READER Online/Offline
 
 // Global storage variables 
 
@@ -94,8 +94,8 @@ bool establish_secure_connection(unsigned long int baud_rate, const char *Ssid, 
         pinMode(control_status, INPUT); //configure
         digitalWrite(control_status, LOW); //set intial status
 
-        pinMode(Attendance_status, OUTPUT);
-        digitalWrite(Attendance_status, LOW);
+//        pinMode(Attendance_status, OUTPUT);
+//        digitalWrite(Attendance_status, LOW);
 
         pinMode(Rfid_status, OUTPUT);
         digitalWrite(Rfid_status, LOW);
@@ -206,11 +206,11 @@ void sendToApi() // function to send Attedance data to an API
     String payload = http.getString(); //wait for Api Response about given Attedance data
     Serial.println(payload); //print Response //!CHECK HERE
 
-    if(httpResponseCode == 200 && payload=="1")
+    if(httpResponseCode == 200 && payload=="{\"response\":1}")
     {   
         Serial.println(" ");
         Serial.println("-->Attedance verified ! ;)");
-        digitalWrite(Attendance_status, HIGH); // display status of Attedance verification
+//        digitalWrite(Attendance_status, HIGH); // display status of Attedance verification
     }
     else
     {  
@@ -308,7 +308,7 @@ void loop()
                 delay(500);
                 digitalWrite(Rfid_status, LOW);
                 digitalWrite(Invalid_card_status, LOW);
-                digitalWrite(Attendance_status, LOW);
+//                digitalWrite(Attendance_status, LOW);
             }
             else
             {   
