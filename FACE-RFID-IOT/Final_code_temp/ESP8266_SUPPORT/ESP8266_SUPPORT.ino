@@ -16,11 +16,11 @@
 #include <ESP8266WebServer.h> //library for intiating web server
 #include <FS.h>   //library for using File System Headers
 
-const char* titleFile = "/title-icon.png"; // title bar icon for webpage
+const char* titleFile = "/title-icon.png"; // title bar icon for webpage 
 
 //ESP8266 Access Point Mode configuration
 
-const char *ssid = "MSCIT-5";
+const char *ssid = "MSCIT-5"; //@change name & password of each reader
 const char *password = "root@it4ict";
 
 #define system_command 4 //D2 (system_command to start esp32 & rfid reader system On/Off)
@@ -36,7 +36,7 @@ const char webpage[] PROGMEM = R"=====(
 <html>
 
 <head>
-    <title>JPD | AMS</title>
+    <title>AMS | RFID Reader </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="title.png">
 </head>
@@ -205,7 +205,7 @@ const char webpage[] PROGMEM = R"=====(
     <div class="content">
         <div class="card-grid">
             <div class="card">
-               
+                <!-- @change name -->               
                 <h1 id="stationID">MSCIT-5</h1>
                 <br>
                 <br>
@@ -222,7 +222,7 @@ const char webpage[] PROGMEM = R"=====(
         </div>
     </div>
     <footer>
-        <p>Copyrights © 2022. All Rights Reserved. Powered by JPD | AMS.</p>
+        <p>Copyrights © 2022. All Rights Reserved. Powered by AMS | JPD.</p>
     </footer>
 <script>
 function send(system_command_status) 
@@ -312,7 +312,7 @@ void setup() {
   Serial.println(myIP);
 
   //Initialize Webserver
-  server.on("/",handleRoot);//serevr ON
+  server.on("/",handleRoot);//server ON
   server.on("/system_command_set", system_command_control); //call system command and put intial state of command on web server
   server.onNotFound(handleWebRequests); //Set server all paths  which are not found so we can handle as per URI
   server.begin();   //web server start

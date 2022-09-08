@@ -20,6 +20,8 @@
 #define SS_PIN 15  //(D21)- SDA pin of rfid reader
 #define RST_PIN 16 //(D22)- Reset pin of rfid reader
 
+
+//@change pin
 #define Rfid_status 2          // D2  - Rfid read status [Blue light]
 //#define Attendance_status 4    // D4  - Attedance Verified status [Green light]
 #define Invalid_card_status 15 // D15 - Invalid card scanned / failure (verification of attedance) [Red light] 
@@ -31,7 +33,7 @@
 String Rfid_tag_ID = "";      // storing read tag ID
 String last_read_tag_ID = ""; // for storing last read tag ID to confirm once scanned card can't be rescanned immediately
 
-String readerNumber = "8"; // Reader Number
+String readerNumber = "8"; // @change Reader Number
 
 StaticJsonDocument<128> UID_JSON; // JSON storage for Api POST request
 
@@ -41,14 +43,15 @@ MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance/object.
 
 // Wifi & API configuration
 
-// api configuration
-const char *serverName = "http://amsjpd.ml/rfid/addattendance.php"; // Domain name with full URL path to an api for HTTP POST Request
-
-//wifi configuration
+// @change wifi configuration
 char WIFI_SSID[3][30] = {"Noah","winter", "VNSGU"}; // Wifi ssid array to store multiple wifi because in case of one connection failure system can auto connect with another wifi available
 char WIFI_PASSWORD[3][30] = {"12345678","password", "12345678"}; // ssid -password mapped
 char connection_req_ssid[30]; // temporary SSID for debugging purpose
 int connection_index = 0; // counter for ssid and password from array
+
+// @change api configuration 
+const char *serverName = "http://amsjpd.ml/rfid/addattendance.php"; // Domain name with full URL path to an api for HTTP POST Request
+
 
 WiFiClient client; // object for wifi client
 HTTPClient http;   // object for http client for API
@@ -166,6 +169,7 @@ void setup()
 
     /*Connection with Wifi and Internet */
 
+    /@change baud rate
     while (!establish_secure_connection(115200, WIFI_SSID[connection_index], WIFI_PASSWORD[connection_index])) 
     {
 
@@ -181,7 +185,8 @@ void setup()
 }
 
 void sendToApi() // function to send Attedance data to an API
-{
+{    
+   //@change api token
     UID_JSON["_api_token"] = "1008kbno9qessgzah1k5rjsnnwtr9yco2vlfgzw9nu5261"; //Api Token for security
     UID_JSON["_r_no"] = readerNumber;
 
@@ -206,21 +211,21 @@ void sendToApi() // function to send Attedance data to an API
     String payload = http.getString(); //wait for Api Response about given Attedance data
     Serial.println(payload); //print Response //!CHECK HERE
 
-    if(httpResponseCode == 200 && payload=="{\"response\":1}")
+    if(httpResponseCode == 200 && payload=="{\"response\":1}") //@change logic to only 1
     {   
         Serial.println(" ");
         Serial.println("-->Attedance verified ! ;)");
-//        digitalWrite(Attendance_status, HIGH); // display status of Attedance verification
+        digitalWrite(Attendance_status, HIGH); // display status of Attedance verification
     }
     else
     {  
         Serial.println(" ");
-        Serial.println("Something went wrong:( ->(Rescan this card after sometime !)");
+        Serial.println("Something went wrong:( ->(Rescan this later on !)");
         digitalWrite(Invalid_card_status, HIGH);
     }
 
-    http.end(); // free http resourse
-    UID_JSON.clear(); // clear JSON data for preparing new Attedance data object for an api
+    http.end(); // free http resource
+    UID_JSON.clear(); // clear JSON data for preparing new Attendance data object for an api
 }
 void loop()
 {
@@ -234,9 +239,8 @@ void loop()
       Serial.println();
       Serial.println("Internet status = CONNECTED");
 
-        if (mfrc522.PICC_IsNewCardPresent()) // Look for new rfid card tag
+        if(mfrc522.PICC_IsNewCardPresent()) // Look for new rfid card tag
         {
-
             if (mfrc522.PICC_ReadCardSerial()) // read UID from present card
             {
 
