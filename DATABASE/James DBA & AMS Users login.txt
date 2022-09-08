@@ -1,4 +1,4 @@
-=>MYSQL LOGIN AS DB USER:
+=>MYSQL LOGIN AS DB USER: (we will implement single user)
 
 ams-authenticator: amsauth000
 ams-admin: amsadmin444

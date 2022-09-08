@@ -1,4 +1,4 @@
-1)user creation: [DONE] run all
+1)user creation: [DONE] run all not needed this file
 
 CREATE USER 'ams-authenticator'@'localhost' IDENTIFIED BY 'amsauth000';
 CREATE USER 'ams-admin'@'localhost' IDENTIFIED BY 'amsadmin444';

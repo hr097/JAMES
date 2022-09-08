@@ -14,3 +14,4 @@ ALTER TABLE  Ams_attendance_master ADD CONSTRAINT CHK_att_status CHECK(att_statu
 
 insert into Ams_attendance_master(spid,ams_setup_id,att_time,att_status) values('2020049910','08:11:08',1,0); 
 insert into Ams_attendance_master(spid,ams_setup_id,att_time,att_status) values('2020049910','09:11:08',1,1); 
+

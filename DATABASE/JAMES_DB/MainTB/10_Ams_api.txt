@@ -41,3 +41,5 @@ DO BEGIN
   TRUNCATE TABLE ams_api;
 END$$
 DELIMITER ;
+
+
