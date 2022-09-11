@@ -38,6 +38,8 @@ when faculty permenently leaves at that time  we use this trigger to delete reco
 3) Ams_attendance_master
 
 on deletion of records this should be moved to backup table
+on insertion of record we have  to update attendance percentage in 
+Ams_course_subject_map so we need trigger for that.
 
 4)Ams_setup_course_subject_map:
 
