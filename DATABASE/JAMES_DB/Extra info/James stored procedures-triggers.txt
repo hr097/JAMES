@@ -31,13 +31,15 @@ when student completes like 10 th sem is updated to 11 th at that time  we use t
 
 when faculty permenently leaves at that time  we use this trigger to delete record from here and shift to backup tb.
 
-2)Ams_api: [DONE]
+2)Ams_api: 
 
 // done included in table file
 
 3) Ams_attendance_master
 
 on deletion of records this should be moved to backup table
+on insertion of record we have  to update attendance percentage in 
+Ams_course_subject_map so we need trigger for that.
 
 4)Ams_setup_course_subject_map:
 
