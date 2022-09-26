@@ -1,5 +1,0 @@
-CREATE TABLE Bckp_Ams_api(reading_no INTEGER AUTO_INCREMENT,reader_no SMALLINT NOT NULL,reading_date DATE NOT NULL,reading_time TIME NOT NULL,spid VARCHAR(10) NOT NULL,semester SMALLINT,PRIMARY KEY(reading_no));
-
-ALTER TABLE  Bckp_Ams_api ADD CONSTRAINT FK_api_spid_bckp FOREIGN KEY(spid) REFERENCES Bckp_Rfid_uid_spid_map(spid) ON UPDATE CASCADE; 
-
-CREATE INDEX idx_AmsSemster_bckp ON Bckp_Ams_api(semester);

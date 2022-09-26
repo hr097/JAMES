@@ -1,9 +1,0 @@
-CREATE TABLE Bckp_Ams_attendance_master(att_no BIGINT AUTO_INCREMENT,spid VARCHAR(10) NOT NULL,ams_setup_id  INTEGER NOT NULL,att_date DATE NOT NULL,att_time TIME NOT NULL,att_status BOOLEAN NOT NULL,PRIMARY KEY(att_no));
-
-
-ALTER TABLE  Bckp_Ams_attendance_master ADD CONSTRAINT FK_attendance_ams_setup_map_bckp FOREIGN KEY (ams_setup_id) REFERENCES Bckp_Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE;
-ALTER TABLE  Bckp_Ams_attendance_master ADD CONSTRAINT FK_attedance_spid_map2_bckp FOREIGN KEY (spid) REFERENCES Bckp_Students(spid) ON UPDATE CASCADE;
-
-
-
- 
