@@ -1,0 +1,14 @@
+
+changes in documents and do software engineering === Drashti
+
+auto transfer features of students; === pending....
+auto transfer roll no and div...sem..... === pedning....
+
+backup and recovery of db....; == pending.... every 6 months sql file generated option should be given in admin panel;
+
+=>select into use it means same db another table data transfer or we may chose ams_back_up_db on another server;
+time scheduling backup;
+
+
+
+

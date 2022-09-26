@@ -1,0 +1,22 @@
+CREATE TABLE Course_subject_map(cs_id INTEGER AUTO_INCREMENT,course_id INTEGER NOT NULL,subject_id INTEGER NOT NULL,primary key(cs_id));
+
+
+ALTER TABLE Course_subject_map ADD CONSTRAINT FK_Course_map FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON UPDATE CASCADE;
+
+ALTER TABLE Course_subject_map ADD CONSTRAINT FK_subject_map FOREIGN KEY (subject_id) REFERENCES Subjects(subject_id) ON UPDATE CASCADE;
+
+ALTER TABLE Course_subject_map ADD CONSTRAINT UNQ_course_subject_map UNIQUE(course_id,subject_id);
+
+
+insert into Course_subject_map(course_id,subject_id) values(3,1);
+insert into Course_subject_map(course_id,subject_id) values(3,2);
+insert into Course_subject_map(course_id,subject_id) values(3,3);
+insert into Course_subject_map(course_id,subject_id) values(3,4);
+insert into Course_subject_map(course_id,subject_id) values(3,5);
+insert into Course_subject_map(course_id,subject_id) values(3,6);
+insert into Course_subject_map(course_id,subject_id) values(3,7);
+insert into Course_subject_map(course_id,subject_id) values(3,8);
+
+// not necessary ?
+
+CREATE INDEX idx_cs_id ON Course_subject_map(cs_id);

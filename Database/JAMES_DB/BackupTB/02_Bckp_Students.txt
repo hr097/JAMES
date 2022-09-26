@@ -1,0 +1,9 @@
+CREATE TABLE Bckp_Students(spid VARCHAR(10),name varchar(256) NOT NULL,gender CHAR(1) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,course_id INTEGER NOT NULL,joining_year YEAR NOT NULL,cur_semester INTEGER NOT NULL,cur_division CHAR(1) NOT NULL,cur_roll_no SMALLINT NOT NULL,PRIMARY KEY(spid));
+
+ALTER TABLE Bckp_Students ADD CONSTRAINT FK_stud_email_bckp FOREIGN KEY (email) REFERENCES Bckp_Users(username) ON UPDATE CASCADE;
+
+ALTER TABLE Bckp_Students ADD CONSTRAINT FK_stud_course_id_bckp FOREIGN KEY(course_id) REFERENCES Courses(course_id);
+
+CREATE UNIQUE INDEX idx_StudSpid_bckp ON Bckp_Students(spid);
+
+

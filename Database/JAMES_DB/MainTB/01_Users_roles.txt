@@ -1,0 +1,18 @@
+
+
+CREATE TABLE User_roles(user_type SMALLINT AUTO_INCREMENT,role_name VARCHAR(255)NOT NULL,PRIMARY KEY(user_type));
+
+
+ALTER TABLE User_roles ADD CONSTRAINT UNQ_user_role UNIQUE(role_name);
+
+
+insert into User_roles(role_name) values('Student');
+insert into User_roles(role_name) values('Faculty');
+insert into User_roles(role_name) values('Manager');
+insert into User_roles(role_name) values('Admin');
+
+
+// not necessary ?
+
+CREATE INDEX idx_RoleName ON User_roles(role_name);
+

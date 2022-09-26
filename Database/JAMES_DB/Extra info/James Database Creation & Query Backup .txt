@@ -1,0 +1,181 @@
+help : https://www.strongdm.com/blog/mysql-create-user-manage-access-privileges-how-to
+
+******************************************************
+
+1)to see all constraints of a table use below syantx:
+
+select COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_COLUMN_NAME, REFERENCED_TABLE_NAME from information_schema. KEY_COLUMN_USAGE where TABLE_NAME = '__YOUR_TABLE_NAME__';
+
+*** to list all.... tables data from information schema;
+
+select * from information_schema. KEY_COLUMN_USAGE where TABLE_NAME = '__YOUR_TABLE_NAME__';
+
+2)to see all database constraint:
+
+SELECT tc.constraint_schema,tc.constraint_name,tc.table_name,tc.constraint_type,kcu.table_name,kcu.column_name,kcu.referenced_table_name,kcu.referenced_column_name,rc.update_rule,rc.delete_rule
+
+FROM information_schema.table_constraints tc
+
+inner JOIN information_schema.key_column_usage kcu
+ON tc.constraint_catalog = kcu.constraint_catalog
+AND tc.constraint_schema = kcu.constraint_schema
+AND tc.constraint_name = kcu.constraint_name
+AND tc.table_name = kcu.table_name
+
+LEFT JOIN information_schema.referential_constraints rc
+ON tc.constraint_catalog = rc.constraint_catalog
+AND tc.constraint_schema = rc.constraint_schema
+AND tc.constraint_name = rc.constraint_name
+AND tc.table_name = rc.table_name
+
+WHERE tc.constraint_schema = 'James';
+
+3)Auto increment reset:
+
+ALTER TABLE Courses AUTO_INCREMENT= CURRENT VALUE;
+
+******************************************************
+
+1)TABLE CREATION AND SCHEMA:
+
+*- --------------------------------Courses  ----------------------------------* OK
+
+
+*- -------------------------------- Subjects  ----------------------------------* OK
+
+
+
+
+*- ------------------- ----Course_subject_map  ----------------------------------* OK
+
+
+
+**************************************************************************************
+predefined record:(mapping query)
+
+Stucture & logic :
+
+C_ID = select course_id from Courses where course_name='M.Sc I.T.';
+S_ID = select subject_id from Subjects where subject_name='Web development-II';
+
+insert into Course_subject_map(course_id,subject_id) values(C_ID,S_ID);
+
+*************************************************************************************
+queries:
+
+
+
+
+*- ------------------------ Students  ----------------------------------* OK
+
+
+
+[PENDING...]
+//ALTER TABLE Students ADD CONSTRAINT UNQ_contact_no UNIQUE(contact_no);
+
+
+
+pre-defined records:
+
+insert into Students values('2020049910','Ramani Harshil Shaileshbhai','M','2003-05-08','harshilramani.mscit20@vnsgu.ac.in','+91 9624561892',3,'2020',5,'B',113,TRUE);
+
+insert into Students values('2020049819','Ghevariya Archit Nareshbhai','M','2003-03-05','architghevariya.mscit20@vnsgu.ac.in','+91 7383837798',3,'2020',5,'A',26,TRUE);
+
+insert into Students values('2020049812','Dhola Drashti Ishwarbhai','F','2002-11-15','drashtidhola.mscit20@vnsgu.ac.in','+91 9687630768',3,'2020',5,'A',19,TRUE);
+
+insert into Students values('2020049836','Khunt Shubham Vinubhai','M','2003-07-18','shubhamkhunt.mscit20@vnsgu.ac.in','+91 8849178317',3,'2020',5,'A',42,TRUE);
+
+insert into Students values('2020049935','Tikiwala Shikhaa Rupalkumar','F','2002-08-24','shikhaatikiwala.mscit20@vnsgu.ac.in','+91 8200290477',3,'2020',5,'B',138,TRUE);
+
+*- ------------------- ----Faculty_roles  ----------------------------------* OK
+
+
+*--------------------- ---- Faculties  ----------------------------------* *OK
+
+pre-defined records:
+
+insert into  Faculties values('FID12345','Pushpal Desai','M','1960-01-01','pydesai@vnsgu.ac.in','+91 1234567890','2000',1,TRUE);
+
+insert into  Faculties values('FID12346','Payal Joshi','F','1970-02-01','pkpandya@vnsgu.ac.in','+91 1234567891','2008',2,TRUE);
+
+insert into  Faculties values('FID12347','Falguni Thakkar','F','1980-02-07','fgthakker@vnsgu.ac.in','+91 1234567892','2009',3,TRUE);
+
+insert into  Faculties values('FID12348','Vinny Surati','F','1989-02-07','vhsurati@vnsgu.ac.in','+91 1234567893','2018',3,TRUE);
+
+insert into  Faculties values('FID12349','Shailesh Chaudhri','M','1980-02-08','sachaudhari@vnsgu.ac.in','+91 1234567894','2007',3,TRUE);
+
+
+*-------------------------- Subject_faculty_year_map  ----------------------------------* * Not needed
+
+
+CREATE TABLE Subject_faculty_year_map(cs_id INTEGER ,fid VARCHAR(8),year YEAR,PRIMARY KEY(cs_id,fid,year));
+
+check constraint:
+
+ALTER TABLE  Subject_faculty_year_map ADD CONSTRAINT CHK_fac_sub_year_map CHECK(year>='2022');
+
+foreign key constraint:
+
+ALTER TABLE Subject_faculty_year_map
+ADD CONSTRAINT FK_fid
+FOREIGN KEY (fid) REFERENCES Faculties(fid);
+
+ALTER TABLE Subject_faculty_year_map
+ADD CONSTRAINT FK_cs_id
+FOREIGN KEY (cs_id) REFERENCES Course_subject_map(cs_id);
+
+predefined data:
+
+insert into Subject_faculty_year_map values(1,'FID12346','2022');
+insert into  Subject_faculty_year_map values(2,'FID12345','2022');
+insert into  Subject_faculty_year_map values(3,'FID12347','2022');
+insert into  Subject_faculty_year_map  values(4,'FID12349','2022');
+insert into  Subject_faculty_year_map  values(5,'FID12348','2022');
+insert into  Subject_faculty_year_map  values(6,'FID12346','2022');
+insert into  Subject_faculty_year_map  values(7,'FID12345','2022');
+insert into  Subject_faculty_year_map  values(8,'FID12347','2022');
+
+
+*-------------------------- Rfid_uid_spid_map -----------------------------**OK
+
+
+
+
+
+*-------------------------- Ams_api --------------------------------**OK
+
+
+
+
+*-------------------------- Ams_setup_course_subject_map --------------------------------* OK
+
+----------------------------------------------|
+NOTE: This is master table of ams_setup   |
+----------------------------------------------|
+
+
+
+*-------------------------- Ams_setup_faculties_map  --------------------------------*OK
+
+
+--------------just for record because I have created status_column_later--------
+
+ALTER TABLE Ams_setup_faculties_map
+ADD setup_status BOOLEAN NOT NULL DEFAULT TRUE;
+----------------------------------------------------------------------------
+
+predefined records:
+
+
+
+
+*-------------------------- Ams_setup_students_map --------------------------------* OK
+
+
+
+
+
+*-------------------------- Ams_attendance_master --------------------------------*OK
+
+
+......
