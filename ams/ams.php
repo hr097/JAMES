@@ -17,12 +17,17 @@ class AMS
     private $serverName;
     private $userName;
     private $password;
+
+    public $todayDate;
+    public $todayTime;
     
     
     //* START:: PRIVATE FUNCTIONS */
 
     private function set_server_configuration()
     {    
+        ini_set("date.timezone","Asia/calcutta"); // set time  zone for india
+        date_default_timezone_set('Asia/Calcutta'); // for php file
         ini_set('session.use_strict_mode',1); //enable strict mode to prevent session fixation attacks
         ini_set('session.use_trans_sid',0); //This will tell PHP not to include the identifier in the URL, and not to read the URL for identifiers.
         ini_set('session.use_only_cookies',1);//This will tell PHP to never use URLs with session identifiers.
@@ -102,7 +107,6 @@ class AMS
         {
             return false;
         }
-        
     }
 
     //* END:: PRIVATE FUNCTIONS  */
@@ -218,7 +222,7 @@ class AMS
     public function generateOtp($length) // generate OTP
     {
     
-    $generator = "8857902468";
+    $generator = "1357902468";
   
     $result = "";
   
@@ -252,7 +256,7 @@ class AMS
         $mail->SMTPAuth = true;                          
         //Provide username and password     
         $mail->Username = "ams.jpd@gmail.com";                 
-        $mail->Password = "wlvbwdxvlbkotlik";                           
+        $mail->Password = "wlvbwdxvlbkotlik";     //@token                       
         //If SMTP requires TLS encryption then set it
         $mail->SMTPSecure = "tls";                           
         //Set TCP port to connect to
@@ -283,12 +287,29 @@ class AMS
     
     //* END:: PUBLIC FUNCTIONS  */
 
-    function __construct($userType=0)
+    function __construct($userType="")
     {   
+
+        if($userType=="Admin")
+        {
+            $userType=1;
+        }
+        else //if($userType=="User")
+        {
+            $userType=2;
+        }
+        // else
+        // {
+        //     $userType=0;
+        // }
+
         $this->set_server_configuration();
 
+        $this->todayDate= date("d/m/Y"); // fetch today date
+        $this->todayTime = date("h:i:s A",  time()); // fetch current time
+
         // VNSGU SERVER DATABASE IP =>  "69.167.150.242:2082"; 
-        $this->serverName = "localhost"; //@change credentials
+        $this->serverName = "localhost"; //@change credentials  
         $databaseName = "james";  //@change credentials
         
         $userType=3; //@remove :: remove this line

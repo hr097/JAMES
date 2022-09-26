@@ -1,13 +1,12 @@
 <?php
 
 require_once("./ams.php");
-$JAMES = new AMS(2);
+$JAMES = new AMS();
 $JAMES->init_user_session();
 
-if($JAMES->checkSession()===true)
+if($JAMES->checkSession()===true) // if session active than redirect user to his/her dashboard
 {
-    $type = (int) $_SESSION['_userType'];
-    $JAMES->redirect_ams_user($type);
+    $JAMES->redirect_ams_user(((int) $_SESSION['_userType'])); 
 }
 
 ?>
@@ -47,6 +46,9 @@ if($JAMES->checkSession()===true)
     <!--javaScript-->
     <script src="./js/authentication/login.js" type="text/javascript" defer=true></script>
     <noscript>Your browser does not support Javascript!</noscript>
+
+    <!--JS library files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
     <!--jQuery file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

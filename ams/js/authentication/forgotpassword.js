@@ -1,5 +1,5 @@
 
-/* START::TOGGLE OTP */
+/* START::TOGGLE OTP- */
 
 const togglePassword = document.querySelector("#togglePassword");
 const otpcode = document.querySelector("#otpcode");
@@ -44,7 +44,7 @@ function startMainTimer() //OTP entering time
 }, 1000);
 }
 
-function startReqTimer() // rerequest timer for otp 
+function startReqTimer() // rerequest otp timer 60 seconds 
 {
   $("#resendotplink").css("pointer-events","none");
   var countDownDate = new Date().getTime()+61000; //61 second
@@ -65,9 +65,9 @@ function sendApiReq(apiNum)
 {
     if(apiNum === 1)
     {
-        $.post("./api/verifyuser.php",
+        $.post("./api/sendotp.php",
         {
-          _un: email.val().toLowerCase(),
+          _un: email.val().toLowerCase().trim(),
           _ct: csrfToken.val(),
         },
         function(data,status)
@@ -113,9 +113,9 @@ function sendApiReq(apiNum)
    }
    else if(apiNum===2)
    {    
-        $.post("./api/verifyuserotp.php",
+        $.post("./api/validateotp.php",
         {
-          _c: code.val(),
+          _c: code.val().trim(),
           _ct: csrfToken.val(),
         },
         function(data,status)
@@ -130,7 +130,7 @@ function sendApiReq(apiNum)
                       {
                         showError("Invalid code!");
                         code.val(""); 
-                        setTimeout( function(){window.location.replace("./index.php")},1000);
+                        setTimeout( function(){window.location.replace("./forgotpassword.php")},1000);
                       }
                       else if(attempts===1)
                       { 
@@ -168,6 +168,7 @@ $(document).ready(function(){
 
     $("#loading").hide();
     $("#enterotp").hide();
+
     $("#requestotpbtn").click(function(){
       if(email.val()=="") 
       {
@@ -182,8 +183,10 @@ $(document).ready(function(){
       {
         $("#requestotp").hide();
         $("#loading").show();
+
         sendApiReq(1);
       }
+
       $("#resendotplink").click(function(){
 
         $("#loading").show();
@@ -197,11 +200,12 @@ $(document).ready(function(){
        });
 
        $("#submitotpbtn").click(function(){
+
         if(code.val()=="") 
         {
           showError("Please enter code"); 
         }
-        else if(!(/^\d{6}$/.test(code.val()))) 
+        else if(!(/^\d{6}$/.test(code.val().trim()))) 
         {
           showError("Only digits are allowed!");
           code.val(""); 

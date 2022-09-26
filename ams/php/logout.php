@@ -5,7 +5,7 @@ $JAMES = new AMS();
 $JAMES->init_user_session();
 
 
-if(isset($_SESSION["_resetUserId"])||isset($_SESSION["_csrfToken"]))
+if(isset($_SESSION["_csrfToken"])&&(isset($_SESSION["_userId"])||isset($_SESSION["_resetUserId"])))
 {
     $JAMES->delete_user_session();
     $JAMES->ams_redirect("../login.php");

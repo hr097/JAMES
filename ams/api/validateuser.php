@@ -1,18 +1,18 @@
 <?php
 
-// header('Content-Type: application/json');
-// header('Access-Control-Allow-Origin:*'); //  @change
-// // header('Access-Control-Allow-Origin:ams.vnsguit.org');
-// header('Access-Control-Allow-Methods: POST');
-// header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin:*'); //  @change * => ams.vnsguit.org
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
 require_once("../ams.php");
-$JAMES = new AMS(2);
+$JAMES = new AMS("User");
 $JAMES->init_user_session();
 
 function validate_user($u,$p) 
 {    
-    $sql = "select username,password,user_token,user_type from vw_users_auth where username='$u';"; //@query
+    //@query
+    $sql = "select username,password,user_token,user_type from vw_users_auth where username='$u';"; 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
 
     if(mysqli_num_rows($result)===1)
@@ -55,12 +55,11 @@ if(checkApiReqBody()===true)
         {  
            $response = ((int)$_SESSION['_userType']);
         }
-
         echo $response;
 }
 else
 {
-    echo "Insufficient request !";
+    $JAMES->ams_redirect("../login.php"); // when outside request comes redirect to login
 }
 
 ?>

@@ -17,7 +17,7 @@ window.onclick = function(event) {//close modal anywhere click
 }
 
 document.getElementById("yes-button").onclick = function() { // yes-> redirect
-  window.location.href = "forgotpassword.php";
+    window.location.href = "forgotpassword.php";
 }
 
 document.getElementById("no-button").onclick = function() { // no-> same page
@@ -39,15 +39,7 @@ togglePassword.addEventListener("click", function () {
 
 /* END:::TOGGLE PASSWORD */
 
-
-/* START::LOGIN_VALIDATION */
-
-function showError(message)
-{     
-    $("#error-message").css("display","block"); 
-    $("#message").text(message); 
-    setTimeout(function(){$("#message").text("");$("#error-message").css("display", "none");},2000); 
-}
+/* START::CREDENTIALS CHECK */
 
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
@@ -72,13 +64,27 @@ function getCookie(cname) {
   return "";
 }
 
+var encryptCred = (str) => { return (CryptoJS.AES.encrypt(str,"ams.vnsguit.org")); }        
+var decryptCred = (str) => { return ( CryptoJS.AES.decrypt(str, "ams.vnsguit.org").toString(CryptoJS.enc.Utf8) ); }        
+
+/* END::CREDENTIALS CHECK */
+
+/* START::LOGIN_VALIDATION */
+
+function showError(message)
+{     
+    $("#error-message").css("display","block"); 
+    $("#message").text(message); 
+    setTimeout(function(){$("#message").text("");$("#error-message").css("display", "none");},2000); 
+}
+
 
 $(document).ready(function(){
     
-   $("#username").val(getCookie("_usr"));
-   $("#password").val(getCookie("_pswd"));
+   $("#username").val(decryptCred(getCookie("5f7573726e6d")));
+   $("#password").val(decryptCred(getCookie("5f70737764")));
 
-   $('#remember-me').prop('checked',true);
+   $('#remember-me').prop('checked',true); // by default remember me checked
 
     $("#login").click(function(){
 
@@ -111,7 +117,7 @@ $(document).ready(function(){
       {
         $.post("./api/validateuser.php",
         {
-          _un: username.val().toLowerCase(),
+          _un: username.val().toLowerCase().trim(),
           _ps: password.val(),
           _ct: csrfToken.val(),
         },
@@ -130,19 +136,18 @@ $(document).ready(function(){
                 {
                     showError("Invalid credentials");
                     username.val(""); 
-                    password.val("");
                 }
-                else if (users.includes(response)===true)
+                else if(users.includes(response)===true)
                 {    
                   if(rememberMe==1)
                   {
-                  setCookie("_usr",username.val().trim(),7);
-                  setCookie("_pswd",password.val().trim(),7);
+                  setCookie("5f7573726e6d",encryptCred(username.val().trim()),7); // 7 days 
+                  setCookie("5f70737764",encryptCred(password.val()),7);
                   }
                   else
                   {
-                    setCookie("_usr","".trim(),-1);
-                    setCookie("_pswd","".trim(),-1);
+                    setCookie("5f7573726e6d","",-1);
+                    setCookie("5f70737764","",-1);
                   }
 
                   if(response===1)

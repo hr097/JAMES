@@ -1,10 +1,4 @@
 
-/* START:: RESET PASSWORD VALIDATION */
-
-var password1 = $("#password1"); 
-var password2 = $("#password2");
-var csrfToken= $("#csrfToken");
-
 /* START::PREVENT COPY PASTE */
 
 document.getElementById("password1").addEventListener('paste', e => e.preventDefault());
@@ -12,7 +6,18 @@ document.getElementById("password2").addEventListener('paste', e => e.preventDef
 
 /* END::PREVENT COPY PASTE */
 
-window.addEventListener("blur",function(){window.location.replace("./logout.php")}); // Exit on loosing focus of window
+/* START::CREDENTIALS CHECK */
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+/* END::CREDENTIALS CHECK */
+
+window.addEventListener("blur",function(){window.location.replace("./php/logout.php")}); // Exit on loosing focus of window
 
 /* START:: TOGGLE PASSWORD*/
 
@@ -40,21 +45,28 @@ togglePassword2.addEventListener("click", function () {
 var span = document.getElementsByClassName("close")[0];
   span.onclick = function() { // close modal
     $("#modal").css("display","none");
-    window.location.href = "./index.php";
+    window.location.href = "./login.php";
   }
   
   window.onclick = function(event) {
     if (event.target == modal) {
       $("#modal").css("display","none"); // close modal anywhere click
-      window.location.href = "./index.php";
+      window.location.href = "./login.php";
     }
   }
   
   document.getElementById("yes-button").onclick = function() { // yes-> redirect
-    window.location.href = "./index.php";
+    window.location.href = "./login.php";
   }
   
 /* END::MODAL */ 
+
+
+/* START:: RESET PASSWORD VALIDATION */
+
+var password1 = $("#password1"); 
+var password2 = $("#password2");
+var csrfToken= $("#csrfToken");
 
 function showError(message)
 {     
@@ -95,10 +107,12 @@ function sendApiReq()
                   }
                   else if(response === 1)
                   {    
+                       setCookie("5f7573726e6d","",-1); // clear saved credentials
+                       setCookie("5f70737764","",-1);
                        password1.val("");
                        password2.val("");
-                       modal.css("display","block");
-                       setTimeout(function(){window.location.replace("./index.php");},3000);
+                       $("#modal").css("display","block");
+                       setTimeout(function(){window.location.replace("./login.php");},3000);
                   }
                   else
                   {
@@ -114,7 +128,6 @@ function sendApiReq()
         });
 
 }
-
 
 /* END:: RESET PASSWORD VALIDATION */
 
