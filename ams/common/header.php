@@ -33,7 +33,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!--javaScript file-->
-    <script src="../js/student/dashboard.js" type="text/javascript" defer=true></script>
+    <script src="../js/header.js" type="text/javascript" defer=true></script>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="../assets/logos/favicon.ico">
@@ -74,7 +74,7 @@
                                 <i class="icon-head menu-icon"></i>
                                 Profile
                             </a>
-                            <a class="dropdown-item" href="../logout.php">
+                            <a class="dropdown-item" href="../php/logout.php">
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
                             </a>
