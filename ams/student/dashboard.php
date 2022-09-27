@@ -1,13 +1,13 @@
 <?php
 
- require_once("../ams.php");
- $JAMES = new AMS(2);
- $JAMES->init_user_session();
+//  require_once("../ams.php");
+//  $JAMES = new AMS(2);
+//  $JAMES->init_user_session();
 
- if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
- {
-  $JAMES->ams_redirect("../login.php");
- }
+//  if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
+//  {
+//   $JAMES->ams_redirect("../login.php");
+//  }
  
 ?>
 
@@ -18,7 +18,7 @@
 
     <!-- including header -->
     <?php
-    include '../common/header.php'
+    include './common/header.php'
     ?>
 
     <!-- css  -->
@@ -171,7 +171,7 @@
 
     <!-- including footer -->
     <?php
-    include '../common/footer.php'
+    include './common/footer.php'
     ?>
 
 </body>

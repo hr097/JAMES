@@ -1,0 +1,83 @@
+* {
+    font-family: "Poppins", "sans-serif";
+  }
+
+/*----------------------------------------------Faculty Card--------------------------------------------------------------------------------*/
+.scene {
+    background-color: transparent;
+    width: 340px;
+    height: 210px;
+    perspective: 1000px;
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  
+  /* Position the front and back side */
+  .card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card.is-flipped {
+    transform: rotateY(180deg);
+  }
+  
+  /* Style the front side */
+  .card__face--front {
+    background-image: linear-gradient(rgba(47, 45, 47, 0.329), rgba(59, 54, 54, 0.3)), url('../assets/other/profile-bg.png');
+    background-size: cover;
+    border-radius: 10px;
+  }
+  
+  /* Style the back side */
+  .card__face--back {
+    background-image: linear-gradient(rgba(47, 45, 47, 0.329), rgba(59, 54, 54, 0.3)), url('../assets/other/profile-bg.png');
+    background-size: cover;
+    border-radius: 10px;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  
+  
+  .info-title {
+  color: #0056b3;
+}
+
+.info-data {
+  margin-bottom: 30px;
+  color: rgb(91, 90, 90);
+}
+
+  /*-------------------------------About Page CSS-------------------------------*/
+  .about_title {
+    font-weight: bolder;
+    padding-bottom: 2%;
+  }
+  
+  .small_titles {
+    font-weight: bolder;
+  
+  }
+  
+  .underline {
+    text-decoration: underline 5px solid #0056b3;
+    padding-bottom: 4%;
+  }
+
+/*Account Type*/
+.ac_type {
+    margin-right: 30px;
+    margin-top: 7px;
+  }
