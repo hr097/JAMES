@@ -135,7 +135,7 @@ $(document).ready(function(){
                 else if(response=== -1)
                 {
                     showError("Invalid credentials");
-                    username.val(""); 
+                    password.val(""); 
                 }
                 else if(users.includes(response)===true)
                 {    
