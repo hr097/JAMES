@@ -1,21 +1,13 @@
- CREATE TABLE  Faculties(fid VARCHAR(8),name varchar(256) NOT NULL,gender CHAR(1) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,joining_year YEAR NOT NULL,role_id SMALLINT  NOT NULL,fac_status BOOLEAN ,PRIMARY KEY(fid));
-
-
+ CREATE TABLE  Faculties(fid VARCHAR(8),name varchar(256) NOT NULL,gender VARCHAR(10) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,joining_year YEAR NOT NULL,role_id SMALLINT  NOT NULL,fac_status BOOLEAN ,PRIMARY KEY(fid));
 
 ALTER TABLE Faculties ADD CONSTRAINT FK_fac_email FOREIGN KEY (email) REFERENCES Users(username) ON UPDATE CASCADE;
 
 ALTER TABLE Faculties ADD CONSTRAINT FK_fac_role FOREIGN KEY (role_id) REFERENCES Faculty_roles(role_id) ON UPDATE CASCADE;
 
-ALTER TABLE Faculties ADD CONSTRAINT CHK_fac_gender CHECK(gender='M' OR gender='F' OR gender='T' OR gender='O');
-ALTER TABLE Faculties ADD CONSTRAINT CHK_fac_dob CHECK(dob>='1920-01-01');
-ALTER TABLE Faculties ADD CONSTRAINT CHK_fac_joining_year CHECK(joining_year>='1995');
-
+ALTER TABLE Faculties ADD CONSTRAINT CHK_fac_gender CHECK(gender='Male' OR gender='Female' OR gender='Other');
 ALTER TABLE Faculties ADD CONSTRAINT CHK_fac_status CHECK(fac_status=TRUE OR fac_status=FALSE);
-
+ALTER TABLE Faculties ADD CONSTRAINT UNQ_fec_email UNIQUE(email);
 
 ALTER TABLE Faculties ALTER fac_status SET DEFAULT TRUE;
 
-CREATE UNIQUE INDEX idx_Facfid ON Faculties(fid);
 
-
-CREATE OR REPLACE VIEW vw_faculties AS SELECT fid,name,gender,dob,email,contact_no,joining_year,designation FROM faculties where fac_status=1;

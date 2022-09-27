@@ -12,7 +12,4 @@ insert into User_roles(role_name) values('Manager');
 insert into User_roles(role_name) values('Admin');
 
 
-// not necessary ?
-
-CREATE INDEX idx_RoleName ON User_roles(role_name);
 

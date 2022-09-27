@@ -1,3 +1,0 @@
-Think thrice before you perform an action on database.
-
-

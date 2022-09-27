@@ -1,9 +1,10 @@
 **********)Indexes :
 
 
-1)Users: [ DONE]
+1)Users: 
 
 
+CREATE INDEX idx_user_type ON Users (user_type);
 
 
 2)Students:  [ DONE]
@@ -26,26 +27,30 @@
 7) Ams_setup_course_subject_map:[DONE]
 
 
+8)User_roles:  
+CREATE UNIQUE INDEX idx_RoleName ON User_roles(role_name);
 
 
 
-***// below are not  necessary if wish then it can be removed
 
-1)Courses:  [ DONE]
-
+9)Courses:
 
 
-2)User_roles:  [ DONE]
+CREATE UNIQUE INDEX idx_courseName ON Courses(course_name);
 
-
+10)Faculty_role
+CREATE UNIQUE INDEX idx_RoleName ON Fac_roles(role_name);
 
 3)Course_subject_map: [DONE]
 
 
 
-4)Subjects [ DONE ]
+4)Subjects :
 
 
+CREATE UNIQUE INDEX idx_subjectCode ON Subjects(subject_code);
+
+CREATE INDEX idx_subjectName ON Subjects(subject_name);
 
 5) Ams_setup_course_subject_map : [DONE]
 

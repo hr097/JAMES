@@ -17,6 +17,3 @@ insert into Course_subject_map(course_id,subject_id) values(3,6);
 insert into Course_subject_map(course_id,subject_id) values(3,7);
 insert into Course_subject_map(course_id,subject_id) values(3,8);
 
-// not necessary ?
-
-CREATE INDEX idx_cs_id ON Course_subject_map(cs_id);

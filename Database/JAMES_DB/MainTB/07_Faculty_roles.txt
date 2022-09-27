@@ -10,6 +10,3 @@ insert into Faculty_roles(role_name) values('Assistant Professor');
 insert into Faculty_roles(role_name) values('Teaching Assistant');
 
 
-// not necessary ?
-
-CREATE INDEX idx_RoleName ON Fac_roles(role_name);

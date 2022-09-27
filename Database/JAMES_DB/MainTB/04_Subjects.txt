@@ -1,4 +1,4 @@
-CREATE TABLE Subjects(subject_id INTEGER AUTO_INCREMENT,subject_code INTEGER NOT NULL,subject_name VARCHAR(255) NOT NULL,semester INTEGER NOT NULL,PRIMARY KEY(subject_id));
+CREATE TABLE Subjects(subject_id INTEGER AUTO_INCREMENT,subject_code INTEGER NOT NULL,subject_name VARCHAR(255) NOT NULL,semester SMALLINT NOT NULL,PRIMARY KEY(subject_id));
 
 ALTER TABLE Subjects ADD CONSTRAINT CHK_Subject_code CHECK(subject_code>=1 AND subject_code<=100000);
 
@@ -15,10 +15,3 @@ insert into Subjects(subject_code,subject_name,semester) values(505,'Account & T
 insert into Subjects(subject_code,subject_name,semester) values(506,'Practical-10',5);
 insert into Subjects(subject_code,subject_name,semester) values(507,'Practical-11',5);
 insert into Subjects(subject_code,subject_name,semester) values(508,'Practical-12',5);
-
-CREATE UNIQUE INDEX idx_subjectCode ON Subjects(subject_code);
-
-
-// not necessary ?
-
-CREATE INDEX idx_subjectName ON Subjects(subject_name);

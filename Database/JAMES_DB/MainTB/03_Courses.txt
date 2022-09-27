@@ -1,10 +1,10 @@
-CREATE TABLE Courses(course_id INTEGER AUTO_INCREMENT,course_name VARCHAR(255) NOT NULL,total_semester INTEGER NOT NULL,PRIMARY KEY(course_id));
+CREATE TABLE Courses(course_id INTEGER AUTO_INCREMENT,course_name VARCHAR(255) NOT NULL,total_semester SMALLINT NOT NULL,PRIMARY KEY(course_id));
 
 
 ALTER TABLE Courses ADD CONSTRAINT CHK_Courses_total_sem CHECK(total_semester>=1 AND total_semester<=50);
 
 
-ALTER TABLE Courses ADD CONSTRAINT UNQ_course_name UNIQUE(course_name,total_semester);
+ALTER TABLE Courses ADD CONSTRAINT UNQ_course_name UNIQUE(course_name);
 
 
 insert into Courses(course_name,total_semester) values('M.Sc I.T.',4);
@@ -12,6 +12,4 @@ insert into Courses(course_name,total_semester) values('M.Sc I.C.T.',4);
 insert into Courses(course_name,total_semester) values('B.Sc I.T.',6);
 
 
-// not necessary ?
 
-CREATE INDEX idx_courseName ON Courses(course_name);

@@ -4,14 +4,8 @@ CREATE TABLE Users(username  VARCHAR(256),password VARCHAR(1000) NOT NULL ,user_
 ALTER TABLE Users ADD CONSTRAINT FK_Users_role_map FOREIGN KEY (user_type) REFERENCES User_roles(user_type) ON UPDATE CASCADE;
 
 
-ALTER TABLE Users ADD CONSTRAINT UNQ_user_token UNIQUE (user_token);
-
 
 ALTER TABLE Users ALTER user_access SET DEFAULT TRUE;
 
 
-CREATE UNIQUE INDEX idx_userName ON Users (username);
-CREATE INDEX idx_user_type ON Users (user_type);
 
-
-CREATE OR REPLACE VIEW vw_users_auth AS SELECT username,password,user_type FROM Users WHERE user_access=1;
