@@ -58,21 +58,3 @@
 
 
 
-
-
-***************)views:
-
-1)Users: [DONE]
-
-
-
-2)Students: [DONE]
-
-
-3) Faculties:[DONE]
-
-
-4) Ams_setup_faculties_map: [DONE]
-
-
-

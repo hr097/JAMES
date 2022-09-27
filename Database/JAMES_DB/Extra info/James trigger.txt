@@ -1,26 +1,3 @@
-
-****)Stored procedures & functions:
-
-1)Students:
-
-getListByCourseWise('BscIT');
-getListByCourseSemWise('BscIT',5);
-getListByCourseSemDivWise('BscIT',5,B);
-
-getListByInActiveStud('MscIT'); // those who are alumni and table will be in backup data base
-
-2)Ams_api:
-
-getListBySemesterTime(5,'08:35','09:45');
-
-3)Faculties:
-
-getFacByDesignation('Teching Assistant');
-
-4)Ams_attendance_master:
-
-getStudAttBySpid('2020049910'); // spid
-
 ******)Triggers :
 
 1)Students:
@@ -60,10 +37,3 @@ deletion of Users table record move to bckp table
 8)Rfid_uid_spid_map:
 
 deletion of Users table record move to bckp table
-
-******)Routines:
-
-1)Ams_api 
-NOTE : Event scheduler ON krvu
-
-
