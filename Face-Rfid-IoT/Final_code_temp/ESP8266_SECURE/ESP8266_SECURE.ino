@@ -9,24 +9,24 @@
 */
  
 
-#include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>//library to connect with API
 #include <SPI.h>         //library for serial peripheral interface devices
 #include <MFRC522.h>     //library for RFID reader
 #include <ArduinoJson.h> //library to store data in json format in arduino
 #include <ESP8266WiFi.h>        // library for connecting wifi & internet
-//#include <HTTPClient.h> //library to connect with API
+//#include <WiFiClientSecure.h> 
+ //library to connect with API
 
 #define SS_PIN 15  //(D21)- SDA pin of rfid reader
-#define RST_PIN 5 //(D22)- Reset pin of rfid reader
+#define RST_PIN 16 //(D22)- Reset pin of rfid reader
 
 
 //@change pin
-#define Rfid_status 2          // D2  - Rfid read status [Blue light]
+#define Rfid_status 5          // D2(32)  - Rfid read status [Blue light]   
 #define Attendance_status 4    // D4  - Attedance Verified status [Green light]
-#define Invalid_card_status 16 // D15 - Invalid card scanned / failure (verification of attedance) [Red light] 
-#define Internet_status 5      // D5  - System connection with Active Internet connection
-#define control_status 4      // D2esp - System control pin ESP32 & READER Online/Offline
+#define Invalid_card_status 0 // D15 - Invalid card scanned / failure (verification of attedance) [Red light] 
+#define Internet_status 2      // D5  - System connection with Active Internet connection
+//#define control_status 4      // D2esp - System control pin ESP32 & READER Online/Offline
 
 // Global storage variables 
 
@@ -52,7 +52,7 @@ int connection_index = 0; // counter for ssid and password from array
 // @change api configuration 
 const char *serverName = "http://amsjpd.ml/rfid/addattendance.php"; // Domain name with full URL path to an api for HTTP POST Request
 
-
+//WiFiClientSecure client;
 WiFiClient client; // object for wifi client
 HTTPClient http;   // object for http client for API
 
@@ -94,11 +94,11 @@ bool establish_secure_connection(unsigned long int baud_rate, const char *Ssid, 
         
         /* System online Configuration  */
         
-        pinMode(control_status, INPUT); //configure
-        digitalWrite(control_status, LOW); //set intial status
+//        pinMode(control_status, INPUT); //configure
+//        digitalWrite(control_status, LOW); //set intial status
 
-//        pinMode(Attendance_status, OUTPUT);
-//        digitalWrite(Attendance_status, LOW);
+        pinMode(Attendance_status, OUTPUT);
+        digitalWrite(Attendance_status, LOW);
 
         pinMode(Rfid_status, OUTPUT);
         digitalWrite(Rfid_status, LOW);
@@ -169,7 +169,7 @@ void setup()
 
     /*Connection with Wifi and Internet */
 
-    /@change baud rate
+//    /@change baud rate
     while (!establish_secure_connection(115200, WIFI_SSID[connection_index], WIFI_PASSWORD[connection_index])) 
     {
 
@@ -230,8 +230,8 @@ void sendToApi() // function to send Attedance data to an API
 void loop()
 {
 
-  if(digitalRead(control_status) == HIGH) // if system gets command from Esp8266 to be online then system will work else don't
-  {
+//  if(digitalRead(control_status) == HIGH) // if system gets command from Esp8266 to be online then system will work else don't
+//  {
       
     if(WiFi.status() == WL_CONNECTED) // if wifi gets connected
     {
@@ -312,7 +312,7 @@ void loop()
                 delay(500);
                 digitalWrite(Rfid_status, LOW);
                 digitalWrite(Invalid_card_status, LOW);
-//                digitalWrite(Attendance_status, LOW);
+                digitalWrite(Attendance_status, LOW);
             }
             else
             {   
@@ -350,10 +350,10 @@ void loop()
             }
         }
     }
-  }
-  else
-  {
-    last_read_tag_ID = "";
-    Rfid_tag_ID = "";  
-  }
+//  }
+//  else
+//  {
+//    last_read_tag_ID = "";
+//    Rfid_tag_ID = "";  
+//  }
 }

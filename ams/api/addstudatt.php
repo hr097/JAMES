@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *'); //* Reader system will send request so its open
+header('Access-Control-Allow-Origin: *'); //* IT IS OPEN Becuase ESP has no DOMAIN
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods, Authorization');
 
