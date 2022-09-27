@@ -8,7 +8,7 @@
     ?>
 
   <!-- css  -->
-  <link rel="stylesheet" href="../css/student.css">
+  <link rel="stylesheet" href="../css/faculty.css">
 
   <!-- page information-->
   <title>AMS | Profile</title>
@@ -24,19 +24,19 @@
         <div class="content-wrapper">
           <div class="row">
 
-            <!-------------------------------------------------------Student Card Start------------------------------------------------------->
+            <!-------------------------------------------------------Faculty Card Start------------------------------------------------------->
             <div class="container my-3" align="center" style="padding-bottom: 3%;">
 
               <div class="scene">
                 <div class="flip-card" >
                   <div class="card__face card__face--front" style="border-radius: 10px;">
-                    <img src="../assets/profiles/student-profile.jpg" class="my-4" alt="Student profile"
+                    <img src="../assets/profiles/faculty-profile.jpg" class="my-4" alt="Faculty profile"
                       style="width:130px;height:130px; border-radius: 49%;">
                     <h3 style="color: white; margin-top: -15px;">Archit Ghevariya</h3>
                   </div>
 
                   <div class="card__face card__face--back py-4 pl-4" align="left">
-                    <p style="font-weight: 700;"> Faculty id : 2020049819</p>
+                    <p style="font-weight: 700;"> Student id : 2020049819</p>
                     <p><strong> Enrollment no :</strong> E20110018000610015</p>
                     <p><strong> DOB :</strong> 7/6/2020</p>
                     <p><strong> Email id :</strong> archit@vnsgu.ac.in</p>
@@ -44,7 +44,7 @@
                   </div>
                 </div>
               </div>
-              <!-------------------------------------------------------Studnet Card End------------------------------------------------------->
+              <!-------------------------------------------------------Faculty Card End------------------------------------------------------->
             </div>
           </div>
           <!--Personal Info-->
@@ -73,7 +73,7 @@
                   <h6 class="info-title">Semester</h6>
                   <h4 class="info-data">4th</h4>
 
-                  <h6 class="info-title"> Faculty Id</h6>
+                  <h6 class="info-title"> Student Id</h6>
                   <h4 class="info-data">2020049819</h4>
 
                   <h6 class="info-title">Enrollment / Registration Id </h6>

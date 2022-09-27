@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <!-- including headr -->
-    <?php
-    include './common/header.php'
-    ?>
+<head>
+          <!-- including footer -->
+          <?php
+          include './common/header.php'
+        ?>
 
-    <!-- css  -->
-    <link rel="stylesheet" href="../css/student.css">
+        <!-- Page info -->
+        <title>AMS | Student</title>
 
-    <!-- page information and favicon-->
-    <title>AMS | Student dashboard</title>
-
+        <!-- css  -->
+        <link rel="stylesheet" href="../css/faculty.css">
 </head>
 
 <body>
       <!-------------------------------------------------------Main Content------------------------------------------------------->
       <div class="main-panel">
         <div class="content-wrapper">
+          <button type="button" class="btn btn-primary btn-icon-text" id="">
+            <i class="ti-download btn-icon-prepend"></i>
+            Edit Attendance
+          </button>
+
           <div class="row">
+            
             <!-------------------------------------------------------Table Start------------------------------------------------------->
             <div class="col-lg-12 grid-margin">
 
@@ -63,14 +68,14 @@
                                 <td>4</td>
                                 <td>06/06/2022</td>
                                 <td>
-                                  <button type="button" class="btn btn-success attbtn">Present</button>
+                                  <button type="button" class="btn btn-warning attbtn">Pending</button>
                                 </td>
                               </tr>
                               <tr>
                                 <td>5</td>
                                 <td>06/06/2022</td>
                                 <td>
-                                  <button type="button" class="btn btn-danger attbtn">Absent </button>
+                                  <button type="button" class="btn btn-success attbtn">Present</button>
                                 </td>
                               </tr>
                               <tr>
@@ -98,14 +103,14 @@
                                 <td>9</td>
                                 <td>07/06/2022</td>
                                 <td>
-                                  <button type="button" class="btn btn-danger attbtn">Absent </button>
+                                  <button type="button" class="btn btn-warning attbtn">Pending</button>
                                 </td>
                               </tr>
                               <tr>
                                 <td>10</td>
                                 <td>07/06/2022</td>
                                 <td>
-                                  <button type="button" class="btn btn-success attbtn">Present</button>
+                                  <button type="button" class="btn btn-warning attbtn">Pending</button>
                                 </td>
                               </tr>
                             </tbody>
@@ -114,20 +119,19 @@
                       </div>
                     </div>
                   </div>
-                </div>
                   <!--Table End-->
         </div>
       </div>
-
-
-
-
+    </div>
+</div>
+</div>
+</div>
+</div>
 
     <!-- including footer -->
     <?php
     include './common/footer.php'
     ?>
-
 </body>
 
 </html>
