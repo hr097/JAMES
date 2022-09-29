@@ -1,7 +1,5 @@
-CREATE TABLE Bckp_Users(username  VARCHAR(256),password VARCHAR(1000) NOT NULL,user_token VARCHAR(1000) NOT NULL ,user_type SMALLINT NOT NULL,PRIMARY KEY(username));
+CREATE TABLE Bckp_Users(username VARCHAR(256),password VARCHAR(1000) NOT NULL,user_type SMALLINT NOT NULL,PRIMARY KEY(username));
 
-ALTER TABLE Bckp_Users ADD CONSTRAINT FK_Bckp_Users_role_map_bckp FOREIGN KEY (user_type) REFERENCES User_roles(user_type);
-
-CREATE UNIQUE INDEX idx_userName_bckp ON Bckp_Users (username);
+ALTER TABLE Bckp_Users ADD CONSTRAINT FK_Bckp_Users_role_map_bckp FOREIGN KEY (user_type) REFERENCES User_roles(user_type) ON UPDATE CASCADE;
 
 CREATE INDEX idx_user_type_bckp ON Bckp_Users (user_type);

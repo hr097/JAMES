@@ -41,22 +41,23 @@ CREATE UNIQUE INDEX idx_StudUidSpidMap ON Rfid_uid_spid_map(spid);
 CREATE INDEX idx_AmsReaderNo ON Ams_api(reader_no);
 CREATE INDEX idx_AmsSemster ON Ams_api(semester);
 
-11) Readers:
+11)Ams_Readers:
 CREATE INDEX UNIQUE idx_ReaderNo ON Ams_readers(reader_no);
 
 12) Ams_setup_course_subject_map:
 CREATE INDEX idx_amsSetupCsIdMap  ON Ams_setup_course_subject_map(cs_id); 
 
 13)Ams_setup_faculties_map:
+-
+
+14)Ams_setup_students_map: 
+-
+
+15)Ams_attendance_master
 
 
-14)Ams_setup_students_map: [DONE]
-
-
-
-
-
-
+CREATE INDEX idx_Ams_attendance_master_spid ON Ams_attendance_master(spid); 
+CREATE INDEX idx_Ams_attendance_master_ams_setup_id ON Ams_attendance_master(ams_setup_id); 
 
 
 
