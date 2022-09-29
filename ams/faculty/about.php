@@ -8,7 +8,7 @@
         ?>
 
         <!-- Page info -->
-        <title>Faculty | About Us</title>
+        <title>AMS | About Us</title>
 
         <!-- css  -->
         <link rel="stylesheet" href="../css/faculty.css">

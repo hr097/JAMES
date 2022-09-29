@@ -21,6 +21,12 @@
        <!-------------------------------------------------------Main Content------------------------------------------------------->
        <div class="main-panel">
         <div class="content-wrapper">
+        <div class="row">
+             <div class="col-12 col-xl-8 mb-4 mb-xl-50">
+                 <h3 class="font-weight-bold">Welcome Sir,</h3>
+                 <h6 class="font-weight-normal mb-10">Good Morning, </h6>
+             </div>
+            
           <!-------------------------------------------------------States------------------------------------------------------->
           <div class="col-md-12 grid-margin transparent">
             <div class="row">
@@ -82,7 +88,7 @@
       </div>
     </div>
   </div>
-
+</div>
 <!-- including footer -->
 <?php
     include './common/footer.php'
