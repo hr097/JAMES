@@ -7,4 +7,4 @@ ALTER TABLE  Rfid_uid_spid_map ADD CONSTRAINT UNQ_spid_map UNIQUE (spid);
 insert into  Rfid_uid_spid_map values('05 8F 15 AD 42 D1 00','2020049812');
 insert into  Rfid_uid_spid_map values('05 8F DB 52 29 71 00','2020049910');
 
-CREATE UNIQUE INDEX idx_StudUidSpidMap ON Rfid_uid_spid_map(uid,spid);
+
