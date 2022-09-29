@@ -3,7 +3,7 @@ CREATE TABLE Ams_setup_faculties_map(ams_setup_id INTEGER ,fid VARCHAR(10),setup
 
 ALTER TABLE  Ams_setup_faculties_map ADD CONSTRAINT FK_fac_ams_setup_id_map FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
-ALTER TABLE  Ams_setup_faculties_map ADD CONSTRAINT FK_ams_setup_fid_map FOREIGN KEY (fid) REFERENCES Faculties(fid) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE  Ams_setup_faculties_map ADD CONSTRAINT FK_ams_setup_fid_map FOREIGN KEY (fid) REFERENCES Faculties(fid) ON UPDATE CASCADE;
 
 
 ALTER TABLE Ams_setup_faculties_map ALTER setup_status SET DEFAULT TRUE;
