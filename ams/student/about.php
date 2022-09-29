@@ -9,7 +9,7 @@
   ?>
 
     <!-- css  -->
-    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/student.css">
 
     <!-- page information-->
     <title>AMS | About</title>

@@ -101,13 +101,13 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Setup</span>
+              <span class="menu-title">Classroom</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="./setup.php">New Setup</a></li>
-                <li class="nav-item"> <a class="nav-link" href="./modify.php">Modify Setup</a></li>
+                <li class="nav-item"> <a class="nav-link" href="./setup.php">New Classroom</a></li>
+                <li class="nav-item"> <a class="nav-link" href="./modify.php">Modify Classroom</a></li>
               </ul>
             </div>
           </li>

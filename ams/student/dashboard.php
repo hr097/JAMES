@@ -42,7 +42,7 @@
                             <h6 class="font-weight-normal mb-10">Good Morning, </h6>
                         </div>
 
-                        <!-------------------------------------------------------States------------------------------------------------------->
+                        <!-------------------------------------------------------Subjects------------------------------------------------------->
                         <div class="col-md-12 grid-margin transparent">
                             <div class="row">
                                 <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer"

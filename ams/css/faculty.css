@@ -1,7 +1,14 @@
 * {
     font-family: "Poppins", "sans-serif";
   }
+/*----------------Dashboard--------------------------*/
+.subfont {
+  font-size: 20px;
+}
 
+.handpointer {
+  cursor: pointer;
+}
 /*----------------------------------------------Faculty Card--------------------------------------------------------------------------------*/
 .scene {
     background-color: transparent;
@@ -81,3 +88,5 @@
     margin-right: 30px;
     margin-top: 7px;
   }
+
+ 

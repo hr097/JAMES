@@ -8,7 +8,7 @@
         ?>
 
         <!-- Page info -->
-        <title>Faculty | Modify setup</title>
+        <title>AMS | Modify setup</title>
 
         <!-- css  -->
         <link rel="stylesheet" href="../css/faculty.css">
