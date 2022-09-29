@@ -1,5 +1,5 @@
 
-****)Stored procedures & functions:
+****)Stored procedures & functions: [NOT RECOMMENDED]
 
 1)Students:
 

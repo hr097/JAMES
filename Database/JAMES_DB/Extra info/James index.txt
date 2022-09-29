@@ -54,8 +54,6 @@ CREATE INDEX idx_amsSetupCsIdMap  ON Ams_setup_course_subject_map(cs_id);
 -
 
 15)Ams_attendance_master
-
-
 CREATE INDEX idx_Ams_attendance_master_spid ON Ams_attendance_master(spid); 
 CREATE INDEX idx_Ams_attendance_master_ams_setup_id ON Ams_attendance_master(ams_setup_id); 
 
