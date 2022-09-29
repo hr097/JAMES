@@ -4,6 +4,5 @@ ALTER TABLE Bckp_Students ADD CONSTRAINT FK_stud_email_bckp FOREIGN KEY (email) 
 
 ALTER TABLE Bckp_Students ADD CONSTRAINT FK_stud_course_id_bckp FOREIGN KEY(course_id) REFERENCES Courses(course_id);
 
-CREATE UNIQUE INDEX idx_StudSpid_bckp ON Bckp_Students(spid);
 
 

@@ -8,7 +8,7 @@ ALTER TABLE Students ADD CONSTRAINT CHK_stud_cur_roll_no CHECK(cur_roll_no>=1 AN
 ALTER TABLE Students ADD CONSTRAINT CHK_stud_status CHECK(stud_status=TRUE OR stud_status=FALSE);
 
 
-ALTER TABLE Students ADD CONSTRAINT FK_stud_email FOREIGN KEY (email) REFERENCES Users(username) ON UPDATE CASCADE;
+ALTER TABLE Students ADD CONSTRAINT FK_stud_email FOREIGN KEY (email) REFERENCES Users(username) ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE Students ADD CONSTRAINT FK_stud_course_id FOREIGN KEY(course_id) REFERENCES Courses(course_id)ON UPDATE CASCADE;
 
