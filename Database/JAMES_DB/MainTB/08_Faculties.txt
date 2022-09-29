@@ -1,4 +1,4 @@
- CREATE TABLE  Faculties(fid VARCHAR(10),name varchar(256) NOT NULL,gender VARCHAR(10) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,joining_year YEAR NOT NULL,role_id SMALLINT  NOT NULL,fac_status BOOLEAN ,PRIMARY KEY(fid));
+CREATE TABLE  Faculties(fid VARCHAR(10),name varchar(256) NOT NULL,gender VARCHAR(10) NOT NULL, dob DATE NOT NULL,email  VARCHAR(256) NOT NULL,contact_no VARCHAR(15) NOT NULL,joining_year YEAR NOT NULL,role_id SMALLINT  NOT NULL,fac_status BOOLEAN ,PRIMARY KEY(fid));
 
 ALTER TABLE Faculties ADD CONSTRAINT FK_fac_email FOREIGN KEY (email) REFERENCES Users(username) ON UPDATE CASCADE;
 

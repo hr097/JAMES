@@ -1,4 +1,4 @@
-CREATE TABLE Ams_setup_faculties_map(ams_setup_id INTEGER ,fid VARCHAR(10),setup_status BOOLEAN,PRIMARY KEY(ams_setup_id,fid));
+CREATE TABLE Ams_setup_faculties_map(ams_setup_id INTEGER NOT NULL,fid VARCHAR(10) NOT NULL,setup_status BOOLEAN,PRIMARY KEY(ams_setup_id,fid));
 
 
 ALTER TABLE  Ams_setup_faculties_map ADD CONSTRAINT FK_fac_ams_setup_id_map FOREIGN KEY (ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE;
