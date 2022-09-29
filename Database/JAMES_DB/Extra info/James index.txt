@@ -1,65 +1,62 @@
 **********)Indexes :
 
+1)User_roles:  
+CREATE UNIQUE INDEX idx_RoleName ON User_roles(role_name);
 
-1)Users: 
-
+2)Users: 
 
 CREATE INDEX idx_user_type ON Users (user_type);
 
-
-2)Students:  [ DONE]
-
-
-3) Rfid_uid_spid_map:  [ DONE]
-
-
-4) Ams_api:  [ DONE]
-
-
-5)Subjects [ DONE ]
-
-
-
-6)Faculties:[DONE]
-
-
-
-7) Ams_setup_course_subject_map:[DONE]
-
-
-8)User_roles:  
-CREATE UNIQUE INDEX idx_RoleName ON User_roles(role_name);
-
-
-
-
-9)Courses:
-
-
+3)Courses:
 CREATE UNIQUE INDEX idx_courseName ON Courses(course_name);
 
-10)Faculty_role
-CREATE UNIQUE INDEX idx_RoleName ON Fac_roles(role_name);
-
-3)Course_subject_map: [DONE]
-
-
-
-4)Subjects :
-
-
+4)Subjects:
 CREATE UNIQUE INDEX idx_subjectCode ON Subjects(subject_code);
-
 CREATE INDEX idx_subjectName ON Subjects(subject_name);
 
-5) Ams_setup_course_subject_map : [DONE]
+5)Course_subject_map:
+
+CREATE UNIQUE INDEX idx_course_subject_map ON Course_subject_map(course_id,subject_id);
+
+6)Students:
+
+CREATE INDEX idx_cur_sem ON Students(cur_semester);
+CREATE INDEX idx_cur_div ON Students(cur_division);
+CREATE INDEX idx_cur_course_id ON Students(course_id);
+CREATE  UNIQUE INDEX idx_email ON Students(email);
+
+7)Faculty_role
+CREATE UNIQUE INDEX idx_RoleName ON Fac_roles(role_name);
+
+8)Faculties:
+CREATE UNIQUE INDEX ON Faculties(email);
 
 
-6)Ams_setup_faculties_map: [DONE]
+9)Rfid_uid_spid_map:
+
+CREATE UNIQUE INDEX idx_StudUidSpidMap ON Rfid_uid_spid_map(spid);
+
+10) Ams_api:  
+
+CREATE INDEX idx_AmsReaderNo ON Ams_api(reader_no);
+CREATE INDEX idx_AmsSemster ON Ams_api(semester);
+
+11) Readers:
+CREATE INDEX UNIQUE idx_ReaderNo ON Ams_readers(reader_no);
+
+12) Ams_setup_course_subject_map:
+CREATE INDEX idx_amsSetupCsIdMap  ON Ams_setup_course_subject_map(cs_id); 
+
+13)Ams_setup_faculties_map:
+
+
+14)Ams_setup_students_map: [DONE]
 
 
 
-7)Ams_setup_students_map: [DONE]
+
+
+
 
 
 

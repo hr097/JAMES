@@ -13,7 +13,4 @@ insert into Ams_readers(reader_no) values(4);
 insert into Ams_readers(reader_no) values(5);
 
 
-// not necessary ?
-
-CREATE INDEX idx_ReaderNo ON Ams_readers(reader_no);
 

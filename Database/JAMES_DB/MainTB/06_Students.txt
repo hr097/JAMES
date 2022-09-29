@@ -18,5 +18,3 @@ ALTER TABLE Students ADD CONSTRAINT UNQ_stud_email UNIQUE(email);
 
 ALTER TABLE Students ALTER stud_status SET DEFAULT TRUE;
 
-
-

@@ -10,7 +10,16 @@ when faculty permenently leaves at that time  we use this trigger to delete reco
 
 2)Ams_api: 
 
-// done included in table file
+
+DELIMITER $$
+CREATE OR REPLACE TRIGGER insert_ams_api BEFORE INSERT ON Ams_api
+FOR EACH ROW
+BEGIN
+DECLARE sem int;
+SELECT cur_semester into sem  FROM vw_students where spid = NEW.spid;
+SET NEW.semester := sem;
+END $$
+DELIMITER ;
 
 3) Ams_attendance_master
 
