@@ -4,3 +4,4 @@ ALTER TABLE Bckp_Faculties ADD CONSTRAINT FK_fac_email_bckp FOREIGN KEY (email) 
 
 ALTER TABLE Bckp_Faculties ADD CONSTRAINT FK_fac_role_bckp FOREIGN KEY (role_id) REFERENCES Faculty_roles(role_id);
 
+

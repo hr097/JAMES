@@ -15,36 +15,3 @@ ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_stud_ams_setup_id_map FORE
 ALTER TABLE  Ams_setup_students_map ADD CONSTRAINT FK_ams_setup_spid_map FOREIGN KEY(spid) REFERENCES Students(spid) ON UPDATE CASCADE;
 
 
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049910');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049910');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049910');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049910');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049910');
-
-
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049935');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049935');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049935');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049935');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049935');
-
-
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049812');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049812');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049812');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049812');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049812');
-
-
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049819');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049819');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049819');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049819');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049819');
-
-
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049836');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049836');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049836');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049836');
-insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049836');

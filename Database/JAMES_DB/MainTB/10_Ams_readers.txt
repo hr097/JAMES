@@ -13,4 +13,3 @@ insert into Ams_readers(reader_no) values(4);
 insert into Ams_readers(reader_no) values(5);
 
 
-

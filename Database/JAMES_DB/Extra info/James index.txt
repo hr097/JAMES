@@ -26,10 +26,10 @@ CREATE INDEX idx_cur_course_id ON Students(course_id);
 CREATE  UNIQUE INDEX idx_email ON Students(email);
 
 7)Faculty_role
-CREATE UNIQUE INDEX idx_RoleName ON Fac_roles(role_name);
+CREATE UNIQUE INDEX idx_RoleName ON Faculty_roles(role_name);
 
 8)Faculties:
-CREATE UNIQUE INDEX ON Faculties(email);
+CREATE UNIQUE INDEX Faculty_email ON Faculties(email);
 
 
 9)Rfid_uid_spid_map:
@@ -42,7 +42,7 @@ CREATE INDEX idx_AmsReaderNo ON Ams_api(reader_no);
 CREATE INDEX idx_AmsSemster ON Ams_api(semester);
 
 11)Ams_Readers:
-CREATE INDEX UNIQUE idx_ReaderNo ON Ams_readers(reader_no);
+CREATE UNIQUE INDEX  idx_ReaderNo ON Ams_readers(reader_no);
 
 12) Ams_setup_course_subject_map:
 CREATE INDEX idx_amsSetupCsIdMap  ON Ams_setup_course_subject_map(cs_id); 

@@ -1,4 +1,4 @@
-***************)views:
+*****)views:
 
 1)Users: 
 CREATE OR REPLACE VIEW vw_users_auth AS SELECT username,password,user_type FROM Users WHERE user_access=1;
@@ -8,7 +8,7 @@ CREATE OR REPLACE VIEW vw_students AS  SELECT spid,name,gender,dob,email,contact
 
 3)Faculties:
 
-CREATE OR REPLACE VIEW vw_faculties AS SELECT fid,name,gender,dob,email,contact_no,joining_year,designation FROM faculties where fac_status=1;
+CREATE OR REPLACE VIEW vw_faculties AS SELECT fid,name,gender,dob,email,contact_no,joining_year,R.role_name AS designation FROM Faculties F,Faculty_roles R where F.role_id=R.role_id AND fac_status=1;
 
 4)Ams_setup_faculties_map: 
 

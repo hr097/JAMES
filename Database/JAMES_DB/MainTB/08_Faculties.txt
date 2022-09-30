@@ -11,14 +11,4 @@ ALTER TABLE Faculties ADD CONSTRAINT UNQ_fec_email UNIQUE(email);
 ALTER TABLE Faculties ALTER fac_status SET DEFAULT TRUE;
 
 
-insert into  Faculties values('FID12345','Pushpal Desai','Male','1960-01-01','pydesai@vnsgu.ac.in','+91 1234567890','2000',1,TRUE);
-
-insert into  Faculties values('FID12346','Payal Joshi','Female','1970-02-01','pkpandya@vnsgu.ac.in','+91 1234567891','2008',2,TRUE);
-
-insert into  Faculties values('FID12347','Falguni Thakkar','Female','1980-02-07','fgthakker@vnsgu.ac.in','+91 1234567892','2009',3,TRUE);
-
-insert into  Faculties values('FID12348','Vinny Surati','Female','1989-02-07','vhsurati@vnsgu.ac.in','+91 1234567893','2018',3,TRUE);
-
-insert into  Faculties values('FID12349','Shailesh Chaudhri','Male','1980-02-08','sachaudhari@vnsgu.ac.in','+91 1234567894','2007',3,TRUE);
-
 

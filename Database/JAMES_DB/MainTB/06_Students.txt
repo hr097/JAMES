@@ -8,9 +8,9 @@ ALTER TABLE Students ADD CONSTRAINT CHK_stud_cur_roll_no CHECK(cur_roll_no>=1 AN
 ALTER TABLE Students ADD CONSTRAINT CHK_stud_status CHECK(stud_status=TRUE OR stud_status=FALSE);
 
 
-ALTER TABLE Students ADD CONSTRAINT FK_stud_email FOREIGN KEY (email) REFERENCES Users(username) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Students ADD CONSTRAINT FK_stud_email FOREIGN KEY(email) REFERENCES Users(username) ON UPDATE CASCADE ON DELETE CASCADE;
 
-ALTER TABLE Students ADD CONSTRAINT FK_stud_course_id FOREIGN KEY(course_id) REFERENCES Courses(course_id)ON UPDATE CASCADE;
+ALTER TABLE Students ADD CONSTRAINT FK_stud_course_id FOREIGN KEY(course_id) REFERENCES Courses(course_id) ON UPDATE CASCADE;
 
 
 ALTER TABLE Students ADD CONSTRAINT UNQ_stud_email UNIQUE(email);
@@ -20,12 +20,3 @@ ALTER TABLE Students ALTER stud_status SET DEFAULT TRUE;
 
 
 
-insert into Students values('2020049910','Ramani Harshil Shaileshbhai','Male','2003-05-08','harshilramani.mscit20@vnsgu.ac.in','+91 9624561892',3,'2020',5,'B',113,TRUE);
-
-insert into Students values('2020049819','Ghevariya Archit Nareshbhai','Male','2003-03-05','architghevariya.mscit20@vnsgu.ac.in','+91 7383837798',3,'2020',5,'A',26,TRUE);
-
-insert into Students values('2020049812','Dhola Drashti Ishwarbhai','Female','2002-11-15','drashtidhola.mscit20@vnsgu.ac.in','+91 9687630768',3,'2020',5,'A',19,TRUE);
-
-insert into Students values('2020049836','Khunt Shubham Vinubhai','Male','2003-07-18','shubhamkhunt.mscit20@vnsgu.ac.in','+91 8849178317',3,'2020',5,'A',42,TRUE);
-
-insert into Students values('2020049935','Tikiwala Shikhaa Rupalkumar','Female','2002-08-24','shikhaatikiwala.mscit20@vnsgu.ac.in','+91 8200290477',3,'2020',5,'B',138,TRUE);
