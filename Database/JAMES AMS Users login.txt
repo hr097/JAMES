@@ -1,0 +1,25 @@
+=>AMS LOGIN:
+
+password for student = Mscit@2020
+password for faculty: Faculty@2020
+password for admin =  Mscit@261
+
+1)
+harshilramani.mscit20@vnsgu.ac.in    = 2020049910
+architghevariya.mscit20@vnsgu.ac.in = 2020049819
+shikhaatikiwala.mscit20@vnsgu.ac.in = 2020049935
+drashtidhola.mscit20@vnsgu.ac.in = 2020049812
+shubhamkhunt.mscit20@vnsgu.ac.in = 2020049836
+nupulkukadiya.mscit20@vnsgu.ac.in= 2020049837
+
+2)
+pydesai@vnsgu.ac.in =   FID12345
+pkpandya@vnsgu.ac.in = FID12346
+fgthakker@vnsgu.ac.in =  FID12347
+vhsurati@vnsgu.ac.in  = FID12348
+sachaudhari@vnsgu.ac.in = FID12349
+ 
+3) 
+ams.jpd@gmail.com 
+
+
