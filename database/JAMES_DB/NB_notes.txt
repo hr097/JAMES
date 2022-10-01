@@ -1,0 +1,37 @@
+Note 1 : THINK TWICE BEFORE YOU MAKE ANY CHANGES TO DATABASE.
+
+Note 2 : DEVELOPER APPROVAL REQUIRED BEFORE YOU MAKE ANY CHANGE FINAL.
+
+
+1) Shubham khunt
+2) Harshil Ramani
+
+
+const DB_CREDENTIALS = {
+
+severname: ""
+username: ""
+password: as per hosting / root
+database-name: "james"
+
+}
+
+Naming convention for Database is as follows
+
+1)All table names are in {Pascalcase + snake_case} convention
+
+for instance, "Users" , "Passenger_list"
+
+2) All column names of table will be in camel case convention
+
+for instance, "userToken" ,"password" ,"userBalance"
+
+3) constraints name should be in  snake_case convention
+
+for instance, "PK_users_id","CHK_person"
+
+4) Security contsraints level of database should be minimal and necessary
+
+for instance, do not apply not null and default together
+
+

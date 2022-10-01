@@ -1,0 +1,23 @@
+CREATE TABLE  Ams_setup_course_subject_map(ams_setup_id INTEGER AUTO_INCREMENT,cs_id INTEGER NOT NULL,year YEAR NOT NULL,PRIMARY KEY(ams_setup_id));
+
+
+ALTER TABLE Ams_setup_course_subject_map ADD CONSTRAINT FK_ams_setup_cs_id_map FOREIGN KEY (cs_id) REFERENCES Course_subject_map(cs_id) ON UPDATE CASCADE;
+
+
+ALTER TABLE  Ams_setup_course_subject_map ADD CONSTRAINT CHK_ams_setup_cs_id_map_year CHECK(year>='2022');
+
+
+ALTER TABLE  Ams_setup_course_subject_map ADD CONSTRAINT UNQ_ams_setup_per_year UNIQUE(cs_id,year);
+
+
+insert into  Ams_setup_course_subject_map(cs_id,year) values(1,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(2,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(3,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(4,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(5,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(6,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(7,2022);
+insert into  Ams_setup_course_subject_map(cs_id,year) values(8,2022);
+
+
+

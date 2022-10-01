@@ -1,0 +1,103 @@
+/*Student*/
+
+insert into Students values('2020049910','Ramani Harshil Shaileshbhai','Male','2003-05-08','harshilramani.mscit20@vnsgu.ac.in','+91 9624561892',3,'2020',5,'B',113,TRUE);
+
+insert into Students values('2020049819','Ghevariya Archit Nareshbhai','Male','2003-03-05','architghevariya.mscit20@vnsgu.ac.in','+91 7383837798',3,'2020',5,'A',26,TRUE);
+
+insert into Students values('2020049812','Dhola Drashti Ishwarbhai','Female','2002-11-15','drashtidhola.mscit20@vnsgu.ac.in','+91 9687630768',3,'2020',5,'A',19,TRUE);
+
+insert into Students values('2020049836','Khunt Shubham Vinubhai','Male','2003-07-18','shubhamkhunt.mscit20@vnsgu.ac.in','+91 8849178317',3,'2020',5,'A',42,TRUE);
+
+insert into Students values('2020049935','Tikiwala Shikhaa Rupalkumar','Female','2002-08-24','shikhaatikiwala.mscit20@vnsgu.ac.in','+91 8200290477',3,'2020',5,'B',138,TRUE);
+
+
+/*Faculty*/
+
+insert into  Faculties values('FID12345','Pushpal Desai','Male','1960-01-01','pydesai@vnsgu.ac.in','+91 1234567890','2000',1,TRUE);
+insert into  Faculties values('FID12346','Payal Joshi','Female','1970-02-01','pkpandya@vnsgu.ac.in','+91 1234567891','2008',2,TRUE);
+insert into  Faculties values('FID12347','Falguni Thakkar','Female','1980-02-07','fgthakker@vnsgu.ac.in','+91 1234567892','2009',3,TRUE);
+insert into  Faculties values('FID12348','Vinny Surati','Female','1989-02-07','vhsurati@vnsgu.ac.in','+91 1234567893','2018',3,TRUE);
+insert into  Faculties values('FID12349','Shailesh Chaudhri','Male','1980-02-08','sachaudhari@vnsgu.ac.in','+91 1234567894','2007',3,TRUE);
+
+
+/*RFID UID SPID MAP*/
+insert into  Rfid_uid_spid_map values('05 8F 15 AD 42 D1 00','2020049812');
+insert into  Rfid_uid_spid_map values('05 8F DB 52 29 71 00','2020049910');
+
+
+/*AMS API*/
+insert into Ams_api(reader_no,reading_time,spid,semester) values(5,'08:11:08','2020049910'); 
+insert into Ams_api(reader_no,reading_time,spid,semester) values(5,'09:11:08','2020049935');
+
+
+
+/*AMS SETUP FACULTY MAP */
+
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(1,'FID12346');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(2,'FID12345');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(2,'FID12348');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(3,'FID12347');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(4,'FID12349');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(5,'FID12349');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(6,'FID12345');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(7,'FID12348');
+insert into Ams_setup_faculties_map(ams_setup_id,fid) values(8,'FID12347');
+
+
+
+/*AMS SETUP STUDENT MAP */
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049910');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049910');
+
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049935');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049935');
+
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049812');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049812');
+
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049819');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049819');
+
+
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(1,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(4,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(6,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(7,'2020049836');
+insert into Ams_setup_students_map(ams_setup_id,spid)  values(8,'2020049836');
+
+
+
+
+/*ATTENDANCE MASTER*/
+insert into Ams_attendance_master(spid,ams_setup_id,att_time,att_status) values('2020049910','08:11:08',1,0); 
+insert into Ams_attendance_master(spid,ams_setup_id,att_time,att_status) values('2020049910','09:11:08',1,1); 
+
+/*ROUTINE EVENT SCHEDULER ON KARAVAVU*/
+
+DELIMITER $$
+CREATE EVENT `deleteAmsApiDataDaily`
+  ON SCHEDULE EVERY 1 DAY STARTS '2022-09-05 03:00:00'
+  ON COMPLETION PRESERVE
+DO BEGIN
+  TRUNCATE TABLE ams_api;
+END$$
+DELIMITER ;
+
+//TESTING KARVU BACKUP TABLE NU
+

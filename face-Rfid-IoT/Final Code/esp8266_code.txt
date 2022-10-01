@@ -1,0 +1,341 @@
+#include <ESP8266WiFi.h>
+#include <WiFiClient.h>
+#include <ESP8266WebServer.h>
+#include <FS.h>   //Include File System Headers
+
+const char* titleFile = "/title-icon.png";
+//const char* headerFile = "/header.png";
+//const char* htmlfile = "/index.html";
+
+//ESP AP Mode configuration
+const char *ssid = "MSCIT-5";
+const char *password = "root@it5";
+
+#define LED 4//D2
+#define system_active 5//D1
+
+ESP8266WebServer server(80);
+const char webpage[] PROGMEM = R"=====(
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JPD | AMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="title.png">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body
+    {   
+        height:90%;
+    }
+
+    header {
+        background-color: #034078;
+        color: white;
+        width:100%
+
+    }
+
+    footer {
+        background-color: #034078;
+        bottom: 0;
+        color: white;
+        padding: 20px;
+        font-size: 15px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    html {
+        font-family: Arial;
+        display: inline-block;
+        margin: 0px auto;
+        text-align: center;
+    }
+
+    body {
+        background-color: rgb(243, 227, 170);
+    }
+
+
+    img {
+        height: 200px;
+        width: 300px;
+    }
+
+  
+    .content {
+        padding: 50px;
+        height: 100%;
+        
+    }
+
+    .card-grid {
+        max-width: 800px;
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .card {
+        background-color: white;
+        box-shadow: 2px 2px 12px 1px rgba(140, 140, 140, 0.5);
+        height:320px;
+        width: 400px;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #034078;
+    }
+    #stationID 
+    {
+        padding:10px;
+        text-decoration: underline;
+    }
+    .button {
+        border:none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    #b1
+    {
+        background-color: green;
+    }
+    #b2
+    {
+        background-color: red;
+    }
+    .button:hover {
+     color: rgb(0, 0, 0);
+    }
+
+    @media screen and (max-width: 768px) {
+        img {
+            height: 160px;
+            width: 250px;
+        }
+
+        footer {
+            font-size: 10px;
+        }
+
+        .card {
+            height: 350px;
+            width: 350px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        img {
+            height: 100px;
+            width: 140px;
+        }
+        header {
+            width: 100%;
+        }
+        footer {
+            font-size: 10px;
+        }
+
+        .card {
+            height: 300px;
+            width: 120%;
+        }
+    }
+    @media screen and (max-width: 380px) {
+        img {
+            height: 100px;
+            width: 140px;
+        }
+        header {
+            width: 100%;
+        }
+        footer {
+            font-size: 10px;
+            padding:5px;
+            
+        }
+
+        .card {
+            width: 120%;
+        }
+    }
+
+</style>
+
+<body>
+    <header>
+        <img src="header.png" alt="">
+    </header>
+
+    <div class="content">
+        <div class="card-grid">
+            <div class="card">
+               
+                <h1 id="stationID">MSCIT-5</h1>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h2>Reader status : <strong id="state" style="color:red">OFF</strong></h2> 
+                <br>
+                <br>
+                <br>
+                <br>
+                <button id="b1" class="button" onclick="send(1)">Active</button>
+                <button id="b2" class="button" onclick="send(0)">Deactive</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Copyrights © 2022. All Rights Reserved. Powered by JPD | AMS.</p>
+    </footer>
+<script>
+function send(led_sts) 
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        
+        document.getElementById("state").innerHTML = this.responseText;
+        if(this.responseText == "ON")
+        document.getElementById("state").style.color = "green";
+        else
+        document.getElementById("state").style.color = "red";
+    }
+  };
+  xhttp.open("GET", "led_set?state="+led_sts, true);
+  xhttp.send();
+}
+</script>
+</center>
+</body>
+</html>
+)=====";
+
+void handleRoot(){
+  server.sendHeader("Location", webpage,true);   //Redirect to our html web page
+  server.send(302, "text/html","");
+}
+
+void led_control() 
+
+{
+
+ String state = "OFF";
+
+ String act_state = server.arg("state");
+
+ if(act_state == "1")
+
+ {
+
+  digitalWrite(LED,HIGH); //LED ON
+  digitalWrite(system_active,HIGH);
+  state = "ON";
+
+ }
+
+ else
+
+ {
+
+  digitalWrite(LED,LOW); //LED OFF
+  digitalWrite(system_active,LOW);
+
+  state = "OFF";
+
+ }
+
+ 
+
+ server.send(200, "text/plane", state);
+
+}
+
+void handleWebRequests(){
+  if(loadFromSpiffs(server.uri())) return;
+  String message = "File Not Detected\n\n";
+  message += "URI: ";
+  message += server.uri();
+  message += "\nMethod: ";
+  message += (server.method() == HTTP_GET)?"GET":"POST";
+  message += "\nArguments: ";
+  message += server.args();
+  message += "\n";
+  for (uint8_t i=0; i<server.args(); i++){
+    message += " NAME:"+server.argName(i) + "\n VALUE:" + server.arg(i) + "\n";
+  }
+  server.send(404, "text/plain", message);
+  Serial.println(message);
+}
+
+void setup() {
+  delay(1000);
+  Serial.begin(115200);
+  Serial.println();
+
+  pinMode(LED,OUTPUT);
+  pinMode(system_active,OUTPUT);
+
+  //Initialize File System
+  SPIFFS.begin();
+  Serial.println("File System Initialized");
+
+  //Initialize AP Mode
+  WiFi.softAP(ssid,password);  //Password not used
+  IPAddress myIP = WiFi.softAPIP();
+  Serial.print("Web Server IP:");
+  Serial.println(myIP);
+
+  //Initialize Webserver
+  server.on("/",handleRoot);
+  server.on("/led_set", led_control);
+  server.onNotFound(handleWebRequests); //Set setver all paths are not found so we can handle as per URI
+  server.begin();  
+}
+
+void loop() {
+ server.handleClient();
+}
+
+bool loadFromSpiffs(String path){
+  String dataType = "text/plain";
+//  if(path.endsWith("/")) path += "index.htm";
+
+  if(path.endsWith(".src")) path = path.substring(0, path.lastIndexOf("."));
+  else if(path.endsWith(".html")) dataType = "text/html";
+  else if(path.endsWith(".htm")) dataType = "text/html";
+  else if(path.endsWith(".css")) dataType = "text/css";
+  else if(path.endsWith(".js")) dataType = "application/javascript";
+  else if(path.endsWith(".png")) dataType = "image/png";
+  else if(path.endsWith(".gif")) dataType = "image/gif";
+  else if(path.endsWith(".jpg")) dataType = "image/jpeg";
+  else if(path.endsWith(".ico")) dataType = "image/x-icon";
+  
+  File dataFile = SPIFFS.open(path.c_str(), "r");
+  if (server.hasArg("download")) dataType = "application/octet-stream";
+  if (server.streamFile(dataFile, dataType) != dataFile.size()) {
+  }
+
+  dataFile.close();
+  return true;
+}

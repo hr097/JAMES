@@ -1,0 +1,10 @@
+CREATE TABLE  Bckp_Ams_setup_course_subject_map(ams_setup_id INTEGER,cs_id INTEGER NOT NULL,year YEAR NOT NULL,PRIMARY KEY(ams_setup_id));
+
+
+ALTER TABLE Bckp_Ams_setup_course_subject_map ADD CONSTRAINT FK_ams_setup_cs_id_map_bckp FOREIGN KEY (cs_id) REFERENCES Course_subject_map(cs_id) ON UPDATE CASCADE;
+
+
+ALTER TABLE  Bckp_Ams_setup_course_subject_map ADD CONSTRAINT UNQ_ams_setup_per_year_bckp UNIQUE(cs_id,year);
+
+
+CREATE INDEX idx_amsSetupCsIdMap_bckp ON Bckp_Ams_setup_course_subject_map(cs_id); 

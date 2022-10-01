@@ -1,0 +1,14 @@
+******)Routines:
+
+1)Ams_api 
+NOTE : Event scheduler MUST BE ON
+
+
+DELIMITER $$
+CREATE EVENT `deleteAmsApiDataDaily`
+  ON SCHEDULE EVERY 1 DAY STARTS '2022-09-05 03:00:00'
+  ON COMPLETION PRESERVE
+DO BEGIN
+  TRUNCATE TABLE ams_api;
+END$$
+DELIMITER ;

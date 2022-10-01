@@ -1,0 +1,124 @@
+******)Triggers :
+
+
+1)Users :
+
+DELIMITER $$
+CREATE TRIGGER move_user_to_bckp BEFORE DELETE ON Users
+FOR EACH ROW
+BEGIN
+INSERT INTO Bckp_Users VALUES(OLD.username,OLD.password,OLD.user_type);
+END $$
+DELIMITER ;
+
+2)Students:
+
+// NOTE : when student completes like 10 th sem is updated to 11 th at that time  we use this trigger to delete record from here and shift to backup tb.
+
+DELIMITER $$
+CREATE TRIGGER move_student_to_bckp BEFORE DELETE ON Students
+FOR EACH ROW
+BEGIN
+INSERT INTO Bckp_Students VALUES(OLD.spid,OLD.name,OLD.gender,OLD.dob,OLD.email,OLD.contact_no,OLD.course_id,OLD.joining_year,OLD.cur_semester,OLD.cur_division,OLD.cur_roll_no);
+END $$
+DELIMITER ;
+
+3)Faculties:
+
+when faculty permenently leaves at that time  we use this trigger to delete record from here and shift to backup tb.
+
+DELIMITER $$
+CREATE TRIGGER move_faculty_to_bckp BEFORE DELETE ON Faculties
+FOR EACH ROW
+BEGIN
+INSERT INTO Bckp_Faculties VALUES(OLD.fid,OLD.name,OLD.gender,OLD.dob,OLD.email,OLD.contact_no,OLD.joining_year,OLD.role_id);
+END $$
+DELIMITER ;
+
+
+4)Ams_api: 
+
+
+DELIMITER $$
+CREATE TRIGGER insert_ams_api BEFORE INSERT ON Ams_api
+FOR EACH ROW
+BEGIN
+DECLARE sem int;
+SELECT cur_semester into sem  FROM vw_students where spid = NEW.spid;
+SET NEW.semester := sem;
+END $$
+DELIMITER ;
+
+5) Ams_attendance_master
+
+    on deletion of records this should be moved to backup table
+    on insertion of record we have  to update attendance percentage in 
+    Ams_course_subject_map so we need trigger for that.
+
+    1) DELETION TRIGGER
+
+    DELIMITER $$
+    CREATE TRIGGER move_att_to_bckp BEFORE DELETE ON Ams_attendance_master
+    FOR EACH ROW 
+    BEGIN
+    INSERT INTO Bckp_Ams_attendance_master(spid,ams_setup_id,att_date_time,att_status) VALUES(OLD.spid,OLD.ams_setup_id,OLD.att_date_time,OLD.att_status);
+    END $$
+    DELIMITER ;
+
+    2)COUNT absent/present TRIGGER
+
+    DELIMITER $$
+    CREATE TRIGGER count_PR_AB_days AFTER INSERT ON Ams_attendance_master
+    FOR EACH ROW 
+    BEGIN
+    IF NEW.att_status = TRUE THEN
+    UPDATE Ams_setup_students_map SET p_days = p_days + 1 WHERE spid = NEW.spid;
+    ELSE 
+    UPDATE Ams_setup_students_map SET a_days = a_days + 1 WHERE spid = NEW.spid;
+    END IF;
+    END $$
+    DELIMITER ;
+
+
+6)Ams_setup_course_subject_map:
+
+
+    DELIMITER $$
+    CREATE TRIGGER move_setup_to_bckp BEFORE DELETE ON Ams_setup_course_subject_map
+    FOR EACH ROW 
+    BEGIN
+    INSERT INTO Bckp_Ams_setup_course_subject_map(ams_setup_id,cs_id,year) VALUES(OLD.ams_setup_id,OLD.cs_id,OLD.year);
+    END $$
+    DELIMITER ;
+
+7)Ams_setup_faculties_map:
+
+
+    DELIMITER $$
+    CREATE TRIGGER move_setup_fac_map_to_bckp BEFORE DELETE ON Ams_setup_faculties_map
+    FOR EACH ROW 
+    BEGIN
+    INSERT INTO Bckp_Ams_setup_faculties_map(ams_setup_id,fid) VALUES(OLD.ams_setup_id,OLD.fid);
+    END $$
+    DELIMITER ;
+
+8)Ams_setup_students_map:
+
+    DELIMITER $$
+    CREATE TRIGGER move_setup_stud_map_to_bckp BEFORE DELETE ON Ams_setup_students_map
+    FOR EACH ROW 
+    BEGIN
+    INSERT INTO Bckp_Ams_setup_students_map(ams_setup_id,spid,p_days,a_days) VALUES(OLD.ams_setup_id,OLD.spid,OLD.p_days,OLD.a_days);
+    END $$
+    DELIMITER ;
+
+
+9)Rfid_uid_spid_map:
+
+    DELIMITER $$
+    CREATE TRIGGER move_uid_spid_map_to_bckp BEFORE DELETE ON Rfid_uid_spid_map
+    FOR EACH ROW 
+    BEGIN
+    INSERT INTO Bckp_Rfid_uid_spid_map(uid,spid) VALUES(OLD.uid,OLD.spid);
+    END $$
+    DELIMITER ;
