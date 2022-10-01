@@ -1,9 +1,0 @@
-System admin:
-
-Features available :
- - Student registration
- - Faculty registration
- - Student or Faculty modification
- - Semester transfer (individually or all at once)
-
-(This area requires further more R&D  during development stage)

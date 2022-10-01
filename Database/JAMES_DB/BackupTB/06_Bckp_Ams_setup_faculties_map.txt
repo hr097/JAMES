@@ -1,6 +1,0 @@
-CREATE TABLE Bckp_Ams_setup_faculties_map(ams_setup_id INTEGER NOT NULL,fid VARCHAR(10) NOT NULL,PRIMARY KEY(ams_setup_id,fid));
-
-ALTER TABLE  Bckp_Ams_setup_faculties_map ADD CONSTRAINT FK_fac_ams_setup_id_map_bckp FOREIGN KEY (ams_setup_id) REFERENCES Bckp_Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE;
-
-ALTER TABLE  Bckp_Ams_setup_faculties_map ADD CONSTRAINT FK_ams_setup_fid_map_bckp FOREIGN KEY (fid) REFERENCES Bckp_Faculties(fid) ON UPDATE CASCADE;
-
