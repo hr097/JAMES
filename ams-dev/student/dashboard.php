@@ -75,7 +75,7 @@ $sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from
 $result = mysqli_query($JAMES->connection(),$sql);
 
 //@change colors
-$color_palate = array("card card-dark-blue","card card-tale","card card-light-danger","card bg-warning text-black","card bg-secondary text-black","card bg-success text-white","card bg-dark text-white","card bg-info text-white","card bg-light text-dark border");
+$color_palate = array("card card-dark-blue","card card-tale","card card-light-danger","card bg-warning text-black","card bg-secondary text-black","card bg-success text-white","card bg-dark text-white","card bg-info text-black","card bg-light text-dark border");
 $subjects_html = "";
 
 $itr=0;
