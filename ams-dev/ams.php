@@ -310,7 +310,7 @@ class AMS
 
         // VNSGU SERVER DATABASE IP =>  "69.167.150.242:2082"; 
         $this->serverName = "localhost"; //@change credentials  
-        $databaseName = "james";  //@change credentials
+        $databaseName = "vnsguit_james";  //@change credentials
         
         $userType=3; //@remove :: remove this line
 

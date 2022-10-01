@@ -12,7 +12,7 @@ $JAMES->init_user_session();
 function validate_user($u,$p) 
 {    
     //@query
-    $sql = "select username,password,user_token,user_type from vw_users_auth where username='$u';"; 
+    $sql = "select username,password,user_type from vw_users_auth where username='$u';"; 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
 
     if(mysqli_num_rows($result)===1)

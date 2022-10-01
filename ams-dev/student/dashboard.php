@@ -1,13 +1,13 @@
 <?php
 
-//  require_once("../ams.php");
-//  $JAMES = new AMS(2);
-//  $JAMES->init_user_session();
+ require_once("../ams.php");
+ $JAMES = new AMS("User");
+ $JAMES->init_user_session();
 
-//  if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
-//  {
-//   $JAMES->ams_redirect("../login.php");
-//  }
+ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
+ {
+  $JAMES->ams_redirect("../login.php");
+ }
  
 ?>
 
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../css/student.css">
      
     <!-- js  -->
-    <script src="../js/student/studdashboard.js" type="text/javascript" defer=true></script>
+    <script src="../js/student/dashboard.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
     <title>AMS | Student dashboard</title>

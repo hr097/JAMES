@@ -5,7 +5,7 @@
 
     <!-- including header -->
     <?php
-    include './common/header.php'
+    require_once('./common/header.php');
   ?>
 
     <!-- css  -->
@@ -71,7 +71,7 @@
 
     <!-- including footer -->
     <?php
-    include './common/footer.php'
+    require_once('./common/footer.php');
   ?>
 
 </html>

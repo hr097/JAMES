@@ -1,10 +1,25 @@
+<?php
+
+require_once("../ams.php");
+$JAMES = new AMS("User");
+$JAMES->init_user_session();
+
+if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
+{
+ $JAMES->ams_redirect("../login.php");
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <!-- including header -->
     <?php
-    include './common/header.php'
+    require_once('./common/header.php');
     ?>
 
   <!-- css  -->
@@ -44,7 +59,7 @@
                   </div>
                 </div>
               </div>
-              <!-------------------------------------------------------Studnet Card End------------------------------------------------------->
+              <!-------------------------------------------------------Student Card End------------------------------------------------------->
             </div>
           </div>
           <!--Personal Info-->
@@ -125,7 +140,7 @@
 
     <!-- including footer -->
     <?php
-    include './common/footer.php'
+    require_once('./common/footer.php');
     ?>
 
 

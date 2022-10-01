@@ -122,9 +122,9 @@ $(document).ready(function(){
           _ct: csrfToken.val(),
         },
         function(data,status)
-        {  
+        {   
             if(status == "success")
-            {
+            {   
                 response = parseInt(data);
                 if(response === 0)
                 {
