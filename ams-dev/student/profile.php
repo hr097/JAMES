@@ -1,7 +1,7 @@
 <?php
 
 require_once("../ams.php");
-$JAMES = new AMS("User");
+$JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
 if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
@@ -9,7 +9,20 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
  $JAMES->ams_redirect("../login.php");
 }
 
+$u = $_SESSION["_userId"];
 
+//@query
+$sql = "select *,DATE_FORMAT(dob,'%d/%m/%y')AS dob from vw_students where email='$u';"; 
+$result = mysqli_query($JAMES->connection(),$sql);
+
+if(mysqli_num_rows($result)===1)
+{
+    $user = mysqli_fetch_assoc($result);
+}
+else
+{
+    $JAMES->ams_redirect("../login.php");
+}
 
 ?>
 
@@ -47,16 +60,17 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
                   <div class="card__face card__face--front" style="border-radius: 10px;">
                     <img src="../assets/profiles/student-profile.jpg" class="my-4" alt="Student profile"
                       style="width:130px;height:130px; border-radius: 49%;">
-                    <h3 style="color: white; margin-top: -15px;">Archit Ghevariya</h3>
+                    <h4 style="color: white; margin-top: -15px;"><?php echo $user['name']; ?></h4>
                   </div>
 
-                  <div class="card__face card__face--back py-4 pl-4" align="left">
-                    <p style="font-weight: 700;"> Student id : 2020049819</p>
-                    <p><strong> Enrollment no :</strong> E20110018000610015</p>
-                    <p><strong> DOB :</strong> 7/6/2020</p>
-                    <p><strong> Email id :</strong> archit@vnsgu.ac.in</p>
-                    <p><strong> Course name :</strong> E20110018000610015</p>
+                  <div style="font-weight:600;background-image:linear-gradient(to top,lightblue,indigo);" class="card__face card__face--back py-4 pl-4" align="left">
+                    <h4 style="margin-top:20px;"> SPID : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $user['spid']; ?> </h4>
+                    <h4> Course:    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $user['course_name']; ?> </h4>
+                    <h4> Semester: &nbsp <?php echo $user['cur_semester']; ?> </h4>
+                    <h4> Division:  &nbsp&nbsp&nbsp&nbsp <?php echo $user['cur_division']; ?> </h4>
+                    <h4> Roll No:   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $user['cur_roll_no']; ?> </h4>
                   </div>
+
                 </div>
               </div>
               <!-------------------------------------------------------Student Card End------------------------------------------------------->
@@ -72,30 +86,11 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h6 class="info-title">First Name</h6>
-                  <h4 class="info-data">ARCHIT</h4>
 
-                  <h6 class="info-title"> Last Name</h6>
-                  <h4 class="info-data">GHEVARIYA</h4>
-
-                  <h6 class="info-title">Birth Date </h6>
-                  <h4 class="info-data">08-03-2003</h4>
-
-                  <h6 class="info-title">Gender</h6>
-                  <h4 class="info-data">Male</h4>
-
-                  <h6 class="info-title">Semester</h6>
-                  <h4 class="info-data">4th</h4>
-
-                  <h6 class="info-title"> Student Id</h6>
-                  <h4 class="info-data">2020049819</h4>
-
-                  <h6 class="info-title">Enrollment / Registration Id </h6>
-                  <h4 class="info-data">E20110018000610015</h4>
-
-                  <h6 class="info-title">Course Name</h6>
-                  <h4 class="info-data">B. SC. (I. T.) ( M. SC. (I. T.) 5 YEAR INTEGRATED COURSE ) ( M.SC. (I.T.)
-                    2020-25 )</h4>
+                  <h6 class="info-title">Birth Date <h5 class="info-data"><?php echo $user['dob']; ?></h5> </h6>
+                  <h6 class="info-title">Gender <h5 class="info-data"><?php echo $user['gender']; ?></h5> </h6>
+                  <h6 class="info-title">Course Joining Year <h5 class="info-data"><?php echo $user['joining_year']; ?></h5> </h6>
+  
                 </div>
               </div>
             </div>
@@ -113,11 +108,9 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h6 class="info-title">Email</h6>
-                  <h4 class="info-data">archit@vnsgu.ac.in</h4>
+                <h6 class="info-title">Email/Username <h5 class="info-data"><?php echo $user['email']; ?></h5> </h6>
 
-                  <h6 class="info-title">Mobile No.</h6>
-                  <h4 class="info-data">9813245125</h4>
+                <h6 class="info-title">Contact No. <h5 class="info-data"><?php echo $user['contact_no']; ?></h5> </h6>
                 </div>
               </div>
             </div>

@@ -64,7 +64,8 @@
                 <!-------------------------------------------------------Profile Start------------------------------------------------------->
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
-                        <p class="ac_type">Student dashboard</p>
+                        <p class="ac_type">Student Dashboard</p>  
+                        <!-- <p class="ac_type" style="font-weight:500;"><?php echo $_SESSION['_userId']; ?></p>  -->
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="../assets/profiles/student-profile.jpg" alt="profile" />
                         </a>
@@ -103,6 +104,12 @@
                         <a class="nav-link" href="./profile.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-id-badge"></i>
                             <span class="menu-title">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./notifications.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-book"></i>
+                            <span class="menu-title">Notifications</span>
                         </a>
                     </li>
                     <li class="nav-item">
