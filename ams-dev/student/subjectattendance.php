@@ -9,6 +9,20 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
  $JAMES->ams_redirect("../login.php");
 }
 
+if(isset($_GET["subject"]))
+{ 
+
+  $subject_name = $_GET["subject"];
+  //query the subject
+  
+
+}
+else
+{
+  $JAMES->ams_redirect("./dashboard.php");
+}
+
+
 ?>
 
 
@@ -25,7 +39,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
     <link rel="stylesheet" href="../css/student.css">
 
     <!-- page information and favicon-->
-    <title>AMS | Student dashboard</title>
+    <title>AMS | Subject Attendance</title>
 
 </head>
 
@@ -39,7 +53,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
 
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Subject Attendance</h4>
+                    <h4 class="card-title"><?php echo $subject_name; ?> Attendance</h4>
                     <div class="row">
                       <div class="col-12">
                         <div class="table-responsive">

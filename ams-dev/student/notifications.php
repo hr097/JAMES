@@ -39,7 +39,7 @@ else
   <link rel="stylesheet" href="../css/student.css">
 
   <!-- page information-->
-  <title>AMS | Profile</title>
+  <title>AMS | Notifications </title>
 
 </head>
 

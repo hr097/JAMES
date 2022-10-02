@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
     
     const h = new Date().getHours(); 
@@ -17,8 +15,10 @@ $(document).ready(function(){
     }
 
     $(".subjects").click(function(){
-        alert($(this).attr("id"));
+        window.location.href = `subjectattendance.php?subject=${$(this).attr('id')}`;
     });
+
+    // api calling for new notifications
 
 });
 

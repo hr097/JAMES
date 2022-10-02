@@ -75,7 +75,7 @@ $sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from
 $result = mysqli_query($JAMES->connection(),$sql);
 
 //@change colors
-$color_palate = array("card card-dark-blue","card card-tale","card card-light-danger","card bg-warning text-black","card bg-secondary text-black","card bg-success text-white","card bg-dark text-white","card bg-info text-black","card bg-light text-dark border");
+$color_palate = array("card card-dark-blue","card card-tale","card card-light-danger","card bg-warning text-white","card bg-secondary text-white","card bg-success text-white","card bg-dark text-white","card bg-info text-white","card bg-light text-dark border");
 $subjects_html = "";
 
 $itr=0;
@@ -137,6 +137,7 @@ else
                     <div class="row">
                         <div class="col-12 col-xl-8 mb-4 mb-xl-50">
                             <h3 class="font-weight-bold">Welcome <?php echo $user['fname']; ?>,</h3>
+                            <input type="hidden" value="<?echo $spid;?>" >
                             <h6 id="daymode" class="font-weight-normal mb-10"> Good Morning, </h6>
                         </div>
 

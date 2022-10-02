@@ -1,7 +1,7 @@
 <?php
 
 require_once("../ams.php");
-$JAMES = new AMS("Admin");
+$JAMES = new AMS("User");
 $JAMES->init_user_session();
 
 if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))

@@ -32,14 +32,8 @@
     <!--jQuery file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <!--javaScript file-->
-    <script src="../js/header.js" type="text/javascript" defer=true></script>
-
     <!-- favicon -->
     <link rel="shortcut icon" href="../assets/logos/favicon.ico">
-
-
-
 
     <!-------------------------------------------------------Nav-Bar Start------------------------------------------------------->
     <div class="container-scroller" style="background-color: #F5F7FF;">
@@ -64,7 +58,7 @@
                 <!-------------------------------------------------------Profile Start------------------------------------------------------->
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
-                        <p class="ac_type">Student Dashboard</p>  
+                        <p class="ac_type" style="margin-right:10px;">Student</p>  
                         <!-- <p class="ac_type" style="font-weight:500;"><?php echo $_SESSION['_userId']; ?></p>  -->
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="../assets/profiles/student-profile.jpg" alt="profile" />
@@ -74,6 +68,10 @@
                             <a class="dropdown-item" href="./profile.php">
                                 <i class="icon-head menu-icon"></i>
                                 Profile
+                            </a>
+                            <a class="dropdown-item" href="./notifications.php">
+                                <i class="icon-head menu-icon ti-bell"></i>
+                                Notifications
                             </a>
                             <a class="dropdown-item" href="../php/logout.php">
                                 <i class="ti-power-off text-primary"></i>
@@ -108,7 +106,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./notifications.php" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="icon-head menu-icon ti-book"></i>
+                            <i class="icon-head menu-icon ti-bell"></i>
                             <span class="menu-title">Notifications</span>
                         </a>
                     </li>
