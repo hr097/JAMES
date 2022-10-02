@@ -21,11 +21,26 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
   $attendance_html = "";
 
   //@query
-  $sql = "select DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%Y') AS att_date,AAM.att_status from Ams_attendance_master AAM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F where AAM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and AAM.fid=F.fid and spid='$spid'and S.subject_name='$subject_name'and F.name='$subject_fac' order by DATE(AAM.att_date_time) DESC;"; 
+  $sql = "select DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%Y') AS att_date,AAM.att_status,ASSM.p_days,ASSM.a_days from Ams_attendance_master AAM,
+  Ams_setup_students_map ASSM,
+  Ams_setup_course_subject_map ASCSM,
+  Course_subject_map CSM,
+  Subjects S,
+  Faculties F where
+  AAM.ams_setup_id=ASCSM.ams_setup_id
+  and AAM.ams_setup_id=ASSM.ams_setup_id
+  and ASCSM.ams_setup_id=ASSM.ams_setup_id 
+  and ASCSM.cs_id=CSM.cs_id
+  and CSM.subject_id=S.subject_id 
+  and AAM.fid=F.fid
+  and ASSM.spid=AAM.spid 
+  and AAM.spid='$spid'and S.subject_name='$subject_name'and F.name='$subject_fac' order by DATE(AAM.att_date_time) DESC;"; 
+  
   $result = mysqli_query($JAMES->connection(),$sql);
 
   if(mysqli_num_rows($result)>=1)
-  {  $r=1;
+  {   $r=1;
+        
       while($record = mysqli_fetch_assoc($result))
       {
           
@@ -38,6 +53,9 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
               $att_status="class='btn btn-danger attbtn'>Absent";
           }
 
+          $p_days = $record['p_days'];
+          $a_days = $record['a_days'];
+
           $attendance_html.="
               <tr>
               <td>".$r."</td>
@@ -48,9 +66,24 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
               </tr>";
               $r++;
       }
+
+
+
+      $ttl_pr = round(( ($p_days) / ($p_days + $a_days)*100));
+
+
+      $att_stat = "
+      <br>
+      <div class='card bg-light text-dark'  style='display:block;margin-left:0px;padding:20px;border:2px solid black;'>
+      <div class='pie animate' style='--p:".$p_days.";--c:green;margin-left:48px;margin-top:20px;'> ".$p_days." days</div>
+      <div class='pie' style='--p:".$a_days.";margin-left:48px;margin-top:20px;'> ".$a_days." days</div>
+      <div class='pie animate' style='--p:".$ttl_pr.";--c:orange;margin-left:48px;margin-top:20px;'> ".$ttl_pr."%</div>
+      </div>
+      <br>
+      ";
   }
   else
-  {
+  {    
       $attendance_html.="
       <tr>
       <td></td>
@@ -59,6 +92,16 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
       No Attendance Data for ".$subject_name."
       </td>
       </tr>";
+
+      $att_stat = "
+      <br>
+      <div class='card bg-light text-dark'  style='display:block;margin-left:0px;padding:20px;border:2px solid black;'>
+      <div class='pie animate' style='--p:0;--c:green;margin-left:48px;margin-top:20px;'> 0 days</div>
+      <div class='pie' style='--p:0;margin-left:48px;margin-top:20px;'> 0 days</div>
+      <div class='pie animate' style='--p:0;--c:orange;margin-left:48px;margin-top:20px;'> 0%</div>
+      </div>
+      <br>
+      ";
   }
   
 }
@@ -86,6 +129,65 @@ else
     <!-- page information and favicon-->
     <title>AMS | Subject Attendance</title>
 
+    <style type="text/css">
+        
+        @property --p{
+          syntax: "<number>";
+          inherits: true;
+          initial-value: 0;
+        }
+
+         .pie {
+          --p:20;
+          --b:22px;
+          --c:darkred;
+          --w:150px;
+          
+          width:var(--w);
+          aspect-ratio:1;
+          position:relative;
+          display:inline-grid;
+          margin:5px;
+          place-content:center;
+          font-size:25px;
+          font-weight:bold;
+          font-family:sans-serif;
+        }
+        .pie:before,
+        .pie:after {
+          content:"";
+          position:absolute;
+          border-radius:50%;
+        }
+        .pie:before {
+          inset:0;
+          background:
+            radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat,
+            conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+          -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+                  mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+        }
+        .pie:after {
+          inset:calc(50% - var(--b)/2);
+          background:var(--c);
+          transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+        }
+        .animate {
+          animation:p 1s .5s both;
+        }
+        .no-round:before {
+          background-size:0 0,auto;
+        }
+        .no-round:after {
+          content:none;
+        }
+
+        @keyframes p {
+          from{--p:0}
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -98,7 +200,7 @@ else
 
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="float:left;"><?php echo $subject_name; ?> Attendance</h4>
+                    <h4 class="card-title" style="float:left;"><?php echo $subject_name; ?></h4>
                     
                     <button type='button' onclick="window.location.href='./dashboard.php'" style="verticle-align:middle;padding:9px;width:90px;margin:auto;margin-left:60%;position:relative;bottom:10px;display:inline;" class='btn btn-primary btn-icon-text'>
                     Back
@@ -106,6 +208,12 @@ else
                       <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                     </svg>
                     </button>
+
+                    <?php
+                      echo $att_stat;
+                    ?>
+                    
+
                     <div class="row" style="display:block;">
                       <div class="col-12">
                         <div class="table-responsive">

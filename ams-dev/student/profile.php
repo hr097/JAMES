@@ -12,11 +12,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
 $u = $_SESSION["_userId"];
 
 //@query
-<<<<<<< HEAD
-$sql = "select *,DATE_FORMAT(dob,'%d-%m-%y')AS dob from vw_students where email='$u';"; 
-=======
 $sql = "select *,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from vw_students where email='$u';"; 
->>>>>>> 44bf9a337587780637860288de4dbfbaf41683bf
 $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)===1)
@@ -65,34 +61,34 @@ else
               <div class="scene">
                 <div class="flip-card" >
                   <div class="card__face card__face--front" style="border-radius: 10px;">
-                    <img src="../assets/profiles/student-profile.jpg" class="profile_img my-4" alt="Student profile">
-                    <h4  class="profile_name"><?php echo $user['name']; ?></h4>
+                    <img src="../assets/profiles/student-profile.jpg" class="profile_img my-4" style="width:130px;height:130px;border-radius:49%;" alt="Student profile">
+                    <h4  class="profile_name" style="color:white;margin-top:-12px;" ><?php echo $user['name']; ?></h4>
                   </div>
 
-                  <div  class="card__face card__face--back py-4 pl-4" align="left">
+                  <div  class="card__face card__face--back py-4 pl-4" style="font-weight:500;font-size: 15px;" align="left">
                     <p class="mt-3">
                     <span  class="card_back_title mr-4"> SPID :&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                    <span class="card_back_data"><?php echo $user['spid']; ?></span>
+                    <span class="card_back_data" style="font-weight:normal;"><?php echo $user['spid']; ?></span>
                     </p>
 
                     <p>
                     <span  class="card_back_title mr-4"> Course:</span>
-                    <span><?php echo $user['course_name']; ?></span>
+                    <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['course_name']; ?></span>
                     </p>
 
                     <p>
                     <span  class="card_back_title mr-1"> Semester:</span>
-                    <span><?php echo $user['cur_semester']; ?>th</span>
+                    <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['cur_semester']; ?>th</span>
                     </p>
 
                     <p>
                     <span  class="card_back_title mr-3"> Division:</span>
-                    <span><?php echo $user['cur_division']; ?></span>
+                    <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['cur_division']; ?></span>
                     </p>
 
                     <p>
                     <span  class="card_back_title mr-4"> Roll No:</span>
-                    <span><?php echo $user['cur_roll_no']; ?></span>
+                    <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['cur_roll_no']; ?></span>
                     </p>
                   </div>
 

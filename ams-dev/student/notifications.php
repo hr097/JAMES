@@ -9,20 +9,20 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
  $JAMES->ams_redirect("../login.php");
 }
 
-$u = $_SESSION["_userId"];
+// $u = $_SESSION["_userId"];
 
-//@query
-$sql = "select * from vw_students where email='$u';"; 
-$result = mysqli_query($JAMES->connection(),$sql);
+// //@query
+// $sql = "select * from vw_students where email='$u';"; 
+// $result = mysqli_query($JAMES->connection(),$sql);
 
-if(mysqli_num_rows($result)===1)
-{
-    $user = mysqli_fetch_assoc($result);
-}
-else
-{
-    $JAMES->ams_redirect("../login.php");
-}
+// if(mysqli_num_rows($result)===1)
+// {
+//     $user = mysqli_fetch_assoc($result);
+// }
+// else
+// {
+//     $JAMES->ams_redirect("../login.php");
+// }
 
 ?>
 

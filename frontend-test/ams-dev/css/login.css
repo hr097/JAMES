@@ -1,0 +1,80 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* ---------------------Login page--------------------- */
+.title {
+    color: #4b49ac;
+}
+
+.form-header{
+    font-weight: 700;
+}
+
+.fieldstyle {
+    border: 1px solid #000000;
+    color:black;
+}
+
+.fieldstyle:focus {
+    border: 2px solid #000000;
+}
+
+.rememberme-txt {
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+#forgotpassword {
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.loginbox {
+    border-radius: 20px;
+    border: 0.01em solid #d3d3d3;
+}
+
+/* Placeholder color change */
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder {
+    color: #6e6e6e;
+}
+
+/* Eye-icon */
+.psd-icon i {
+    position: absolute;
+}
+.eye-icon {
+    margin-top: 9px;
+    right: 16%;
+    font-size: 18px;
+}
+
+
+/* ---------------------forgot password page --------------------- */
+.page-title {
+    font-size: 17px;
+}
+
+.otpmsg {
+    margin-top: 25px;
+    margin-bottom: -9px;
+    font-size: 12px;
+}
+
+
+/* remove up-down arrow in number field */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
