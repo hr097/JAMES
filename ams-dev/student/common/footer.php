@@ -1,6 +1,7 @@
 
     <!-- plugins:js -->
-    <script src="../vendors/js/vendor.bundle.base.js"></script>
+    <!-- do not remove below extra /script end tag console error will occur -->
+    </script><script src="../vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
 
     <!-- Plugin js for this page -->
@@ -18,3 +19,4 @@
     <!-- Custom js for this page-->
     <script src="../vendors/js/dashboard.js"></script>
     <script src="../vendors/datatables.net/data-table.js"></script>
+
