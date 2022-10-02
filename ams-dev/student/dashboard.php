@@ -28,10 +28,13 @@ else
 // daily attendance fetch
 
 $spid = $user['spid'];
+
+$_SESSION['_spid'] = $spid; // to access this in other pages
+
 $attendance_html = "";
 
 //@query
-$sql = "select S.subject_name,DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%y') AS att_date,AAM.att_status from Ams_attendance_master AAM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S where AAM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and spid='$spid'and DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%y') = DATE_FORMAT(CURRENT_DATE,'%d/%m/%y');"; 
+$sql = "select S.subject_name,AAM.att_status from Ams_attendance_master AAM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S where AAM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and spid='$spid'and DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%y') = DATE_FORMAT(CURRENT_DATE,'%d/%m/%y') ORDER BY TIME_FORMAT(TIME(AAM.att_date_time),'%h:%i:%s') DESC;"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)>=1)
@@ -71,7 +74,7 @@ else
 // classroom fetch
 
 //@query 
-$sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from Ams_setup_students_map ASM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F,ams_setup_faculties_map ASFM where ASM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and ASFM.fid=F.fid and ASCSM.ams_setup_id=ASFM.ams_setup_id and spid='$spid' order by S.subject_code"; 
+$sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from Ams_setup_students_map ASM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F,Ams_setup_faculties_map ASFM where ASM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and ASFM.fid=F.fid and ASCSM.ams_setup_id=ASFM.ams_setup_id and spid='$spid' order by S.subject_code"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 //@change colors
@@ -137,48 +140,18 @@ else
                     <div class="row">
                         <div class="col-12 col-xl-8 mb-4 mb-xl-50">
                             <h3 class="font-weight-bold">Welcome <?php echo $user['fname']; ?>,</h3>
+<<<<<<< HEAD
                             <input type="hidden" value="<?echo $spid;?>" >
                             <h6 id="daymode" class="font-weight-normal mb-10"></h6>
+=======
+                            <h6 id="daymode" class="font-weight-normal mb-10"> Good Morning, </h6>
+>>>>>>> 44bf9a337587780637860288de4dbfbaf41683bf
                         </div>
 
                         <!-------------------------------------------------------Subjects------------------------------------------------------->
                         <div class="col-md-12 grid-margin transparent">
                             <div class="row">
                             <?php echo $subjects_html;?>
-                                <!-- <div id="Web Development" class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer subjects">
-                                    <div class="card card-dark-blue">
-                                        <div class="card-body">
-                                            <p class="mb-4 subfont">Web Development</p>
-                                            <p>Payal Mam</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div id="RDBMS" class="col-md-3 mb-2 stretch-card transparent handpointer subjects">
-                                    <div class="card card-tale">
-                                        <div class="card-body">
-                                            <p class="mb-4 subfont">RDBMS</p>
-                                            <p>Tejas Shah</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="IOT" class="col-md-3 mb-2 stretch-card transparent handpointer subjects">
-                                    <div class="card card-light-danger">
-                                        <div class="card-body">
-                                            <p class="mb-4 subfont">IOT</p>
-                                            <p>Hitesh Lad</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="Environmental Science" class="col-md-3 mb-2 stretch-card transparent handpointer subjects">
-                                    <div class="card card-dark-blue bg-warning">
-                                        <div class="card-body">
-                                            <p class="mb-4 subfont">Environmental Science</p>
-                                            <p>Dilbar Mehta</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-
                             </div>
                         </div>
                         <!-------------------------------------------------------Table Started------------------------------------------------------->
@@ -214,7 +187,7 @@ else
             </div>
         </div>
     </div>
-
+    
     <!-- including footer -->
     <?php
     include './common/footer.php'

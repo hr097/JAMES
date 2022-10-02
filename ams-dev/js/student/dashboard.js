@@ -15,7 +15,7 @@ $(document).ready(function(){
     }
 
     $(".subjects").click(function(){
-        window.location.href = `subjectattendance.php?subject=${$(this).attr('id')}`;
+        window.location.href = `subjectattendance.php?subject=${encodeURIComponent($(this).attr('id'))}`;
     });
 
     // api calling for new notifications
