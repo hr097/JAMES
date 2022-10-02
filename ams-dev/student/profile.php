@@ -12,7 +12,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
 $u = $_SESSION["_userId"];
 
 //@query
-$sql = "select *,DATE_FORMAT(dob,'%d/%m/%y')AS dob from vw_students where email='$u';"; 
+$sql = "select *,DATE_FORMAT(dob,'%d-%m-%y')AS dob from vw_students where email='$u';"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)===1)
@@ -38,6 +38,9 @@ else
   <!-- css  -->
   <link rel="stylesheet" href="../css/student.css">
 
+  <!-- js  -->
+  <script src="../js/student/profile.js" type="text/javascript" defer=true></script>
+
   <!-- page information-->
   <title>AMS | Profile</title>
 
@@ -58,17 +61,35 @@ else
               <div class="scene">
                 <div class="flip-card" >
                   <div class="card__face card__face--front" style="border-radius: 10px;">
-                    <img src="../assets/profiles/student-profile.jpg" class="my-4" alt="Student profile"
-                      style="width:130px;height:130px; border-radius: 49%;">
-                    <h4 style="color: white; margin-top: -15px;"><?php echo $user['name']; ?></h4>
+                    <img src="../assets/profiles/student-profile.jpg" class="profile_img my-4" alt="Student profile">
+                    <h4  class="profile_name"><?php echo $user['name']; ?></h4>
                   </div>
 
-                  <div style="font-weight:600;background-image:linear-gradient(to top,lightblue,indigo);" class="card__face card__face--back py-4 pl-4" align="left">
-                    <h4 style="margin-top:20px;"> SPID : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $user['spid']; ?> </h4>
-                    <h4> Course:    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $user['course_name']; ?> </h4>
-                    <h4> Semester: &nbsp <?php echo $user['cur_semester']; ?> </h4>
-                    <h4> Division:  &nbsp&nbsp&nbsp&nbsp <?php echo $user['cur_division']; ?> </h4>
-                    <h4> Roll No:   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $user['cur_roll_no']; ?> </h4>
+                  <div  class="card__face card__face--back py-4 pl-4" align="left">
+                    <p class="mt-3">
+                    <span  class="card_back_title mr-4"> SPID :&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <span class="card_back_data"><?php echo $user['spid']; ?></span>
+                    </p>
+
+                    <p>
+                    <span  class="card_back_title mr-4"> Course:</span>
+                    <span><?php echo $user['course_name']; ?></span>
+                    </p>
+
+                    <p>
+                    <span  class="card_back_title mr-1"> Semester:</span>
+                    <span><?php echo $user['cur_semester']; ?>th</span>
+                    </p>
+
+                    <p>
+                    <span  class="card_back_title mr-3"> Division:</span>
+                    <span><?php echo $user['cur_division']; ?></span>
+                    </p>
+
+                    <p>
+                    <span  class="card_back_title mr-4"> Roll No:</span>
+                    <span><?php echo $user['cur_roll_no']; ?></span>
+                    </p>
                   </div>
 
                 </div>
@@ -87,9 +108,14 @@ else
               <div class="card">
                 <div class="card-body">
 
-                  <h6 class="info-title">Birth Date <h5 class="info-data"><?php echo $user['dob']; ?></h5> </h6>
-                  <h6 class="info-title">Gender <h5 class="info-data"><?php echo $user['gender']; ?></h5> </h6>
-                  <h6 class="info-title">Course Joining Year <h5 class="info-data"><?php echo $user['joining_year']; ?></h5> </h6>
+                  <h6 class="info-title">Birth Date</h6>
+                   <h4 class="info-data"><?php echo $user['dob']; ?></h4>
+
+                  <h6 class="info-title">Gender</h6>
+                   <h4 class="info-data"><?php echo $user['gender']; ?></h4>
+
+                  <h6 class="info-title">Course Joining Year</h6>
+                   <h4 class="info-data"><?php echo $user['joining_year']; ?></h4>
   
                 </div>
               </div>
@@ -108,9 +134,11 @@ else
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                <h6 class="info-title">Email/Username <h5 class="info-data"><?php echo $user['email']; ?></h5> </h6>
+                <h6 class="info-title">Email<i class="ti-pencil email_edit_icon d-flex justify-content-end" id="edit_icon"></i></h6>
+                 <h4 id="para_email" class="email_edit_para info-data"><?php echo $user['email']; ?> </h4>
 
-                <h6 class="info-title">Contact No. <h5 class="info-data"><?php echo $user['contact_no']; ?></h5> </h6>
+                <h6 class="info-title">Contact No.</h6>
+                 <h4 class="info-data"><?php echo $user['contact_no']; ?></h4>
                 </div>
               </div>
             </div>
@@ -119,17 +147,6 @@ else
       </div>
   <!-------------------------------------------------------Main Content End------------------------------------------------------->
   
-  <script>
-      // $(document).ready(() => {
-      //   $('#stud_card').click(function () {
-      //     $('#stud_card').flip({ trigger: "manual" });
-      //   });
-      // });
-      var card = document.querySelector('.flip-card');
-    card.addEventListener('click', function () {
-        card.classList.toggle('is-flipped');
-    });
-  </script>
 
     <!-- including footer -->
     <?php
