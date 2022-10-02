@@ -9,10 +9,11 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
  $JAMES->ams_redirect("../login.php");
 }
 
-if(isset($_REQUEST["subject"]))
+if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
 { 
 
   $subject_name = $_REQUEST["subject"];
+  $subject_fac = $_REQUEST["faculty"];
   
   // subject attendance fetch
 
@@ -20,7 +21,7 @@ if(isset($_REQUEST["subject"]))
   $attendance_html = "";
 
   //@query
-  $sql = "select DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%Y') AS att_date,AAM.att_status from Ams_attendance_master AAM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S where AAM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and spid='$spid'and S.subject_name='$subject_name' order by DATE(AAM.att_date_time) DESC;"; 
+  $sql = "select DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%Y') AS att_date,AAM.att_status from Ams_attendance_master AAM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F where AAM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and AAM.fid=F.fid and spid='$spid'and S.subject_name='$subject_name'and F.name='$subject_fac' order by DATE(AAM.att_date_time) DESC;"; 
   $result = mysqli_query($JAMES->connection(),$sql);
 
   if(mysqli_num_rows($result)>=1)

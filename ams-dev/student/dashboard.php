@@ -74,7 +74,7 @@ else
 // classroom fetch
 
 //@query 
-$sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from Ams_setup_students_map ASM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F,Ams_setup_faculties_map ASFM where ASM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and ASFM.fid=F.fid and ASCSM.ams_setup_id=ASFM.ams_setup_id and spid='$spid' order by S.subject_code"; 
+$sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from Ams_setup_students_map ASM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F,Ams_setup_faculties_map ASFM where ASM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and ASFM.fid=F.fid and ASCSM.ams_setup_id=ASFM.ams_setup_id and spid='$spid' order by S.subject_code;"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 //@change colors
@@ -90,12 +90,12 @@ if(mysqli_num_rows($result)>=1)
          
         $subjects_html.="
         <div id='".$record['subject_name']."'class='col-md-3 mb-2 stretch-card transparent handpointer subjects'>
-        <div class='".$color_palate[$itr]."'>
-            <div class='card-body'>
+            <div class='".$color_palate[$itr]."'>
+                <div class='card-body'>
                 <p class='mb-4 subfont'>".$record['subject_code']."<br>".$record['subject_name']."</p>
-                <p>".$record['fac_name']."</p>
+                <p id='".$record['fac_name']."'>".$record['fac_name']."</p>
+                </div>
             </div>
-        </div>
         </div>";
         $itr++;
         if($itr == count($color_palate))
