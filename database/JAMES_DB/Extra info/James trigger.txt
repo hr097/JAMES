@@ -70,14 +70,16 @@ DELIMITER ;
     DELIMITER $$
     CREATE TRIGGER count_PR_AB_days AFTER INSERT ON Ams_attendance_master
     FOR EACH ROW 
-    BEGIN
+   BEGIN
     IF NEW.att_status = TRUE THEN
-    UPDATE Ams_setup_students_map SET p_days = p_days + 1 WHERE spid = NEW.spid;
+    UPDATE Ams_setup_students_map SET p_days = p_days + 1 WHERE spid = NEW.spid and ams_setup_id=NEW.ams_setup_id;
     ELSE 
-    UPDATE Ams_setup_students_map SET a_days = a_days + 1 WHERE spid = NEW.spid;
+    UPDATE Ams_setup_students_map SET a_days = a_days + 1 WHERE spid = NEW.spid  and ams_setup_id=NEW.ams_setup_id;
     END IF;
     END $$
     DELIMITER ;
+
+
 
 
 6)Ams_setup_course_subject_map:
