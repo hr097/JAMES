@@ -1,5 +1,6 @@
 <?php
 
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -69,7 +70,7 @@ class AMS
 
     private function ams_db_connect($database,$userType)
     {   
-        if($userType===1 || $userType===2 || $userType===3) //@remove :: userType 3
+        if($userType===1 || $userType===2 || $userType===3)  //@CHANGE =>3 IS FOR LOCALHOST TESTING & DEVELOPMENT PURPOSE
         {
 
             switch($userType)
@@ -81,12 +82,12 @@ class AMS
                         }
                 case 2:{
                         $this->userName = "vnsguit_james_user";
-                        $this->password = "abfrq_f+UwGSr";
+                        $this->password = "bfrq_f+UwGSr";
                         break;
                         }
                 default: 
                     {
-                        $this->userName = "root"; //@change :: local development and testing purpose
+                        $this->userName = "root"; //@CHANGE
                         $this->password = "";
                         break; 
                     }
@@ -95,7 +96,8 @@ class AMS
             $this->db_connection = mysqli_connect($this->serverName,$this->userName,$this->password,$database);
 
             if(!$this->db_connection)
-            {
+            {   
+                //echo mysqli_connect_error();
                 return false;
             }
             else
@@ -116,6 +118,12 @@ class AMS
     public function connection()
     {   
         return($this->db_connection);
+    }
+    
+    public function Debug()// to debug error on production
+    {
+        error_reporting(E_ALL); 
+        ini_set('display_errors', 1);
     }
 
     public function sanitizeInput($data) // to prevent XSS atatcks and SQL injection atatcks;
@@ -249,7 +257,7 @@ class AMS
         //Enable SMTP debugging.
         // $mail->SMTPDebug = 3;         for debugging                      
         //Set PHPMailer to use SMTP.
-        $mail->isSMTP();            
+        $mail->isSMTP();           //@@@@@@@@ changed as vnsgu server can't send SMTP email it will send it from root domain    
         //Set SMTP host name                          
         $mail->Host = "smtp.gmail.com";
         //Set this to true if SMTP host requires authentication to send email
@@ -294,25 +302,20 @@ class AMS
         {
             $userType=1;
         }
-        else //if($userType=="User")
+        else// if($userType=="User" || $userType=="") // BY DEFAULT DB WILL  BE CONNECTED AS USER IF NOTHING IS PASSED
         {
             $userType=2;
         }
-        // else
-        // {
-        //     $userType=0;
-        // }
+        
+        $userType=3; //!localhost development enabled
 
         $this->set_server_configuration();
 
         $this->todayDate= date("d/m/Y"); // fetch today date
         $this->todayTime = date("h:i:s A",  time()); // fetch current time
 
-        // VNSGU SERVER DATABASE IP =>  "69.167.150.242:2082"; 
-        $this->serverName = "localhost"; //@change credentials  
-        $databaseName = "vnsguit_james";  //@change credentials
-        
-        $userType=3; //@remove :: remove this line
+        $this->serverName = "localhost"; 
+        $databaseName = "vnsguit_james"; 
 
         if(!$this->ams_db_connect($databaseName,$userType))
         {
@@ -327,5 +330,7 @@ class AMS
     }
 
 }
+
+
 
 ?>

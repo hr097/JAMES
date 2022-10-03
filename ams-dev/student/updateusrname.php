@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin:*'); // @change *=>ams.vnsguit.org 
+header('Access-Control-Allow-Origin:ams.vnsguit.org'); 
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
@@ -170,28 +170,53 @@ $JAMES->init_user_session();
     return(($GLOBALS['JAMES']->sendEmail($username,"Username Updated",$htmlContent))?1:-1);
 
     }
-
-    function update_user($ou,$nu)
-    {   
+    
+    function checkUserExists($u) 
+    {        
         //@query
-        $sql = "update Users set username='$nu' where username='$ou';";
-
-        if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
-        {   
-            if(sendResetUserNameEmail($nu)===1)
-            {
-                $GLOBALS['JAMES']->delete_user_session();
-                return 1;
-            }
-            else
-            {    
-                return 0;
-            }
-              
+        $sql = "select username,user_type from vw_users_auth where username='$u';";
+    
+        $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
+    
+        if(mysqli_num_rows($result)===1)
+        {
+            return true;
         }
         else
         {
-            return 0;
+            return false;
+        }
+    }
+
+    function update_user($ou,$nu)
+    {   
+        
+        if(!checkUserExists($nu))
+        {
+            //@query
+            $sql = "update Users set username='$nu' where username='$ou';";
+    
+            if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+            {   
+                if(sendResetUserNameEmail($nu)===1)
+                {
+                    $GLOBALS['JAMES']->delete_user_session();
+                    return 1;
+                }
+                else
+                {    
+                    return 0;
+                }
+                  
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return -1;
         }
     }
 

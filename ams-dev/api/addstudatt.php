@@ -1,18 +1,19 @@
 <?php
 
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *'); //* IT IS OPEN Becuase ESP has no DOMAIN
+header('Access-Control-Allow-Origin:*'); //* IT IS OPEN Becuase ESP has no DOMAIN
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods, Authorization');
 
 require_once("../ams.php");
-$JAMES = new AMS(1);
+$JAMES = new AMS("Admin");
 
 
     function insertStudAttendance($uid,$rNo) 
     {   
         //@query 
-        $sql = "select rf.spid as spid,s.cur_semester as sem from Rfid_uid_spid_map rf,vw_students s where s.spid=rf.spid and rf.uid='$uid';";
+        //$sql = "select rf.spid as spid,s.cur_semester as sem from Rfid_uid_spid_map rf,vw_students s where s.spid=rf.spid and rf.uid='$uid';";
+        $sql = "select * from Rfid_uid_spid_map where uid='$uid';";
         
         $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
 
@@ -21,13 +22,14 @@ $JAMES = new AMS(1);
             $result = mysqli_fetch_assoc($result);
             
             $spid = $result['spid'];
-            $sem = $result['sem'];
+           // $sem = $result['sem'];
 
-            $cur_time = date("h:i:s A",time());
-            $cur_date = date("Y-m-d");
+           // $cur_time = date("h:i:s A",time());
+            //$cur_date = date("Y-m-d");
             
             //@query
-            $sql = "insert into Ams_api(reader_no,reading_date,reading_time,spid,semester) values($rNo,'$cur_date','$cur_time','$spid',$sem);";
+            //$sql = "insert into Ams_api(reader_no,reading_date,reading_time,spid,semester) values($rNo,'$cur_date','$cur_time','$spid',$sem);";
+            $sql = "insert into Ams_api(reader_no,spid) values($rNo,'$spid');";
 
             if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
             {
@@ -35,13 +37,13 @@ $JAMES = new AMS(1);
             }
             else
             {
-                return "Something went wrong!";
+                return 503;// something went wrong!
             }
            
         }
         else
         {
-            return "Uid not found!";
+            return -1; //UID not found
         }
     }
 
@@ -49,7 +51,7 @@ $JAMES = new AMS(1);
 
     if($data===null)
     {
-        $JAMES->ams_redirect("../login.php"); // when outside request comes redirect to login
+       $JAMES->ams_redirect("../login.php"); // when outside request comes redirect to login
     }
     else if(count($data)===0)
     {

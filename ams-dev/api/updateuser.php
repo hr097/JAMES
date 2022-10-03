@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin:*'); //  @change * => ams.vnsguit.org
+header('Access-Control-Allow-Origin:ams.vnsguit.org'); 
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
@@ -173,7 +173,7 @@ $JAMES->init_user_session();
     function update_user($u,$p)
     {   
         //@query
-        $sql = "update vw_users_auth set password='$p' where username='$u';";
+        $sql = "update Users set password='$p' where username='$u';";
 
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {   

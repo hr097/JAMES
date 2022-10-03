@@ -16,7 +16,7 @@ window.onclick = function(event) {//close modal anywhere click
 }
 
   document.getElementById("yes-button").onclick = function() { // yes-> redirect
-    window.location.href = "../index.php";
+    window.location.href = "./profile.php";
   }
 
 /* END::MODAL */
@@ -55,7 +55,8 @@ $(document).ready(function(){
       {
           $(this).css("border","none");
       }
-      else if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})+$/.test( $(this).val().trim()) )
+      else 
+      if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})+$/.test( $(this).val().trim()) )
       {
           $(this).css("border","2px solid green");
           $('#mode').html(updatebtn);
@@ -86,25 +87,30 @@ $(document).ready(function(){
                                     
                                     if(response===0)
                                     {    
-                                          $("#modalmsg").text("Your Email couldn't be updated.");
+                                          $("#modalmsg").text("Your email couldn't be updated.");
                                           $("#yes-button").text("Okay");
                                     }
                                     else if(response===1)
                                     {    
                                          setCookie("5f7573726e6d","",-1); // clear saved credentials
                                          setCookie("5f70737764","",-1);
-                                         $("#modalmsg").text("Your Email has been updated successfully.");
+                                         $("#modalmsg").text("Your email has been updated successfully.");
                                          $("#yes-button").text("Login");
+                                    }
+                                     else if(response===-1)
+                                    {    
+                                         $("#modalmsg").text("Sorry, This email belongs to another user.");
+                                         $("#yes-button").text("Okay");
                                     }
                                     else
                                     {
-                                         $("#modalmsg").text("Try again later! Some Unknown error occured.");
+                                         $("#modalmsg").text("Try again later! Some unknown error occured.");
                                           $("#yes-button").text("Okay");
                                     }
                                 }
                                 else
                                 {
-                                         $("#modalmsg").text("Try again later! Some Unknown error occured.");
+                                         $("#modalmsg").text("Try again later! Some unknown error occured.");
                                           $("#yes-button").text("Okay");
                                 }
                            });

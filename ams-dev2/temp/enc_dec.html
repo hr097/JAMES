@@ -1,0 +1,80 @@
+<!-- <!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title></title>
+
+        <link rel="icon" href="" type="image/icon type">
+
+        <style type="text/css">
+
+        </style>
+
+    </head>
+
+    <body>
+
+
+
+    </body>
+
+    <script type="text/javascript"></script>
+
+    <noscript>Sorry, Your browser does not support JavaScript !!!</noscript>
+
+</html> -->
+
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <h1>AES encrypt/decrypt online using CryptoJS</h1>
+
+  <br>text:<input id='text' type='text' value='0.1'/>
+
+
+   <h1 id="demo"> </h1>
+
+
+    <br><button onclick="encrypt()">encrypt</button>
+
+    <br>result:<br><span id='result'></span>
+
+    <br>decoded:<br><span id="decrypted"></span>
+
+    <br><button onclick="decrypt()">decrypt</button>
+
+    <script>
+    
+    
+    function encrypt()
+    {
+     document.getElementById('result').innerHTML = encryptCredentials(document.getElementById('text').value);
+    }
+    function decrypt()
+    {
+         document.getElementById('decrypted').innerHTML = decryptCredentials(document.getElementById('result').innerHTML);
+    }
+     var encryptCredentials = (str) => { return (CryptoJS.AES.encrypt(str,"ams.vnsguit.org")); }        
+
+     var decryptCredentials = (str) => { return ( CryptoJS.AES.decrypt(str, "ams.vnsguit.org").toString(CryptoJS.enc.Utf8) ); }        
+    
+    var xhttp = new XMLHttpRequest();
+
+
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        // Typical action to be performed when the document is ready:
+        document.getElementById("demo").innerHTML = xhttp.responseText;
+        }
+    };
+    xhttp.open("POST", "https://ams.vnsguit.org/api/validateuser.php", true);
+
+    //Send the proper header information along with the request
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhttp.send("_un=harshilramani.mscit20@vnsgu.ac.in&_ps=Mscit@2020&_ct=7Is/LBl84T/nRhGgpaJH70yk98y1fHQwErRX5iZrgJ0TDm77RUHQi+Lr4DBwhx4LlyN8qLwMKcVRwPhiP/TRoBQg+CTJ29V/W2zfwebiJ9vLTfjEuGzxYL2/mVhLOhaOytX4tC22ZF2mWIoAR+pggf3hzj0HDUoCoB87MbvvM1w=");
+    </script>
+
+</html>
