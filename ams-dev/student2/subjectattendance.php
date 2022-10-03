@@ -20,7 +20,7 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
   $spid = $_SESSION["_spid"];
   $attendance_html = "";
 
-   //@query
+  //@query
   $sql = "select DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%Y') AS att_date,AAM.att_status,ASSM.p_days,ASSM.a_days from Ams_attendance_master AAM,
   Ams_setup_students_map ASSM,
   Ams_setup_course_subject_map ASCSM,
@@ -39,7 +39,8 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
   $result = mysqli_query($JAMES->connection(),$sql);
 
   if(mysqli_num_rows($result)>=1)
-  {  $r=1;
+  {   $r=1;
+        
       while($record = mysqli_fetch_assoc($result))
       {
           
@@ -51,7 +52,7 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
           {
               $att_status="class='btn btn-danger attbtn'>Absent";
           }
-          
+
           $p_days = $record['p_days'];
           $a_days = $record['a_days'];
 
@@ -65,8 +66,9 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
               </tr>";
               $r++;
       }
-      
-      
+
+
+
       $ttl_pr = round(( ($p_days) / ($p_days + $a_days)*100));
 
 
@@ -81,16 +83,16 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
       ";
   }
   else
-  {
+  {    
       $attendance_html.="
       <tr>
       <td></td>
       <td></td>
       <td>
-      No Attendance Data Available
+      No Attendance Data for ".$subject_name."
       </td>
       </tr>";
-      
+
       $att_stat = "
       <br>
       <div class='card bg-light text-dark'  style='display:block;margin-left:0px;padding:20px;border:2px solid black;'>
@@ -126,7 +128,7 @@ else
 
     <!-- page information and favicon-->
     <title>AMS | Subject Attendance</title>
-    
+
     <style type="text/css">
         
         @property --p{
@@ -198,21 +200,21 @@ else
 
                 <div class="card">
                   <div class="card-body">
-                      
-                    <button type='button' onclick="window.location.href='./dashboard.php'" style="verticle-align:middle;padding:9px;width:90px;margin:auto;float:left;position:relative;bottom:10px;display:inline;" class='btn btn-primary btn-icon-text'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-                    </svg>
+                    <h4 class="card-title" style="float:left;"><?php echo $subject_name; ?></h4>
+                    
+                    <button type='button' onclick="window.location.href='./dashboard.php'" style="verticle-align:middle;padding:9px;width:90px;margin:auto;margin-left:60%;position:relative;bottom:10px;display:inline;" class='btn btn-primary btn-icon-text'>
                     Back
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
                     </button>
-                    <h4 class="card-title" style="float:right;"><?php echo $subject_name; ?></h4>
-                    <br>
+
                     <?php
                       echo $att_stat;
                     ?>
-
                     
-                    <div class="row" style="display:block;float:none;">
+
+                    <div class="row" style="display:block;">
                       <div class="col-12">
                         <div class="table-responsive">
                           <table id="order-listing" class="table" id="tbl">

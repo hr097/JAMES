@@ -88,7 +88,7 @@ $(document).ready(function(){
 
     $("#login").click(function(){
 
-      const users = [1,2,3];
+      const users = [1,2,3,4];
       let username = $("#username"); 
       let password = $("#password");
       let csrfToken = $("#csrfToken");
@@ -122,9 +122,9 @@ $(document).ready(function(){
           _ct: csrfToken.val(),
         },
         function(data,status)
-        {  
+        {   
             if(status == "success")
-            {
+            {   
                 response = parseInt(data);
                 if(response === 0)
                 {
@@ -160,7 +160,11 @@ $(document).ready(function(){
                   }
                   else if(response===3)
                   {
-                       window.location.replace("./admin/dashboard.php");
+                    window.location.replace("./management/dashboard.php");
+                  }
+                  else if(response===4)
+                  {
+                    window.location.replace("./admin/dashboard.php");
                   }
                 }
                 else

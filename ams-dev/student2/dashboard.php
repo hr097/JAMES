@@ -66,7 +66,7 @@ else
     <tr>
     <td colspan='1'></td>
     <td>
-    No Attendance Data
+    No Attendance Data for Today
     </td>
     </tr>";
 }
@@ -74,7 +74,7 @@ else
 // classroom fetch
 
 //@query 
-$sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from Ams_setup_students_map ASM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F,Ams_setup_faculties_map ASFM where ASM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and ASFM.fid=F.fid and ASCSM.ams_setup_id=ASFM.ams_setup_id and spid='$spid' order by S.subject_code DESC;"; 
+$sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from Ams_setup_students_map ASM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F,Ams_setup_faculties_map ASFM where ASM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and ASFM.fid=F.fid and ASCSM.ams_setup_id=ASFM.ams_setup_id and spid='$spid' order by S.subject_code;"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 //@change colors

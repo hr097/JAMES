@@ -37,7 +37,6 @@ else
 
   <!-- css  -->
   <link rel="stylesheet" href="../css/student.css">
-  <link rel="stylesheet" href="../css/modal.css">
 
   <!-- js  -->
   <script src="../js/student/profile.js" type="text/javascript" defer=true></script>
@@ -135,32 +134,17 @@ else
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                
-                <h6 class="info-title">Email</h6>
-                 <span id="mode">
-                    <i class="ti-pencil email_edit_icon d-flex justify-content-end" style="position:relative;bottom:10px;" id="edit_icon"></i>
-                </span>
-                 <h4 id="para_email" class="email_edit_para info-data"><?php echo $user['email']; ?></h4> 
-                 <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>"> 
+                <h6 class="info-title">Email<i class="ti-pencil email_edit_icon d-flex justify-content-end" id="edit_icon"></i></h6>
+                 <h4 id="para_email" class="email_edit_para info-data"><?php echo $user['email']; ?> </h4>
+
                 <h6 class="info-title">Contact No.</h6>
                  <h4 class="info-data"><?php echo $user['contact_no']; ?></h4>
-                </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-       <!-- modal -->
-        <div id="modal" class="modal">
-            <!-- modal content -->
-            <div class="modal-content" style="width:360px;">
-                    <span class="close">&times;</span>
-                    <p class="msg unselectable" id="modalmsg"></p>
-                    <div class="row" style="margin:auto;margin-bottom:30px;">
-                    <button id="yes-button" class="modal-btn"></button>
-            </div>
-        </div>
   <!-------------------------------------------------------Main Content End------------------------------------------------------->
   
 

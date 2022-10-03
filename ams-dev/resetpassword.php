@@ -145,7 +145,7 @@ else
                 <span class="close">&times;</span>
                 <p class="msg unselectable">Your password has been successfully updated.</p>
                 <div class="row" style="margin:auto;margin-bottom:30px;">
-                <button id="yes-button" class="modal-btn">Login now</button>
+                <button id="yes-button" class="modal-btn">Login</button>
         </div>
     </div>
 </div>
