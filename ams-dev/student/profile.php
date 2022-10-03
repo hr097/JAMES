@@ -79,7 +79,7 @@ else
 
                     <p>
                     <span  class="card_back_title mr-1"> Semester:</span>
-                    <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['cur_semester']; ?>th</span>
+                    <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['cur_semester']; ?></span>
                     </p>
 
                     <p>
