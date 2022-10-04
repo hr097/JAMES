@@ -114,6 +114,7 @@ if($JAMES->checkSession()===true) // if session active than redirect user to his
                             </form>
                             <!-- Form : End -->
                         </div>
+                        <p style="text-align:center;font-size:0.5em;position:relative;top:30px;">© <?php echo date("Y") ?> J. P. Dawer. All Rights Reserved | Developed by <a href="http://github.com/hr097">JAMES</a></p> 
                     </div>
                </div>
            </div>
