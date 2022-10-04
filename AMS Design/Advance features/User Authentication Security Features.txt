@@ -1,0 +1,11 @@
+Login Dashboard:
+
+Features that can be included :
+ 
+ - One time one dashboard login
+ - FACE ID based LOGIN
+ - DEVICE LOGIN HISTORY
+ - FEEBACK  LINK ABOUT SYSTEM ON LOGIN PAGE
+
+
+

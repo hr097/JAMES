@@ -1,0 +1,11 @@
+Student Dashboard:
+
+Features avaialable:
+
+- Profile Student profile
+- Quick Attendance view(daily)
+- Subject wise attendance
+- Attendance statistics
+- Notification panel(static one)
+- update username/email from profile page
+- Virtual ID card
