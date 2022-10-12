@@ -38,7 +38,7 @@ $(document).ready(function(){
     
  $('#edit_icon').click(function(){
      
-      $('#para_email').replaceWith('<input type="text" style="padding:5px;" name="newusername" id="email_edit" class="email_edit info-data" placeholder="Enter new email" >');
+      $('#para_email').replaceWith('<input type="text" maxlength="250" minlength="13" style="padding:5px;" name="newusername" id="email_edit" class="email_edit info-data" placeholder="Enter new email" >');
       
       $('#email_edit').blur(function(){
             $("#email_edit").css("border","none");

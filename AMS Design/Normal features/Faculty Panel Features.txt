@@ -10,7 +10,7 @@ ii] Modify Setup
   - Add or remove students from the setup as required although only enrollment details could be deleted with student details still remaining intact 
     E.g. Suppose a student in the end semester of final year, the relative details could be updated to inactive status only being stored for the sole purpose of record.
 
-iii] Delete Setup
+iii] Archive Setup
   - setup can be deleted with due confirmation from the user and also before performing major actions like update, submit or delete.
 
 iv] Home 
