@@ -47,11 +47,9 @@ $(document).ready(function () {
     });
 
     $("#email_edit").keydown(function () {
-      let updatebtn =
-        '<button type="button" id="updateemail" style="padding-bottom:5px;margin:10px;margin-top:-30px;height:30px;" class="btn btn-primary float-right edit_btn">Update</button>';
+      let updatebtn = '<button type="button" id="updateemail" style="padding-bottom:5px;margin:10px;margin-top:-30px;height:30px;" class="btn btn-primary float-right edit_btn">Update</button>';
       let cancelbtn = `<button type="button" onclick={window.location.reload();} id="cancelbtn" style="padding-bottom:5px;margin:10px;margin-top:-30px;height:30px;" class="btn btn-primary float-right edit_btn">Cancel</button>`
-        let editicon =
-        '<i class="ti-pencil email_edit_icon d-flex justify-content-end" style="position:relative;bottom:15px;" id="edit_icon"></i>';
+      let editicon = '<i class="ti-pencil email_edit_icon d-flex justify-content-end" style="position:relative;bottom:15px;" id="edit_icon"></i>';
 
       // if ($(this).val().trim() == "") {
       //   $(this).css("border", "none");
