@@ -33,15 +33,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!--javaScript file-->
-    <script src="../js/header.js" type="text/javascript" defer=true></script>
+    <!-- <script src="../js/header.js" type="text/javascript" defer=true></script> -->
 
     <!-- favicon -->
     <link rel="shortcut icon" href="../assets/logos/favicon.ico">
 
-
-
-
-    
   <!-------------------------------------------------------Nav-Bar Start------------------------------------------------------->
   <div class="container-scroller" style="background-color: #F5F7FF;">
     <!-- partial:partials/_navbar.html -->

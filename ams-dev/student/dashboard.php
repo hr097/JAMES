@@ -13,7 +13,7 @@
  $u = $_SESSION["_userId"];
 
 //@query
-$sql = "select spid,SUBSTRING(name,INSTR(name,' '),( (LOCATE(' ',name,INSTR(name,' ')+1)) - INSTR(name,' ') )) AS fname from vw_students where email='$u';"; 
+$sql = "select spid,SUBSTRING(name,INSTR(name,' '),( (LOCATE(' ',name,INSTR(name,' ')+1)) - INSTR(name,' ') )) AS fname,gender from vw_students where email='$u';"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)===1)
@@ -28,8 +28,10 @@ else
 // daily attendance fetch
 
 $spid = $user['spid'];
+$gender = $user['gender'];
 
 $_SESSION['_spid'] = $spid; // to access this in other pages
+$_SESSION['_gender'] = $gender; // to access this in other pages
 
 $attendance_html = "";
 
