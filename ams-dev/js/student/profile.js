@@ -46,7 +46,7 @@ $(document).ready(function () {
       $("#email_edit").css("border", "1px solid rgb(91, 90, 90,0.2)");
     });
 
-    $("#email_edit").keydown(function () {
+    $("#email_edit").on('input',function () {
       let updatebtn = '<button type="button" id="updateemail" style="padding-bottom:5px;margin:10px;margin-top:-30px;height:30px;" class="btn btn-primary float-right edit_btn">Update</button>';
       let cancelbtn = `<button type="button" onclick={window.location.reload();} id="cancelbtn" style="padding-bottom:5px;margin:10px;margin-top:-30px;height:30px;" class="btn btn-primary float-right edit_btn">Cancel</button>`
       let editicon = '<i class="ti-pencil email_edit_icon d-flex justify-content-end" style="position:relative;bottom:15px;" id="edit_icon"></i>';
