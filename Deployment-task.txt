@@ -15,6 +15,7 @@
 16)autofocus on fields form where needed
 17)https://ams.vnsguit.org/login.php/temp/ valo bug
 18) Backup table testing
+19) gmail account size (15 gb) auto clear sent mail at some time
 
 
 
