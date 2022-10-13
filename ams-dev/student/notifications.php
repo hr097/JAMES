@@ -64,7 +64,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled mt-3">
 
                     <li>
                       <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Holidays</h6>
@@ -99,7 +99,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                <ul class="list-unstyled">
+                <ul class="list-unstyled mt-3">
                     <li>
                       <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Lectures schedule</h6>
                       <h5 class="info-data" style="margin-left:5px;">No changes in lecture schedule.</h5> 
