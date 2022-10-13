@@ -28567,6 +28567,7 @@ div.tagsinput span.tag a {
   font-size: 0.875rem;
   line-height: 1;
   vertical-align: middle;
+  padding-top: 5px;
 }
 
 .sidebar .nav .nav-item .nav-link .badge {
@@ -29997,9 +29998,12 @@ div.tagsinput span.tag a {
   .sidebar-icon-only .sidebar .nav .nav-item .nav-link .menu-title {
     border-radius: 0 5px 5px 0px;
     background: #4B49AC;
+    
+
   }
   .rtl.sidebar-icon-only .sidebar .nav .nav-item .nav-link .menu-title {
     border-radius: 5px 0 0 5px;
+    
   }
   .sidebar-icon-only .sidebar .nav .nav-item .nav-link i.menu-icon {
     margin-right: 0;
