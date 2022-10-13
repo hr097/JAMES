@@ -148,17 +148,21 @@
 
 
     $('[data-toggle="minimize"]').on("click", function() {
-
+      
+      
       if ((body.hasClass('sidebar-toggle-display')) || (body.hasClass('sidebar-absolute'))) {
-
         body.toggleClass('sidebar-hidden');
-
+      
       } else {
-
         body.toggleClass('sidebar-icon-only');
-
       }
-
+      if(body.hasClass('sidebar-icon-only'))
+      {
+        $('.menu-title').css('display', 'none');
+      }
+      else{
+        $('.menu-title').css('display', 'block');
+      }
     });
 
 
