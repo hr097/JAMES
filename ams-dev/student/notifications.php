@@ -59,14 +59,28 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
               <h4 class="font-weight-bold">Department Updates</h4>
             </div>
           </div>
+
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                    <ul style="list-style-">
-                    <li style="font-size:1.7em;font-weight:bolder;"><h4 class="info-title">Holidays <br><br><h5 class="info-data">No holidays are declared yet.</h5> </h4></li>
-                    <li style="font-size:1.7em;font-weight:bolder;"><h4 class="info-title">Events <br><br><h5 class="info-data">No events announceed yet.</h5> </h4></li>
-                    <li style="font-size:1.7em;font-weight:bolder;"><h4 class="info-title">Achievements <br><br><h5 class="info-data"> Coming soon.</h5> </h4></li>
+                    <ul class="list-unstyled mt-3">
+
+                    <li>
+                      <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Holidays</h6>
+                      <h5 class="info-data" style="margin-left:5px;">No holidays are declared yet.</h5> 
+                    </li>
+
+                    <li>
+                      <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Events</h6>
+                      <h5 class="info-data" style="margin-left:5px;">No events announceed yet.</h5> 
+                    </li>
+
+                    <li>
+                      <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Achievements</h6>
+                      <h5 class="info-data" style="margin-left:5px;">Coming soon.</h5> 
+                    </li>
+
                    </ul>
                 </div>
               </div>
@@ -85,10 +99,21 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                    <ul style="list-style-">
-                    <li style="font-size:1.7em;font-weight:bolder;"><h4 class="info-title">Lectures schedule <br><br><h5 class="info-data">No changes in lecture schedule.</h5> </h4></li>
-                    <li style="font-size:1.7em;font-weight:bolder;"><h4 class="info-title">Assignments <br><br><h5 class="info-data">Hurrey! No assignments to show</h5> </h4></li>
-                    <li style="font-size:1.7em;font-weight:bolder;"><h4 class="info-title">Examination <br><br><h5 class="info-data">Coming soon.</h5> </h4></li>
+                <ul class="list-unstyled mt-3">
+                    <li>
+                      <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Lectures schedule</h6>
+                      <h5 class="info-data" style="margin-left:5px;">No changes in lecture schedule.</h5> 
+                    </li>
+
+                    <li>
+                      <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Assignments</h6>
+                      <h5 class="info-data" style="margin-left:5px;">Hurrey! No assignments to show</h5> 
+                    </li>
+
+                    <li>
+                      <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Examination</h6>
+                      <h5 class="info-data" style="margin-left:5px;">Coming soon.</h5> 
+                    </li>
                     </ul>
                 </div>
               </div>

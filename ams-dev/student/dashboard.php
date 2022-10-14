@@ -13,7 +13,7 @@
  $u = $_SESSION["_userId"];
 
 //@query
-$sql = "select spid,SUBSTRING(name,INSTR(name,' '),( (LOCATE(' ',name,INSTR(name,' ')+1)) - INSTR(name,' ') )) AS fname from vw_students where email='$u';"; 
+$sql = "select spid,SUBSTRING(name,INSTR(name,' '),( (LOCATE(' ',name,INSTR(name,' ')+1)) - INSTR(name,' ') )) AS fname,gender from vw_students where email='$u';"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)===1)
@@ -28,8 +28,10 @@ else
 // daily attendance fetch
 
 $spid = $user['spid'];
+$gender = $user['gender'];
 
 $_SESSION['_spid'] = $spid; // to access this in other pages
+$_SESSION['_gender'] = $gender; // to access this in other pages
 
 $attendance_html = "";
 
@@ -92,8 +94,9 @@ if(mysqli_num_rows($result)>=1)
         <div id='".$record['subject_name']."'class='col-md-3 mb-2 stretch-card transparent handpointer subjects'>
             <div class='".$color_palate[$itr]."'>
                 <div class='card-body'>
-                <p class='mb-4 subfont'>".$record['subject_code']."<br>".$record['subject_name']."</p>
-                <p id='".$record['fac_name']."'>".$record['fac_name']."</p>
+                <p class='mb-2 subfont'>".$record['subject_code']."</p>
+                <p class='subfont'>".$record['subject_name']."</p>
+                <p class='mt-4' id='".$record['fac_name']."'>".$record['fac_name']."</p>
                 </div>
             </div>
         </div>";
