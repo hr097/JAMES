@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     $(".subjects").click(function(){
         window.location.href = `subjectattendance.php?subject=${encodeURIComponent($(this).attr('id'))}&faculty=${encodeURIComponent(
-            $($(this).find("p")[1]).attr("id") 
+            $($(this).find("p")[2]).attr("id") 
         )}`;
     });
 
