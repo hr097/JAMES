@@ -15,10 +15,13 @@ body {
 .fieldstyle {
     border: 1px solid #000000;
     color:black;
+    border-radius: 3px !important;
+
 }
 
 .fieldstyle:focus {
     border: 2px solid #000000;
+    border-radius: 3px !important;
 }
 
 .rememberme-txt {

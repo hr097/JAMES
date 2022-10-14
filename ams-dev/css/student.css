@@ -198,6 +198,12 @@
 /* Card colors */
 
 .light-yellow {
-  background: #6c7616 !important;
+  background: #F0CA86 !important;
   color: #ffffff;
+}
+
+/* Feedback */
+
+.feedback-textarea{
+  border-radius: 5px !important;
 }

@@ -123,6 +123,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="./feedback.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-comment-alt"></i>
+                            <span class="menu-title">Feedback</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="./about.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-book"></i>
                             <span class="menu-title">About</span>
