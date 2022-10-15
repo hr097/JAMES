@@ -1,0 +1,13 @@
+CREATE TABLE Bckp_Ams_attendance_master(att_no BIGINT AUTO_INCREMENT,spid VARCHAR(10) NOT NULL REFERENCES Bckp_Students(spid) ON UPDATE CASCADE ON DELETE CASCADE,ams_setup_id  INTEGER NOT NULL REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE,fid VARCHAR(10) NOT NULL REFERENCES Faculties(fid) ON UPDATE CASCADE,att_date_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,att_status BOOLEAN NOT NULL,PRIMARY KEY(att_no));
+
+
+CREATE INDEX idx_AmsAttMasterAmsSetupSpid_bckp ON Bckp_Ams_attendance_master(spid); 
+CREATE INDEX idx_AmsAttMasterAmsSetupId_bckp ON Bckp_Ams_attendance_master(ams_setup_id); 
+
+///MUST RUN BELOW
+
+ALTER TABLE  Bckp_Ams_attendance_master ADD CONSTRAINT FK_bckp_ams_setup_id_map FOREIGN KEY(ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE  Bckp_Ams_attendance_master ADD CONSTRAINT FK_bckp_stud_spid_map FOREIGN KEY(spid) REFERENCES Bckp_Students(spid) ON UPDATE CASCADE;
+
+ALTER TABLE  Bckp_Ams_attendance_master ADD CONSTRAINT FK_bckp_fid_map FOREIGN KEY(spid) REFERENCES Bckp_Faculties(fid) ON UPDATE CASCADE;

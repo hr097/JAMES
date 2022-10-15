@@ -1,15 +1,59 @@
 ******)Triggers :
 
+// ONLY 
 
 1)Users :
 
-DELIMITER $$
-CREATE TRIGGER move_user_to_bckp BEFORE DELETE ON Users
-FOR EACH ROW
-BEGIN
-INSERT INTO Bckp_Users VALUES(OLD.username,OLD.password,OLD.user_type);
-END $$
-DELIMITER ;
+    DELIMITER $$
+    CREATE TRIGGER move_user_to_bckp BEFORE DELETE ON Users
+    FOR EACH ROW
+    BEGIN
+ 
+ 
+    END $$
+    DELIMITER ;
+
+
+2)Ams_api: 
+
+    DELIMITER $$
+    CREATE TRIGGER insert_ams_api BEFORE INSERT ON Ams_api
+    FOR EACH ROW
+    BEGIN
+    DECLARE sem int;
+    SELECT cur_semester into sem  FROM vw_students where spid = NEW.spid;
+    SET NEW.semester := sem;
+    END $$
+    DELIMITER ;
+
+3) Ams_attendance_master:
+
+    DELIMITER $$
+    CREATE TRIGGER count_PR_AB_days AFTER INSERT ON Ams_attendance_master
+    FOR EACH ROW 
+    BEGIN
+    IF NEW.att_status = TRUE THEN
+    UPDATE Ams_setup_students_map SET p_days = p_days + 1 WHERE spid = NEW.spid and ams_setup_id=NEW.ams_setup_id;
+    ELSE 
+    UPDATE Ams_setup_students_map SET a_days = a_days + 1 WHERE spid = NEW.spid  and ams_setup_id=NEW.ams_setup_id;
+    END IF;
+    END $$
+    DELIMITER ;
+
+
+-------------------------- BELOW NOT NEEDED ----------------------
+
+
+1)Users :
+
+    DELIMITER $$
+    CREATE TRIGGER move_user_to_bckp BEFORE DELETE ON Users
+    FOR EACH ROW
+    BEGIN
+    INSERT INTO Bckp_Users VALUES(OLD.username,OLD.password,OLD.user_type);
+    END $$
+    DELIMITER ;
+
 
 2)Students:
 
@@ -22,6 +66,7 @@ BEGIN
 INSERT INTO Bckp_Students VALUES(OLD.spid,OLD.name,OLD.gender,OLD.dob,OLD.email,OLD.contact_no,OLD.course_id,OLD.joining_year,OLD.cur_semester,OLD.cur_division,OLD.cur_roll_no);
 END $$
 DELIMITER ;
+
 
 3)Faculties:
 
@@ -36,18 +81,6 @@ END $$
 DELIMITER ;
 
 
-4)Ams_api: 
-
-
-DELIMITER $$
-CREATE TRIGGER insert_ams_api BEFORE INSERT ON Ams_api
-FOR EACH ROW
-BEGIN
-DECLARE sem int;
-SELECT cur_semester into sem  FROM vw_students where spid = NEW.spid;
-SET NEW.semester := sem;
-END $$
-DELIMITER ;
 
 5) Ams_attendance_master
 
@@ -65,33 +98,17 @@ DELIMITER ;
     END $$
     DELIMITER ;
 
-    2)COUNT absent/present TRIGGER
-
-    DELIMITER $$
-    CREATE TRIGGER count_PR_AB_days AFTER INSERT ON Ams_attendance_master
-    FOR EACH ROW 
-   BEGIN
-    IF NEW.att_status = TRUE THEN
-    UPDATE Ams_setup_students_map SET p_days = p_days + 1 WHERE spid = NEW.spid and ams_setup_id=NEW.ams_setup_id;
-    ELSE 
-    UPDATE Ams_setup_students_map SET a_days = a_days + 1 WHERE spid = NEW.spid  and ams_setup_id=NEW.ams_setup_id;
-    END IF;
-    END $$
-    DELIMITER ;
-
-
-
-
 6)Ams_setup_course_subject_map:
 
+//-----------------------> NOT NEEDED NOT IMPLEMENTED
 
-    DELIMITER $$
-    CREATE TRIGGER move_setup_to_bckp BEFORE DELETE ON Ams_setup_course_subject_map
-    FOR EACH ROW 
-    BEGIN
-    INSERT INTO Bckp_Ams_setup_course_subject_map(ams_setup_id,cs_id,year) VALUES(OLD.ams_setup_id,OLD.cs_id,OLD.year);
-    END $$
-    DELIMITER ;
+ //   DELIMITER $$
+ //   CREATE TRIGGER move_setup_to_bckp BEFORE DELETE ON Ams_setup_course_subject_map
+  //  FOR EACH ROW 
+  //  BEGIN
+  //  INSERT INTO Bckp_Ams_setup_course_subject_map(ams_setup_id,cs_id,year) VALUES(OLD.ams_setup_id,OLD.cs_id,OLD.year);
+ //   END $$
+ //   DELIMITER ;
 
 7)Ams_setup_faculties_map:
 
@@ -124,3 +141,10 @@ DELIMITER ;
     INSERT INTO Bckp_Rfid_uid_spid_map(uid,spid) VALUES(OLD.uid,OLD.spid);
     END $$
     DELIMITER ;
+
+
+
+    
+---------------------------------- NEW UPDATED TRIGGER ------------------------------------------
+
+

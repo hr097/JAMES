@@ -6,11 +6,11 @@ insert into Students values('2020049819','Ghevariya Archit Nareshbhai','Male','2
 
 insert into Students values('2020049812','Dhola Drashti Ishwarbhai','Female','2002-11-15','drashtidhola.mscit20@vnsgu.ac.in','+91 9687630768',3,'2020',5,'A',19,TRUE);
 
-insert into Students values('2020049836','Khunt Shubham Vinubhai','Male','2003-07-18','shubhamkhunt.mscit20@vnsgu.ac.in','+91 8849178317',3,'2020',5,'A',42,TRUE);
 
 insert into Students values('2020049935','Tikiwala Shikhaa Rupalkumar','Female','2002-08-24','shikhaatikiwala.mscit20@vnsgu.ac.in','+91 8200290477',3,'2020',5,'B',138,TRUE);
 
 insert into Students values('2020049837','Kukadiya Nupul Bhaveshbhai','Female','2002-08-08','nupulkukadiya.mscit20@vnsgu.ac.in','+91 6355517262',3,'2020',5,'A',43,TRUE);
+insert into Students values('2020049836','Khunt Shubham Vinubhai','Male','2003-07-18','shubhamkhunt.mscit20@vnsgu.ac.in','+91 8849178317',3,'2020',5,'A',42,TRUE);
 
 
 
@@ -161,7 +161,26 @@ insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020
 // only till harshil
 
 insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',1,'FID12346',0); 
-insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',1,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',2,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',2,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',3,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',4,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',5,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',6,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',7,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049836',9,'FID12346',0); 
+
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049837',1,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049837',2,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049837',2,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049837',3,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049837',4,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049837',5,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049837',6,'FID12346',0); 
+insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049837',7,'FID12346',0); 
+
+
+
 insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049910',1,'FID12346',1);
 insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049910',1,'FID12346',0);
 insert into Ams_attendance_master(spid,ams_setup_id,fid,att_status) values('2020049910',1,'FID12346',1);
