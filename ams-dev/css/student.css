@@ -193,3 +193,17 @@
     box-shadow: 5px 5px 12px #7b7b81;
     cursor: pointer;
   } */
+
+
+/* Card colors */
+
+.light-yellow {
+  background: #F0CA86 !important;
+  color: #ffffff;
+}
+
+/* Feedback */
+
+.feedback-textarea{
+  border-radius: 5px !important;
+}

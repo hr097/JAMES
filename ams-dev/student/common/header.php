@@ -28,6 +28,7 @@
 
     <!-- css  -->
     <link rel="stylesheet" href="../css/template.css">
+    
 
     <!--jQuery file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -119,6 +120,12 @@
                         <a class="nav-link" href="./notifications.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-bell"></i>
                             <span class="menu-title">Notifications</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./feedback.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-comment-alt"></i>
+                            <span class="menu-title">Feedback</span>
                         </a>
                     </li>
                     <li class="nav-item">
