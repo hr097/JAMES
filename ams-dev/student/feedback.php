@@ -48,26 +48,44 @@ if (mysqli_num_rows($result)===1) {
 
     <div class="main-panel">
         <div class="content-wrapper">
-
-
-            <!--Personal Info-->
             <div class="row">
-                <div class="col-md-12 mb-2">
-                    <h4 class="font-weight-bold">Feedback</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                        <div class="col-md-12">
-                            <input type="textarea" class="feedback-textarea" placeholder="Enter your feedback">
-                            <div>
+                            <h4 class="card-title">Feedback</h4>
+                            <form class="forms-sample">
+
+                                <div class="feedback-star-div">
+                                    <ul class="rate-area">
+                                        <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star"
+                                            title="Amazing">5 stars</label>
+                                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star"
+                                            title="Good">4 stars</label>
+                                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star"
+                                            title="Average">3 stars</label>
+                                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star"
+                                            title="Not Good">2 stars</label>
+                                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star"
+                                            title="Bad">1 star</label>
+                                    </ul>
+
+                                </div>
+                                <!-- Subject -->
+                                <div class="form-group">
+                                    <input type="textarea" class="form-control feedback-textarea"
+                                        placeholder="Enter your feedback">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary mr-2 mt-3">Submit</button>
+                                <button class="btn btn-light mt-3">Clear</button>
+                            </form>
                         </div>
                     </div>
                 </div>
+                <!--Faculty Form End-->
             </div>
         </div>
+
     </div>
 
     <!-------------------------------------------------------Main Content End------------------------------------------------------->
