@@ -144,6 +144,10 @@
 
 }
 
+.about-content{
+  color:#5b5a5a;
+}
+
 .underline {
   text-decoration: underline 5px solid #0056b3;
   padding-bottom: 4%;
@@ -200,6 +204,7 @@
 .feedback-textarea{
   border-radius: 5px !important;
   padding-bottom: 100px;
+  padding-top: 20px;
 }
 
 .feedback-star-div{
