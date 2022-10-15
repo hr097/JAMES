@@ -5,12 +5,38 @@
 1)Users :
 
     DELIMITER $$
-    CREATE TRIGGER move_user_to_bckp BEFORE DELETE ON Users
+    CREATE RIGGER move_user_to_bckp BEFORE DELETE ON Users
     FOR EACH ROW
+     
     BEGIN
- 
- 
+    
+    INSERT INTO Bckp_Users VALUES(OLD.username,OLD.password,OLD.user_type);
+
+
+    IF OLD.user_type = 1 THEN
+
+    INSERT INTO Bckp_Students(spid,name,gender,dob,email,contact_no,course_id,joining_year,last_semester,last_division,last_roll_no) SELECT spid,name,gender,dob,email,contact_no,course_id,joining_year,cur_semester,cur_division,cur_roll_no FROM Students WHERE email =  OLD.username;
+    INSERT INTO Bckp_Rfid_uid_spid_map SELECT * FROM Rfid_uid_spid_map WHERE spid = (SELECT spid FROM Students WHERE email =  OLD.username);
+    INSERT INTO Bckp_Ams_setup_students_map SELECT * FROM Ams_setup_students_map WHERE spid = (SELECT spid FROM Students WHERE email =  OLD.username);
+    INSERT INTO Bckp_Ams_attendance_master SELECT * FROM Ams_attendance_master WHERE spid = (SELECT spid FROM Students WHERE email =  OLD.username);
+    
+    DELETE FROM Students WHERE email =  OLD.username;
+    DELETE FROM Rfid_uid_spid_map WHERE spid = (SELECT spid FROM Students WHERE email =  OLD.username);
+    DELETE FROM Ams_setup_students_map WHERE spid = (SELECT spid FROM Students WHERE email =  OLD.username);
+    DELETE FROM Ams_attendance_master WHERE spid = (SELECT spid FROM Students WHERE email =  OLD.username);
+
+    ELSEIF OLD.user_type = 2 THEN
+
+
+    INSERT INTO Bckp_Faculties SELECT * FROM Faculties WHERE email =  OLD.username;
+    INSERT INTO Bckp_Ams_setup_faculties_map SELECT * FROM Ams_setup_faculties_map WHERE fid = (SELECT fid FROM Faculties WHERE email =  OLD.username);
+
+    DELETE FROM Faculties WHERE email =  OLD.username;
+    DELETE FROM Ams_setup_faculties_map WHERE fid = (SELECT fid FROM Faculties WHERE email =  OLD.username);
+    END IF;
+    /* User table record will be deleted automatically as on before delete trigger is there.  */
     END $$
+
     DELIMITER ;
 
 
