@@ -30,7 +30,7 @@ $(document).ready(function () {
           $("#submitfeedback").click(function () {
 
               $.post(
-                "./submitfeedback.php",
+                "../api/submitfeedback.php",
                 {
                   _fb: fbTxt.val(),
                   _rt: $(".forms-sample input[name='rating']:checked").val(),
