@@ -56,16 +56,16 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
 
                                 <div class="feedback-star-div">
                                     <ul class="rate-area">
-                                        <input type="radio"  id="5-star" name="rating" value="5"/><label for="5-star"
-                                            title="Amazing" class="star_css">5 stars</label>
-                                        <input type="radio" id="4-star" name="rating" value="4" checked/><label for="4-star"
-                                            title="Good" class="star_css">4 stars</label>
-                                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star"
-                                            title="Average" class="star_css">3 stars</label>
-                                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star"
-                                            title="Not Good" class="star_css">2 stars</label>
-                                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star"
-                                            title="Bad" class="star_css">1 star</label>
+                                           <li><input type="radio"  id="5-star" name="rating" value="5"/><label for="5-star"
+                                            title="Outstanding" class="star_css">5 stars</label></li>
+                                            <li><input type="radio" id="4-star" name="rating" value="4" /><label for="4-star"
+                                            title="Excellent" class="star_css">4 stars</label></li>
+                                            <li><input type="radio" id="3-star" name="rating" value="3" checked/><label for="3-star"
+                                            title="Satisfactory" class="star_css">3 stars</label></li>
+                                            <li><input type="radio" id="2-star" name="rating" value="2" /><label for="2-star"
+                                            title="Good" class="star_css">2 stars</label></li>
+                                            <li><input type="radio" id="1-star" name="rating" value="1" /><label for="1-star"
+                                            title="Worst" class="star_css">1 star</label></li>
                                     </ul>
 
                                 </div>
