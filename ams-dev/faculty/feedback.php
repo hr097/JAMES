@@ -1,24 +1,24 @@
 <?php
 
-require_once("../ams.php");
-$JAMES = new AMS("User");
-$JAMES->init_user_session();
+// require_once("../ams.php");
+// $JAMES = new AMS("User");
+// $JAMES->init_user_session();
 
-if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
-    $JAMES->ams_redirect("../login.php");
-}
+// if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
+//     $JAMES->ams_redirect("../login.php");
+// }
 
-$u = $_SESSION["_userId"];
+// $u = $_SESSION["_userId"];
 
-//@query
-$sql = "select *,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from vw_students where email='$u';";
-$result = mysqli_query($JAMES->connection(), $sql);
+// //@query
+// $sql = "select *,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from vw_students where email='$u';";
+// $result = mysqli_query($JAMES->connection(), $sql);
 
-if (mysqli_num_rows($result)===1) {
-    $user = mysqli_fetch_assoc($result);
-} else {
-    $JAMES->ams_redirect("../login.php");
-}
+// if (mysqli_num_rows($result)===1) {
+//     $user = mysqli_fetch_assoc($result);
+// } else {
+//     $JAMES->ams_redirect("../login.php");
+// }
 
 ?>
 
@@ -32,8 +32,7 @@ if (mysqli_num_rows($result)===1) {
 ?>
 
     <!-- css  -->
-    <link rel="stylesheet" href="../css/student.css">
-
+    <link rel="stylesheet" href="../css/faculty.css">
 
     <!-- page information-->
     <title>AMS | Feedback</title>
