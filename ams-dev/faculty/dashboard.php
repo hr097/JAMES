@@ -27,7 +27,49 @@
                  <h3 class="font-weight-bold">Welcome Sir,</h3>
                  <h6 class="font-weight-normal mb-10">Good Morning, </h6>
              </div>
-            
+</div>
+              <!-- Classroom sorting --> 
+              <div class="row">
+                    <div class="form-group col-md-3">
+                            <label>Year</label>
+                            <select class="form-control">
+                                <option>2022</option>
+                                <option>2021</option>
+                            </select>
+                        </div>
+
+                    <div class="form-group col-md-3 ">
+                        <label>Course</label>
+                        <select class="form-control">
+                            <option>IT</option>
+                            <option>ICT</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3 ">
+                        <label>Semester</label>
+                        <select class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3 ">
+                        <label>Division</label>
+                        <select class="form-control">
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                        </select>
+                    </div>
+
           <!-------------------------------------------------------States------------------------------------------------------->
           <div class="col-md-12 grid-margin transparent">
             <div class="row">
