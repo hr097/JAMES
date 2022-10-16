@@ -1,85 +1,86 @@
-    <?php
+<?php
 
-    require_once("../ams.php");
-    $JAMES = new AMS("User");
-    $JAMES->init_user_session();
+ require_once("../ams.php");
+ $JAMES = new AMS("User");
+ $JAMES->init_user_session();
 
 
-    if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
-    {
+ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
+ {
+  $JAMES->ams_redirect("../login.php");
+ }
+ 
+ $u = $_SESSION["_userId"];
+
+//@query
+$sql = "select spid,SUBSTRING(name,INSTR(name,' '),( (LOCATE(' ',name,INSTR(name,' ')+1)) - INSTR(name,' ') )) AS fname,gender from vw_students where email='$u';"; 
+$result = mysqli_query($JAMES->connection(),$sql);
+
+if(mysqli_num_rows($result)===1)
+{
+    $user = mysqli_fetch_assoc($result);
+}
+else
+{
     $JAMES->ams_redirect("../login.php");
-    }
-    
-    $u = $_SESSION["_userId"];
+}
 
-    //@query
-    $sql = "select spid,SUBSTRING(name,INSTR(name,' '),( (LOCATE(' ',name,INSTR(name,' ')+1)) - INSTR(name,' ') )) AS fname,gender from vw_students where email='$u';"; 
-    $result = mysqli_query($JAMES->connection(),$sql);
+// daily attendance fetch
 
-    if(mysqli_num_rows($result)===1)
+$spid = $user['spid'];
+$gender = $user['gender'];
+
+$_SESSION['_spid'] = $spid; // to access this in other pages
+$_SESSION['_gender'] = $gender; // to access this in other pages
+
+$attendance_html = "";
+
+//@query
+$sql = "select S.subject_name,AAM.att_status from Ams_attendance_master AAM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S where AAM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and spid='$spid'and DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%y') = DATE_FORMAT(CURRENT_DATE,'%d/%m/%y') ORDER BY TIME_FORMAT(TIME(AAM.att_date_time),'%h:%i:%s') DESC;"; 
+$result = mysqli_query($JAMES->connection(),$sql);
+
+if(mysqli_num_rows($result)>=1)
+{
+    while($record = mysqli_fetch_assoc($result))
     {
-        $user = mysqli_fetch_assoc($result);
-    }
-    else
-    {
-        $JAMES->ams_redirect("../login.php");
-    }
-
-    // daily attendance fetch
-
-    $spid = $user['spid'];
-    $gender = $user['gender'];
-
-    $_SESSION['_spid'] = $spid; // to access this in other pages
-    $_SESSION['_gender'] = $gender; // to access this in other pages
-
-    $attendance_html = "";
-
-    //@query
-    $sql = "select S.subject_name,AAM.att_status from Ams_attendance_master AAM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S where AAM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and spid='$spid'and DATE_FORMAT(DATE(AAM.att_date_time),'%d/%m/%y') = DATE_FORMAT(CURRENT_DATE,'%d/%m/%y') ORDER BY TIME_FORMAT(TIME(AAM.att_date_time),'%h:%i:%s') DESC;"; 
-    $result = mysqli_query($JAMES->connection(),$sql);
-
-    if(mysqli_num_rows($result)>=1)
-    {
-        while($record = mysqli_fetch_assoc($result))
+         
+        if($record["att_status"]==1)
         {
-            
-            if($record["att_status"]==1)
-            {
-                $att_status="class='btn btn-success attbtn'>Present";
-            }
-            else
-            {
-                $att_status="class='btn btn-danger attbtn'>Absent";
-            }
-
-            $attendance_html.="
-                <tr>
-                <td>".$record["subject_name"]."</td>
-                <td>
-                    <button type='button'".$att_status."</button>
-                </td>
-                </tr>";
+            $att_status="class='btn btn-success attbtn'>Present";
         }
-    }
-    else
-    {
+        else
+        {
+            $att_status="class='btn btn-danger attbtn'>Absent";
+        }
+
         $attendance_html.="
-        <tr>
-        <td colspan='1'></td>
-        <td>
-        No Attendance Data
-        </td>
-        </tr>";
+            <tr>
+            <td>".$record["subject_name"]."</td>
+            <td>
+                <button type='button'".$att_status."</button>
+            </td>
+            </tr>";
     }
+}
+else
+{
+    $attendance_html.="
+    <tr>
+    <td colspan='1'></td>
+    <td>
+    No Attendance Data
+    </td>
+    </tr>";
+}
 
-    // classroom fetch
+// classroom fetch
 
-    //@query 
-    $sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from Ams_setup_students_map ASM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F,Ams_setup_faculties_map ASFM where ASM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and ASFM.fid=F.fid and ASCSM.ams_setup_id=ASFM.ams_setup_id and spid='$spid' order by S.subject_code DESC;"; 
-    $result = mysqli_query($JAMES->connection(),$sql);
+//@query 
+$sql = "select distinctrow S.subject_code,S.subject_name,F.name AS fac_name from Ams_setup_students_map ASM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Faculties F,Ams_setup_faculties_map ASFM where ASM.ams_setup_id=ASCSM.ams_setup_id and ASCSM.cs_id=CSM.cs_id and CSM.subject_id=S.subject_id and ASFM.fid=F.fid and ASCSM.ams_setup_id=ASFM.ams_setup_id and spid='$spid' order by S.subject_code DESC;"; 
+$result = mysqli_query($JAMES->connection(),$sql);
 
-    //@change colors
+
+//@change colors
     $color_palate = array("#5050b2","#96b2fb","#FF9494","#ffc100","#59616E","#9F8772","#0a6b57","#937DC2","#F0CA86");
     $subjects_html = "";
 
@@ -114,10 +115,11 @@
     }
 
 
-    ?>
+?>
 
-    <!DOCTYPE html>
-    <html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
 
     <head>
 
@@ -194,4 +196,5 @@
 
     </body>
 
-    </html>
+
+</html>

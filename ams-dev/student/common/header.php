@@ -28,7 +28,6 @@
 
     <!-- css  -->
     <link rel="stylesheet" href="../css/template.css">
-    
 
     <!--jQuery file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -62,7 +61,7 @@
                         <p class="ac_type" style="margin-right:10px;">Student Dashboard</p>  
                         <!-- <p class="ac_type" style="font-weight:500;"><?php //echo $_SESSION['_userId']; ?></p>  -->
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-
+                            
                             <?php
                                 if($_SESSION['_gender']=="Male")
                                 {
@@ -73,7 +72,6 @@
                                     echo "<img src='../assets/profiles/student-profile-female.png' alt='profile-img' />";
                                 }   
                             ?>
-                           
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
@@ -122,12 +120,14 @@
                             <span class="menu-title">Notifications</span>
                         </a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="./feedback.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-comment-alt"></i>
                             <span class="menu-title">Feedback</span>
                         </a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="./about.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-book"></i>
@@ -135,10 +135,5 @@
                         </a>
                     </li>
 
-                    <!-- <li class="devpage">
-                        <a class="nav-link" href="./developers.php" aria-expanded="false" aria-controls="ui-basic">
-                          <span>Developers</span>
-                        </a>
-                      </li> -->
             </nav>
             <!-------------------------------------------------------Side Nav-Bar End------------------------------------------------------->

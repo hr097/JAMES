@@ -20,7 +20,7 @@
              <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="col-md-12 mb-4">
-                        <h4 class="font-weight-bold">Classroom list</h4>
+                        <h4 class="font-weight-bold">Modify Attendance</h4>
                       </div>
                     <div class="col-md-12 grid-margin transparent">
                         <div class="row">

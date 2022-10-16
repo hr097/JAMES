@@ -261,3 +261,7 @@
 .rate-area > label:hover ~ input:checked ~ label {
 	color: gold;
 }
+
+.star_css{
+  margin-right: 5px;
+}
