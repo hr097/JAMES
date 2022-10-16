@@ -110,3 +110,68 @@
   background-color: #4747A1;
   color: white;
 }
+
+
+
+/*------------------- Feedback ----------------------*/
+
+.feedback-textarea{
+  border-radius: 5px !important;
+  padding-bottom: 100px;
+  padding-top: 20px;
+}
+
+.feedback-star-div{
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-left:5px;
+}
+
+/* .star-icon{
+  font-size: 30px;
+  color: #5b5a5a;
+  cursor: pointer;
+} */
+
+.rate-area {
+	float: left;
+	border-style: none;
+  margin-left: -17px;
+}
+
+.rate-area:not(:checked) > input {
+	position: absolute;
+	top: -9999px;
+	clip: rect(0, 0, 0, 0);
+}
+
+.rate-area:not(:checked) > label {
+	float: right;
+	width: 0.8em;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	font-size: 40px;
+	color: lightgrey;
+}
+
+.rate-area:not(:checked) > label:before {
+	content: "★";
+}
+
+.rate-area > input:checked ~ label {
+	color: gold;
+}
+
+.rate-area:not(:checked) > label:hover,
+.rate-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+
+.rate-area > input:checked + label:hover,
+.rate-area > input:checked + label:hover ~ label,
+.rate-area > input:checked ~ label:hover,
+.rate-area > input:checked ~ label:hover ~ label,
+.rate-area > label:hover ~ input:checked ~ label {
+	color: gold;
+}

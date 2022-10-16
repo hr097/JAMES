@@ -33,9 +33,10 @@
               <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
                 <div class="card card-dark-blue ">
                   <div class="card-body">
+                    <p class="mb-2 subfont">IT-2022</p>
                     <p class="mb-4 subfont">Web Development</p>
-                    <p>Semester :-  4th</p>
-                    <p>Division :-  A</p>
+                    <p>Semester :  4th</p>
+                    <p>Division :  A</p>
                   </div>
                 </div>
               </div>
@@ -43,27 +44,30 @@
               <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
                 <div class="card card-tale">
                   <div class="card-body">
+                  <p class="mb-2 subfont">IT-2022</p>
                     <p class="mb-4 subfont">RDBMS</p>
-                    <p>Semester :-  4th</p>
-                    <p>Division :-  B</p>
+                    <p>Semester :  4th</p>
+                    <p>Division :  A</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
                 <div class="card card-light-danger">
                   <div class="card-body">
+                  <p class="mb-2 subfont">IT-2022</p>
                     <p class="mb-4 subfont">IOT</p>
-                    <p>Semester :-  4th</p>
-                    <p>Division :-  A</p>
+                    <p>Semester :  4th</p>
+                    <p>Division :  A</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
                 <div class="card card-dark-blue bg-warning">
                   <div class="card-body">
-                    <p class="mb-4 subfont">Environmental Science</p>
-                    <p>Semester :-  5th</p>
-                    <p>Division :-  A</p>
+                  <p class="mb-2 subfont">IT-2022</p>
+                    <p class="mb-4 subfont">Enviromental Science</p>
+                    <p>Semester :  4th</p>
+                    <p>Division :  A</p>
                   </div>
                 </div>
               </div>
