@@ -47,21 +47,6 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
 
                                 <div class="feedback-star-div">
                                     <ul class="rate-area">
-<<<<<<< HEAD
-                                        <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star"
-                                            title="Amazing" class="star_css">5 stars</label>
-                                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star"
-                                            title="Good" class="star_css">4 stars</label>
-                                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star"
-                                            title="Average" class="star_css">3 stars</label>
-                                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star"
-                                            title="Not Good" class="star_css">2 stars</label>
-                                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star"
-                                            title="Bad" class="star_css">1 star</label>
-                                    </ul>
-
-                                </div>  
-=======
                                         <input type="radio"  id="5-star" name="rating" value="5"/><label for="5-star"
                                             title="Outstanding" class="star_css">5 stars</label>
                                         <input type="radio" id="4-star" name="rating" value="4" checked/><label for="4-star"
@@ -77,11 +62,11 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
                                 </div>
                                 <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>"> 
                                 
->>>>>>> 8dd303308171663bbd9f2ab96bbeadf0852bf251
                                 <!-- Subject -->
                                 <div class="form-group">
-                                    <input type="textarea" id="feedbacktxt" name="feedback" class="form-control feedback-textarea"
-                                        placeholder="Give your valuable feedback to us">
+                                    <textarea id="feedbacktxt" name="feedback" oninput="countWord()" class="form-control feedback-textarea"
+                                        placeholder="Give your valuable feedback to us" rows="10" maxlength="499"></textarea>
+                                        <div id="counter" class="print_count d-flex justify-content-end">0/499</div>
                                 </div>
 
                                 <button type="button" id="submitfeedback" class="btn btn-primary mr-2 mt-3">Submit</button>

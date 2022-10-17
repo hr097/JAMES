@@ -74,4 +74,17 @@ $(document).ready(function () {
     });
 });
 
-     
+// Letter counter
+function countWord() {
+var str = document.getElementById("feedbacktxt").value;
+var count = 0;
+if(str.length<=499){
+for (var i = 0; i < str.length; i++) {
+    count++;
+}
+}
+
+// var show_words=count.concat("/999");
+document.getElementById("counter").innerHTML = count+"/499";
+
+}

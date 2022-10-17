@@ -203,7 +203,6 @@
 
 .feedback-textarea{
   border-radius: 5px !important;
-  padding-bottom: 100px;
   padding-top: 20px;
 }
 
@@ -263,10 +262,10 @@
 }
 
 .star_css{
-<<<<<<< HEAD
-  margin-right: 5px;
-}
-=======
   margin-right: 15px;
 }
->>>>>>> 8dd303308171663bbd9f2ab96bbeadf0852bf251
+
+.print_count{
+color:#5b5a5a;
+font-size:15px;
+}
