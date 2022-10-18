@@ -31,6 +31,7 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
     
 </head>
 
+
 <body>
 
 
@@ -64,8 +65,9 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
                                 
                                 <!-- Subject -->
                                 <div class="form-group">
-                                    <input type="textarea" id="feedbacktxt" name="feedback" class="form-control feedback-textarea"
-                                        placeholder="Give your valuable feedback to us">
+                                    <textarea id="feedbacktxt" name="feedback" oninput="countWord()" class="form-control feedback-textarea"
+                                        placeholder="Give your valuable feedback to us" rows="10" maxlength="999" required></textarea>
+                                        <div id="counter" class="print_count d-flex justify-content-end">0/999</div>
                                 </div>
 
                                 <button type="button" id="submitfeedback" class="btn btn-primary mr-2 mt-3">Submit</button>
@@ -84,7 +86,7 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
     <div id="modal" class="modal">
     <!-- modal content -->
     <div class="modal-content" style="width:360px;">
-            <span class="close">&times;</span>
+            <span class="close" id="close-btn">&times;</span>
             <p class="msg unselectable" id="modalmsg"></p>
             <div class="row" style="margin:auto;margin-bottom:30px;">
             <button id="yes-button" class="modal-btn"></button>

@@ -257,7 +257,7 @@ class AMS
         //Enable SMTP debugging.
         // $mail->SMTPDebug = 3;         for debugging                      
         //Set PHPMailer to use SMTP.
-        $mail->isSMTP();           //@@@@@@@@ changed as vnsgu server can't send SMTP email it will send it from root domain    
+      //  $mail->isSMTP();           //@@@@@@@@ changed as vnsgu server can't send SMTP email it will send it from root domain    
         //Set SMTP host name                          
         $mail->Host = "smtp.gmail.com";
         //Set this to true if SMTP host requires authentication to send email
@@ -307,7 +307,7 @@ class AMS
             $userType=2;
         }
         
-        $userType=3; //!localhost development enabled
+        //$userType=3; //!localhost development enabled
 
         $this->set_server_configuration();
 

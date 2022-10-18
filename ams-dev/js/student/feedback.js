@@ -20,6 +20,11 @@ document.getElementById("yes-button").onclick = function () {
   window.location.href = "./feedback.php";
 };
 
+document.getElementById("close-btn").onclick = function () {
+  // yes-> redirect
+  window.location.href = "./feedback.php";
+};
+
 /* END::MODAL */
 
 $(document).ready(function () {
@@ -29,6 +34,9 @@ $(document).ready(function () {
 
           $("#submitfeedback").click(function () {
 
+            
+            if($("#feedbacktxt").val()!="")
+            {
               $.post(
                 "../api/submitfeedback.php",
                 {
@@ -71,7 +79,23 @@ $(document).ready(function () {
                   }
         });
 
+      }
+
     });
 });
 
-     
+// Letter counter
+function countWord() {
+var str = document.getElementById("feedbacktxt").value;
+var count = 0;
+if(str.length<=499){
+for (var i = 0; i < str.length; i++) {
+    count++;
+}
+}
+
+// var show_words=count.concat("/999");
+document.getElementById("counter").innerHTML = count+"/999";
+
+}
+
