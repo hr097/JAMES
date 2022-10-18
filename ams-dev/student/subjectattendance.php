@@ -72,11 +72,22 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
 
       $att_stat = "
       <br>
+      <div class='container'>
       <div class='card bg-light text-dark'  style='display:block;margin-left:0px;padding:20px;border:2px solid black;'>
-      <div class='pie animate' style='--p:".$p_days.";--c:green;margin-left:48px;margin-top:20px;'> ".$p_days." days</div>
-      <div class='pie' style='--p:".$a_days.";margin-left:48px;margin-top:20px;'> ".$a_days." days</div>
-      <div class='pie animate' style='--p:".$ttl_pr.";--c:orange;margin-left:48px;margin-top:20px;'> ".$ttl_pr."%</div>
+      <div class='row'>
+      <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
+      <div class='pie animate' style='--p:".$p_days.";--c:green;'> ".$p_days." days</div>
       </div>
+      <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
+      <div class='pie' style='--p:".$a_days.";'> ".$a_days." days</div>
+      </div>
+      <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
+      <div class='pie animate' style='--p:".$ttl_pr.";--c:orange;'> ".$ttl_pr."%</div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
       <br>
       ";
   }
@@ -93,10 +104,20 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
       
       $att_stat = "
       <br>
+      <div class='container'>
       <div class='card bg-light text-dark'  style='display:block;margin-left:0px;padding:20px;border:2px solid black;'>
-      <div class='pie animate' style='--p:0;--c:green;margin-left:48px;margin-top:20px;'> 0 days</div>
-      <div class='pie' style='--p:0;margin-left:48px;margin-top:20px;'> 0 days</div>
-      <div class='pie animate' style='--p:0;--c:orange;margin-left:48px;margin-top:20px;'> 0%</div>
+      <div class='row'>
+      <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
+      <div class='pie animate' style='--p:0;--c:green;'> 0 days</div>
+      </div>
+      <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
+      <div class='pie' style='--p:0;'> 0 days</div>
+      </div>
+      <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
+      <div class='pie animate' style='--p:0;--c:orange;'> 0 %</div>
+      </div>
+      </div>
+      </div>
       </div>
       <br>
       ";
