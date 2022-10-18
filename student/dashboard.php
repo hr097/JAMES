@@ -135,7 +135,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
         <script src="../js/student/dashboard.js" type="text/javascript" defer=true></script>
 
         <!-- page information-->
-        <title>AMS | Student dashboard</title>
+        <title>AMS | Student Dashboard</title>
     </head>
 
     <body>
