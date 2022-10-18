@@ -73,17 +73,52 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
       $att_stat = "
       <br>
       <div class='container'>
-      <div class='card bg-light text-dark'  style='display:block;margin-left:0px;padding:20px;border:2px solid black;'>
+
       <div class='row'>
       <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
-      <div class='pie animate' style='--p:".$p_days.";--c:green;'> ".$p_days." days</div>
+      <div class='subcard'>
+      <div class='percent' style='--clr:#57B657;--num:".$p_days.";'>
+          <div class='dot'></div>
+          <svg>
+              <circle cx='70' cy='70' r='70'></circle>
+              <circle cx='70' cy='70' r='70'></circle>
+          </svg>
+          <div class='number'>
+              <h2>".$p_days."<span></span></h2>
+              <p>Days</p>
+          </div>
+      </div>
+  </div>
       </div>
       <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
-      <div class='pie' style='--p:".$a_days.";'> ".$a_days." days</div>
+      <div class='subcard'>
+      <div class='percent' style='--clr:#FF9494;--num:".$a_days.";'>
+          <div class='dot'></div>
+          <svg>
+              <circle cx='70' cy='70' r='70'></circle>
+              <circle cx='70' cy='70' r='70'></circle>
+          </svg>
+          <div class='number'>
+              <h2>".$a_days."<span></span></h2>
+              <p>Days</p>
+          </div>
+      </div>
+  </div>
       </div>
       <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
-      <div class='pie animate' style='--p:".$ttl_pr.";--c:orange;'> ".$ttl_pr."%</div>
+      <div class='subcard'>
+      <div class='percent' style='--clr:#FFC100;--num:".$ttl_pr.";'>
+          <div class='dot'></div>
+          <svg>
+              <circle cx='70' cy='70' r='70'></circle>
+              <circle cx='70' cy='70' r='70'></circle>
+          </svg>
+          <div class='number'>
+              <h2>".$ttl_pr."<span>%</span></h2>
+              <p>Average</p>
+          </div>
       </div>
+  </div>
       </div>
       </div>
       </div>
@@ -105,17 +140,52 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
       $att_stat = "
       <br>
       <div class='container'>
-      <div class='card bg-light text-dark'  style='display:block;margin-left:0px;padding:20px;border:2px solid black;'>
+
       <div class='row'>
       <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
-      <div class='pie animate' style='--p:0;--c:green;'> 0 days</div>
+      <div class='subcard'>
+      <div class='percent' style='--clr:#57B657;--num:0;'>
+          <div class='dot'></div>
+          <svg>
+              <circle cx='70' cy='70' r='70'></circle>
+              <circle cx=h'70' cy='70' r='70'></circle>
+          </svg>
+          <div class='number'>
+              <h2>0<span></span></h2>
+              <p>Days</p>
+          </div>
+      </div>
+  </div>
       </div>
       <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
-      <div class='pie' style='--p:0;'> 0 days</div>
+      <div class='subcard'>
+      <div class='percent' style='--clr:#FF9494;--num:0;'>
+          <div class='dot'></div>
+          <svg>
+              <circle cx='70' cy='70' r='70'></circle>
+              <circle cx='70' cy='70' r='70'></circle>
+          </svg>
+          <div class='number'>
+              <h2>0<span></span></h2>
+              <p>Days</p>
+          </div>
+      </div>
+  </div>
       </div>
       <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
-      <div class='pie animate' style='--p:0;--c:orange;'> 0 %</div>
+      <div class='subcard'>
+      <div class='percent' style='--clr:#FFC100;--num:0;'>
+          <div class='dot'></div>
+          <svg>
+              <circle cx='70' cy='70' r='70'></circle>
+              <circle cx='70' cy='70' r='70'></circle>
+          </svg>
+          <div class='number'>
+              <h2>0<span>%</span></h2>
+              <p>Average</p>
+          </div>
       </div>
+  </div>
       </div>
       </div>
       </div>
@@ -149,61 +219,130 @@ else
     <title>AMS | Subject Attendance</title>
     
     <style type="text/css">
-        
-        @property --p{
-          syntax: "<number>";
-          inherits: true;
-          initial-value: 0;
+        *{
+          font-family: "Poppins", "sans-serif" !important;
         }
-
-         .pie {
-          --p:20;
-          --b:22px;
-          --c:darkred;
-          --w:150px;
-          
-          width:var(--w);
-          aspect-ratio:1;
-          position:relative;
-          display:inline-grid;
-          margin:5px;
-          place-content:center;
-          font-size:25px;
-          font-weight:bold;
-          font-family:sans-serif;
-        }
-        .pie:before,
-        .pie:after {
-          content:"";
-          position:absolute;
-          border-radius:50%;
-        }
-        .pie:before {
-          inset:0;
-          background:
-            radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat,
-            conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
-          -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
-                  mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
-        }
-        .pie:after {
-          inset:calc(50% - var(--b)/2);
-          background:var(--c);
-          transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
-        }
-        .animate {
-          animation:p 1s .5s both;
-        }
-        .no-round:before {
-          background-size:0 0,auto;
-        }
-        .no-round:after {
-          content:none;
-        }
-
-        @keyframes p {
-          from{--p:0}
-        }
+        .subcard 
+{
+	position: relative;
+	width: 220px;
+	height: 250px;
+	background: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.subcard .percent 
+{
+	position: relative;
+	width: 150px;
+	height: 150px;
+}
+.subcard .percent svg 
+{
+	position: relative;
+	width: 150px;
+	height: 150px;
+	transform: rotate(270deg);
+}
+.subcard .percent svg circle 
+{
+	width: 100%;
+	height: 100%;
+	fill: transparent;
+	stroke-width: 4;
+	stroke: #ffffff;
+	transform: translate(5px,5px);
+}
+.subcard .percent svg circle:nth-child(2)
+{
+	stroke: var(--clr);
+	stroke-dasharray: 440;
+	stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+	opacity:0;
+	animation: fadeIn 1s linear forwards;
+    animation-delay: 1.5s ;
+}
+@keyframes fadeIn 
+{
+	0% 
+	{
+		opacity: 0;
+	}
+	100% 
+	{
+        opacity: 1;
+		
+	}
+}
+.dot 
+{
+	position: absolute;
+	inset: 5px;
+	z-index: 10;
+	/* 360deg / 100 = 3.6 */
+	animation: animateDot 2s linear forwards;
+    animation-delay: 1s ;                      
+}
+@keyframes animateDot 
+{
+	0% 
+	{
+		transform: rotate(0deg);
+	}
+	100% 
+	{
+		transform: rotate(calc(3.6deg * var(--num)));
+	}
+}
+.dot::before 
+{
+	content: '';
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--clr);
+	box-shadow: 0 0 10px var(--clr),
+	0 0 30px var(--clr);
+}
+.number 
+{
+	position: absolute;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	opacity: 0;
+	animation: fadeIn 1s linear forwards;
+}
+.number h2 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(0, 0, 0);
+	font-weight: 700;
+	font-size: 2.5em;
+}
+.number h2 span 
+{
+	font-weight: 300;
+	color: rgb(0, 0, 0);
+	font-size: 0.5em;
+}
+.number p 
+{
+	font-weight: 300;
+	font-size: 0.75em;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: rgba(0, 0, 0);
+}
 
     </style>
 
