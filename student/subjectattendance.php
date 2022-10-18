@@ -219,9 +219,7 @@ else
     <title>AMS | Subject Attendance</title>
     
     <style type="text/css">
-        *{
-          font-family: "Poppins", "sans-serif" !important;
-        }
+        
         .subcard 
 {
 	position: relative;
