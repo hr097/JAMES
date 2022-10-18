@@ -1,9 +1,0 @@
-CREATE TABLE Ams_attendance_master(att_no BIGINT AUTO_INCREMENT,spid VARCHAR(10) NOT NULL REFERENCES Students(spid) ON UPDATE CASCADE ON DELETE CASCADE,ams_setup_id  INTEGER NOT NULL REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE,fid VARCHAR(10) NOT NULL REFERENCES Faculties(fid) ON UPDATE CASCADE,att_date_time DATETIME DEFAULT CURRENT_TIMESTAMP,att_status BOOLEAN NOT NULL,PRIMARY KEY(att_no));
-
-ALTER TABLE  Ams_attendance_master ADD CONSTRAINT CHK_att_status CHECK(att_status=TRUE OR att_status=FALSE);
-
-///MUST RUN BELOW
-
-ALTER TABLE  Ams_attendance_master ADD CONSTRAINT FK_ams_setup_id_map FOREIGN KEY(ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-ALTER TABLE  Ams_attendance_master ADD CONSTRAINT FK_stud_spid_map FOREIGN KEY(spid) REFERENCES Students(spid) ON UPDATE CASCADE ON DELETE CASCADE;

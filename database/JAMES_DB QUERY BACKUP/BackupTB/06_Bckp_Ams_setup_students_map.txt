@@ -1,7 +1,0 @@
-CREATE TABLE Bckp_Ams_setup_students_map(ams_setup_id INTEGER NOT NULL,spid VARCHAR(10) NOT NULL,p_days SMALLINT NOT NULL,a_days SMALLINT NOT NULL,PRIMARY KEY(ams_setup_id,spid));
-
-ALTER TABLE  Bckp_Ams_setup_students_map ADD CONSTRAINT FK_stud_ams_setup_id_map_bckp FOREIGN KEY(ams_setup_id) REFERENCES Ams_setup_course_subject_map(ams_setup_id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-ALTER TABLE  Bckp_Ams_setup_students_map ADD CONSTRAINT FK_ams_setup_spid_map_bckp FOREIGN KEY(spid) REFERENCES Bckp_Students(spid) ON UPDATE CASCADE;
-
-CREATE INDEX idx_amsSetupStudMap_bckp ON  Bckp_Ams_setup_students_map(spid);

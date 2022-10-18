@@ -1,9 +1,0 @@
-CREATE TABLE Rfid_uid_spid_map(uid VARCHAR(20) PRIMARY KEY,spid VARCHAR(10) NOT NULL);
-
-ALTER TABLE Rfid_uid_spid_map ADD CONSTRAINT FK_uid_spid_map FOREIGN KEY (spid) REFERENCES Students(spid) ON UPDATE CASCADE ON DELETE CASCADE; 
-
-ALTER TABLE  Rfid_uid_spid_map ADD CONSTRAINT UNQ_spid_map UNIQUE (spid);
-
-
-
-

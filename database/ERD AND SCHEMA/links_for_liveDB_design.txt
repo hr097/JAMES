@@ -1,3 +1,0 @@
-1.https://drawsql.app/teams/ams-6/diagrams/db-design
-
-2.https://drawsql.app/teams/ams-6/diagrams/backup-db-design

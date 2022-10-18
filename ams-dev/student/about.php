@@ -38,14 +38,14 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
                 <!-- <h2 class="underline">About VNSGU AMS</h2> -->
 
                 <h5 class="small_titles"> About VNSGU</h5>
-                <p>Veer Narmad South Gujarat University offers different programmes through well designed curricular,
+                <p class="about-content">Veer Narmad South Gujarat University offers different programmes through well designed curricular,
                     co-curricular and extra-curricular activities; undertakes research and reaches out to society at
                     large with various extension activities, in order to empower its stakeholders for the world class
                     skills in terms of : research and enquiry, creativity and innovation, capacity to use high
                     technology and value-based ethical leadership.</p><br>
 
                 <h5 class="small_titles">About ICT Department</h5>
-                <p>The institute was started in year 2000 and comes under the Veer Narmad South Gujarat University,
+                <p class="about-content">The institute was started in year 2000 and comes under the Veer Narmad South Gujarat University,
                     Surat. The Courses offered here are a mixed blend of Computer Engineering, Computer Science,
                     Business systems, Management, Electronics and Communication Engineering, computer Application etc.
                     The goal of M.Sc(IT)/ICT Programs is to prepare students with intellectual and professional skills
@@ -53,7 +53,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
                     ever-changing world of Information and communication technology. </p><br>
 
                 <h5 class="small_titles">About JPD-AMS</h5>
-                <p>This is a fully functional RFID based attendance management system. Enables the faculties to record
+                <p class="about-content">This is a fully functional RFID based attendance management system. Enables the faculties to record
                     students' attendance in a fuss-free manner.
                     It is basically a fusion of software, hardware and web-based application. The system is directly
                     connected to the database without any intermediary.
@@ -64,14 +64,14 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
                 </p><br>
 
                 <h5 class="small_titles">Contact Us</h5>
-                <p>Phone : 9512358030, 9512358031,
+                <p class="about-content">Phone : 9512358030, 9512358031,
                     <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0261 - 225 8030,
                     2258031
                     <br />Email: &nbsp;&nbsp;&nbsp;itoffice@vnsgu.ac.in
                 </p><br>
 
                 <h5 class="small_titles"><i>Address</i></h5>
-                <p><i>J.P. Dawer Institute of Information Science & Technology,
+                <p class="about-content"><i>J.P. Dawer Institute of Information Science & Technology,
                         <br />Department of Information and Communication Technology,
                         <br />Veer Narmad South Gujarat University
                         <br />Opp. VNSGU Convention Hall, Near V. C. Bungalow
