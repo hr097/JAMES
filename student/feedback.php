@@ -66,7 +66,7 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
                                 <!-- Subject -->
                                 <div class="form-group">
                                     <textarea id="feedbacktxt" name="feedback" oninput="countWord()" class="form-control feedback-textarea"
-                                        placeholder="Give your valuable feedback to us" rows="10" maxlength="999" required></textarea>
+                                        placeholder="Give your valuable feedback to us" rows="10" maxlength="999"></textarea>
                                         <div id="counter" class="print_count d-flex justify-content-end">0/999</div>
                                 </div>
 
