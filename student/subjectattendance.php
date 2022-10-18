@@ -148,7 +148,7 @@ if(isset($_REQUEST["subject"])&&isset($_REQUEST["faculty"]))
           <div class='dot'></div>
           <svg>
               <circle cx='70' cy='70' r='70'></circle>
-              <circle cx=h'70' cy='70' r='70'></circle>
+              <circle cx='70' cy='70' r='70'></circle>
           </svg>
           <div class='number'>
               <h2>0<span></span></h2>
@@ -306,8 +306,7 @@ else
 	height: 10px;
 	border-radius: 50%;
 	background: var(--clr);
-	box-shadow: 0 0 10px var(--clr),
-	0 0 30px var(--clr);
+	box-shadow: 0 0 10px var(--clr) 0 0 30px var(--clr);
 }
 .number 
 {
@@ -371,7 +370,7 @@ else
                     </button>
                     
                    
-                    <h4 class="card-title" style="float:right;"><?php echo $subject_name; ?></h4>
+                    <h4 class="card-title" style="text-align:right;"><?php echo $subject_name; ?></h4>
                     <br>
                     <?php
                       echo $att_stat;
