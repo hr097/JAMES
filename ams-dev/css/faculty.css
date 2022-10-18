@@ -1,0 +1,177 @@
+* {
+    font-family: "Poppins", "sans-serif";
+  }
+/*----------------Dashboard--------------------------*/
+.subfont {
+  font-size: 20px;
+}
+
+.handpointer {
+  cursor: pointer;
+}
+/*----------------------------------------------Faculty Card--------------------------------------------------------------------------------*/
+.scene {
+    background-color: transparent;
+    width: 340px;
+    height: 210px;
+    perspective: 1000px;
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  
+  /* Position the front and back side */
+  .card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card.is-flipped {
+    transform: rotateY(180deg);
+  }
+  
+  /* Style the front side */
+  .card__face--front {
+    background-image: linear-gradient(rgba(47, 45, 47, 0.329), rgba(59, 54, 54, 0.3)), url('../assets/other/profile-bg.png');
+    background-size: cover;
+    border-radius: 10px;
+  }
+  
+  /* Style the back side */
+  .card__face--back {
+    background-image: linear-gradient(rgba(47, 45, 47, 0.329), rgba(59, 54, 54, 0.3)), url('../assets/other/profile-bg.png');
+    background-size: cover;
+    border-radius: 10px;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  
+  
+  .info-title {
+  color: #0056b3;
+}
+
+.info-data {
+  margin-bottom: 30px;
+  color: rgb(91, 90, 90);
+}
+
+  /*-------------------------------About Page CSS-------------------------------*/
+  .about_title {
+    font-weight: bolder;
+    padding-bottom: 2%;
+  }
+  
+  .small_titles {
+    font-weight: bolder;
+  
+  }
+  
+  .underline {
+    text-decoration: underline 5px solid #0056b3;
+    padding-bottom: 4%;
+  }
+
+/*Account Type*/
+.ac_type {
+    margin-right: 30px;
+    margin-top: 7px;
+  }
+
+ /*email edit*/
+
+ .email_edit_icon{
+  margin-top: -15px;
+  cursor: pointer;
+}
+.email_edit{
+  width: 100%;
+  border: 1px solid rgb(91, 90, 90,0.2);
+}
+
+.edit_btn{
+  margin-top: -5px;
+  height: 10px;
+  border-radius: 7px;
+  width: 102px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  background-color: #4747A1;
+  color: white;
+}
+
+
+
+/*------------------- Feedback ----------------------*/
+
+.feedback-textarea{
+  border-radius: 5px !important;
+  padding-bottom: 100px;
+  padding-top: 20px;
+}
+
+.feedback-star-div{
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-left:5px;
+}
+
+/* .star-icon{
+  font-size: 30px;
+  color: #5b5a5a;
+  cursor: pointer;
+} */
+
+.rate-area {
+	float: left;
+	border-style: none;
+  margin-left: -17px;
+}
+
+.rate-area:not(:checked) > input {
+	position: absolute;
+	top: -9999px;
+	clip: rect(0, 0, 0, 0);
+}
+
+.rate-area:not(:checked) > label {
+	float: right;
+	width: 0.8em;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	font-size: 40px;
+	color: lightgrey;
+}
+
+.rate-area:not(:checked) > label:before {
+	content: "★";
+}
+
+.rate-area > input:checked ~ label {
+	color: gold;
+}
+
+.rate-area:not(:checked) > label:hover,
+.rate-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+
+.rate-area > input:checked + label:hover,
+.rate-area > input:checked + label:hover ~ label,
+.rate-area > input:checked ~ label:hover,
+.rate-area > input:checked ~ label:hover ~ label,
+.rate-area > label:hover ~ input:checked ~ label {
+	color: gold;
+}

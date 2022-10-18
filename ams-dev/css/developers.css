@@ -1,0 +1,98 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #f2f2f2;
+    font-family: 'Poppins', sans-serif !important ;
+    font-weight: 400;
+}
+
+h1 {
+    color: #1c68b3;
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-pink {
+    border-radius: 6px;
+    border-bottom: 4px solid #ff2c95 !important;
+}
+
+.card-blue {
+    border-radius: 6px;
+    border-bottom: 4px solid #1c68b3 !important;
+}
+
+.col .card img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1rem 1.5rem;
+    position: relative;
+    
+}
+
+.card-body p {
+    color: #4B5563;
+    margin-bottom: 60px;
+}
+
+.card-blue svg {
+    fill: #5050B2;
+}
+
+.card-pink svg {
+    fill: #5050B2;
+}
+
+.card-blue .card-footer p {
+    color: #5050B2;
+}
+
+.card-pink .card-footer p {
+    color: #5050B2;
+}
+
+.card-shape {
+    position: relative;
+}
+
+.custom-shape-divider-bottom-1634717805 {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1634717805 svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+.card-footer p{
+    color:#5050B2;
+    font-weight: 900;
+}
+.custom-shape-divider-bottom-1634717805 .shape-fill {
+    fill: #FFFFFF;
+}
+.social_media{
+    margin-top:10px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+.social_media img{
+    width: 32px;
+    height: 32px;
+    margin-right:13px;
+    cursor: pointer;
+}
