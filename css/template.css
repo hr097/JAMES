@@ -28528,10 +28528,12 @@ div.tagsinput span.tag a {
 .rtl .sidebar .nav .nav-item .nav-link i.menu-icon {
   margin-left: 2rem;
   margin-right: 0;
+  
 }
 
 .sidebar .nav .nav-item .nav-link i.menu-icon:before {
   vertical-align: middle;
+  
 }
 
 .sidebar .nav .nav-item .nav-link i.menu-arrow {
@@ -28632,7 +28634,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded="true"] {
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 8px 8px;
   background: #4B49AC;
   color: #fff;
 }
@@ -28645,9 +28647,11 @@ div.tagsinput span.tag a {
   margin-bottom: 0;
   margin-top: 0;
   list-style: none;
-  padding: 0.25rem 0 0 3.07rem;
+  padding: 10px 8px 0 33px;
   background: #4B49AC;
   padding-bottom: 12px;
+  border-radius: 8px;
+  margin-top: 3px;
 }
 
 .sidebar .nav.sub-menu .nav-item {
@@ -28655,13 +28659,14 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav.sub-menu .nav-item::before {
-  content: '';
+  content: "▶";
   width: 5px;
   height: 5px;
   position: absolute;
   margin-top: 16px;
-  border-radius: 50%;
-  background: #b2b2b2;
+  /* border-radius: 50%;
+  background: #b2b2b2; */
+  color:white;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link {
@@ -30009,6 +30014,7 @@ div.tagsinput span.tag a {
     margin-right: 0;
     margin-left: 0;
     margin-bottom: 0;
+    
   }
   .sidebar-icon-only .sidebar .nav .nav-item .nav-link i.menu-arrow {
     display: none;
@@ -30056,7 +30062,7 @@ div.tagsinput span.tag a {
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
     display: block;
     background: #fff;
-    border-radius: 0 0 5px 0;
+    border-radius: 0 0 0 0 !important;
     position: absolute;
     left: 70px;
     width: 190px;
