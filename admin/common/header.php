@@ -58,20 +58,10 @@
                 <!-------------------------------------------------------Profile Start------------------------------------------------------->
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
-                        <p class="ac_type" style="margin-right:10px;">Student Dashboard</p>  
+                        <p class="ac_type" style="margin-right:10px;">Admin Dashboard</p>  
                         <!-- <p class="ac_type" style="font-weight:500;"><?php //echo $_SESSION['_userId']; ?></p>  -->
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            
-                            <?php
-                                if($_SESSION['_gender']=="Male")
-                                {
-                                 echo "<img src='../assets/profiles/student-profile-male.jpg' alt='profile-img' />";
-                                }
-                                else
-                                {
-                                    echo "<img src='../assets/profiles/student-profile-female.png' alt='profile-img' />";
-                                }   
-                            ?>
+                               <img src='../assets/profiles/student-profile-male.jpg' alt='profile-img' />     
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
