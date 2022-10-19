@@ -330,7 +330,7 @@ class AMS
 
 
 
-        <title>AMS | Not Found</title>
+        <title>AMS | Service Unavailable</title>
 
 
 
@@ -400,13 +400,13 @@ class AMS
 
                     <div class='px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider'>
 
-                        404                    </div>
+                        503                    </div>
 
 
 
                     <div class='ml-4 text-lg text-gray-500 uppercase tracking-wider'>
 
-                        Not Found                    </div>
+                        Service Unavailable                    </div>
 
                 </div>
 
