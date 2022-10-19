@@ -99,14 +99,6 @@
                         </a>
                     </li>
 
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="./profile.php" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="icon-head menu-icon ti-id-badge"></i>
-                            <span class="menu-title">Profile</span>
-                        </a>
-                    </li>
-                    -->
-
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                             aria-controls="ui-basic">
