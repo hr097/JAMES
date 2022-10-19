@@ -66,14 +66,14 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="./profile.php">
+                            <!-- <a class="dropdown-item" href="./profile.php">
                                 <i class="icon-head menu-icon"></i>
                                 Profile
                             </a>
                             <a class="dropdown-item" href="./notifications.php">
                                 <i class="icon-head menu-icon ti-bell"></i>
                                 Notifications
-                            </a>
+                            </a> -->
                             <a class="dropdown-item" href="../php/logout.php">
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
@@ -99,20 +99,37 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="./profile.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-id-badge"></i>
                             <span class="menu-title">Profile</span>
                         </a>
                     </li>
-                    
+                    -->
+
                     <li class="nav-item">
-                        <a class="nav-link" href="./feedback.php" aria-expanded="false" aria-controls="ui-basic">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                            aria-controls="ui-basic">
+                            <i class="icon-layout menu-icon"></i>
+                            <span class="menu-title">Registration</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="./studentregistartion.php">Faculty</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="./facultyregistartion.php">Student</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="./feedbackstats.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-comment-alt"></i>
-                            <span class="menu-title">Feedback</span>
+                            <span class="menu-title">Feedback Review</span>
                         </a>
                     </li>
-                    
+                   
+
                     <li class="nav-item">
                         <a class="nav-link" href="./about.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-book"></i>
