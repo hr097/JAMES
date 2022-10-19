@@ -1,13 +1,3 @@
-<!--
-? -  Points to include in this page :
-? - Total no. of Feedbacks received
-? - Average feedback rating
-? - Sort feedback by rating
-? - Search feedback by usermail address
-? - Search feedback by feedback ID 
-
-* fb_id, email, description, givenAt, rating
--->
 <?php
 
 require_once("../ams.php");
@@ -36,7 +26,17 @@ $sort = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th
 while ($row = mysqli_fetch_array($result3)) {
     $sort = $sort . "<tr><td>" . $row['fb_id'] . "</td><td>" . $row['email'] . "</td><td>" . $row['description'] . "</td><td>" . $row['givenAt'] . "</td><td>" . $row['rating'] . "</td><td></tr>";
 }
-$sort= $sort."</tbody>";
+$sort = $sort . "</tbody>";
+
+// $inputMail = 
+// $sql4 = "select * from ams_feedback where email = $inputMail;";
+// $result4 = mysqli_query($JAMES->connection(), $sql4);
+// $sortByMail = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
+// while ($row2 = mysqli_fetch_array($result4)) {
+//     $sortByMail = $sortByMail . "<tr><td>" . $row2['fb_id'] . "</td><td>" . $row2['email'] . "</td><td>" . $row2['description'] . "</td><td>" . $row2['givenAt'] . "</td><td>" . $row2['rating'] . "</td><td></tr>";
+// }
+// $sortByMail = $sortByMail . "</tbody>";
+
 
 // if(mysqli_num_rows($result)>=0)
 // {
@@ -70,6 +70,7 @@ $sort= $sort."</tbody>";
 </head>
 
 <!-- FEEDBACK STATS STARTS -->
+
 <body>
     <div class="container">
 
@@ -110,40 +111,69 @@ $sort= $sort."</tbody>";
                         <div class="form-group">
                             <div class="form-inline">
                                 <h6 class="info-title"> Search Feedback by : </h6>
-                                <div class="dropdown show ml-2 mb-1 bg-blue" id="ui-basic">
-                                    <a class="btn btn-secondary dropdown-toggle mb-1 bg-blue" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="dropdown show ml-2 mb-1" id="ui-basic">
+                                    <a class="btn btn-secondary dropdown-toggle mb-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Select Criteria
                                     </a>
 
-                                    <div class="dropdown-menu mb-1 bg-blue" aria-labelledby="dropdownMenuLink" aria-controls="ui-basic">
-                                        <a class="dropdown-item" href="#">Email Address</a>
-                                        <a class="dropdown-item" href="#">Feedback IDs</a>
+                                    <div class="dropdown-menu mb-1" aria-labelledby="dropdownMenuLink" aria-controls="ui-basic">
+                                        <a class="dropdown-item" href="#" onclick="displayMail()">Email Address</a>
+                                        <a class="dropdown-item" href="#" onclick="displayfId()">Feedback IDs</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="mailblock" hidden="true">
+                            <h6 class="info-title">Enter Email Address</h6>
+                            <div class="form-group">
+                                <form class="form-inline">
+                                    <div class="form-group mb-2">
+                                        <input type="text" id="staticEmail2" placeholder="email@example.com" class="form-control form-group-lg">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mb-2 ml-2">Search Data</button>
+                                </form>
+                                <div class="col-lg-12 grid-margin">
+
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row" <div class="col-12">
+                                                <div class="table">
+                                                    <table class="table" id="maildata">
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <h6 class="info-title">Enter Email Address</h6>
-                        <div class="form-group">
-                            <form class="form-inline">
-                                <div class="form-group mb-2">
-                                    <input type="text" id="staticEmail2" placeholder="email@example.com">
+                        <div id="fidblock" hidden="true">
+                            <h6 class="info-title">Enter Feedback ID </h6>
+                            <div class="form-group">
+                                <form class="form-inline">
+                                    <div class="form-group mb-2">
+                                        <input type="text" id="staticEmail2" placeholder="XXXXXX" class="form-control form-group-lg">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mb-2  ml-2">Search Data</button>
+                                </form>
+                                <div class="col-lg-12 grid-margin">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row" <div class="col-12">
+                                                <div class="table">
+                                                    <table class="table" id="fiddata">
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary mb-2 ml-2">Search Data</button>
-                            </form>
 
+
+                            </div>
                         </div>
 
-                        <h6 class="info-title">Enter Feedback ID </h6>
-                        <div class="form-group">
-                            <form class="form-inline">
-                                <div class="form-group mb-2">
-                                    <input type="text" id="staticEmail2" placeholder="XXXXXX">
-                                </div>
-                                <button type="submit" class="btn btn-primary mb-2  ml-2">Search Data</button>
-                            </form>
-
-                        </div>
 
                         <h4 class="info-data"></h4>
                     </div>
@@ -163,6 +193,14 @@ $sort= $sort."</tbody>";
 <script>
     function displayData() {
         document.getElementById('sdata').innerHTML = "<?php echo $sort; ?>";
+    }
+
+    function displayMail() {
+        document.getElementById('mailblock').hidden = false;
+    }
+
+    function displayfId() {
+        document.getElementById('fidblock').hidden = false;
     }
 </script>
 
