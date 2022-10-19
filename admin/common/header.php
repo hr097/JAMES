@@ -28,6 +28,7 @@
 
     <!-- css  -->
     <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/admin.css">
 
     <!--jQuery file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -58,31 +59,21 @@
                 <!-------------------------------------------------------Profile Start------------------------------------------------------->
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
-                        <p class="ac_type" style="margin-right:10px;">Student Dashboard</p>  
+                        <p class="ac_type" style="margin-right:10px;">Admin Dashboard</p>  
                         <!-- <p class="ac_type" style="font-weight:500;"><?php //echo $_SESSION['_userId']; ?></p>  -->
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            
-                            <?php
-                                if($_SESSION['_gender']=="Male")
-                                {
-                                 echo "<img src='../assets/profiles/student-profile-male.jpg' alt='profile-img' />";
-                                }
-                                else
-                                {
-                                    echo "<img src='../assets/profiles/student-profile-female.png' alt='profile-img' />";
-                                }   
-                            ?>
+                               <img src='../assets/profiles/admin-profile.png' alt='profile-img' />     
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="./profile.php">
+                            <!-- <a class="dropdown-item" href="./profile.php">
                                 <i class="icon-head menu-icon"></i>
                                 Profile
                             </a>
                             <a class="dropdown-item" href="./notifications.php">
                                 <i class="icon-head menu-icon ti-bell"></i>
                                 Notifications
-                            </a>
+                            </a> -->
                             <a class="dropdown-item" href="../php/logout.php">
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
@@ -108,26 +99,37 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="./profile.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-id-badge"></i>
                             <span class="menu-title">Profile</span>
                         </a>
                     </li>
+                    -->
+
                     <li class="nav-item">
-                        <a class="nav-link" href="./notifications.php" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="icon-head menu-icon ti-bell"></i>
-                            <span class="menu-title">Notifications</span>
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                            aria-controls="ui-basic">
+                            <i class="icon-layout menu-icon"></i>
+                            <span class="menu-title">Registration</span>
+                            <i class="menu-arrow"></i>
                         </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="./facultyregistartion.php">Faculty</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="./studentregistartion.php">Student</a></li>
+                            </ul>
+                        </div>
                     </li>
-                    
+                     
                     <li class="nav-item">
-                        <a class="nav-link" href="./feedback.php" aria-expanded="false" aria-controls="ui-basic">
+                        <a class="nav-link" href="./feedbackstats.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-comment-alt"></i>
-                            <span class="menu-title">Feedback</span>
+                            <span class="menu-title">Feedback Review</span>
                         </a>
                     </li>
-                    
+                   
+
                     <li class="nav-item">
                         <a class="nav-link" href="./about.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-book"></i>
