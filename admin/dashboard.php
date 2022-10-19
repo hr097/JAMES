@@ -28,7 +28,7 @@
         <script src="../js/admin/dashboard.js" type="text/javascript" defer=true></script>
 
         <!-- page information-->
-        <title>AMS | Admin dashboard</title>
+        <title>AMS | Admin Dashboard</title>
     </head>
 
     <body>
