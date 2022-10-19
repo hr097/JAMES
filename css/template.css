@@ -28659,7 +28659,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav.sub-menu .nav-item::before {
-  content: "▶";
+  content: "●";
   width: 5px;
   height: 5px;
   position: absolute;
@@ -28667,6 +28667,8 @@ div.tagsinput span.tag a {
   /* border-radius: 50%;
   background: #b2b2b2; */
   color:white;
+  margin-top: 5px;
+  padding-right: 1px;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link {
