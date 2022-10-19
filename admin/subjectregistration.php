@@ -1,5 +1,5 @@
 <?php
 
-echo "This is course registration!";
+echo "This is subject registration!";
 
 ?>

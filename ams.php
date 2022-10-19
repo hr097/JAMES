@@ -303,7 +303,7 @@ class AMS
             $userType=2;
         }
         
-        //$userType=3; //!localhost development enabled
+        $userType=3; //!localhost development enabled
 
         $this->set_server_configuration();
 
