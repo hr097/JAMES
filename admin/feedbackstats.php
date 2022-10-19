@@ -1,13 +1,13 @@
 <?php
 
 require_once("../ams.php");
-$JAMES = new AMS("User");
+$JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
-// if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
-// {
-//  $JAMES->ams_redirect("../login.php");
-// }
+if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+{
+ $JAMES->ams_redirect("../login.php");
+}
 
 $u = $_SESSION["_userId"];
 
