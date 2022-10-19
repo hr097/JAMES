@@ -20,7 +20,7 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
     ?>
 
     <!-- css  -->
-    <link rel="stylesheet" href="../css/facu.css">
+    <link rel="stylesheet" href="../css/faculty.css">
     <link rel="stylesheet" href="../css/modal.css">
 
     <!-- js  -->
@@ -95,13 +95,10 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
 
     <!-------------------------------------------------------Main Content End------------------------------------------------------->
 
-
     <!-- including footer -->
     <?php
-require_once('./common/footer.php');
-?>
-
-
+        require_once('./common/footer.php');
+    ?>
 
 </body>
 
