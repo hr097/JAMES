@@ -28,14 +28,15 @@ while ($row = mysqli_fetch_array($result3)) {
 }
 $sort = $sort . "</tbody>";
 
-// $inputMail = 
-// $sql4 = "select * from ams_feedback where email = $inputMail;";
-// $result4 = mysqli_query($JAMES->connection(), $sql4);
-// $sortByMail = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
-// while ($row2 = mysqli_fetch_array($result4)) {
-//     $sortByMail = $sortByMail . "<tr><td>" . $row2['fb_id'] . "</td><td>" . $row2['email'] . "</td><td>" . $row2['description'] . "</td><td>" . $row2['givenAt'] . "</td><td>" . $row2['rating'] . "</td><td></tr>";
-// }
-// $sortByMail = $sortByMail . "</tbody>";
+// ! Re-start from HERE for query logic
+// ? Add $inputMail instead of sample email
+$sql4 = "select * from ams_feedback where email = 'harshilramani.mscit20@vnsgu.ac.in';";
+$result4 = mysqli_query($JAMES->connection(), $sql4);
+$searchbymail = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
+while ($row2 = mysqli_fetch_array($result4)) {
+    $searchbymail = $searchbymail . "<tr><td>" . $row2['fb_id'] . "</td><td>" . $row2['email'] . "</td><td>" . $row2['description'] . "</td><td>" . $row2['givenAt'] . "</td><td>" . $row2['rating'] . "</td><td></tr>";
+}
+$searchbymail = $searchbymail . "</tbody>";
 
 
 // if(mysqli_num_rows($result)>=0)
@@ -130,7 +131,8 @@ $sort = $sort . "</tbody>";
                                     <div class="form-group mb-2">
                                         <input type="text" id="staticEmail2" placeholder="email@example.com" class="form-control form-group-lg">
                                     </div>
-                                    <button type="submit" class="btn btn-primary mb-2 ml-2">Search Data</button>
+                                    <button type="submit" class="btn btn-primary mb-2 ml-2" onclick="searchMail()">Search Data</button>
+                                    <!-- Add a Clear field button -->
                                 </form>
                                 <div class="col-lg-12 grid-margin">
 
@@ -155,7 +157,8 @@ $sort = $sort . "</tbody>";
                                     <div class="form-group mb-2">
                                         <input type="text" id="staticEmail2" placeholder="XXXXXX" class="form-control form-group-lg">
                                     </div>
-                                    <button type="submit" class="btn btn-primary mb-2  ml-2">Search Data</button>
+                                    <button type="submit" class="btn btn-primary mb-2  ml-2" onclick="searchfId()">Search Data</button>
+                                    <!-- Add a Clear field button -->
                                 </form>
                                 <div class="col-lg-12 grid-margin">
                                     <div class="card">
@@ -197,10 +200,19 @@ $sort = $sort . "</tbody>";
 
     function displayMail() {
         document.getElementById('mailblock').hidden = false;
+        document.getElementById('fidblock').hidden = true;
     }
 
     function displayfId() {
         document.getElementById('fidblock').hidden = false;
+        document.getElementById('mailblock').hidden = true;
+    }
+
+    function searchMail() {
+        document.getElementById('maildata').innerHTML = "<?php echo $searchbymail; ?>";
+    }
+
+    function searchfId() {
     }
 </script>
 
