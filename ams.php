@@ -315,7 +315,6 @@ class AMS
 
         if(!$this->ams_db_connect($databaseName,$userType))
         {
-            //$this->ams_redirect("./index.php");
             echo "
             
             <!DOCTYPE html>
