@@ -97,14 +97,14 @@
 
 /* Style the front side */
 .card__face--front {
-  background-image: linear-gradient(rgba(47, 45, 47, 0.329), rgba(59, 54, 54, 0.3)), url('../assets/other/profile-bg.png');
+  background-image: linear-gradient(rgba(47, 45, 47, 0.329), rgba(59, 54, 54, 0.3)), url('../assets/other/stud-profile-bg.png');
   background-size: cover;
   border-radius: 10px;
 }
 
 /* Style the back side */
 .card__face--back {
-  background-image: linear-gradient(rgba(47, 45, 47, 0.329), rgba(59, 54, 54, 0.3)), url('../assets/other/profile-bg.png');
+  background-image: linear-gradient(rgba(47, 45, 47, 0.329), rgba(59, 54, 54, 0.3)), url('../assets/other/stud-profile-bg.png');
   background-size: cover;
   border-radius: 10px;
   color: white;
