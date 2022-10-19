@@ -304,7 +304,7 @@ class AMS
         }
         else// if($userType=="User" || $userType=="") // BY DEFAULT DB WILL  BE CONNECTED AS USER IF NOTHING IS PASSED
         {
-            $userType=3;
+            $userType=2;
         }
         
         //$userType=3; //!localhost development enabled
