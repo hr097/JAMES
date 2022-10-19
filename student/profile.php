@@ -83,22 +83,22 @@ else
                     </p>
 
                     <p>
-                    <span  class="card_back_title mr-4"> Course:</span>
+                    <span  class="card_back_title mr-4"> Course :</span>
                     <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['course_name']; ?></span>
                     </p>
 
                     <p>
-                    <span  class="card_back_title mr-1"> Semester:</span>
-                    <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['cur_semester']; ?></span>
+                    <span  class="card_back_title mr-1"> Semester :</span>
+                    <span lass="card_back_data" style="font-weight:normal;" ><?php echo ($user['cur_semester']==1)?"1<sup>st</sup>":(($user['cur_semester']==2)?"2<sup>nd</sup>":(($user['cur_semester']==3)?"3<sup>rd</sup>":$user['cur_semester']."<sup>th</sup>"));?></span>
                     </p>
 
                     <p>
-                    <span  class="card_back_title mr-3"> Division:</span>
+                    <span  class="card_back_title mr-3"> Division :</span>
                     <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['cur_division']; ?></span>
                     </p>
 
                     <p>
-                    <span  class="card_back_title mr-4"> Roll No:</span>
+                    <span  class="card_back_title mr-4"> Roll No :</span>
                     <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['cur_roll_no']; ?></span>
                     </p>
                   </div>

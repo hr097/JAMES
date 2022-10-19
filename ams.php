@@ -2,7 +2,7 @@
 
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require_once("vendor/autoload.php");
@@ -304,7 +304,7 @@ class AMS
         }
         else// if($userType=="User" || $userType=="") // BY DEFAULT DB WILL  BE CONNECTED AS USER IF NOTHING IS PASSED
         {
-            $userType=2;
+            $userType=3;
         }
         
         //$userType=3; //!localhost development enabled
