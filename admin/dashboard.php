@@ -38,7 +38,7 @@
                     <div class="content-wrapper">
                         <div class="row">
                             <div class="col-12 col-xl-8 mb-4 mb-xl-50">
-                                <h3 class="font-weight-bold">Welcome <?php echo $user['fname']; ?>,</h3>
+                                <h3 class="font-weight-bold greet">Welcome <?php echo $user['fname']; ?>,</h3>
                                 <h6 id="daymode" class="font-weight-normal mb-10"></h6>
                             </div>
 
