@@ -117,11 +117,10 @@
 
 
 
-/*------------------- Feedback ----------------------*/
+/*------------------------------------------------ Feedback -------------------------------------------*/
 
 .feedback-textarea{
   border-radius: 5px !important;
-  padding-bottom: 100px;
   padding-top: 20px;
 }
 
@@ -178,4 +177,13 @@
 .rate-area > input:checked ~ label:hover ~ label,
 .rate-area > label:hover ~ input:checked ~ label {
 	color: gold;
+}
+
+.star_css{
+  margin-right: 8px;
+}
+
+.print_count{
+color:#5b5a5a;
+font-size:15px;
 }

@@ -1,15 +1,3 @@
-<?php
-
-require_once("../ams.php");
-$JAMES = new AMS("User");
-$JAMES->init_user_session();
-
-if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
-    $JAMES->ams_redirect("../login.php");
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +12,7 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
     <link rel="stylesheet" href="../css/modal.css">
 
     <!-- js  -->
-    <script src="../js/student/feedback.js" type="text/javascript" defer=true></script>
+    <script src="../js/faculty/feedback.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
     <title>AMS | Feedback</title>
@@ -61,7 +49,7 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="1")) {
                                     </ul>
  
                                 </div>
-                                <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>"> 
+                                <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="">  -->
                                 
                                 <!-- Subject -->
                                 <div class="form-group">
