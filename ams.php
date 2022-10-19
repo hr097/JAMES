@@ -210,10 +210,6 @@ class AMS
         }
         else if($type===3)
         {
-            $this->ams_redirect("./management/dashboard.php");
-        }
-        else if($type===4)
-        {
             $this->ams_redirect("./admin/dashboard.php");
         }
         else
