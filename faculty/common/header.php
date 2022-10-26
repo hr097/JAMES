@@ -140,12 +140,5 @@
                             <span class="menu-title">About Us</span>
                         </a>
                     </li>
-
-                    <!-- 
-          <li class="devpage">
-            <a class="nav-link" href="./html/developers.html" aria-expanded="false" aria-controls="ui-basic">
-              <span>Developers</span>
-            </a>
-          </li> -->
             </nav>
             <!-------------------------------------------------------Side Nav-Bar End------------------------------------------------------->
