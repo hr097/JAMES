@@ -45,7 +45,8 @@ $(document).ready(function () {
                   _ct: csrfToken.val()
                 },
                 function (data, status) {
-                
+                  
+                  alert(data);
                   if(status == "success")
                   {
                     response = parseInt(data);
