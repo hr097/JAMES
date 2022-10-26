@@ -1,3 +1,15 @@
+<?php
+
+require_once("../ams.php");
+$JAMES = new AMS("User");
+$JAMES->init_user_session();
+
+if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="2")) {
+    $JAMES->ams_redirect("../login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,36 +46,33 @@
                             <h4 class="card-title">AMS | Feedback</h4>
                             <form class="forms-sample" method="post" action="">
 
-                            <div class="feedback-star-div">
-                                <ul class="rate-area">
-                                    <input type="radio"  id="5-star" name="rating" value="5"/><label for="5-star"
-                                        title="Outstanding" class="star_css">5 stars</label>
-                                    <input type="radio" id="4-star" name="rating" value="4" checked/><label for="4-star"
-                                        title="Excellent" class="star_css">4 stars</label>
-                                    <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star"
-                                        title="Satisfactory" class="star_css">3 stars</label>
-                                    <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star"
-                                        title="Good" class="star_css">2 stars</label>
-                                    <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star"
-                                        title="Worst" class="star_css">1 star</label>
-                                </ul>
+                                <div class="feedback-star-div">
+                                    <ul class="rate-area">
+                                        <input type="radio"  id="5-star" name="rating" value="5"/><label for="5-star"
+                                            title="Outstanding" class="star_css">5 stars</label>
+                                        <input type="radio" id="4-star" name="rating" value="4" checked/><label for="4-star"
+                                            title="Excellent" class="star_css">4 stars</label>
+                                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star"
+                                            title="Satisfactory" class="star_css">3 stars</label>
+                                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star"
+                                            title="Good" class="star_css">2 stars</label>
+                                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star"
+                                            title="Worst" class="star_css">1 star</label>
+                                    </ul>
+ 
+                                </div>
+                                <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > 
+                                
+                                <!-- Subject -->
+                                <div class="form-group">
+                                    <textarea id="feedbacktxt" name="feedback" oninput="countWord()" class="form-control feedback-textarea"
+                                        placeholder="Give your valuable feedback to us" rows="10" maxlength="999"></textarea>
+                                        <div id="counter" class="print_count d-flex justify-content-end">0/999</div>
+                                </div>
 
-                            </div>
-                            <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>"> 
-
-                            <!-- Subject -->
-                            <div class="form-group">
-                                <textarea id="feedbacktxt" name="feedback" oninput="countWord()" class="form-control feedback-textarea"
-                                    placeholder="Give your valuable feedback to us" rows="10" maxlength="999"></textarea>
-                                    <div id="counter" class="print_count d-flex justify-content-end">0/999</div>
-                            </div>
-
-                            <button type="button" id="submitfeedback" class="btn btn-primary mr-2 mt-3">Submit</button>
-                            <button class="btn btn-light mt-3">Clear</button>
+                                <button type="button" id="submitfeedback" class="btn btn-primary mr-2 mt-3">Submit</button>
+                                <button class="btn btn-light mt-3">Clear</button>
                             </form>
-
-
-                             
                         </div>
                     </div>
                 </div>
