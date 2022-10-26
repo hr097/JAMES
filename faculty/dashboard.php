@@ -4,10 +4,10 @@
  $JAMES = new AMS("Admin");
  $JAMES->init_user_session();
 
-//  if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
-//  {
-//   $JAMES->ams_redirect("../login.php");
-//  }
+ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
+ {
+  $JAMES->ams_redirect("../login.php");
+ }
  
  $u = $_SESSION["_userId"];
 
@@ -19,10 +19,10 @@ if(mysqli_num_rows($result)===1)
 {
     $user = mysqli_fetch_assoc($result);
 }
-else
-{
-    $JAMES->ams_redirect("../login.php");
-}
+// else
+// {
+//     $JAMES->ams_redirect("../login.php");
+// }
 
 $fid = $user['fid'];
 $gender = $user['gender'];
