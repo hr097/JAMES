@@ -18,14 +18,14 @@
 
 
 
-// require_once("../amslib.php");
+require_once("../ams.php");
 
-// $JAMES = new AMS(0);
+$JAMES = new AMS("User");
 
-// $JAMES->init_user_session();
+$JAMES->init_user_session();
 
 
-
+echo "<br><br>Session<br><br>";
 
 
 print_r($_SESSION);
