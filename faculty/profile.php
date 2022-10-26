@@ -155,10 +155,10 @@ else
                  <span id="mode">
                     <i class="ti-pencil email_edit_icon d-flex justify-content-end" style="position:relative;bottom:10px;" id="edit_icon"></i>
                 </span>
-                 <h4 id="para_email" class="email_edit_para info-data">archit@gmail.com</h4> 
-                 <input type="hidden" id="csrfToken" name="_csrfToken" value="generateCsrfToken"> 
+                 <h4 id="para_email" class="email_edit_para info-data"><?php echo $user['email']; ?></h4> 
+                 <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > 
                 <h6 class="info-title">Contact No.</h6>
-                 <h4 class="info-data">123456789</h4>
+                 <h4 class="info-data"><?php echo $user['contact_no']; ?></h4>
                 </div>
                         </div>
                     </div>
