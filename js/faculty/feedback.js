@@ -34,6 +34,8 @@ $(document).ready(function () {
 
           $("#submitfeedback").click(function () {
 
+            alert(fbTxt.val());
+            alert(csrfToken.val());
 
             if($("#feedbacktxt").val()!="")
             {
