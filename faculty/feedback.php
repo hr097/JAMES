@@ -49,7 +49,7 @@
                                     </ul>
  
                                 </div>
-                                <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="">  -->
+                                <input type="hidden" id="csrfToken" name="_csrfToken" value=""> 
                                 
                                 <!-- Subject -->
                                 <div class="form-group">
