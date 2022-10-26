@@ -100,10 +100,10 @@ else
                               <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['designation']; ?></span>
                               </p>
 
-                              <p>
+                              <!-- <p>
                               <span  class="card_back_title mr-5"> Joining year :&nbsp&nbsp&nbsp&nbsp&nbsp</span>
                               <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['joining_year']; ?></span>
-                              </p>
+                              </p> -->
 
                               <!-- <p>
                               <span  class="card_back_title mr-5"> Course name :&nbsp&nbsp&nbsp</span>
