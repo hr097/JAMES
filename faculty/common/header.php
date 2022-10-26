@@ -33,7 +33,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!--javaScript file-->
-    <!--<script src="../js/header.js" type="text/javascript" defer=true></script>-->
 
     <!-- favicon -->
     <link rel="shortcut icon" href="../assets/logos/favicon.ico">
@@ -62,7 +61,16 @@
                     <li class="nav-item nav-profile dropdown">
                         <p class="ac_type">Faculty Dashboard</p>
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            <img src="../assets/profiles/faculty-profile.jpg" alt="profile" />
+                            <?php
+                                if($_SESSION['_gender']=="Male")
+                                {
+                                    echo "<img src='../assets/profiles/faculty-profile-male.jpg' alt='profile-img' />";
+                                }
+                                else
+                                {
+                                    echo "<img src='../assets/profiles/faculty-profile-female.png' alt='profile-img' />";
+                                }   
+                            ?>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
