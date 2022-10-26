@@ -49,7 +49,7 @@
                                     </ul>
  
                                 </div>
-                                <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > 
+                                
                                 
                                 <!-- Subject -->
                                 <div class="form-group">
@@ -57,7 +57,7 @@
                                         placeholder="Give your valuable feedback to us" rows="10" maxlength="999"></textarea>
                                         <div id="counter" class="print_count d-flex justify-content-end">0/999</div>
                                 </div>
-
+                                <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>"> 
                                 <button type="button" id="submitfeedback" class="btn btn-primary mr-2 mt-3">Submit</button>
                                 <button class="btn btn-light mt-3">Clear</button>
                             </form>
