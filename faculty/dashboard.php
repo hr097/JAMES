@@ -15,14 +15,14 @@
 $sql = "select fid,SUBSTRING(name,INSTR(name,' '),( (LOCATE(' ',name,INSTR(name,' ')+1)) - INSTR(name,' ') )) AS fname,gender from vw_faculties where email='$u';"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
-if(mysqli_num_rows($result)===1)
+if(mysqli_num_rows($result)==1)
 {
     $user = mysqli_fetch_assoc($result);
 }
-// else
-// {
-//     $JAMES->ams_redirect("../login.php");
-// }
+else
+{
+    $JAMES->ams_redirect("../login.php");
+}
 
 $fid = $user['fid'];
 $gender = $user['gender'];
