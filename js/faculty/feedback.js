@@ -34,9 +34,6 @@ $(document).ready(function () {
 
           $("#submitfeedback").click(function () {
 
-            alert(fbTxt.val());
-            alert(csrfToken.val());
-
             if($("#feedbacktxt").val()!="")
             {
               $.post(
@@ -48,7 +45,6 @@ $(document).ready(function () {
                 },
                 function (data, status) {
                   
-                  alert(data);
                   if(status == "success")
                   {
                     response = parseInt(data);
