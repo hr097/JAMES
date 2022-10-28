@@ -100,15 +100,32 @@ else
                               <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['designation']; ?></span>
                               </p>
 
-                              <!-- <p>
+                              <p>
                               <span  class="card_back_title mr-5"> Joining year :&nbsp&nbsp&nbsp&nbsp&nbsp</span>
                               <span lass="card_back_data" style="font-weight:normal;" ><?php //echo $user['joining_year']; ?></span>
-                              </p> -->
+                              </p>
 
-                              <!-- <p>
-                              <span  class="card_back_title mr-5"> Course name :&nbsp&nbsp&nbsp</span>
-                              <span lass="card_back_data" style="font-weight:normal;" >IT</span>
-                              </p> -->
+                              <p>
+                              <span  class="card_back_title mr-5"> Experience :&nbsp&nbsp&nbsp</span>
+                              <span lass="card_back_data" style="font-weight:normal;" >
+                                <?php 
+                                $exp = (int) date("Y")-$user['joining_year'];
+
+                                if($exp>1)
+                                {
+                                    echo $exp." Years";
+                                }
+                                else if($exp===1)
+                                {
+                                    echo $exp." Year";
+                                }
+                                else
+                                {
+                                    echo "<1 Year";
+                                }
+                                ?>
+                              </span>
+                              </p>
                                   </div>
                               </div>
                               </div>
@@ -132,8 +149,8 @@ else
                             <h6 class="info-title">Gender</h6>
                             <h4 class="info-data"><?php echo $user['gender']; ?></h4>
 
-                            <h6 class="info-title"> Joining Year</h6>
-                            <h4 class="info-data"><?php echo $user['joining_year']; ?></h4>
+                            <!-- <h6 class="info-title"> Joining Year</h6>
+                            <h4 class="info-data"><?php //echo $user['joining_year']; ?></h4> -->
                         </div>
                     </div>
                 </div>
