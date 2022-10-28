@@ -73,7 +73,7 @@
                                 expertise in leading innovative projects.Additionally, my keen interest have been in
                                 System & Database Engineering.Alternatively, I am open to work in any technical domain
                                 of computer science and global businesses. My inspirational thoughts enabled me to
-                                achieve great mountains of success and being inpirational role model for others of my field.
+                                achieve great mountains of success and to be a role model for others of my field.
                                 
 
                             </p>
