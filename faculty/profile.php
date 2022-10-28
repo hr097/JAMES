@@ -149,8 +149,8 @@ else
                             <h6 class="info-title">Gender</h6>
                             <h4 class="info-data"><?php echo $user['gender']; ?></h4>
 
-                            <!-- <h6 class="info-title"> Joining Year</h6>
-                            <h4 class="info-data"><?php //echo $user['joining_year']; ?></h4> -->
+                            <h6 class="info-title"> Joining Year</h6>
+                            <h4 class="info-data"><?php echo $user['joining_year']; ?></h4>
                         </div>
                     </div>
                 </div>
