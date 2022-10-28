@@ -315,7 +315,7 @@
             <div class="col">
                 <div class="card card-pink h-100 overflow-hidden shadow bg-white border-0 px-0">
                     <div class="card-shape">
-                        <img src="./assets/developers/ams_developer_shikhaa_tikiwala.jpeg" class="card-img-top"
+                        <img src="./assets/developers/ams_developer_parth_mistri.jpg" class="card-img-top"
                             alt="Michele">
                     </div>
                     <div class="card-body">
