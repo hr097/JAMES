@@ -85,7 +85,7 @@ else
 
                             <!-- back side -->
                             <div  class="card__face card__face--back py-4 pl-4" style="font-weight:500;font-size: 15px;" align="left">
-                              <p class="mt-3">
+                              <p class="mt-5">
                               <span  class="card_back_title mr-5"> FID :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
                               <span class="card_back_data" style="font-weight:normal;"><?php echo $user['fid']; ?></span>
                               </p>
