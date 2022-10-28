@@ -47,6 +47,9 @@ $_SESSION['_gender'] = $gender; // to access this in other pages
     <!-- css  -->
     <link rel="stylesheet" href="../css/faculty.css">
 
+    <!-- js  -->
+    <script src="../js/faculty/dashboard.js" type="text/javascript" defer=true></script>
+
     <!-- Page information -->
     <title>AMS | Faculty Dashboard</title>
 
@@ -60,10 +63,26 @@ $_SESSION['_gender'] = $gender; // to access this in other pages
         <div class="content-wrapper">
         <div class="row">
              <div class="col-12 col-xl-8 mb-4 mb-xl-50">
-                 <h3 class="font-weight-bold">Welcome Sir,</h3>
-                 <h6 class="font-weight-normal mb-10">Good Morning, </h6>
+                    <h3 class="font-weight-bold">Welcome 
+                      <?php 
+                      if($_SESSION['_gender']==="Male")
+                      {
+                        echo "Sir";
+                      } 
+                      else if($_SESSION['_gender']==="Female")
+                      {
+                        echo "Madam";
+                      }
+                      else
+                      {
+                        echo $user['fname'];
+                      }
+
+                      ?>,
+                    </h3>
+                    <h6 id="daymode" class="font-weight-normal mb-10"></h6>
              </div>
-</div>
+        </div>
               <!-- Classroom sorting --> 
               <div class="row">
                     <div class="form-group col-md-3">

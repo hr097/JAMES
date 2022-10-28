@@ -42,7 +42,7 @@ else
     <link rel="stylesheet" href="../css/modal.css">
 
     <!-- js  -->
-    <script src="../js/faculty/faculty.js" type="text/javascript" defer=true></script>
+    <script src="../js/faculty/profile.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
     <title>AMS | Profile</title>
