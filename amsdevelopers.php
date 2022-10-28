@@ -336,7 +336,7 @@
                             <p class="font-italic mt-2 mb-6">
                                 I am a Bachelor of Science Graduate from VNSGU Surat.My studies from Department of ICT has motivated me towards developing
                                 scalable and flexible applications in latest frameworks like laravel,codeigniter and Symfony.My foremost working domain of technology is
-                                Backend and related technologies.I conceive Team work as Bridge between Tehchlology and Client.Thank to the team for giving such chance to show up creativity.
+                                Backend and related technologies.I conceive Team work as Bridge between Technology and Clients.Thank to the team for giving such chance to show up creativity.
 
                             </p>
                             <div class="social_media mt-3 ">
