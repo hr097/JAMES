@@ -434,6 +434,48 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col">
+                <div class="card card-pink h-100 overflow-hidden shadow bg-white border-0 px-0">
+                    <div class="card-shape">
+                        <img src="./assets/developers/ams_developer_jaydev_jadhav.jpg" class="card-img-top"
+                            alt="AMS-developer">
+                    </div>
+                    <div class="card-body">
+                        <blockquote>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 475.082 475.081" x="0px" y="0px"
+                                width="25px" height="25px" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+                                xml:space="preserve" version="1.1">
+                                <g>
+                                    <g>
+                                        <path
+                                            d="M 164.45 219.27 h -63.954 c -7.614 0 -14.087 -2.664 -19.417 -7.994 c -5.327 -5.33 -7.994 -11.801 -7.994 -19.417 v -9.132 c 0 -20.177 7.139 -37.401 21.416 -51.678 c 14.276 -14.272 31.503 -21.411 51.678 -21.411 h 18.271 c 4.948 0 9.229 -1.809 12.847 -5.424 c 3.616 -3.617 5.424 -7.898 5.424 -12.847 V 54.819 c 0 -4.948 -1.809 -9.233 -5.424 -12.85 c -3.617 -3.612 -7.898 -5.424 -12.847 -5.424 h -18.271 c -19.797 0 -38.684 3.858 -56.673 11.563 c -17.987 7.71 -33.545 18.132 -46.68 31.267 c -13.134 13.129 -23.553 28.688 -31.262 46.677 C 3.855 144.039 0 162.931 0 182.726 v 200.991 c 0 15.235 5.327 28.171 15.986 38.834 c 10.66 10.657 23.606 15.985 38.832 15.985 h 109.639 c 15.225 0 28.167 -5.328 38.828 -15.985 c 10.657 -10.663 15.987 -23.599 15.987 -38.834 V 274.088 c 0 -15.232 -5.33 -28.168 -15.994 -38.832 C 192.622 224.6 179.675 219.27 164.45 219.27 Z" />
+                                        <path
+                                            d="M 459.103 235.256 c -10.656 -10.656 -23.599 -15.986 -38.828 -15.986 h -63.953 c -7.61 0 -14.089 -2.664 -19.41 -7.994 c -5.332 -5.33 -7.994 -11.801 -7.994 -19.417 v -9.132 c 0 -20.177 7.139 -37.401 21.409 -51.678 c 14.271 -14.272 31.497 -21.411 51.682 -21.411 h 18.267 c 4.949 0 9.233 -1.809 12.848 -5.424 c 3.613 -3.617 5.428 -7.898 5.428 -12.847 V 54.819 c 0 -4.948 -1.814 -9.233 -5.428 -12.85 c -3.614 -3.612 -7.898 -5.424 -12.848 -5.424 h -18.267 c -19.808 0 -38.691 3.858 -56.685 11.563 c -17.984 7.71 -33.537 18.132 -46.672 31.267 c -13.135 13.129 -23.559 28.688 -31.265 46.677 c -7.707 17.987 -11.567 36.879 -11.567 56.674 v 200.991 c 0 15.235 5.332 28.171 15.988 38.834 c 10.657 10.657 23.6 15.985 38.828 15.985 h 109.633 c 15.229 0 28.171 -5.328 38.827 -15.985 c 10.664 -10.663 15.985 -23.599 15.985 -38.834 V 274.088 C 475.082 258.855 469.76 245.92 459.103 235.256 Z" />
+                                    </g>
+                                </g>
+
+                            </svg>
+                            <p class="font-italic mt-2 mb-6">
+                            I have a  Bachelor of Science in IT from the Department Of ICT,Surat. My working domain includes the latest  Web technologies . I am always curious about new technology and ideas.
+I am on a journey where I will explore the new problems of the world and find their solutions or I will make new friends on this journey.
+                            </p>
+                            <div class="social_media mt-3 ">
+                                <a href="https://www.linkedin.com/in/jaydev-b-jadav-76a59921a/" target="_blank"><img src="./assets/icons/linkedin.png" alt="" srcset=""></a>
+                                <a href="https://github.com/jaydev-01" target="_blank"><img src="./assets/icons/github-sign.png" alt="" srcset=""></a>
+                                <a href="mailto:jaydevjadav.015@gmail.com" target="_blank"><img src="./assets/icons/gmail.png" alt="" srcset=""></a>
+                            </div>
+                        </blockquote>
+                    </div>
+                    <div class="card-footer">
+                        <p class="mb-0 font-weight-bolder">Jaydev Jadhav</p>
+                        <small class="text-muted">
+                            Lead Backend Developer
+                        </small>
+                    </div>
+                </div>
+            </div>
+             
              
 
 
