@@ -108,13 +108,13 @@
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                             aria-controls="ui-basic">
                             <i class="icon-layout menu-icon "></i>
-                            <span class="menu-title">Classroom</span>
+                            <span class="menu-title">Classrooms</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu "  style="">
-                                <li class="nav-item"> <a class="nav-link" href="./setup.php">New</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="./modify.php">Modify Classroom</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="./newclassroom.php">New</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="./archivedclassrooms.php">Archived</a></li>
                             </ul>
                         </div>
                     </li>
@@ -123,6 +123,13 @@
                         <a class="nav-link" href="./profile.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-id-badge"></i>
                             <span class="menu-title">Profile</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./feedback.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-search"></i>
+                            <span class="menu-title">Search</span>
                         </a>
                     </li>
 
