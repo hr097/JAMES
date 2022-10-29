@@ -65,7 +65,7 @@ $(document).ready(function () {
             let csrfToken = $("#csrfToken");
 
             $.post(
-              "./updateusrname.php",
+              "../api/updateusrname.php",
               {
                 _nun: newusername.val().toLowerCase().trim(),
                 _ct: csrfToken.val()
