@@ -1,8 +1,6 @@
 /* START::MODAL */
 
 var modal = document.getElementById("modal");
-var forgetPasswordBtn = document.getElementById("forgotpassword");
-
 var span = document.getElementsByClassName("close")[0]; //close modal
 
 span.onclick = function () {
