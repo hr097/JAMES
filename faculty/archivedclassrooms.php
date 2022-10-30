@@ -8,6 +8,26 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
+$sql= "select * from Courses;";//query
+$result = mysqli_query($JAMES->connection(),$sql);
+
+if(mysqli_num_rows($result)>0)
+{
+    $course_html = "<div class='form-group col-md-3'><label>Course</label><select id='course_selection' class='form-control'><option value=''>Not Selected</option></option>";
+
+    while($record = mysqli_fetch_assoc($result))
+    {
+      $course_html.="<option value='".$record['total_semester']."_".$record['course_name']."' >".$record['course_name']."</option>";
+    }
+
+    $course_html.="</select></div>";
+}
+else
+{
+    $JAMES->ams_redirect("../login.php");
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +44,10 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 
         <!-- css  -->
         <link rel="stylesheet" href="../css/faculty.css">
+
+        <!-- js  -->
+        <script src="../js/faculty/archivedclassrooms.js" type="text/javascript" defer=true></script>
+
 </head>
 
 <body>
@@ -40,42 +64,34 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                     <div class="row">
 
                     <div class="form-group col-md-3">
-                            <label>Year</label>
-                            <select class="form-control">
-                                <option>2022</option>
-                                <option>2021</option>
-                            </select>
-                        </div>
-
-                    <div class="form-group col-md-3 ">
-                        <label>Course</label>
-                        <select class="form-control">
-                            <option>IT</option>
-                            <option>ICT</option>
+                        <label>Year</label>
+                        <select id="curyear" class="form-control">
                         </select>
                     </div>
+                    <!--Course -->
+                    <?php echo $course_html;?>
 
-                    <div class="form-group col-md-3 ">
+                    <!--Semester -->
+                    <div class="form-group col-md-3">
                         <label>Semester</label>
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
+                        <select id="sem_selection" class="form-control">
+                          <option value=''>Not Selected</option>
                         </select>
                     </div>
 
                     <div class="form-group col-md-3 ">
                         <label>Division</label>
                         <select class="form-control">
+                        <option>Not Selected</option>
                             <option>A</option>
                             <option>B</option>
                             <option>C</option>
                             <option>D</option>
+                            <option>E</option>
+                            <option>F</option>
+                            <option>G</option>
+                            <option>H</option>
+                            <option>I</option>
                         </select>
                     </div>
 
