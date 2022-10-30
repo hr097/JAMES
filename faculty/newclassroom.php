@@ -64,7 +64,7 @@ else
                   <h4 class="card-title">Create Classroom</h4>
                   <form class="forms-sample">
 
-                    <!--Course -->
+                      <!--Course -->
 
                       <?php echo $course_html;?>
 
@@ -75,7 +75,7 @@ else
                           <option value=''>Not Selected</option>
                         </select>
                       </div>
-                    </div>
+                     </div>
 
                     <!-- Subject -->
                       <div class="form-group">

@@ -35,7 +35,6 @@ $(document).ready(function(){
           $("#sem_selection").empty();
           $("#sub_selection").empty();
           $("#sub_selection").append(`<option value=''>Not Selected</option>`);
-
           $("#sem_selection").append("<option value=''>Not Selected</option>");
 
             let txt = $(this).val();
