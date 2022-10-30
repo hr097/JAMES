@@ -41,8 +41,14 @@ $(document).ready(function(){
 
     $("#course_selection").change(
         function(){
-        $("#sem_selection").empty();
-        $("#sem_selection").append("<option value=''>Not Selected</option>");
+
+            var value = $(this).val().toLowerCase();
+            $("#classroomlist div").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+
+           $("#sem_selection").empty();
+           $("#sem_selection").append("<option value=''>Not Selected</option>");
 
             let txt = $(this).val();
 
@@ -56,6 +62,8 @@ $(document).ready(function(){
             }
 
     });
+
+
 
 
 });

@@ -137,18 +137,20 @@ else
                         </select>
                     </div>
 
-          <!-------------------------------------------------------States------------------------------------------------------->
+          <!-------------------------------------------------------Classrooms------------------------------------------------------->
+          
           <div class="col-md-12 grid-margin transparent">
-            <div class="row">
+            <div class="row" id="classroomlist">
+
               <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
-                <div class="card card-dark-blue ">
-                  <div class="card-body">
-                    <p class="mb-2 subfont">IT-2022</p>
-                    <p class="mb-4 subfont">Web Development</p>
-                    <p>Semester :  4th</p>
-                    <p>Division :  A</p>
+                  <div class="card card-dark-blue ">
+                      <div class="card-body">
+                        <p class="mb-2 subfont">IT-2022</p>
+                        <p class="mb-4 subfont">Web Development</p>
+                        <p>Semester :  4th</p>
+                        <p>Division :  A</p>
+                      </div>
                   </div>
-                </div>
               </div>
 
               <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
@@ -161,6 +163,8 @@ else
                   </div>
                 </div>
               </div>
+
+
               <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
                 <div class="card card-light-danger">
                   <div class="card-body">
@@ -171,6 +175,8 @@ else
                   </div>
                 </div>
               </div>
+
+
               <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
                 <div class="card card-dark-blue bg-warning">
                   <div class="card-body">
@@ -182,28 +188,28 @@ else
                 </div>
               </div>
 
-                </div>
+              </div>
             </div>
 
         </div>
-    </div>
+      </div>
     </div>
 
 
     <!----------------------------------------------Report Generate End---------------------------------------------->
     <!--Subject Page Open Start-->
-    <script>
+    <!-- <script>
     function subopen() {
         window.location = "./stud.php";
     }
-    </script>
+    </script> -->
     <!--Subject Page Open End-->
 
+    <!-- </div>
     </div>
     </div>
     </div>
-    </div>
-    </div>
+    </div> -->
     <!-- including footer -->
     <?php
     include './common/footer.php'
