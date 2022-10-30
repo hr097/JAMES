@@ -46,9 +46,8 @@
                 </h2>
                 <p class="lead font-weight-normal mt-4"
                     style="margin:auto;text-align:center;color: #111827;margin-bottom: 3.5em;width:70%; font-size: 18px;">
-                    Department of ICT has been always encouraging students towards practical development in their
-                    careers which helps them to innovate extremely useful softwares for the industry and carve their
-                    future nicely to reach the edge of success boundries.we're proud of you all.</p>
+                    Department of ICT has been always encouraging students towards software innovation and carving their
+                    future nicely to reach the edge of success boundries.Department is proud of you all.</p>
 
             </div>
         </div>

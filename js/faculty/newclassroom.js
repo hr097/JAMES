@@ -104,6 +104,7 @@ $(document).ready(function(){
                     {
                         $("#modalmsg").text("Classroom successfully created.");
                         $("#yes-button").text("Okay");
+                        //! redirection remains
                     }
                     else if(data==0)
                     {

@@ -27,6 +27,9 @@ $JAMES = new AMS("Admin");
            // $cur_time = date("h:i:s A",time());
             //$cur_date = date("Y-m-d");
             
+
+            //reader maintenance query here if control is given on web (admin side)
+
             //@query
             //$sql = "insert into Ams_api(reader_no,reading_date,reading_time,spid,semester) values($rNo,'$cur_date','$cur_time','$spid',$sem);";
             $sql = "insert into Ams_api(reader_no,spid) values($rNo,'$spid');";
