@@ -123,7 +123,7 @@ else
 
                     <div class="form-group col-md-3 ">
                         <label>Division</label>
-                        <select class="form-control">
+                        <select id='div_selection' class="form-control">
                         <option>Not Selected</option>
                             <option>A</option>
                             <option>B</option>
@@ -147,8 +147,19 @@ else
                       <div class="card-body">
                         <p class="mb-2 subfont">IT-2022</p>
                         <p class="mb-4 subfont">Web Development</p>
-                        <p>Semester :  4th</p>
+                        <p>Semester :  3</p>
                         <p>Division :  A</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
+                  <div class="card card-dark-blue ">
+                      <div class="card-body">
+                        <p class="mb-2 subfont">IT-2018</p>
+                        <p class="mb-4 subfont">Web Development</p>
+                        <p>Semester :  1</p>
+                        <p>Division :  B</p>
                       </div>
                   </div>
               </div>
@@ -158,8 +169,30 @@ else
                   <div class="card-body">
                   <p class="mb-2 subfont">IT-2022</p>
                     <p class="mb-4 subfont">RDBMS</p>
-                    <p>Semester :  4th</p>
-                    <p>Division :  A</p>
+                    <p>Semester :  2</p>
+                    <p>Division :  C</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
+                <div class="card card-tale">
+                  <div class="card-body">
+                  <p class="mb-2 subfont">ICT-2019</p>
+                    <p class="mb-4 subfont">RDBMS</p>
+                    <p>Semester :  4</p>
+                    <p>Division :  D</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
+                <div class="card card-tale">
+                  <div class="card-body">
+                  <p class="mb-2 subfont">ICT-2022</p>
+                    <p class="mb-4 subfont">RDBMS</p>
+                    <p>Semester :  4</p>
+                    <p>Division :  E</p>
                   </div>
                 </div>
               </div>
@@ -170,8 +203,8 @@ else
                   <div class="card-body">
                   <p class="mb-2 subfont">IT-2022</p>
                     <p class="mb-4 subfont">IOT</p>
-                    <p>Semester :  4th</p>
-                    <p>Division :  A</p>
+                    <p>Semester :  4</p>
+                    <p>Division :  B</p>
                   </div>
                 </div>
               </div>
@@ -182,8 +215,8 @@ else
                   <div class="card-body">
                   <p class="mb-2 subfont">IT-2022</p>
                     <p class="mb-4 subfont">Enviromental Science</p>
-                    <p>Semester :  4th</p>
-                    <p>Division :  A</p>
+                    <p>Semester :  4</p>
+                    <p>Division :  C</p>
                   </div>
                 </div>
               </div>

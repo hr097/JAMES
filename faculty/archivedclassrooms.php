@@ -58,92 +58,136 @@ else
                 <div class="content-wrapper">
                     <div class="col-md-12 mb-4">
 
-                    <h4 class="font-weight-bold mb-3">Archived Classrooms</h4>
+                        <h4 class="font-weight-bold mb-3">Archived Classrooms</h4>
 
-                    <!-- Classroom sorting --> 
-                    <div class="row">
-
-                    <div class="form-group col-md-3">
-                        <label>Year</label>
-                        <select id="curyear" class="form-control">
-                        </select>
-                    </div>
-                    <!--Course -->
-                    <?php echo $course_html;?>
-
-                    <!--Semester -->
-                    <div class="form-group col-md-3">
-                        <label>Semester</label>
-                        <select id="sem_selection" class="form-control">
-                          <option value=''>Not Selected</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-3 ">
-                        <label>Division</label>
-                        <select class="form-control">
-                        <option>Not Selected</option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
-                            <option>H</option>
-                            <option>I</option>
-                        </select>
-                    </div>
-
-                    </div>
-                    <div class="col-md-12 grid-margin transparent">
+                        <!-- Classroom sorting --> 
                         <div class="row">
-                          <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
+
+                            <div class="form-group col-md-3">
+                                <label>Year</label>
+                                <select id="curyear" class="form-control">
+                                </select>
+                            </div>
+
+                            <!--Course -->
+                            <?php echo $course_html;?>
+
+                            <!--Semester -->
+                            <div class="form-group col-md-3">
+                                <label>Semester</label>
+                                <select id="sem_selection" class="form-control">
+                                  <option value=''>Not Selected</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-3 ">
+                                <label>Division</label>
+                                <select id="div_selection" class="form-control">
+                                <option>Not Selected</option>
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                    <option>D</option>
+                                    <option>E</option>
+                                    <option>F</option>
+                                    <option>G</option>
+                                    <option>H</option>
+                                    <option>I</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                      <div class="col-md-12 grid-margin transparent">
+                      <div class="row" id="classroomlist">
+
+                        <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
+                          <div class="card card-dark-blue ">
+                            <div class="card-body">
+                              <p class="mb-2 subfont">IT-2022</p>
+                              <p class="mb-4 subfont">Web Development</p>
+                              <p>Semester :  3</p>
+                            <p>Division :  A</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
                             <div class="card card-dark-blue ">
-                              <div class="card-body">
-                                <p class="mb-4 subfont">Web Development</p>
-                                <p>Semester :-  4th</p>
-                                <p>Division :-  A</p>
-                              </div>
+                                <div class="card-body">
+                                  <p class="mb-2 subfont">IT-2018</p>
+                                  <p class="mb-4 subfont">Web Development</p>
+                                  <p>Semester :  1</p>
+                                  <p>Division :  B</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
+                          <div class="card card-tale">
+                            <div class="card-body">
+                            <p class="mb-2 subfont">IT-2022</p>
+                              <p class="mb-4 subfont">RDBMS</p>
+                              <p>Semester :  2</p>
+                              <p>Division :  C</p>
                             </div>
                           </div>
-            
-                          <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
-                            <div class="card card-tale">
-                              <div class="card-body">
-                                <p class="mb-4 subfont">RDBMS</p>
-                                <p>Semester :-  4th</p>
-                                <p>Division :-  B</p>
-                              </div>
+                        </div>
+
+                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
+                          <div class="card card-tale">
+                            <div class="card-body">
+                            <p class="mb-2 subfont">ICT-2019</p>
+                              <p class="mb-4 subfont">RDBMS</p>
+                              <p>Semester :  4</p>
+                              <p>Division :  D</p>
                             </div>
                           </div>
-                          <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
-                            <div class="card card-light-danger">
-                              <div class="card-body">
-                                <p class="mb-4 subfont">IOT</p>
-                                <p>Semester :-  4th</p>
-                                <p>Division :-  A</p>
-                              </div>
+                        </div>
+
+                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
+                          <div class="card card-tale">
+                            <div class="card-body">
+                            <p class="mb-2 subfont">ICT-2022</p>
+                              <p class="mb-4 subfont">RDBMS</p>
+                              <p>Semester :  4</p>
+                              <p>Division :  E</p>
                             </div>
                           </div>
-                          
-                          <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
-                            <div class="card card-dark-blue bg-warning">
-                              <div class="card-body">
-                                <p class="mb-4 subfont">Environmental Science</p>
-                                <p>Semester :-  5th</p>
-                                <p>Division :-  A</p>
-                              </div>
+                        </div>
+
+
+                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
+                          <div class="card card-light-danger">
+                            <div class="card-body">
+                            <p class="mb-2 subfont">IT-2022</p>
+                              <p class="mb-4 subfont">IOT</p>
+                              <p>Semester :  4</p>
+                              <p>Division :  B</p>
                             </div>
                           </div>
+                        </div>
+
+
+                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
+                          <div class="card card-dark-blue bg-warning">
+                            <div class="card-body">
+                            <p class="mb-2 subfont">IT-2022</p>
+                              <p class="mb-4 subfont">Enviromental Science</p>
+                              <p>Semester :  4</p>
+                              <p>Division :  C</p>
+                            </div>
+                          </div>
+                        </div>
             
                         </div>
                       </div>
-                    </div>
+                     </div>
                   </div>
                         <!--Faculty Form End-->
-                    </div>
-                </div>
+                  </div>
+              </div>
+        
 <!--Subject Page Open Start-->
 <script>
     function subopen() {
