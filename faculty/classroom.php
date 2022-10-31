@@ -9,6 +9,11 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
+if(!isset($_GET['division']))
+{
+    $JAMES->ams_redirect("dashboard.php");
+}
+
 ?>
 
 <!DOCTYPE html>
