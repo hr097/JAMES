@@ -35,7 +35,7 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
     
     $result = mysqli_query($JAMES->connection(),$sql);
     
-    if(mysqli_num_rows($result)>=0)
+    if(mysqli_num_rows($result)==1)
     {
         $classroom = mysqli_fetch_assoc($result);
 
