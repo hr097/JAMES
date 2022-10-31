@@ -29,10 +29,11 @@ else
 
 // classroom fetch
 
+$fid = $_SESSION['_fid'];
+
 //@query 
 $sql = "select S.semester,ASCSM.year,ASCSM.division,C.course_name,S.subject_name from Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Courses C where ASCSM.cs_id=CSM.cs_id AND CSM.course_id=C.course_id AND CSM.subject_id=S.subject_id AND ASFM.ams_setup_id=ASCSM.ams_setup_id AND ASFM.fid='$fid' and ASFM.setup_status=FALSE;"; 
 $result = mysqli_query($JAMES->connection(),$sql);
-
 
 //@change colors
     $color_palate = array("#5050b2","#96b2fb","#FF9494","#ffc100","#59616E","#9F8772","#0a6b57","#937DC2","#F0CA86");
