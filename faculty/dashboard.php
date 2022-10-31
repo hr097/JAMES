@@ -153,7 +153,7 @@ else
                   </div>
               </div>
 
-              <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
+              <!-- <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
                   <div class="card card-dark-blue ">
                       <div class="card-body">
                       <p class="mb-2 subfont">IT-2018</p>
@@ -219,7 +219,7 @@ else
                     <p>Division :  C</p>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               </div>
             </div>
