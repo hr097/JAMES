@@ -1,4 +1,3 @@
-//! THIS IS REMAINING [`PAGE
 
 var course_name = "";
 

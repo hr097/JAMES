@@ -10,6 +10,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 }
 
 $classroom_status="-";
+$classroom_id="";
 
 if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset($_GET['semester'])&&isset($_GET['division']))
 {
@@ -19,8 +20,6 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
     $div = $_GET['division'];
     $course = $_GET['course'];
     $subject = $_GET['subject'];
-
-    echo $fid."<br>";
 
     //Archive and Unarchive
     
@@ -47,6 +46,8 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
         {
             $classroom_status = "Unarchive";
         }
+
+        $classroom_id=$classroom['ams_setup_id'];
         
     }
     else
@@ -77,6 +78,10 @@ else
 
     <!-- css  -->
     <link rel="stylesheet" href="../css/faculty.css">
+
+    <!-- js  -->
+    <script src="../js/faculty/classroom.js" type="text/javascript" defer=true></script>
+
 </head>
 
 <body>
@@ -126,8 +131,11 @@ else
                             </div>
                             
                             <div class="ml-2 p-2" style="float:left;">
-                                <button type="button" class="btn btn-danger btn-icon-text mb-1" id="archiveclass">
+                            <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
+                            <input type="hidden" id="classroomid" name="classroomid" value='<?php echo $GLOBALS['classroom_id'];?>'>    
+                            <button type="button" class="btn btn-danger btn-icon-text mb-1" id="classmode">
                                     <i class="ti-archive btn-icon-prepend"></i>
+                                   
                                     <?php
                                         echo $GLOBALS['classroom_status'];
                                     ?>
