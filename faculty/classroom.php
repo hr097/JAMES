@@ -9,10 +9,57 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
-if(!isset($_GET['division']))
+$classroom_status="-";
+
+if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset($_GET['semester'])&&isset($_GET['division']))
 {
-    $JAMES->ams_redirect("dashboard.php");
+    $fid = $_SESSION['_fid'];
+    $sem = $_GET['semester'];
+    $year = $_GET['year'];
+    $div = $_GET['division'];
+    $course = $_GET['course'];
+    $subject = $_GET['subject'];
+
+    echo $fid."<br>";
+
+    //Archive and Unarchive
+    
+    //query
+    $sql= "select ASCSM.ams_setup_id,ASFM.setup_status from Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Courses C where ASCSM.cs_id=CSM.cs_id AND CSM.course_id=C.course_id AND CSM.subject_id=S.subject_id AND ASFM.ams_setup_id=ASCSM.ams_setup_id AND 
+    ASFM.fid='$fid' AND
+    S.semester=$sem AND
+    ASCSM.year='$year' AND
+    ASCSM.division='$div' AND
+    C.course_name='$course' AND
+    S.subject_name='$subject';";
+    
+    $result = mysqli_query($JAMES->connection(),$sql);
+    
+    if(mysqli_num_rows($result)>=0)
+    {
+        $classroom = mysqli_fetch_assoc($result);
+
+        if($classroom['setup_status']==true)
+        {
+            $classroom_status = "Archive";
+        }
+        else
+        {
+            $classroom_status = "Unarchive";
+        }
+        
+    }
+    else
+    {
+        $JAMES->ams_redirect("../login.php");
+    }
 }
+else
+{
+    $JAMES->ams_redirect("../login.php");
+}
+
+
 
 ?>
 
@@ -54,14 +101,7 @@ if(!isset($_GET['division']))
 
                 <h4 class="card-title coursefont font-weight-bold mb-4 ml-5" style="text-align:right;">
                     <?php
-                        if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset($_GET['semester'])&&isset($_GET['division']))
-                        {
-                            echo $_GET['course']."-".$_GET['year']."   |   ".$_GET['subject']."   |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
-                        }
-                        else
-                        {
-                            $JAMES->ams_redirect("../login.php");
-                        }
+                        echo $_GET['course']."-".$_GET['year']."   |   ".$_GET['subject']."   |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
                     ?>
                 </h4>
 
@@ -72,23 +112,25 @@ if(!isset($_GET['division']))
                           <div class="col-1-md-1">
 
                             <div class="ml-2 p-2" style="float:left;">
-                                <button type="button" class="btn btn-primary btn-icon-text mb-1" id="selectclass">
+                                <button type="button" class="btn btn-primary btn-icon-text mb-1" id="takeattendance">
                                     <i class="ti-check-box btn-icon-prepend"></i>
                                     Take Attendance
                                 </button>
                             </div>
 
                             <div class="ml-2 p-2" style="float:left;" >
-                                <button type="button" class="btn btn-secondary btn-icon-text mb-1" id="selectclass">
+                                <button type="button" class="btn btn-secondary btn-icon-text mb-1" id="modifyclass">
                                     <i class="ti-pencil btn-icon-prepend"></i>
                                     Modify Classroom
                                 </button>
                             </div>
                             
                             <div class="ml-2 p-2" style="float:left;">
-                                <button type="button" class="btn btn-danger btn-icon-text mb-1" id="selectclass">
+                                <button type="button" class="btn btn-danger btn-icon-text mb-1" id="archiveclass">
                                     <i class="ti-archive btn-icon-prepend"></i>
-                                    Archive Classroom
+                                    <?php
+                                        echo $GLOBALS['classroom_status'];
+                                    ?>
                                 </button>
                             </div>
 
