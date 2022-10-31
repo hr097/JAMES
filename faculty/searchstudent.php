@@ -9,6 +9,6 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
-echo "This is search student pages under development!";
+echo "<h1>This is search student pages under development!</h1>";
 
 ?>

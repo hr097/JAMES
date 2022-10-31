@@ -32,11 +32,14 @@ $(document).ready(function(){
         $("#daymode").text("Good Evening,");
     }
 
-    // $(".subjects").click(function(){
-    //     window.location.href = `subjectattendance.php?subject=${encodeURIComponent($(this).attr('id'))}&faculty=${encodeURIComponent(
-    //         $($(this).find("p")[2]).attr("id") 
-    //     )}`;
-    // });
+    $(".classroom").click(function(){
+        window.location.href = `classroom.php?course=${encodeURIComponent($(this).attr('id'))}
+        &year=${encodeURIComponent($($(this).find("p")[0]).attr("id"))}
+        &subject=${encodeURIComponent( $($(this).find("p")[1]).attr("id"))}    
+        &semester=${encodeURIComponent( $($(this).find("p")[2]).attr("id"))} 
+        &division=${encodeURIComponent( $($(this).find("p")[3]).attr("id"))}    
+        `;
+    });
 
     $("#curyear").change(
         function(){

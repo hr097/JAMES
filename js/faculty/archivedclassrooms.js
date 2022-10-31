@@ -1,6 +1,16 @@
 
 $(document).ready(function(){
 
+
+$(".classroom").click(function(){
+    window.location.href = `classroom.php?course=${encodeURIComponent($(this).attr('id'))}
+    &year=${encodeURIComponent($($(this).find("p")[0]).attr("id"))}
+    &subject=${encodeURIComponent( $($(this).find("p")[1]).attr("id"))}    
+    &semester=${encodeURIComponent( $($(this).find("p")[2]).attr("id"))} 
+    &division=${encodeURIComponent( $($(this).find("p")[3]).attr("id"))}    
+    `;
+});
+
  curyear = new Date().getFullYear();
 
  let cur_year_html = "<option value=''>Not Selected</option>";

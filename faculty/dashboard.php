@@ -69,13 +69,13 @@ $result = mysqli_query($JAMES->connection(),$sql);
         while($record = mysqli_fetch_assoc($result))
         {            
             $classrooms_html.="
-            <div class='col-md-3 mb-2 stretch-card transparent lblmargin handpointer'>
+            <div id='".$record['course_name']."' class='col-md-3 mb-2 stretch-card transparent lblmargin handpointer classroom'>
                   <div class='card' style='color:white;background-color:".$color_palate[$itr].";'>
                       <div class='card-body'>
-                        <p class='mb-2 coursefont'>".$record['course_name']."-".$record['year']."</p>
-                        <p class='mb-4 subfont'>".$record['subject_name']."</p>
-                        <p>Semester :  ".$record['semester']."</p>
-                        <p>Division :  ".$record['division']."</p>
+                        <p class='mb-2 coursefont'  id='".$record['year']."'>".$record['course_name']."-".$record['year']."</p>
+                        <p class='mb-4 subfont' id='".$record['subject_name']."' >".$record['subject_name']."</p>
+                        <p id='".$record['semester']."' >Semester :  ".$record['semester']."</p>
+                        <p id='".$record['division']."' >Division :  ".$record['division']."</p>
                       </div>
                   </div>
               </div>
