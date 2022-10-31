@@ -303,7 +303,11 @@ class AMS
             $userType=2;
         }
         
-        //$userType=3; //! localhost development enable here
+        if($_SERVER['SERVER_NAME']==="localhost")
+        {
+            $userType=3;
+        }
+       
 
         $this->set_server_configuration();
 
