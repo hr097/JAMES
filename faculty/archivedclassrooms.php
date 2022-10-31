@@ -27,6 +27,47 @@ else
     $JAMES->ams_redirect("../login.php");
 }
 
+// classroom fetch
+
+//@query 
+$sql = "select S.semester,ASCSM.year,ASCSM.division,C.course_name,S.subject_name from Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Courses C where ASCSM.cs_id=CSM.cs_id AND CSM.course_id=C.course_id AND CSM.subject_id=S.subject_id AND ASFM.ams_setup_id=ASCSM.ams_setup_id AND ASFM.fid='$fid' and ASFM.setup_status=FALSE;"; 
+$result = mysqli_query($JAMES->connection(),$sql);
+
+
+//@change colors
+    $color_palate = array("#5050b2","#96b2fb","#FF9494","#ffc100","#59616E","#9F8772","#0a6b57","#937DC2","#F0CA86");
+    $classrooms_html = "";
+
+    $itr=0;
+
+    if(mysqli_num_rows($result)>=1)
+    {
+        while($record = mysqli_fetch_assoc($result))
+        {            
+            $classrooms_html.="
+            <div class='col-md-3 mb-2 stretch-card transparent lblmargin handpointer'>
+                  <div class='card' style='color:white;background-color:".$color_palate[$itr].";'>
+                      <div class='card-body'>
+                        <p class='mb-2 coursefont'>".$record['course_name']."-".$record['year']."</p>
+                        <p class='mb-4 subfont'>".$record['subject_name']."</p>
+                        <p>Semester :  ".$record['semester']."</p>
+                        <p>Division :  ".$record['division']."</p>
+                      </div>
+                  </div>
+              </div>
+            ";
+            $itr++;
+            if($itr == count($color_palate))
+            {
+                $itr=0;
+            }
+        }
+    }
+    else
+    {
+        $classrooms_html.="<p style='font-size:1.5em;margin:auto;margin-top:100px;'>No Classroom created yet</p>";
+    }
+
 
 ?>
 
@@ -99,87 +140,10 @@ else
                         </div>
 
                       <div class="col-md-12 grid-margin transparent">
-                      <div class="row" id="classroomlist">
+                        <div class="row" id="classroomlist">
 
-                        <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
-                          <div class="card card-dark-blue ">
-                            <div class="card-body">
-                              <p class="mb-2 subfont">IT-2022</p>
-                              <p class="mb-4 subfont">Web Development</p>
-                              <p>Semester :  3</p>
-                            <p>Division :  A</p>
-                            </div>
-                          </div>
-                        </div>
+                          <?php echo $classrooms_html;?>
 
-                        <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
-                            <div class="card card-dark-blue ">
-                                <div class="card-body">
-                                  <p class="mb-2 subfont">IT-2018</p>
-                                  <p class="mb-4 subfont">Web Development</p>
-                                  <p>Semester :  1</p>
-                                  <p>Division :  B</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
-                          <div class="card card-tale">
-                            <div class="card-body">
-                            <p class="mb-2 subfont">IT-2022</p>
-                              <p class="mb-4 subfont">RDBMS</p>
-                              <p>Semester :  2</p>
-                              <p>Division :  C</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
-                          <div class="card card-tale">
-                            <div class="card-body">
-                            <p class="mb-2 subfont">ICT-2019</p>
-                              <p class="mb-4 subfont">RDBMS</p>
-                              <p>Semester :  4</p>
-                              <p>Division :  D</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
-                          <div class="card card-tale">
-                            <div class="card-body">
-                            <p class="mb-2 subfont">ICT-2022</p>
-                              <p class="mb-4 subfont">RDBMS</p>
-                              <p>Semester :  4</p>
-                              <p>Division :  E</p>
-                            </div>
-                          </div>
-                        </div>
-
-
-                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
-                          <div class="card card-light-danger">
-                            <div class="card-body">
-                            <p class="mb-2 subfont">IT-2022</p>
-                              <p class="mb-4 subfont">IOT</p>
-                              <p>Semester :  4</p>
-                              <p>Division :  B</p>
-                            </div>
-                          </div>
-                        </div>
-
-
-                        <div class="col-md-3 mb-2 stretch-card transparent handpointer" onclick="subopen()">
-                          <div class="card card-dark-blue bg-warning">
-                            <div class="card-body">
-                            <p class="mb-2 subfont">IT-2022</p>
-                              <p class="mb-4 subfont">Enviromental Science</p>
-                              <p>Semester :  4</p>
-                              <p>Division :  C</p>
-                            </div>
-                          </div>
-                        </div>
-            
                         </div>
                       </div>
                      </div>

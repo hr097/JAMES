@@ -69,7 +69,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
         while($record = mysqli_fetch_assoc($result))
         {            
             $classrooms_html.="
-            <div class='col-md-3 mb-2 stretch-card transparent lblmargin handpointer' onclick='subopen()'>
+            <div class='col-md-3 mb-2 stretch-card transparent lblmargin handpointer'>
                   <div class='card' style='color:white;background-color:".$color_palate[$itr].";'>
                       <div class='card-body'>
                         <p class='mb-2 coursefont'>".$record['course_name']."-".$record['year']."</p>
