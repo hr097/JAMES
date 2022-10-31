@@ -90,7 +90,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
     {
         while($record = mysqli_fetch_assoc($result))
         {
-            $card="card";
+            // $card="card";
             
             $subjects_html.="
             <div id='".$record['subject_name']."'class='col-md-3 mb-2 stretch-card transparent handpointer subjects'>

@@ -6,6 +6,10 @@
   font-size: 20px;
 }
 
+.coursefont {
+  font-size: 23px;
+}
+
 .handpointer {
   cursor: pointer;
 }
