@@ -126,7 +126,7 @@ else
                             <div class="ml-2 p-2" style="float:left;" >
                                 <button type="button" class="btn btn-secondary btn-icon-text mb-1" id="modifyclass">
                                     <i class="ti-pencil btn-icon-prepend"></i>
-                                    Modify Classroom
+                                    Edit Classroom
                                 </button>
                             </div>
                             

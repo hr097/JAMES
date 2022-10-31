@@ -103,7 +103,7 @@ $(document).ready(function(){
                     {
                         $("#modalmsg").text("Classroom successfully created.");
                         $("#yes-button").text("Okay");
-                        //! redirection remains
+                        //! redirection remains to modify page where students and faculty will be added
                     }
                     else if(data==0)
                     {

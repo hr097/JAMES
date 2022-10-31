@@ -1,6 +1,11 @@
 
 $(document).ready(function(){
 
+$("#modifyclass").click(function(){
+    const classroomid = $("#classroomid").val();
+    window.location.href = `editclassroom.php?classroomid=${classroomid}`;
+});
+
 $("#classmode").click(function(){
 
     let csrfTokenVal = $("#csrfToken").val();

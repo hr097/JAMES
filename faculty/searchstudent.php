@@ -12,3 +12,4 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 echo "<h1>searching student page is under development!</h1>";
 
 ?>
+

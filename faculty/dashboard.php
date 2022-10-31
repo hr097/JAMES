@@ -187,7 +187,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
             <div class="row" id="classroomlist">
 
             <?php echo $classrooms_html;?>
-
+           
             </div>
           </div>
 
