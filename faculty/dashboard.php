@@ -89,7 +89,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
     }
     else
     {
-        $classrooms_html.="<p style='font-size:1.5em;margin:auto;'>No Classroom created yet</p>";
+        $classrooms_html.="<p style='font-size:1.5em;margin:auto;margin-top:100px;'>No Classroom created yet</p>";
     }
 
 
