@@ -61,7 +61,7 @@ else
 
     <!-- including header -->
     <?php
-    include './common/header.php'
+    include './common/header.php';
     ?>
 
     <!-- css  -->
@@ -77,8 +77,7 @@ else
 </head>
 
 <body>
-    <!-------------------------------------------------------Main Content------------------------------------------------------->
-
+    <!-- ----------------------------------------------------- Main Content ----------------------------------------------------- -->
     <div class="main-panel">
         <div class="content-wrapper">
         <div class="row">
@@ -110,10 +109,10 @@ else
                         <select id="curyear" class="form-control">
                         </select>
                     </div>
-                    <!--Course -->
+                    <!-- Course -->
                     <?php echo $course_html;?>
 
-                    <!--Semester -->
+                    <!-- Semester -->
                     <div class="form-group col-md-3">
                         <label>Semester</label>
                         <select id="sem_selection" class="form-control">
@@ -121,6 +120,7 @@ else
                         </select>
                     </div>
 
+                    <!-- Division -->
                     <div class="form-group col-md-3 ">
                         <label>Division</label>
                         <select id='div_selection' class="form-control">
@@ -137,7 +137,7 @@ else
                         </select>
                     </div>
 
-          <!-------------------------------------------------------Classrooms------------------------------------------------------->
+          <!-- -----------------------------------------------------Classrooms----------------------------------------------------- -->
           
           <div class="col-md-12 grid-margin transparent">
             <div class="row" id="classroomlist">
@@ -156,8 +156,8 @@ else
               <div class="col-md-3 mb-2 stretch-card transparent lblmargin handpointer" onclick="subopen()">
                   <div class="card card-dark-blue ">
                       <div class="card-body">
-                        <p class="mb-2 subfont">IT-2018</p>
-                        <p class="mb-4 subfont">Web Development</p>
+                      <p class="mb-2 subfont">IT-2018</p>
+                      <p class="mb-4 subfont">Web Development</p>
                         <p>Semester :  1</p>
                         <p>Division :  B</p>
                       </div>
@@ -168,7 +168,7 @@ else
                 <div class="card card-tale">
                   <div class="card-body">
                   <p class="mb-2 subfont">IT-2022</p>
-                    <p class="mb-4 subfont">RDBMS</p>
+                  <p class="mb-4 subfont">RDBMS</p>
                     <p>Semester :  2</p>
                     <p>Division :  C</p>
                   </div>
@@ -179,7 +179,7 @@ else
                 <div class="card card-tale">
                   <div class="card-body">
                   <p class="mb-2 subfont">ICT-2019</p>
-                    <p class="mb-4 subfont">RDBMS</p>
+                  <p class="mb-4 subfont">RDBMS</p>
                     <p>Semester :  4</p>
                     <p>Division :  D</p>
                   </div>
@@ -190,7 +190,7 @@ else
                 <div class="card card-tale">
                   <div class="card-body">
                   <p class="mb-2 subfont">ICT-2022</p>
-                    <p class="mb-4 subfont">RDBMS</p>
+                  <p class="mb-4 subfont">RDBMS</p>
                     <p>Semester :  4</p>
                     <p>Division :  E</p>
                   </div>
@@ -202,7 +202,7 @@ else
                 <div class="card card-light-danger">
                   <div class="card-body">
                   <p class="mb-2 subfont">IT-2022</p>
-                    <p class="mb-4 subfont">IOT</p>
+                  <p class="mb-4 subfont">IOT</p>
                     <p>Semester :  4</p>
                     <p>Division :  B</p>
                   </div>
@@ -214,7 +214,7 @@ else
                 <div class="card card-dark-blue bg-warning">
                   <div class="card-body">
                   <p class="mb-2 subfont">IT-2022</p>
-                    <p class="mb-4 subfont">Enviromental Science</p>
+                  <p class="mb-4 subfont">Enviromental Science</p>
                     <p>Semester :  4</p>
                     <p>Division :  C</p>
                   </div>
@@ -231,11 +231,13 @@ else
 
     <!----------------------------------------------Report Generate End---------------------------------------------->
     <!--Subject Page Open Start-->
-    <!-- <script>
-    function subopen() {
-        window.location = "./stud.php";
-    }
-    </script> -->
+
+     <script>
+    // function subopen() {
+    //     window.location = "./stud.php";
+    // }
+    </script>
+
     <!--Subject Page Open End-->
 
     <!-- </div>
@@ -243,10 +245,11 @@ else
     </div>
     </div>
     </div> -->
+
     <!-- including footer -->
     <?php
     include './common/footer.php'
     ?>
 </body>
 
-</html> -->
+</html>

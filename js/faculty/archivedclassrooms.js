@@ -3,7 +3,7 @@ $(document).ready(function(){
 
  curyear = new Date().getFullYear();
 
- let cur_year_html = "";
+ let cur_year_html = "<option value=''>Not Selected</option>";
 
  for(let i=0;i<10;i++) 
  {
@@ -24,7 +24,7 @@ $(document).ready(function(){
 $("#sem_selection").change(
     function()
     {
-        var value = $(this).val();
+        var value = "Semester :  "+$(this).val();
         $("#classroomlist div").filter(function() {
               $(this).toggle($(this).text().indexOf(value) > -1)
         });
@@ -34,7 +34,7 @@ $("#sem_selection").change(
 $("#div_selection").change(
     function()
     {
-        var value = $(this).val();
+        var value = "Division :  "+$(this).val();
         $("#classroomlist div").filter(function() {
               $(this).toggle($(this).text().indexOf(value) > -1)
         });
@@ -53,7 +53,7 @@ $("#div_selection").change(
 
         course_name = txt.substr(txt.search('_')+1);
 
-        var value = course_name;
+        var value = course_name+"-"+$("#curyear").val();
 
         $("#classroomlist div").filter(function() {
                 $(this).toggle($(this).text().indexOf(value) > -1)

@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Search Engine use --->
+    <!-- Search Engine use -->
     <meta name="author" content="Team JPD-AMS" />
     <meta name="description"
         content="An efficient & relible Attendance Management System for J.P. Dower Institute of Information Science and Technology" />
@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- plugins:css -->
+    <!-- plugins css -->
     <link rel="stylesheet" href="../vendors/feather/feather.css">
     <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../vendors/datatables.net/dataTables.bootstrap4.css">
@@ -32,12 +32,12 @@
     <!--jQuery file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <!--javaScript file-->
+    <!--js file-->
 
     <!-- favicon -->
     <link rel="shortcut icon" href="../assets/logos/favicon.ico">
 
-    <!-------------------------------------------------------Nav-Bar Start------------------------------------------------------->
+    <!-- ----------------------------------------------------- Nav Bar Start----------------------------------------------------- -->
     <div class="container-scroller" style="background-color: #F5F7FF;">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -56,7 +56,7 @@
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
 
-                <!-------------------------------------------------------Profile Start------------------------------------------------------->
+                <!-- -----------------------------------------------------Profile Start ----------------------------------------------------- -->
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
                         <p class="ac_type">Faculty Dashboard</p>
@@ -87,13 +87,13 @@
                     </li>
                 </ul>
 
-                <!-------------------------------------------------------Profile End------------------------------------------------------->
+                <!-------------------------------------------------------Profile End----------------------------------------------------- -->
 
             </div>
         </nav>
-        <!-------------------------------------------------------Nav-Bar End------------------------------------------------------->
+        <!-- -----------------------------------------------------Nav Bar End----------------------------------------------------- -->
 
-        <!-------------------------------------------------------Side Nav-Bar Start------------------------------------------------------->
+        <!-- -----------------------------------------------------Side Nav Bar Start----------------------------------------------------- -->
         <div class="container-fluid page-body-wrapper">
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
@@ -148,4 +148,4 @@
                         </a>
                     </li>
             </nav>
-            <!-------------------------------------------------------Side Nav-Bar End------------------------------------------------------->
+            <!-- -----------------------------------------------------Side Nav Bar End----------------------------------------------------- -->
