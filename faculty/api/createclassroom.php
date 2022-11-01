@@ -13,7 +13,6 @@ function create_classroom($course_name,$subject_name,$division,$cur_year)
 {
         //@query
         $sql = "select C.cs_id from Subjects A,Courses B,Course_subject_map C where A.subject_id=C.subject_id and B.course_id=C.course_id and B.course_name='$course_name' and A.subject_name='$subject_name';";
-
         $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
         if(mysqli_num_rows($result)==1)
@@ -22,15 +21,17 @@ function create_classroom($course_name,$subject_name,$division,$cur_year)
 
             $csid = $record['cs_id'];
 
+            //@query
             $sql = "select * from Ams_setup_course_subject_map where cs_id=$csid and year='$cur_year' and division='$division'";
             $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
 
             if(mysqli_num_rows($result)<=0)
-            {
+            {   
+                //@query
                 $sql = "insert into Ams_setup_course_subject_map(cs_id,year,division) values($csid,'$cur_year','$division')";
                 if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
                 {   
-
+                    //@query
                     $sql = "select * from Ams_setup_course_subject_map where cs_id=$csid and year='$cur_year' and division='$division';";
                     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
 
@@ -40,27 +41,28 @@ function create_classroom($course_name,$subject_name,$division,$cur_year)
                         $ams_setup_id = $record['ams_setup_id'];
                         $fid = $_SESSION["_fid"];
 
+                        //@query
                         $sql = "insert into Ams_setup_faculties_map(ams_setup_id,fid) values($ams_setup_id,'$fid');";
                         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
-                        {
-                            return 1;
+                        {  
+                            return 1;// classroom successfully created
                         }
                         else
                         {
-                            return -1;
+                            return -2; // faculty could not be mapped
                         }
 
                     }
                     else
                     {
-                        return 0;// newly created setup id not found
+                        return -3;// newly created setup id not found
                     }
 
                     
                 }
                 else
                 {
-                    return -1;
+                    return -1; // classroom not created
                 }
             }
             else
@@ -71,7 +73,7 @@ function create_classroom($course_name,$subject_name,$division,$cur_year)
         }
         else
         {
-            return 0; // cs_id not found
+            return -4; // cs_id not found
         }
 
 
