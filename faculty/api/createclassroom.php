@@ -45,7 +45,7 @@ function create_classroom($course_name,$subject_name,$division,$cur_year)
                         $sql = "insert into Ams_setup_faculties_map(ams_setup_id,fid) values($ams_setup_id,'$fid');";
                         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
                         {  
-                            return 1;// classroom successfully created
+                            return $ams_setup_id;// classroom successfully created
                         }
                         else
                         {
