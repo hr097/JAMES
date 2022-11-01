@@ -15,9 +15,11 @@ window.onclick = function (event) {
   }
 };
 
+var link = "./dashboard.php";
+
 document.getElementById("yes-button").onclick = function () {
   // yes-> redirect
-  window.location.href = "./dashboard.php";
+  window.location.href = link ;
 };
 
 /* END::MODAL */
@@ -99,11 +101,11 @@ $(document).ready(function(){
                         
                     $("#modal").css("display", "block");
 
-                    if(data==1)
+                    if(data>1)
                     {
                         $("#modalmsg").text("Classroom successfully created.");
                         $("#yes-button").text("Okay");
-                        //! redirection remains to modify page where students and faculty will be added
+                        link = `editclassroom.php?classroomid=${data}`;
                     }
                     else if(data==0)
                     {
