@@ -216,3 +216,13 @@ padding-top:7px;
 .select-text{
   color:#6c7383;
 }
+/*------------------------------------------------ editclassroom -------------------------------------------*/
+.search_fetch_btn{
+  margin-top: 14px;
+}
+
+@media (max-width: 767px){
+.search_fetch_btn {
+    margin-top: 0;
+}
+}
