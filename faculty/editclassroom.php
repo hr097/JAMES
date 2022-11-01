@@ -64,7 +64,9 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 
                       </div>
                       <div class="form-group col-md-2 " style="margin-top:14px;">
-                        <button type="button" id="search" class="btn btn-primary mr-2 mt-3" onclick="Search()">Search
+                        <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
+                        </button>
+                        <button type="button" id="fetchall" class="btn btn-primary mr-2 mt-3">Fetch All
                         </button>
                       </div>
                     </div>
