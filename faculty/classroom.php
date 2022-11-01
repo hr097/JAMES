@@ -148,7 +148,7 @@ else
                                     value="<?php echo $JAMES->generateCsrfToken();?>">
                                 <input type="hidden" id="classroomid" name="classroomid"
                                     value='<?php echo $GLOBALS['classroom_id'];?>'>
-                                <button type="button" class="btn btn-danger btn-icon-text mb-1 classroom-btns archive-btn" id="classmode">
+                                <button type="button" class="btn btn-success btn-icon-text mb-1 classroom-btns archive-btn" id="classmode">
                                     <i class="ti-archive btn-icon-prepend"></i>
 
                                     <?php
