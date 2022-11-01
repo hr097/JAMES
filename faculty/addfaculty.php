@@ -27,7 +27,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
         <link rel="stylesheet" href="../css/faculty.css">
 
         <!-- js  -->
-        <script src="../js/faculty/editclassroom.js" type="text/javascript" defer=true></script>
+        <script src="../js/faculty/addfaculty.js" type="text/javascript" defer=true></script>
 </head>
 
 <body>
@@ -46,20 +46,20 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
          
             <div class="col-md-12  grid-margin stretch-card">
 
-              <!-- Add Student Start -->
+              <!-- Add Faculty Start -->
 
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Add Student</h4>
+                  <h4 class="card-title">Add Faculty</h4>
                   <form class="forms-sample">
 
-                    <!-- Student Spid & Search Button-->
+                    <!-- Faculty Spid & Search Button-->
                     <div class="row">
                       <div class="col-md-10">
 
                         <div class="form-group">
-                          <label>Student SPID</label>
-                          <input type="text" class="form-control" id="Stud_spid" placeholder="Enter student SPID">
+                          <label>Faculty SPID</label>
+                          <input type="text" class="form-control" id="Stud_spid" placeholder="Enter Faculty SPID">
                         </div>
 
                       </div>
@@ -70,10 +70,10 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                     </div>
                     <hr>
 
-                    <!-- Student Add data Start -->
+                    <!-- Faculty Add data Start -->
                     <div class="card" id="add_stud_tbl">
                       <div class="card-body">
-                        <h4 class="card-title">Student Details</h4>
+                        <h4 class="card-title">Faculty Details</h4>
                         <div class="row">
                           <div class="col-12">
                             <div class="table-responsive">
@@ -116,9 +116,9 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                         </div>
                       </div>
                     </div>
-                    <!--Student Add Data End-->
+                    <!--Faculty Add Data End-->
 
-                    <button type="submit" class="btn btn-primary mr-2 mt-3">Add Student </button>
+                    <button type="submit" class="btn btn-primary mr-2 mt-3">Add Faculty </button>
                     <button class="btn btn-light mt-3">Clear</button>
                   </form>
                 </div>
@@ -126,13 +126,13 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
             </div>
           </div>
 
-          <!-- Add Student End -->
+          <!-- Add Faculty End -->
 
-          <!--Student Modify Data Start-->
+          <!--Faculty Modify Data Start-->
 
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Student Data</h4>
+              <h4 class="card-title">Faculty Data</h4>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
@@ -266,7 +266,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
               </div>
             </div>
           </div>
-          <!--Student Modify Data End-->
+          <!--Faculty Modify Data End-->
 
         </div>
       </div>
@@ -283,7 +283,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
     }
 
     // document.getElementById('add_stud_tbl').style.display = "none";
-    // Search Student
+    // Search Faculty
     function Search() {
       var input, filter, table, tr, td, i, txtValue;
       input = document.getElementById("Stud_spid");

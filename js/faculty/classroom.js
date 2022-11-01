@@ -6,6 +6,11 @@ $("#modifyclass").click(function(){
     window.location.href = `editclassroom.php?classroomid=${classroomid}`;
 });
 
+$("#addfaculty").click(function(){
+    const classroomid = $("#classroomid").val();
+    window.location.href = `addfaculty.php?classroomid=${classroomid}`;
+});
+
 $("#classmode").click(function(){
 
     let csrfTokenVal = $("#csrfToken").val();

@@ -115,6 +115,7 @@ $(document).ready(function(){
                         $("#modalmsg").text("Some Unknown Error Occured!");
                         $("#yes-button").text("Okay");
                     }
+                    
                     }); // must specify text
 
                 }
