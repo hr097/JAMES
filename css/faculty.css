@@ -216,20 +216,3 @@ padding-top:7px;
 .select-text{
   color:#6c7383;
 }
-
-
-
-.classroom-btns{
-  width:200px;
-}
-
-@media only screen and (max-width: 768px) {
-  .classroom-btns{
-    width:80%;
-  }
-  .classroom-btns-div{
-    display: flex;
-    justify-content: center;
-    place-items: center;
-  }
-}
