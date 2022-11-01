@@ -13,7 +13,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)>0)
 {
-    $course_html = "<div class='form-group col-md-3'><label>Course</label><select id='course_selection' class='form-control'><option value=''>Not Selected</option></option>";
+    $course_html = "<div class='form-group col-md-3'><label class='select-text'>Course</label><select id='course_selection' class='form-control'><option value=''>Not Selected</option></option>";
 
     while($record = mysqli_fetch_assoc($result))
     {
@@ -76,90 +76,90 @@ $result = mysqli_query($JAMES->connection(),$sql);
 <html lang="en">
 
 <head>
-        <!-- including header -->
-        <?php
+    <!-- including header -->
+    <?php
           include './common/header.php'
         ?>
 
-        <!-- Page info -->
-        <title>AMS | Archived Classrooms</title>
+    <!-- Page info -->
+    <title>AMS | Archived Classrooms</title>
 
-        <!-- css  -->
-        <link rel="stylesheet" href="../css/faculty.css">
+    <!-- css  -->
+    <link rel="stylesheet" href="../css/faculty.css">
 
-        <!-- js  -->
-        <script src="../js/faculty/archivedclassrooms.js" type="text/javascript" defer=true></script>
+    <!-- js  -->
+    <script src="../js/faculty/archivedclassrooms.js" type="text/javascript" defer=true></script>
 
 </head>
 
 <body>
-            <!-------------------------------------------------------Main Content------------------------------------------------------->
-        
-            <!--Subeject Setup Form Start-->
-             <div class="main-panel">
-                <div class="content-wrapper">
-                    <div class="col-md-12 mb-4">
+    <!-------------------------------------------------------Main Content------------------------------------------------------->
 
-                        <h4 class="font-weight-bold mb-3">Archived Classrooms</h4>
+    <!--Subeject Setup Form Start-->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="col-md-12 mb-4">
 
-                        <!-- Classroom sorting --> 
-                        <div class="row">
+                <h4 class="font-weight-bold mb-3">Archived Classrooms</h4>
 
-                            <div class="form-group col-md-3">
-                                <label>Year</label>
-                                <select id="curyear" class="form-control">
-                                </select>
-                            </div>
+                <!-- Classroom sorting -->
+                <div class="row">
 
-                            <!--Course -->
-                            <?php echo $course_html;?>
+                    <div class="form-group col-md-3">
+                        <label class="select-text">Year</label>
+                        <select id="curyear" class="form-control">
+                        </select>
+                    </div>
 
-                            <!--Semester -->
-                            <div class="form-group col-md-3">
-                                <label>Semester</label>
-                                <select id="sem_selection" class="form-control">
-                                  <option value=''>Not Selected</option>
-                                </select>
-                            </div>
+                    <!--Course -->
+                    <?php echo $course_html;?>
 
-                            <div class="form-group col-md-3 ">
-                                <label>Division</label>
-                                <select id="div_selection" class="form-control">
-                                <option>Not Selected</option>
-                                    <option>A</option>
-                                    <option>B</option>
-                                    <option>C</option>
-                                    <option>D</option>
-                                    <option>E</option>
-                                    <option>F</option>
-                                    <option>G</option>
-                                    <option>H</option>
-                                    <option>I</option>
-                                </select>
-                            </div>
+                    <!--Semester -->
+                    <div class="form-group col-md-3">
+                        <label class="select-text">Semester</label>
+                        <select id="sem_selection" class="form-control">
+                            <option value=''>Not Selected</option>
+                        </select>
+                    </div>
 
-                        </div>
+                    <div class="form-group col-md-3 ">
+                        <label class="select-text">Division</label>
+                        <select id="div_selection" class="form-control">
+                            <option>Not Selected</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                            <option>E</option>
+                            <option>F</option>
+                            <option>G</option>
+                            <option>H</option>
+                            <option>I</option>
+                        </select>
+                    </div>
 
-                      <div class="col-md-12 grid-margin transparent">
-                        <div class="row" id="classroomlist">
+                </div>
+            </div>
+            <div class="col-md-12 grid-margin transparent">
+                <div class="row" id="classroomlist">
 
-                          <?php echo $classrooms_html;?>
+                    <?php echo $classrooms_html;?>
 
-                        </div>
-                      </div>
-                     </div>
-                  </div>
-                        <!--Faculty Form End-->
-                  </div>
-              </div>
-        
-<!--Subject Page Open Start-->
-<script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--Faculty Form End-->
+
+
+    <!--Subject Page Open Start-->
+    <script>
     function subopen() {
-      window.location = "./modify-setup.php";
+        window.location = "./modify-setup.php";
     }
-  </script>
-  <!--Subject Page Open End-->
+    </script>
+    <!--Subject Page Open End-->
 
 
 

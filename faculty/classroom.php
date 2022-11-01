@@ -104,7 +104,7 @@ else
                 Back
                 </button>
 
-                <h4 class="card-title coursefont font-weight-bold mb-4 ml-5" style="text-align:right;">
+                <h4 class="card-title classroom-title  mb-4 ml-5" style="text-align:right;">
                     <?php
                         echo $_GET['course']."-".$_GET['year']."   |   ".$_GET['subject']."   |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
                     ?>

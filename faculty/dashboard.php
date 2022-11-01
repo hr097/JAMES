@@ -149,7 +149,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
               <!-- Classroom sorting --> 
               <div class="row">
                     <div class="form-group col-md-3">
-                        <label>Year</label>
+                        <label class="select-text">Year</label>
                         <select id="curyear" class="form-control">
                         </select>
                     </div>
@@ -158,7 +158,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
 
                     <!-- Semester -->
                     <div class="form-group col-md-3">
-                        <label>Semester</label>
+                        <label class="select-text">Semester</label>
                         <select id="sem_selection" class="form-control">
                           <option value=''>Not Selected</option>
                         </select>
@@ -166,7 +166,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
 
                     <!-- Division -->
                     <div class="form-group col-md-3 ">
-                        <label>Division</label>
+                        <label class="select-text">Division</label>
                         <select id='div_selection' class="form-control">
                         <option>Not Selected</option>
                             <option>A</option>
