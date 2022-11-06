@@ -1,5 +1,24 @@
 
 $(document).ready(function(){
+
+  $("#Stud_spid").on('input',function () {
+
+    let csrfToken = $("#csrfToken");
+
+    $.post(
+      "../api/findstudent.php",
+      {
+        _spid: $("#Stud_spid").val(),
+        _ct: csrfToken.val()
+      },
+      function (data, status) {
+        if(status == "success")
+        {
+          alert(data);
+        }
+      });
+  });
+
    // Delete Table Row
    function DeleteRow(o) {
     var td = event.target.parentNode;
@@ -27,4 +46,6 @@ $(document).ready(function(){
       }
     }
   }
+
+
 });

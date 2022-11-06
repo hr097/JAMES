@@ -4,10 +4,13 @@ require_once("../ams.php");
 $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
-if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
-{
- $JAMES->ams_redirect("../login.php");
-}
+    if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
+    {
+    $JAMES->ams_redirect("../login.php");
+    }
+
+    if(isset($_GET['classroomid']))
+    {
 
     //to fetch students who have enrolled in particular classroom
     $classroomid = $_GET['classroomid'];
@@ -42,6 +45,11 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
         $student_list.="<tr><td  colspan='6' style='font-size:1.2em;text-align:center;'>No Student Enrollment!</td></tr>";
     }
 
+  }
+  else
+  {
+    $JAMES->ams_redirect("./classroom.php");
+  }
 
 ?>
 
@@ -85,7 +93,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add Student</h4>
-                  <form class="forms-sample">
+                  <form class="forms-sample" action="editclassroom.php" method="post">
 
                     <!-- Student Spid & Search Button-->
                     <div class="row">
@@ -93,14 +101,15 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 
                         <div class="form-group">
                           <label>Student SPID</label>
-                          <input type="text" class="form-control" id="Stud_spid" placeholder="Enter student SPID">
+                          <input name="_spid" type="text" class="form-control" id="Stud_spid" placeholder="Enter student SPID">
                         </div>
 
                       </div>
                       <div class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
-                        <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
-                        </button>
-                        <button type="button" id="fetchall" class="btn btn-primary mr-2 mt-3">Fetch All
+                        <!-- <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
+                        </button> -->
+                        <input type='hidden' id='csrfToken' name='_csrfToken' value='<?php $JAMES->generateCsrfToken()?>'> 
+                        <button type="button" name="_fetchall" id="fetchall" formaction="editclassroom.php" class="btn btn-primary mr-2 mt-3">Fetch All
                         </button>
                       </div>
                     </div>
@@ -157,11 +166,10 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                         </div>
                       </div>
                     </div>
-                    <!--Student Add Data End-->
-
-                    <button type="submit" class="btn btn-primary mr-2 mt-3">Add Student </button>
-                    <button class="btn btn-light mt-3">Clear</button>
+                    <button type="button" class="btn btn-primary mr-2 mt-3">Add Student </button>
+                    <button type="reset" class="btn btn-light mt-3">Clear</button>
                   </form>
+                  <!--Student Add Data End-->
                 </div>
               </div>
             </div>
