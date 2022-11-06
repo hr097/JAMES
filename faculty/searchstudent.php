@@ -9,20 +9,161 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
-$u = $_SESSION["_userId"];
+$student_card = "";
 
-//@query
-$sql = "select *,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from vw_faculties where email='$u';"; 
-$result = mysqli_query($JAMES->connection(),$sql);
-
-if(mysqli_num_rows($result)===1)
+if(isset($_POST['_spid']))
 {
-    $user = mysqli_fetch_assoc($result);
+    $spid = $JAMES->sanitizeInput($_POST['_spid']);
+
+    //@query
+    $sql = "select *,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from vw_students where spid='$spid';"; 
+    $result = mysqli_query($JAMES->connection(),$sql);
+    
+    if(mysqli_num_rows($result)===1)
+    {
+        $user = mysqli_fetch_assoc($result);
+
+
+        if($user['gender']=='Male')
+        {
+            $profile = "<img src='../assets/profiles/student-profile-male.jpg' class='profile_img my-4' style='width:130px;height:130px;border-radius:49%;' alt='Student profile'>";
+        }
+        else
+        {
+            $profile =  "<img src='../assets/profiles/student-profile-female.png' class='profile_img my-4' style='width:130px;height:130px;border-radius:49%;' alt='Student profile'>";
+        }   
+
+
+        if($user['cur_semester']==1)
+        {
+            $sem = $user['cur_semester']."<sup>st</sup>";
+        }
+        else if($user['cur_semester']==2)
+        {
+            $sem = $user['cur_semester']."<sup>nd</sup>";    
+        }
+        else if($user['cur_semester']==3)
+        {
+            $sem = $user['cur_semester']."<sup>rd</sup>";   
+        }
+        else
+        {
+            $sem = $user['cur_semester']."<sup>th</sup>";   
+        }
+
+        $student_card = "
+
+             <div class='container my-3' align='center' style='padding-bottom: 3%;'>
+
+              <div class='scene'>
+                <div class='flip-card' >
+                  <div class='card__face card__face--front' style='border-radius: 10px;'>
+
+                  ".$profile."
+                    <h4  class='profile_name' style='color:white;margin-top:-12px;' >".$user['name']."</h4>
+                  </div>
+
+                  <div  class='card__face card__face--back py-4 pl-4' style='font-weight:500;font-size: 15px;' align='left'>
+                    <p class='mt-3'>
+                    <span  class='card_back_title mr-4'> SPID :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <span class='card_back_data' style='font-weight:normal;'>".$user['spid']."</span>
+                    </p>
+
+                    <p>
+                    <span  class='card_back_title mr-4'> Course :</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >".$user['course_name']."</span>
+                    </p>
+
+                    <p>
+                    <span  class='card_back_title mr-1'> Semester :</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >".$sem."</span>
+                    </p>
+
+                    <p>
+                    <span  class='card_back_title mr-3'> Division :</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >".$user['cur_division']."</span>
+                    </p>
+
+                    <p>
+                    <span  class='card_back_title mr-4'> Roll No :</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >".$user['cur_roll_no']."</span>
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+              <!-------------------------------------------------------Student Card End------------------------------------------------------->
+            </div>
+          </div>
+          <!--Personal Info-->
+          <div class='row'>
+            <div class='col-md-12 mb-2'>
+              <h4 class='font-weight-bold'>Personal Information</h4>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-md-12 grid-margin stretch-card'>
+              <div class='card'>
+                <div class='card-body'>
+
+                  <h6 class='info-title'>Birth Date</h6>
+                   <h4 class='info-data'>".$user['dob']."</h4>
+
+                  <h6 class='info-title'>Gender</h6>
+                   <h4 class='info-data'>".$user['gender']."</h4>
+
+                  <h6 class='info-title'>Course Joining Year</h6>
+                   <h4 class='info-data'>".$user['joining_year']."</h4>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Contact Info-->
+          <div class='row'>
+            <div class='col-md-12 mb-2'>
+              <h4 class='font-weight-bold'>Contact Information</h4>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-md-12 grid-margin stretch-card'>
+              <div class='card'>
+                <div class='card-body'>
+                
+                <h6 class='info-title'>Email</h6>
+                 <!-- <span id='mode'>
+                    <i class='ti-pencil email_edit_icon d-flex justify-content-end' style='position:relative;bottom:10px;' id='edit_icon'></i>
+                </span> -->
+                 <h4 id='para_email' class='email_edit_para info-data'>".$user['email']."</h4> 
+                 <input type='hidden' id='csrfToken' name='_csrfToken' value='".$JAMES->generateCsrfToken()."'> 
+                <h6 class='info-title'>Contact No.</h6>
+                 <h4 class='info-data'>".$user['contact_no']."</h4>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    ";
+
+    }
+    else
+    {
+        $student_card = "<p style='font-size:1.5em;margin:auto;margin-top:100px;'>Sorry,No Student Found with that SPID!</p>";
+    }
+
+
+
 }
 else
 {
-    $JAMES->ams_redirect("../login.php");
+
+    $student_card = "<p style='font-size:1.5em;margin:auto;margin-top:100px;'>No Student Data</p>";
 }
+
 
 ?>
 
@@ -38,14 +179,13 @@ else
     ?>
 
     <!-- css  -->
-    <link rel="stylesheet" href="../css/faculty.css">
-    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/student.css">
 
     <!-- js  -->
-    <script src="../js/faculty/profile.js" type="text/javascript" defer=true></script>
+    <script src="../js/faculty/searchstudent.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
-    <title>AMS | Profile</title>
+    <title>AMS | Search Student</title>
 
 </head>
 
@@ -63,7 +203,7 @@ else
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Search Student</h4>
-                            <form class="forms-sample">
+                            <form class="forms-sample" action="searchstudent.php" method="post">
 
                                 <!-- Student Spid & Search Button-->
                                 <div class="row">
@@ -71,12 +211,12 @@ else
 
                                     <div class="form-group">
                                     <label>Student SPID</label>
-                                    <input type="text" class="form-control" id="Stud_spid" placeholder="Enter student SPID">
+                                    <input type="text" name="_spid" class="form-control" id="Stud_spid" placeholder="Enter student SPID" required>
                                     </div>
 
                                 </div>
-                                <div class="form-group search_fetch_btn col-lg-2 col-md-3 col-sm-12">
-                                    <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
+                                <div class="form-group search_fetch_btn col-lg-2 mt-3 col-sm-12">
+                                    <button type="submit" id="search" class="btn btn-primary mr-2 mt-3">Search
                                     </button>
                                 </div>
                                 </div>
@@ -84,142 +224,10 @@ else
                         </div>
                     </div>
                 </div>
-                <!-------------------------------------------------------Faculty Card Start------------------------------------------------------->
-                <div class="container my-3" align="center" style="padding-bottom: 3%;">
-
-                    <div class="scene">
-                        <!-- Front-side -->
-                        <div class="flip-card">
-                            <div class="card__face card__face--front" style="border-radius: 10px;">
-
-                                <!-- <img src="../assets/profiles/faculty-profile.jpg" class="my-4" alt="Faculty profile" style="width:130px;height:130px; border-radius: 49%;"> -->
-
-                                <?php
-                                    if($_SESSION['_gender']=="Male")
-                                    {
-                                        echo "<img src='../assets/profiles/faculty-profile-male.png' class='my-4' alt='Faculty profile' style='width:130px;height:130px; border-radius: 49%;'>";
-                                    }
-                                    else
-                                    {
-                                        echo "<img src='../assets/profiles/faculty-profile-female.jpg' class='my-4' alt='Faculty profile' style='width:130px;height:130px; border-radius: 49%;'>";
-                                    }   
-                                ?>
 
 
-                                <h3 style="color: white; margin-top: -15px;"><?php echo $user['name']; ?></h3>
-                            </div>
-
-                            <!-- back side -->
-                            <div  class="card__face card__face--back py-4 pl-4" style="font-weight:500;font-size: 15px;" align="left">
-                              <p class="mt-4">
-                              <span  class="card_back_title mr-5"> FID :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                              <span class="card_back_data" style="font-weight:normal;"><?php echo $user['fid']; ?></span>
-                              </p>
-
-                              <p>
-                              <span  class="card_back_title mr-4"> Department name :</span>
-                              <span lass="card_back_data" style="font-weight:normal;" >Department of ICT</span>
-                              </p>
-
-                              <p>
-                              <span  class="card_back_title mr-5"> Designation :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                              <span lass="card_back_data" style="font-weight:normal;" ><?php echo $user['designation']; ?></span>
-                              </p>
-
-                              <!-- <p>
-                              <span  class="card_back_title mr-5"> Joining year :&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                              <span lass="card_back_data" style="font-weight:normal;" ><?php //echo $user['joining_year']; ?></span>
-                              </p> -->
-
-                              <p>
-                              <span  class="card_back_title mr-5"> Experience :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                              <span lass="card_back_data" style="font-weight:normal;" >
-                                <?php 
-                                $exp = (int) date("Y")-$user['joining_year'];
-
-                                if($exp>1)
-                                {
-                                    echo $exp." Years";
-                                }
-                                else if($exp===1)
-                                {
-                                    echo $exp." Year";
-                                }
-                                else
-                                {
-                                    echo "<1 Year";
-                                }
-                                ?>
-                              </span>
-                              </p>
-                                  </div>
-                              </div>
-                              </div>
-                    <!-------------------------------------------------------Faculty Card End------------------------------------------------------->
-                </div>
-            </div>
-            <!--Personal Info-->
-            <div class="row">
-                <div class="col-md-12 mb-2">
-                    <h4 class="font-weight-bold">Personal Information</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h6 class="info-title">Birth Date </h6>
-                            <h4 class="info-data"><?php echo $user['dob']; ?></h4>
-
-                            <h6 class="info-title">Gender</h6>
-                            <h4 class="info-data"><?php echo $user['gender']; ?></h4>
-
-                            <h6 class="info-title"> Joining Year</h6>
-                            <h4 class="info-data"><?php echo $user['joining_year']; ?></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!--Contact Info-->
-            <div class="row">
-                <div class="col-md-12 mb-2">
-                    <h4 class="font-weight-bold">Contact Information</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                        <h6 class="info-title">Email</h6>
-                 <span id="mode">
-                    <i class="ti-pencil email_edit_icon d-flex justify-content-end" style="position:relative;bottom:10px;" id="edit_icon"></i>
-                </span>
-                 <h4 id="para_email" class="email_edit_para info-data"><?php echo $user['email']; ?></h4> 
-                 <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > 
-                <h6 class="info-title">Contact No.</h6>
-                 <h4 class="info-data"><?php echo $user['contact_no']; ?></h4>
-                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- modal -->
-    <div id="modal" class="modal">
-            <!-- modal content -->
-            <div class="modal-content" style="width:360px;">
-                    <span class="close">&times;</span>
-                    <p class="msg unselectable" id="modalmsg"></p>
-                    <div class="row" style="margin:auto;margin-bottom:30px;">
-                    <button id="yes-button" class="modal-btn"></button>
-            </div>
-    </div>
+            <!-------------------------------------------------------Student Card Start------------------------------------------------------->
+            <?php echo $student_card; ?>
     <!-------------------------------------------------------Main Content End------------------------------------------------------->
 
     <!-- including footer -->
