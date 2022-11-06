@@ -5,27 +5,47 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
 require_once("../../ams.php");
-$JAMES = new AMS("Admin");
+$JAMES = new AMS("User");
 $JAMES->init_user_session();
 
-function deleteClassroom($ams_setup_id) 
+function findStudent($spid) 
 { 
-    $sql= "delete from Ams_setup_course_subject_map where ams_setup_id=$ams_setup_id";
+    $sql= "select * from Students where spid like '$spid%';";
+
+    $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
-    if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+    if(mysqli_num_rows($result)>=1)
     {
-        return 1;
+        $student = "";
+        while($record = mysqli_fetch_assoc($result))
+        {
+            $student.=
+            "
+            <tr class='student' id='".$record['spid']."' >
+            <td><input type='checkbox' id='edit_chkbox'></td>
+            <td>".$record['spid']."</td>
+            <td>".$record['name']."</td>
+            <td>".$record['email']."</td>
+            <td>".$record['gender']."</td>
+            <td>".$record['dob']."</td>
+            </tr>
+            ";
+        }
+        return $student;
     }
     else
     {
-        return 0;
+        return "
+        <tr>
+        <td  colspan='7' style='font-size:1.0em;text-align:center;'>SPID Not Found!</td>
+        </tr>";
     }
 }
 
-if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
+if(isset($_POST['_spid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
-        $ams_setup_id = $JAMES->sanitizeInput($_POST['_cid']);
-        echo(deleteClassroom($ams_setup_id)); 
+        $spid = $JAMES->sanitizeInput($_POST['_spid']);
+        echo(findStudent($spid)); 
 }
 else
 {    

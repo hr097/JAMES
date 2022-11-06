@@ -108,7 +108,7 @@ $JAMES->init_user_session();
                       <div class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
                         <!-- <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
                         </button> -->
-                        <input type='hidden' id='csrfToken' name='_csrfToken' value='<?php $JAMES->generateCsrfToken()?>'> 
+                        <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
                         <button type="button" name="_fetchall" id="fetchall" formaction="editclassroom.php" class="btn btn-primary mr-2 mt-3">Fetch All
                         </button>
                       </div>
@@ -125,37 +125,15 @@ $JAMES->init_user_session();
                               <table id="order-listing1" class="table">
                                 <thead>
                                    <tr>
-                                    <th>Select</th>
+                                    <th><input class='m-0' type="checkbox" name="selectall" id="selectall"/>&nbsp&nbsp&nbsp Select All</th>
                                     <th>SPID</th>
-                                    <th>First Name</th>
-                                    <th>Middle Name</th>
-                                    <th>Last name</th>
+                                    <th>Name</th>
                                     <th>Email Address</th>
                                     <th>Gender</th>
+                                    <th>Birthdate</th>
                                   </tr>
                                 </thead>
                                 <tbody id="searchstudent">
-                                  <!--
-                                  <tr>
-                                    <td><input type="checkbox" id="edit_chkbox" autocomplete="off"></td>
-                                    <td>2019008990</td>
-                                    <td>Ghevariya</td>
-                                    <td>Archit</td>
-                                    <td>Nareshbhai</td>
-                                    <td>ghevariyaarchit3@gmail.com</td>
-                                    <td>Male</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td><input type="checkbox" id="edit_chkbox" autocomplete="off"></td>
-                                    <td>2019008991</td>
-                                    <td>Ramani</td>
-                                    <td>Harshil</td>
-                                    <td>Shaileshbhai</td>
-                                    <td>harshilramani9777@gmail.com</td>
-                                    <td>Male</td>
-                                  </tr> -->
-
                                    <tr>
                                    <td  colspan="7" style='font-size:1.2em;text-align:center;'>No Student Data</td>
                                    </tr>

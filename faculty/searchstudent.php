@@ -11,7 +11,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 
 $student_card = "";
 
-if(isset($_POST['_spid']))
+if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
     $spid = $JAMES->sanitizeInput($_POST['_spid']);
 
@@ -112,9 +112,21 @@ if(isset($_POST['_spid']))
                   <h6 class='info-title'>Gender</h6>
                    <h4 class='info-data'>".$user['gender']."</h4>
 
+                   <h6 class='info-title'>Course Name</h6>
+                   <h4 class='info-data'>".$user['course_name']."</h4>
+
                   <h6 class='info-title'>Course Joining Year</h6>
                    <h4 class='info-data'>".$user['joining_year']."</h4>
-  
+
+                   
+                  <h6 class='info-title'>Current Semester</h6>
+                  <h4 class='info-data'>".$user['cur_semester']."</h4>
+
+                 <h6 class='info-title'>Current Division</h6>
+                  <h4 class='info-data'>".$user['cur_division']."</h4>
+
+                 <h6 class='info-title'>Current Roll Number</h6>
+                  <h4 class='info-data'>".$user['cur_roll_no']."</h4>
                 </div>
               </div>
             </div>
@@ -152,7 +164,7 @@ if(isset($_POST['_spid']))
     }
     else
     {
-        $student_card = "<p style='font-size:1.5em;margin:auto;margin-top:100px;'>Sorry,No Student Found with that SPID!</p>";
+        $student_card = "<p style='font-size:1.5em;margin:auto;margin-top:100px;'>Sorry, No Student Found with that SPID!</p>";
     }
 
 
@@ -203,7 +215,7 @@ else
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Search Student</h4>
-                            <form class="forms-sample" action="searchstudent.php" method="post">
+                            <form class="forms-sample" action="searchstudent.php" method="post" autocomplete="off">
 
                                 <!-- Student Spid & Search Button-->
                                 <div class="row">
@@ -211,8 +223,9 @@ else
 
                                     <div class="form-group">
                                     <label>Student SPID</label>
-                                    <input type="text" name="_spid" class="form-control" id="Stud_spid" placeholder="Enter student SPID" required>
-                                    </div>
+                                    <input type="text" maxlength="10" minlength="10" name="_spid" class="form-control" id="Stud_spid" placeholder="Enter student SPID" required>
+                                    <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >  
+                                  </div>
 
                                 </div>
                                 <div class="form-group search_fetch_btn col-lg-2 mt-3 col-sm-12">
@@ -228,6 +241,7 @@ else
 
             <!-------------------------------------------------------Student Card Start------------------------------------------------------->
             <?php echo $student_card; ?>
+            
     <!-------------------------------------------------------Main Content End------------------------------------------------------->
 
     <!-- including footer -->

@@ -125,8 +125,20 @@ else
                   <h6 class="info-title">Gender</h6>
                    <h4 class="info-data"><?php echo $user['gender']; ?></h4>
 
+                  <h6 class='info-title'>Course Name</h6>
+                   <h4 class='info-data'><?php echo $user['course_name']; ?></h4>
+
                   <h6 class="info-title">Course Joining Year</h6>
                    <h4 class="info-data"><?php echo $user['joining_year']; ?></h4>
+
+                  <h6 class="info-title">Current Semester</h6>
+                   <h4 class="info-data"><?php echo $user['cur_semester']; ?></h4>
+
+                  <h6 class="info-title">Current Division</h6>
+                   <h4 class="info-data"><?php echo $user['cur_division']; ?></h4>
+
+                  <h6 class="info-title">Current Roll Number</h6>
+                   <h4 class="info-data"><?php echo $user['cur_roll_no']; ?></h4>
   
                 </div>
               </div>
