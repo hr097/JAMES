@@ -51,6 +51,27 @@ $JAMES->init_user_session();
     $JAMES->ams_redirect("./classroom.php");
   }
 
+
+  $sql= "select * from Courses;";//query
+  $result = mysqli_query($JAMES->connection(),$sql);
+
+  if(mysqli_num_rows($result)>0)
+  {
+      $course_html = "<div class='row'><div class='col-md-6'><div class='form-group'><label>Course</label><select name='course_selection' id='course_selection' class='form-control'><option value=''>Not Selected</option></option>";
+
+      while($record = mysqli_fetch_assoc($result))
+      {
+        $course_html.="<option value='".$record['total_semester']."_".$record['course_name']."' >".$record['course_name']."</option>";
+      }
+
+      $course_html.="</select></div></div>";
+  }
+  else
+  {
+      $JAMES->ams_redirect("../login.php");
+  }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -110,6 +131,21 @@ $JAMES->init_user_session();
                         </button> --> 
                         <input type="hidden" id="classroomid" name="_classroomid" value="<?php echo $GLOBALS['classroomid'];?>" >
                         <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
+
+                      <!--Course -->
+                      <?php echo $course_html;?>
+
+                      <!--Semester -->
+                      <div class="form-group col-md-6 ">
+                        <label>Current Semester</label>
+                        <select id="sem_selection" class="form-control">
+                          <option value=''>Not Selected</option>
+                        </select>
+                      </div>
+
+                      </div>
+
+
                         <button type="button" name="_fetchall" id="fetchall" formaction="editclassroom.php" class="btn btn-primary mr-2 mt-3">Fetch All
                         </button>
                       </div>
