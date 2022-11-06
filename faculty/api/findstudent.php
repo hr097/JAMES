@@ -8,9 +8,9 @@ require_once("../../ams.php");
 $JAMES = new AMS("User");
 $JAMES->init_user_session();
 
-function findStudent($spid) 
+function findStudent($spid,$classroomid) 
 { 
-    $sql= "select Students.*,DATE_FORMAT(Students.dob,'%d-%m-%Y')AS dob from Students where spid like '$spid%';";
+    $sql= "select Students.*,DATE_FORMAT(Students.dob,'%d-%m-%Y')AS dob from Students where spid like '$spid%' and NOT IN(select spid from Ams_setup_students_map where spid='$spid' and ams_setup_id=$cid);";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
@@ -42,10 +42,11 @@ function findStudent($spid)
     }
 }
 
-if(isset($_POST['_spid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
+if(isset($_POST['_spid'])&&isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
         $spid = $JAMES->sanitizeInput($_POST['_spid']);
-        echo(findStudent($spid)); 
+        $cid = $JAMES->sanitizeInput($_POST['_cid']);
+        echo(findStudent($spid,$cid)); 
 }
 else
 {    

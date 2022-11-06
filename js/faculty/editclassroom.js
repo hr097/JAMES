@@ -5,11 +5,13 @@ $(document).ready(function(){
 
     let csrfToken = $("#csrfToken").val();
     let spid = $("#Stud_spid").val();
+    let classroomid = $("#classroomid").val();
 
     $.post(
       "api/findstudent.php",
       {
         _spid: spid,
+        _cid: classroomid,
         _ct: csrfToken
       },
       function (data, status) {

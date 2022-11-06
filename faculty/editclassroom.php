@@ -107,7 +107,8 @@ $JAMES->init_user_session();
                       </div>
                       <div class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
                         <!-- <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
-                        </button> -->
+                        </button> --> 
+                        <input type="hidden" id="classroomid" name="_classroomid" value="<?php echo $GLOBALS['classroomid'];?>" >
                         <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
                         <button type="button" name="_fetchall" id="fetchall" formaction="editclassroom.php" class="btn btn-primary mr-2 mt-3">Fetch All
                         </button>
