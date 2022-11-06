@@ -37,16 +37,64 @@ function findStudent($spid,$classroomid)
     {
         return "
         <tr>
-        <td  colspan='7' style='font-size:1.0em;text-align:center;'>SPID Not Found!</td>
+        <td  colspan='7' style='font-size:1.2em;text-align:center;'>SPID Not Found!</td>
         </tr>";
     }
 }
 
-if(isset($_POST['_spid'])&&isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
+
+function findAllStudent($course,$cur_sem,$div) 
+{ 
+    $sql= "select Students.*,DATE_FORMAT(Students.dob,'%d-%m-%Y')AS dob from Students,Courses where Courses.course_id=Students.course_id and Courses.course_name='$course' and cur_semester=$cur_sem and cur_division='$div';";
+
+    $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
+    
+    if(mysqli_num_rows($result)>=1)
+    {
+        $student = "";
+        while($record = mysqli_fetch_assoc($result))
+        {
+            $student.=
+            "
+            <tr class='student' id='".$record['spid']."' >
+            <td><input type='checkbox' id='edit_chkbox'></td>
+            <td>".$record['spid']."</td>
+            <td>".$record['name']."</td>
+            <td>".$record['email']."</td>
+            <td>".$record['gender']."</td>
+            <td>".$record['dob']."</td>
+            </tr>
+            ";
+        }
+        return $student;
+    }
+    else
+    {
+        return "
+        <tr>
+        <td  colspan='7' style='font-size:1.2em;text-align:center;'>No Data Found!</td>
+        </tr>";
+    }
+}
+
+if(isset($_POST['_spid'])&&isset($_POST['_md'])&&isset($_POST['_dv'])&&isset($_POST['_cid'])&&isset($_POST['_cs'])&&isset($_POST['_sm'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
         $spid = $JAMES->sanitizeInput($_POST['_spid']);
         $cid = $JAMES->sanitizeInput($_POST['_cid']);
-        echo(findStudent($spid,$cid)); 
+        $mode = $JAMES->sanitizeInput($_POST['_md']);
+        $course_name = $JAMES->sanitizeInput($_POST['_cs']);
+        $div = $JAMES->sanitizeInput($_POST['_dv']);
+        $semester = $JAMES->sanitizeInput($_POST['_sm']);
+
+        if($mode==1) // single fetch
+        {
+            echo(findStudent($spid,$cid));
+        }
+        elseif($mode==2) // multi fetch
+        {
+            echo(findAllStudent($course_name,$semester,$div));
+        }
+         
 }
 else
 {    

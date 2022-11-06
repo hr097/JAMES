@@ -6,12 +6,20 @@ $(document).ready(function(){
     let csrfToken = $("#csrfToken").val();
     let spid = $("#Stud_spid").val();
     let classroomid = $("#classroomid").val();
+    let cur_sem = $("#sem_selection").val();
+    let course =  $("#course_selection").val();
+    let div = $("#div_selection").val();
+    course= course.substr(course.search('_')+1);
 
     $.post(
       "api/findstudent.php",
       {
         _spid: spid,
         _cid: classroomid,
+        _cs:course,
+        _dv:div,
+        _sm:cur_sem,
+        _md:1,
         _ct: csrfToken
       },
       function (data, status) {
@@ -21,6 +29,38 @@ $(document).ready(function(){
         }
       },"text"); // must write as text string will come
   });
+
+
+  $("#fetchall").click(
+    function()
+    {
+      let cur_sem = $("#sem_selection").val();
+      let course =  $("#course_selection").val();
+      course= course.substr(course.search('_')+1);
+      let csrfToken = $("#csrfToken").val();
+      let spid = $("#Stud_spid").val();
+      let classroomid = $("#classroomid").val();
+      let div = $("#div_selection").val();
+
+      $.post(
+        "api/findstudent.php",
+        {
+          _spid: spid,
+          _cid: classroomid,
+          _cs:course,
+          _dv:div,
+          _sm:cur_sem,
+          _md: 2,
+          _ct: csrfToken
+        },
+        function (data, status) {
+          if(status == "success")
+          {
+           $("#searchstudent").html(data);
+          }
+        },"text"); // must write as text string will come
+    }
+  );
 
    // Delete Table Row
   //  function DeleteRow(o) {
@@ -54,7 +94,7 @@ $(document).ready(function(){
     function(){
 
       $("#sem_selection").empty();
-      $("#sem_selection").append("<option value=''>Not Selected</option>");
+      $("#sem_selection").append("<option value='-'>Not Selected</option>");
 
         let txt = $(this).val();
 

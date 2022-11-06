@@ -57,7 +57,7 @@ $JAMES->init_user_session();
 
   if(mysqli_num_rows($result)>0)
   {
-      $course_html = "<div class='row'><div class='col-md-6'><div class='form-group'><label>Course</label><select name='course_selection' id='course_selection' class='form-control'><option value=''>Not Selected</option></option>";
+      $course_html = "<div class='row'><div class='col-md-4'><div class='form-group col-md-14'><label>Course</label><select name='course_selection' id='course_selection' class='form-control'><option value='Not Selected'>Not Selected</option></option>";
 
       while($record = mysqli_fetch_assoc($result))
       {
@@ -139,16 +139,31 @@ $JAMES->init_user_session();
                       <?php echo $course_html;?>
 
                       <!--Semester -->
-                      <div class="form-group col-md-6 ">
+                      <div class="form-group col-md-3">
                         <label>Current Semester</label>
                         <select id="sem_selection" class="form-control">
-                          <option value=''>Not Selected</option>
+                          <option value='0'>Not Selected</option>
                         </select>
                       </div>
 
-                      <button type="button" name="_fetchall" id="fetchall" formaction="editclassroom.php" class="btn btn-primary ml-3 mr-2 mt-3">Fetch All</button>
-
+                      <div class="form-group ml-3 col-md-3">
+                        <label class="select-text">Division</label>
+                        <select id='div_selection' class="form-control">
+                        <option value="Not Selected">Not Selected</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                            <option value="F">F</option>
+                            <option value="G">G</option>
+                            <option value="H">H</option>
+                            <option value="I">I</option>
+                        </select>
                       </div>
+                      <button type="button" name="_fetchall" id="fetchall" class="btn btn-primary">Fetch All</button>
+                    </div>
+                        
 
 
                     <hr>
