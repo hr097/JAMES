@@ -64,15 +64,15 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
 
                 if($record['att_percentage']>=80)
                 {
-                    $att_pr=" <td><button type='button' class='btn btn-success pt-1 pd-1 pr-3 pl-3'>".$record['att_percentage']."%</button></td>";
+                    $att_pr=" <td><button type='button' class='btn btn-success p-4'>".$record['att_percentage']."%</button></td>";
                 }
                 else if($record['att_percentage']>=50)
                 {
-                    $att_pr=" <td><button type='button' class='btn btn-warning pt-1 pd-1 pr-3 pl-3'>".$record['att_percentage']."%</button></td>";
+                    $att_pr=" <td><button type='button' class='btn btn-warning p-4'>".$record['att_percentage']."%</button></td>";
                 }   
                 else
                 {
-                    $att_pr=" <td><button type='button' class='btn btn-danger pt-1 pd-1 pr-3 pl-3'>".$record['att_percentage']."%</button></td>";
+                    $att_pr=" <td><button type='button' class='btn btn-danger p-4'>".$record['att_percentage']."%</button></td>";
                 }
 
                
@@ -237,6 +237,7 @@ else
                                                     <th>Present</th>
                                                     <th>Absent</th>
                                                     <th>Percentage</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="enrolledstudentlist">

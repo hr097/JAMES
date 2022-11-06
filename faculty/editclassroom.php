@@ -11,7 +11,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 
     //to fetch students who have enrolled in particular classroom
     $classroomid = $_GET['classroomid'];
-    
+
     //@query 
     $sql = "select S.*,DATE_FORMAT(S.dob,'%d-%m-%Y')AS dob from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroomid;"; 
     $result = mysqli_query($JAMES->connection(),$sql);
@@ -185,7 +185,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                           <th>Email Address</th>
                           <th>Gender</th>
                           <th>Birthdate</th>
-                          <th>Actions</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody id="listofstudents">
