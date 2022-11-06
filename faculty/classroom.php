@@ -117,7 +117,7 @@ else
 
                     <div class="container mt-5">
                         <div class="row">
-                            <div class="col-md-2 ml-2 classroom-btns-div">
+                            <div class="col-md-2 classroom-btns-div">
                                 <button type="button" class="btn btn-primary btn-icon-text mb-1 classroom-btns" id="takeattendance">
                                     <i class="ti-check-box btn-icon-prepend"></i>
                                     Take Attendance
