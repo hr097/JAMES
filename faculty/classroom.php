@@ -78,6 +78,7 @@ else
 
     <!-- css  -->
     <link rel="stylesheet" href="../css/faculty.css">
+    <link rel="stylesheet" href="../css/modal.css">
 
     <!-- js  -->
     <script src="../js/faculty/classroom.js" type="text/javascript" defer=true></script>
@@ -273,13 +274,18 @@ else
     </div>
     </div>
 
-    <script>
-    $(document).ready(function() {
-        $("#selectclass").click(function() {
-            window.location.href = "./select_class.php";
-        });
-    });
-    </script>
+    <!-- modal -->
+    <div id="modal" class="modal">
+    <!-- modal content -->
+    <div class="modal-content" style="width:360px;">
+            <span class="close">&times;</span>
+            <p class="msg unselectable" id="modalmsg"></p>
+            <div class="row" style="margin:auto;margin-bottom:30px;">
+            <button id="yes-button" class="modal-btn">Okay</button>
+            <button id="no-button" class="modal-btn">Cancel</button>
+    </div>
+    </div>
+
 
     <!-- including footer -->
     <?php
