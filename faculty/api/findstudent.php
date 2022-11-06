@@ -45,7 +45,7 @@ function findStudent($spid,$classroomid)
 
 function findAllStudent($course,$cur_sem,$div,$classroomid) 
 { 
-    $sql= "select vw_students.*,DATE_FORMAT(vw_students.dob,'%d-%m-%Y')AS dob from vw_students course_name='$course' and cur_semester=$cur_sem and cur_division='$div' and vw_students.spid NOT IN(select spid from Ams_setup_students_map where ams_setup_id=$classroomid);";
+    $sql= "select vw_students.*,DATE_FORMAT(vw_students.dob,'%d-%m-%Y')AS dob from vw_students where course_name='$course' and cur_semester=$cur_sem and cur_division='$div' and vw_students.spid NOT IN(select spid from Ams_setup_students_map where ams_setup_id=$classroomid);";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
