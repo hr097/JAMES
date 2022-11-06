@@ -107,7 +107,7 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                 <div class='card-body'>
 
                   <h6 class='info-title'>Birth Date</h6>
-                   <h4 class='info-data'>".$user['dob']."</h4>
+                    <h4 class='info-data'>".$user['dob']."</h4>
 
                   <h6 class='info-title'>Gender</h6>
                    <h4 class='info-data'>".$user['gender']."</h4>
@@ -146,7 +146,7 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                 <h6 class='info-title'>Email</h6>
                  <!-- <span id='mode'>
                     <i class='ti-pencil email_edit_icon d-flex justify-content-end' style='position:relative;bottom:10px;' id='edit_icon'></i>
-                </span> -->
+                </span> --> 
                  <h4 id='para_email' class='email_edit_para info-data'>".$user['email']."</h4> 
                  <input type='hidden' id='csrfToken' name='_csrfToken' value='".$JAMES->generateCsrfToken()."'> 
                 <h6 class='info-title'>Contact No.</h6>
