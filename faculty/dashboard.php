@@ -26,9 +26,11 @@ else
 
 $fid = $user['fid'];
 $gender = $user['gender'];
+$fname = $user['fname'];
 
 $_SESSION['_fid'] = $fid; // to access this in other pages
 $_SESSION['_gender'] = $gender; // to access this in other pages
+$_SESSION['_fname'] = $fname; // to access this in other pages
 
 //courses fetch for dropdown
 $sql= "select * from Courses;";//query

@@ -65,7 +65,7 @@
                             <?php
                                 if($_SESSION['_gender']=="Male")
                                 {
-                                 echo "<img src='../assets/profiles/student-profile-male.jpg' alt='profile-img' />";
+                                    echo "<img src='../assets/profiles/student-profile-male.jpg' alt='profile-img' />";
                                 }
                                 else
                                 {
