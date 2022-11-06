@@ -52,7 +52,7 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
         //to fetch students who have enrolled in particular classroom
     
         //@query 
-        $sql = "select S.spid,S.cur_roll_no,S.name,ASSM.spid,ASSM.p_days,a_days,(round(( (p_days) / (p_days + a_days)*100))) As att_percentage from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroom_id;"; 
+        $sql = "select S.email,S.spid,S.cur_roll_no,S.name,ASSM.spid,ASSM.p_days,a_days,(round(( (p_days) / (p_days + a_days)*100))) As att_percentage from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroom_id;"; 
         $result = mysqli_query($JAMES->connection(),$sql);
 
         $student_list = "";
@@ -61,6 +61,21 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
         {
             while($record = mysqli_fetch_assoc($result))
             {            
+
+                if($record['att_percentage']>=80)
+                {
+                    $att_pr=" <td><button type='button' class='btn btn-success pt-1 pd-1 pr-3 pl-3'>".$record['att_percentage']."%</button></td>";
+                }
+                else if($record['att_percentage']>=50)
+                {
+                    $att_pr=" <td><button type='button' class='btn btn-warning pt-1 pd-1 pr-3 pl-3'>".$record['att_percentage']."%</button></td>";
+                }   
+                else
+                {
+                    $att_pr=" <td><button type='button' class='btn btn-danger pt-1 pd-1 pr-3 pl-3'>".$record['att_percentage']."%</button></td>";
+                }
+
+               
             $student_list.=
             "
             <tr>
@@ -69,14 +84,18 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
             <td>".$record['name']."</td>
             <td>".$record['p_days']."</td>
             <td>".$record['a_days']."</td>
-            <td><button type='button' class='btn btn-info pt-1 pd-1 pr-3 pl-3'>".$record['att_percentage']."%</button></td>
+            ".$att_pr."
+            <td>
+            <button type='button' id='".$record['email']."' class='btn btn-dark ti-announcement sendnotice'></button>
+            </td>
+
             </tr>
             ";
             }
         }
         else
         {
-            $student_list.="<tr><td  colspan='6' style='font-size:1.2em;text-align:center;'>No Student Attendance Enrollment Yet!</td></tr>";
+            $student_list.="<tr><td  colspan='7' style='font-size:1.2em;text-align:center;'>No Student Attendance Enrollment Yet!</td></tr>";
         }
         
     }
