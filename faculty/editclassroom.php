@@ -9,12 +9,12 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
-$classroomid = $_GET['classroomid'];
-//@query 
-$sql = "select S.*,DATE_FORMAT(S.dob,'%d-%m-%Y')AS dob from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroomid;"; 
-$result = mysqli_query($JAMES->connection(),$sql);
-
-//@change colors
+    //to fetch students who have enrolled in particular classroom
+    $classroomid = $_GET['classroomid'];
+    
+    //@query 
+    $sql = "select S.*,DATE_FORMAT(S.dob,'%d-%m-%Y')AS dob from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroomid;"; 
+    $result = mysqli_query($JAMES->connection(),$sql);
    
     $student_list = "";
 
@@ -190,117 +190,6 @@ $result = mysqli_query($JAMES->connection(),$sql);
                       </thead>
                       <tbody id="listofstudents">
                         <?php echo $student_list; ?>
-                        <!-- <tr>
-                          <td>2019008990</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008991</td>
-                          <td>Ramani</td>
-                          <td>Harshil</td>
-                          <td>Shaileshbhai</td>
-                          <td>harshilramani9777@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008992</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008993</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008994</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008995</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008996</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008997</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008998</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008999</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr> -->
-
                       </tbody>
                     </table>
                   </div>

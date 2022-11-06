@@ -48,6 +48,36 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
         }
 
         $classroom_id=$classroom['ams_setup_id'];
+
+        //to fetch students who have enrolled in particular classroom
+    
+        //@query 
+        $sql = "select S.spid,S.cur_roll_no,ASSM.spid,ASSM.p_days,a_days,(round(( (p_days) / (p_days + a_days)*100))) As at_percentage from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroomid;"; 
+        $result = mysqli_query($JAMES->connection(),$sql);
+
+        $student_list = "";
+
+        if(mysqli_num_rows($result)>=1)
+        {
+            while($record = mysqli_fetch_assoc($result))
+            {            
+            $student_list.=
+            "
+            <tr>
+            <td>".$record['cur_roll_no']."</td
+            <td>".$record['spid']."</td>
+            <td>".$record['name']."</td>
+            <td>".$record['p_days']."</td>
+            <td>".$record['a_days']."</td>
+            <td>".$record['at_percentage']."%</td>
+            </tr>
+            ";
+            }
+        }
+        else
+        {
+            $student_list.="<tr><td  colspan='6' style='font-size:1.2em;text-align:center;'>No Student Attendance Enrollment Yet!</td></tr>";
+        }
         
     }
     else
@@ -59,6 +89,7 @@ else
 {
     $JAMES->ams_redirect("../login.php");
 }
+
 
 
 
@@ -174,13 +205,14 @@ else
 
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h4 class="card-title">Student Attendance</h4>
+                            <h4 class="card-title">Students Attendance</h4>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table" id="tbl">
                                             <thead>
                                                 <tr>
+                                                    <th>Roll Number</th>
                                                     <th>SPID</th>
                                                     <th>Full Name</th>
                                                     <th>Present</th>
@@ -188,77 +220,10 @@ else
                                                     <th>Percentage</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2020049846</td>
-                                                    <td>Naruto</td>
-                                                    <td>10</td>
-                                                    <td>5</td>
-                                                    <td>80%</td>
-                                                </tr>
+                                            <tbody id="enrolledstudentlist">
+                                                <?php
+                                                echo $student_list;
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
