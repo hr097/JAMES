@@ -10,7 +10,7 @@ $JAMES->init_user_session();
 
 function findStudent($spid) 
 { 
-    $sql= "select * from Students where spid like '$spid%';";
+    $sql= "select Students.*,DATE_FORMAT(Students.dob,'%d-%m-%Y')AS dob from Students where spid like '$spid%';";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
