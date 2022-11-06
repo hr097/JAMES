@@ -92,7 +92,7 @@ if(isset($_POST['_spid'])&&isset($_POST['_md'])&&isset($_POST['_dv'])&&isset($_P
         }
         elseif($mode==2) // multi fetch
         {
-            echo(findAllStudent($course_name,$semester,$div));
+            echo(findAllStudent($course_name,$semester,$div,$cid));
         }
          
 }
