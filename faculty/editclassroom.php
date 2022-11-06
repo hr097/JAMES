@@ -57,14 +57,14 @@ $JAMES->init_user_session();
 
   if(mysqli_num_rows($result)>0)
   {
-      $course_html = "<div class='row'><div class='col-md-4'><div class='form-group col-md-14'><label>Course</label><select name='course_selection' id='course_selection' class='form-control'><option value='Not Selected'>Not Selected</option></option>";
+      $course_html = "<div class='form-group col-md-14'><label>Course</label><select name='course_selection' id='course_selection' class='form-control'><option value='Not Selected'>Not Selected</option></option>";
 
       while($record = mysqli_fetch_assoc($result))
       {
         $course_html.="<option value='".$record['total_semester']."_".$record['course_name']."' >".$record['course_name']."</option>";
       }
 
-      $course_html.="</select></div></div>";
+      $course_html.="</select></div>";
   }
   else
   {
@@ -126,7 +126,7 @@ $JAMES->init_user_session();
                         </div>
 
                       </div>
-                      <div class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
+                      <div class="form-group search_fetch_btn">
                         <!-- <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
                         </button> --> 
                         <input type="hidden" id="classroomid" name="_classroomid" value="<?php echo $GLOBALS['classroomid'];?>" >
@@ -136,33 +136,46 @@ $JAMES->init_user_session();
 
                     
                       <!--Course -->
-                      <?php echo $course_html;?>
-
+                      
+                      <div class="row">
+                          <div class="col-lg-3 col-md-3 col-sm-12">
+                          <?php echo $course_html;?>
+                          </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="form-group">
+                              <label>Current Semester</label>
+                              <select id="sem_selection" class="form-control">
+                                <option value='0'>Not Selected</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="form-group">
+                              <label class="select-text">Division</label>
+                              <select id='div_selection' class="form-control">
+                                  <option value="Not Selected">Not Selected</option>
+                                  <option value="A">A</option>
+                                  <option value="B">B</option>
+                                  <option value="C">C</option>
+                                  <option value="D">D</option>
+                                  <option value="E">E</option>
+                                  <option value="F">F</option>
+                                  <option value="G">G</option>
+                                  <option value="H">H</option>
+                                  <option value="I">I</option>
+                              </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-3 col-sm-12" style="margin:auto;">
+                          <button type="button"  name="_fetchall" id="fetchall" class="btn btn-primary">Fetch All</button>
+                        </div>
+                      </div>
                       <!--Semester -->
-                      <div class="form-group col-md-3">
-                        <label>Current Semester</label>
-                        <select id="sem_selection" class="form-control">
-                          <option value='0'>Not Selected</option>
-                        </select>
-                      </div>
+                      
 
-                      <div class="form-group ml-3 col-md-3">
-                        <label class="select-text">Division</label>
-                        <select id='div_selection' class="form-control">
-                        <option value="Not Selected">Not Selected</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                            <option value="F">F</option>
-                            <option value="G">G</option>
-                            <option value="H">H</option>
-                            <option value="I">I</option>
-                        </select>
-                      </div>
-                      <button type="button" name="_fetchall" id="fetchall" class="btn btn-primary">Fetch All</button>
-                    </div>
+                      
+                    
                         
 
 
@@ -178,7 +191,7 @@ $JAMES->init_user_session();
                               <table id="order-listing1" class="table">
                                 <thead>
                                    <tr>
-                                    <th><input class='m-0' type="checkbox" name="selectall" id="selectall"/>&nbsp&nbsp&nbsp Select All</th>
+                                    <th><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</th>
                                     <th>SPID</th>
                                     <th>Name</th>
                                     <th>Email Address</th>

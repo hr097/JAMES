@@ -110,3 +110,9 @@ $(document).ready(function(){
     });
 
 });
+function toggleSelect(selectAll)
+{
+  let checkboxes = document.getElementsByName('select_stud');
+  for(i=0;i<checkboxes.length;i++)
+    checkboxes[i].checked = selectAll.checked;
+}

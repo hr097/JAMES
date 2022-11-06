@@ -22,7 +22,7 @@ function findStudent($spid,$classroomid)
             $student.=
             "
             <tr class='student' id='".$record['spid']."' >
-            <td><input type='checkbox' id='edit_chkbox'></td>
+            <td><input type='checkbox' name='select_stud' id='edit_chkbox'></td>
             <td>".$record['spid']."</td>
             <td>".$record['name']."</td>
             <td>".$record['email']."</td>
@@ -57,7 +57,7 @@ function findAllStudent($course,$cur_sem,$div,$classroomid)
             $student.=
             "
             <tr class='student' id='".$record['spid']."' >
-            <td><input type='checkbox' id='edit_chkbox'></td>
+            <td><input type='checkbox' name='select_stud' id='edit_chkbox'></td>
             <td>".$record['spid']."</td>
             <td>".$record['name']."</td>
             <td>".$record['email']."</td>
