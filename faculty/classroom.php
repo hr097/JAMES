@@ -69,12 +69,9 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
             <td>".$record['name']."</td>
             <td>".$record['p_days']."</td>
             <td>".$record['a_days']."</td>
-            <td><button type='button' class='btn btn-info p-3 attbtn'>".$record['att_percentage']."%</button></td>
+            <td><button type='button' class='btn btn-info pt-1 pd-1 pr-3 pl-3 attbtn'>".$record['att_percentage']."%</button></td>
             </tr>
             ";
-
-            
-
             }
         }
         else
