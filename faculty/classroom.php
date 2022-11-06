@@ -67,12 +67,11 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
             <td>".$record['cur_roll_no']."</td>
             <td>".$record['spid']."</td>
             <td>".$record['name']."</td>
-            <td style='text-align:center;'><button type='button' class='btn btn-success attbtn'>".$record['p_days']."</button></td>
-            <td style='text-align:center;'><button type='button' class='btn btn-danger attbtn'>".$record['a_days']."</button></td>
-            <td style='text-align:center;'><button type='button' class='btn btn-info attbtn'>".$record['att_percentage']."%</button></td>
+            <td>".$record['p_days']."</td>
+            <td>".$record['a_days']."</td>
+            <td>".$record['att_percentage']."%</td>
             </tr>
             ";
-            
             }
         }
         else
@@ -216,9 +215,9 @@ else
                                                     <th>Roll Number</th>
                                                     <th>SPID</th>
                                                     <th>Full Name</th>
-                                                    <th>Present</th>
-                                                    <th>Absent</th>
-                                                    <th>Percentage</th>
+                                                    <th><button type='button'class='btn btn-success attbtn'>Present Days</button></th>
+                                                    <th><button type='button'class='btn btn-danger attbtn'>Absent Days</button></th>
+                                                    <th><button type='button'class='btn btn-info attbtn'>Overall Percentage</button></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="enrolledstudentlist">
