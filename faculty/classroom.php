@@ -95,7 +95,7 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
         }
         else
         {
-            $student_list.="<tr><td  colspan='7' style='font-size:1.2em;text-align:center;'>No Student Attendance Enrollment Yet!</td></tr>";
+            $student_list.="<tr><td  colspan='7' style='font-size:1.2em;text-align:center;'>No Student Enrollment Yet!</td></tr>";
         }
         
     }
