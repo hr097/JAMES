@@ -1,13 +1,47 @@
 <?php
 
 require_once("../ams.php");
-$JAMES = new AMS("User");
+$JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
 if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 {
  $JAMES->ams_redirect("../login.php");
 }
+
+$classroomid = $_GET['classroomid'];
+//@query 
+$sql = "select S.* from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroomid;"; 
+$result = mysqli_query($JAMES->connection(),$sql);
+
+//@change colors
+   
+    $student_list = "";
+
+    if(mysqli_num_rows($result)>=1)
+    {
+        while($record = mysqli_fetch_assoc($result))
+        {            
+          $student_list.=
+          "
+          <tr id='".$record['spid']."'>
+            <td>".$record["spid"]."</td>
+            <td>".$record["name"]."</td>
+            <td>".$record["email"]."</td>
+            <td>".$record["gender"]."</td>
+            <td>".$record["dob"]."</td>
+            <td>
+              <button type='button' id='".$record['spid']."' class='btn btn-danger ti-trash removestudent'></button>
+            </td>
+          </tr>
+          ";
+        }
+    }
+    else
+    {
+        $student_list.="<tr><td  colspan='6' style='font-size:1.2em;text-align:center;'>No Student Enrollment!</td></tr>";
+    }
+
 
 ?>
 
@@ -81,7 +115,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                             <div class="table-responsive">
                               <table id="order-listing1" class="table">
                                 <thead>
-                                  <tr>
+                                   <tr>
                                     <th>Select</th>
                                     <th>SPID</th>
                                     <th>First Name</th>
@@ -91,7 +125,8 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                                     <th>Gender</th>
                                   </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="searchstudent">
+                                  <!--
                                   <tr>
                                     <td><input type="checkbox" id="edit_chkbox" autocomplete="off"></td>
                                     <td>2019008990</td>
@@ -110,7 +145,11 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                                     <td>Shaileshbhai</td>
                                     <td>harshilramani9777@gmail.com</td>
                                     <td>Male</td>
-                                  </tr>
+                                  </tr> -->
+
+                                   <tr>
+                                   <td  colspan="7" style='font-size:1.2em;text-align:center;'>No Student Data</td>
+                                   </tr>
                                 </tbody>
                               </table>
                             </div>
@@ -142,16 +181,16 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                       <thead>
                         <tr>
                           <th>SPID</th>
-                          <th>First Name</th>
-                          <th>Middle Name</th>
-                          <th>Last name</th>
+                          <th>Name</th>
                           <th>Email Address</th>
                           <th>Gender</th>
+                          <th>Birthdate</th>
                           <th>Actions</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="listofstudents">
+                        <?php echo $student_list; ?>
+                        <!-- <tr>
                           <td>2019008990</td>
                           <td>Ghevariya</td>
                           <td>Archit</td>
@@ -260,7 +299,8 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                           <td>
                             <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
                           </td>
-                        </tr>
+                        </tr> -->
+
                       </tbody>
                     </table>
                   </div>
@@ -277,33 +317,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 
   <script>
 
-    // Delete Table Row
-    function DeleteRow(o) {
-      var td = event.target.parentNode;
-      var tr = td.parentNode; // the row to be removed
-      tr.parentNode.removeChild(tr);
-    }
-
-    // document.getElementById('add_stud_tbl').style.display = "none";
-    // Search Student
-    function Search() {
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("Stud_spid");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("order-listing1");
-      tr = table.getElementsByTagName("tr");
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }
-    }
+ 
   </script>
 
    <!-- including footer -->
