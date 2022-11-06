@@ -59,7 +59,7 @@
                 <!-- -----------------------------------------------------Profile Start ----------------------------------------------------- -->
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
-                        <p class="ac_type"><?php $fname ?></p>
+                        <p class="ac_type"><?php echo $_SESSION['_fname']; ?></p>
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <?php
                                 if($_SESSION['_gender']=="Male")
