@@ -11,7 +11,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 
 $classroomid = $_GET['classroomid'];
 //@query 
-$sql = "select S.* from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroomid;"; 
+$sql = "select S.*,DATE_FORMAT(S.dob,'%d-%m-%Y')AS dob from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroomid;"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 //@change colors
