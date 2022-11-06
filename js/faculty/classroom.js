@@ -58,7 +58,7 @@ $("#addfaculty").click(function(){
 });
 
 $("#deleteclass").click(function(){
-    $("#modalmsg").html("Deletion of this classroom includes deletetion of relevant data of students,faculty and attendances!<br><br><span style='color:red;'>NOTE: This operation cannot be reversed.</span><br><br>Do you confirm it?");
+    $("#modalmsg").html("Deletion of this classroom includes deletetion of relevant data of students,faculty and attendances!<br><br><span style='color:red;text-align:center;'>NOTE: This operation cannot be undone.</span><br><br>Do you confirm it?");
     $("#modal").css("display", "block");
 });
 
