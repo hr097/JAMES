@@ -117,12 +117,12 @@ $JAMES->init_user_session();
                   <form class="forms-sample" action="editclassroom.php" method="post">
 
                     <!-- Student Spid & Search Button-->
-                    <div class="row">
-                      <div class="col-lg-7 col-md-7 col-sm-12">
+                    <div class="row" >
+                      <div class="col-lg-12 col-md-12 col-sm-12">
 
                         <div class="form-group">
                           <label>Student SPID</label>
-                          <input name="_spid" type="text" class="form-control" id="Stud_spid" placeholder="Enter student SPID">
+                          <input name="_spid" type="text" class="form-control"  id="Stud_spid" placeholder="Enter student SPID">
                         </div>
 
                       </div>
@@ -131,7 +131,10 @@ $JAMES->init_user_session();
                         </button> --> 
                         <input type="hidden" id="classroomid" name="_classroomid" value="<?php echo $GLOBALS['classroomid'];?>" >
                         <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
+                      </div>
+                    </div>
 
+                    
                       <!--Course -->
                       <?php echo $course_html;?>
 
@@ -143,13 +146,11 @@ $JAMES->init_user_session();
                         </select>
                       </div>
 
+                      <button type="button" name="_fetchall" id="fetchall" formaction="editclassroom.php" class="btn btn-primary ml-3 mr-2 mt-3">Fetch All</button>
+
                       </div>
 
 
-                        <button type="button" name="_fetchall" id="fetchall" formaction="editclassroom.php" class="btn btn-primary mr-2 mt-3">Fetch All
-                        </button>
-                      </div>
-                    </div>
                     <hr>
 
                     <!-- Student Add data Start -->
