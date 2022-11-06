@@ -52,7 +52,7 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
         //to fetch students who have enrolled in particular classroom
     
         //@query 
-        $sql = "select S.spid,S.cur_roll_no,ASSM.spid,ASSM.p_days,a_days,(round(( (p_days) / (p_days + a_days)*100))) As att_percentage from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroom_id;"; 
+        $sql = "select S.spid,S.cur_roll_no,S.name,ASSM.spid,ASSM.p_days,a_days,(round(( (p_days) / (p_days + a_days)*100))) As att_percentage from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroom_id;"; 
         $result = mysqli_query($JAMES->connection(),$sql);
 
         $student_list = "";
