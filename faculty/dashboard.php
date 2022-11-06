@@ -12,7 +12,7 @@
  $u = $_SESSION["_userId"];
 
  //@query
-$sql = "select fid,SUBSTRING(name,INSTR(name,' '),( (LOCATE(' ',name,INSTR(name,' ')+1)) - INSTR(name,' ') )) AS fname,gender from vw_faculties where email='$u';"; 
+$sql = "select fid,name AS fname,gender from vw_faculties where email='$u';"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)==1)
