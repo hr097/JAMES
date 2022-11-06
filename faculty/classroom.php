@@ -64,15 +64,15 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
 
                 if($record['att_percentage']>=80)
                 {
-                    $att_pr=" <td><button type='button' class='btn btn-success px-4 py-2'>".$record['att_percentage']."%</button></td>";
+                    $att_pr=" <td><button type='button' class='btn btn-success rounded px-4 py-2'>".$record['att_percentage']."%</button></td>";
                 }
                 else if($record['att_percentage']>=50)
                 {
-                    $att_pr=" <td><button type='button' class='btn btn-warning px-4 py-2'>".$record['att_percentage']."%</button></td>";
+                    $att_pr=" <td><button type='button' class='btn btn-warning rounded px-4 py-2'>".$record['att_percentage']."%</button></td>";
                 }   
                 else
                 {
-                    $att_pr=" <td><button type='button' class='btn btn-danger rounded-sm px-4 py-2'>".$record['att_percentage']."%</button></td>";
+                    $att_pr=" <td><button type='button' class='btn btn-danger rounded px-4 py-2'>".$record['att_percentage']."%</button></td>";
                 }
 
                
@@ -86,7 +86,7 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
             <td>".$record['a_days']."</td>
             ".$att_pr."
             <td>
-            <button type='button' id='".$record['email']."' class='btn btn-dark rounded-lg px-3 py-2 ti-announcement sendnotice'></button>
+            <button type='button' id='".$record['email']."' class='btn btn-dark rounded px-3 py-2 ti-announcement sendnotice'></button>
             </td>
 
             </tr>
