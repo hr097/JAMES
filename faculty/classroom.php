@@ -69,9 +69,12 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
             <td>".$record['name']."</td>
             <td>".$record['p_days']."</td>
             <td>".$record['a_days']."</td>
-            <td>".$record['att_percentage']."%</td>
+            <td><button type='button' class='btn btn-info p-3 attbtn'>".$record['att_percentage']."%</button></td>
             </tr>
             ";
+
+            
+
             }
         }
         else
@@ -215,9 +218,9 @@ else
                                                     <th>Roll Number</th>
                                                     <th>SPID</th>
                                                     <th>Full Name</th>
-                                                    <th><button type='button'class='btn btn-success attbtn'>Present Days</button></th>
-                                                    <th><button type='button'class='btn btn-danger attbtn'>Absent Days</button></th>
-                                                    <th><button type='button'class='btn btn-info attbtn'>Overall Percentage</button></th>
+                                                    <th>Present</th>
+                                                    <th>Absent</th>
+                                                    <th>Percentage</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="enrolledstudentlist">
