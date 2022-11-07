@@ -67,6 +67,15 @@ $(document).ready(function(){
           if(status == "success")
           {
            $("#searchstudent").html(data);
+
+           $(".student").click(
+            function()
+            {
+              $($(this).find("input")[0]).attr("checked","true");
+            }
+          );
+
+          
           }
         },"text"); // must write as text string will come
     }
