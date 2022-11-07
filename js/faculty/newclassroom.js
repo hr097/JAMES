@@ -105,7 +105,7 @@ $(document).ready(function(){
                     {
                         $("#modalmsg").text("Classroom successfully created.");
                         $("#yes-button").text("Okay");
-                        link = `editclassroom.php?classroomid=${data}`;
+                        link = `managestudents.php?classroomid=${data}`;
                     }
                     else if(data==0)
                     {
