@@ -16,8 +16,11 @@ $(document).ready(function(){
           students_list.push($($(".student").find("input")[i]).attr("id"));
         }
      }
-
-    alert(students_list); // send post request if not empty
+    
+     if(students_list.length!=0)
+     alert(students_list); // send post request if not empty
+     else
+     alert("Empty request")
 
     } 
   );
