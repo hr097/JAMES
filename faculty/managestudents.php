@@ -204,7 +204,7 @@ $JAMES->init_user_session();
                         </div>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-primary mr-2 mt-3">Add Student </button>
+                    <button type="button" id="addstudents"class="btn btn-primary mr-2 mt-3">Add Student </button>
                     <button type="reset" class="btn btn-light mt-3">Clear</button>
                   </form>
                   <!--Student Add Data End-->

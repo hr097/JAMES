@@ -2,6 +2,26 @@
 $(document).ready(function(){
 
 
+  $("#addstudents").click(
+    function(){
+
+    let i=0;
+    const stud_len = $(".student").length;
+    const students_list = [];
+
+     for(i=0;i<stud_len;i++)
+     {
+        if($($($(".student").find("input")[i])).is(':checked')==true)
+        {
+          students_list.push($($(".student").find("input")[i]).attr("id"));
+        }
+     }
+
+    alert(students_list); // send post request if not empty
+
+    } 
+  );
+
   $("#Stud_spid").on('input',function () {
 
     let csrfToken = $("#csrfToken").val();
@@ -30,8 +50,16 @@ $(document).ready(function(){
 
          $(".student").click(
           function()
-          {
-            $($(this).find("input")[0]).attr("checked","true");
+          { 
+            if($($($(this).find("input")[0])).is(':checked')==true)
+            {
+              $($(this).find("input")[0]).removeAttr("checked");
+            }
+            else
+            {
+              $($(this).find("input")[0]).attr("checked","true");
+            }
+           
           }
         );
 
@@ -71,11 +99,17 @@ $(document).ready(function(){
            $(".student").click(
             function()
             {
-              $($(this).find("input")[0]).attr("checked","true");
+              if($($($(this).find("input")[0])).is(':checked')==true)
+              {
+                $($(this).find("input")[0]).removeAttr("checked");
+              }
+              else
+              {
+                $($(this).find("input")[0]).attr("checked","true");
+              }
             }
           );
 
-          
           }
         },"text"); // must write as text string will come
     }
