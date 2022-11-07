@@ -22,12 +22,14 @@ function findStudent($spid,$classroomid)
             $student.=
             "
             <tr class='student'>
-            <td><label for='".$record['spid']."'><input type='checkbox' class='edit_checkbox' name='select_stud' id='".$record['spid']."'></label></td>
+            <label for='".$record['spid']."'>
+            <td><input type='checkbox' class='edit_checkbox' name='select_stud' id='".$record['spid']."'></td>
             <td>".$record['spid']."</td>
             <td>".$record['name']."</td>
             <td>".$record['email']."</td>
             <td>".$record['gender']."</td>
             <td>".$record['dob']."</td>
+            </label>
             </tr>
             ";
         }
