@@ -24,7 +24,7 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
     //Archive and Unarchive
     
     //query
-    $sql= "select ASCSM.ams_setup_id,ASFM.setup_status from Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Courses C where ASCSM.cs_id=CSM.cs_id AND CSM.course_id=C.course_id AND CSM.subject_id=S.subject_id AND ASFM.ams_setup_id=ASCSM.ams_setup_id AND 
+    $sql= "select S.subject_code,ASCSM.ams_setup_id,ASFM.setup_status from Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Courses C where ASCSM.cs_id=CSM.cs_id AND CSM.course_id=C.course_id AND CSM.subject_id=S.subject_id AND ASFM.ams_setup_id=ASCSM.ams_setup_id AND 
     ASFM.fid='$fid' AND
     S.semester=$sem AND
     ASCSM.year='$year' AND
@@ -48,6 +48,7 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
         }
 
         $classroom_id=$classroom['ams_setup_id'];
+        $subject_code = $classroom['subject_code'];
 
         //to fetch students who have enrolled in particular classroom
     
@@ -161,7 +162,7 @@ else
 
                     <h4 class="card-title classroom-title  mb-4 ml-5" style="text-align:right;">
                         <?php
-                        echo $_GET['course']."-".$_GET['year']."   |   ".$_GET['subject']."   |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
+                        echo $_GET['course']."-".$_GET['year']."   |   ".$subject_code."   |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
                     ?>
                     </h4>
 

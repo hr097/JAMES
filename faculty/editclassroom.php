@@ -173,12 +173,6 @@ $JAMES->init_user_session();
                       </div>
                       <!--Semester -->
                       
-
-                      
-                    
-                        
-
-
                     <hr>
 
                     <!-- Student Add data Start -->
