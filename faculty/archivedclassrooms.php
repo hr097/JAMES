@@ -66,7 +66,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
     }
     else
     {
-        $classrooms_html.="<p style='font-size:1.5em;margin:auto;margin-top:100px;'>No Classroom archived yet</p>";
+        $classrooms_html.="<p style='font-size:1.3em;margin:auto;margin-top:100px;'>No Classroom archived yet</p>";
     }
 
 
