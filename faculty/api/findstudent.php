@@ -49,7 +49,7 @@ function findAllStudent($course,$cur_sem,$div,$classroomid)
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
-    if(mysqli_num_rows($result)>=1)
+    if(mysqli_num_rows($result)>=1)  
     {
         $student = "";
         while($record = mysqli_fetch_assoc($result))
