@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 
+
   $("#Stud_spid").on('input',function () {
 
     let csrfToken = $("#csrfToken").val();
@@ -26,7 +27,16 @@ $(document).ready(function(){
         if(status == "success")
         {
          $("#searchstudent").html(data);
-        }
+
+         $(".student").click(
+          function()
+          {
+            $($(this).find("input")[0]).attr("checked","true");
+          }
+        );
+
+      }
+
       },"text"); // must write as text string will come
   });
 
@@ -110,6 +120,7 @@ $(document).ready(function(){
     });
 
 });
+
 function toggleSelect(selectAll)
 {
   let checkboxes = document.getElementsByName('select_stud');
