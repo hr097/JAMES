@@ -144,7 +144,7 @@ $JAMES->init_user_session();
                                 <p style='margin:0;text-align: center;'><br>Regards from,<br><b><a href = '#' style = 'color:black'>JPD AMS.</a></b></p>
                             </td>
                         </tr>
-                    </table>
+                    </table> 
                 </td>
             </tr>
 
