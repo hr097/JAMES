@@ -90,7 +90,7 @@ $JAMES->init_user_session();
         <link rel="stylesheet" href="../css/faculty.css">
 
         <!-- js  -->
-        <script src="../js/faculty/editclassroom.js" type="text/javascript" defer=true></script>
+        <script src="../js/faculty/managestudents.js" type="text/javascript" defer=true></script>
 </head>
 
 <body>

@@ -49,7 +49,7 @@ $(document).ready(function(){
 
 $("#modifyclass").click(function(){
     const classroomid = $("#classroomid").val();
-    window.location.href = `editclassroom.php?classroomid=${classroomid}`;
+    window.location.href = `managestudents.php?classroomid=${classroomid}`;
 });
 
 $("#addfaculty").click(function(){
