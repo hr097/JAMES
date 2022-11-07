@@ -54,7 +54,7 @@ $("#modifyclass").click(function(){
 
 $("#addfaculty").click(function(){
     const classroomid = $("#classroomid").val();
-    window.location.href = `addfaculty.php?classroomid=${classroomid}`;
+    window.location.href = `managefaculty.php?classroomid=${classroomid}`;
 });
 
 $("#deleteclass").click(function(){

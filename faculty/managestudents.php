@@ -84,7 +84,7 @@ $JAMES->init_user_session();
         ?>
 
         <!-- Page info -->
-        <title>AMS | Edit Classroom</title>
+        <title>AMS | Manage Students</title>
 
         <!-- css  -->
         <link rel="stylesheet" href="../css/faculty.css">

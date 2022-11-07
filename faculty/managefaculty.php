@@ -27,7 +27,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
         <link rel="stylesheet" href="../css/faculty.css">
 
         <!-- js  -->
-        <script src="../js/faculty/addfaculty.js" type="text/javascript" defer=true></script>
+        <script src="../js/faculty/managefaculty.js" type="text/javascript" defer=true></script>
 </head>
 
 <body>
