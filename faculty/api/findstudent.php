@@ -22,8 +22,8 @@ function findStudent($spid,$classroomid)
             $student.=
             "
             <tr class='student'>
-            <label for='".$record['spid']."'>
-            <td><input type='checkbox' class='edit_checkbox' name='select_stud' id='".$record['spid']."'></td>
+            <label for='q".$record['spid']."'>
+            <td><input type='checkbox' class='edit_checkbox' name='select_stud' id='q".$record['spid']."'></td>
             <td>".$record['spid']."</td>
             <td>".$record['name']."</td>
             <td>".$record['email']."</td>
