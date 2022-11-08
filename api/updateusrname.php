@@ -140,11 +140,11 @@ $JAMES->init_user_session();
                     <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                         <tr>
                             <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
-                                <p style='margin: 0; '> Please login again to your respective dashboard using the new credentials.</p>
+                                <p style='margin: 0; '> Please login again to your <a href='https://ams.vnsguit.org'>respective dashboard</a> using the new credentials.</p>
                                 <p style='margin:0;text-align: center;'><br>Regards from,<br><b><a href = '#' style = 'color:black'>JPD AMS.</a></b></p>
                             </td>
                         </tr>
-                    </table>
+                    </table> 
                 </td>
             </tr>
 

@@ -21,8 +21,8 @@ function findStudent($spid,$classroomid)
         {
             $student.=
             "
-            <tr class='student' id='".$record['spid']."' >
-            <td><input type='checkbox' name='select_stud' id='edit_chkbox'></td>
+            <tr class='student'>
+            <td><input type='checkbox' class='edit_checkbox' name='select_stud' id='".$record['spid']."'></td>
             <td>".$record['spid']."</td>
             <td>".$record['name']."</td>
             <td>".$record['email']."</td>
@@ -49,15 +49,15 @@ function findAllStudent($course,$cur_sem,$div,$classroomid)
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
-    if(mysqli_num_rows($result)>=1)
+    if(mysqli_num_rows($result)>=1)  
     {
         $student = "";
         while($record = mysqli_fetch_assoc($result))
         {
             $student.=
             "
-            <tr class='student' id='".$record['spid']."' >
-            <td><input type='checkbox' name='select_stud' id='edit_chkbox'></td>
+            <tr class='student'>
+            <td><input type='checkbox' class='edit_checkbox' name='select_stud' id='".$record['spid']."'></td>
             <td>".$record['spid']."</td>
             <td>".$record['name']."</td>
             <td>".$record['email']."</td>

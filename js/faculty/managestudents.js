@@ -1,6 +1,30 @@
 
 $(document).ready(function(){
 
+
+  $("#addstudents").click(
+    function(){
+
+    let i=0;
+    const stud_len = $(".student").length;
+    const students_list = [];
+
+     for(i=0;i<stud_len;i++)
+     {
+        if($($($(".student").find("input")[i])).is(':checked')==true)
+        {
+          students_list.push($($(".student").find("input")[i]).attr("id"));
+        }
+     }
+    
+     if(students_list.length!=0)
+     alert(students_list); // send post request if not empty
+     else
+     alert("Empty request")
+
+    } 
+  );
+
   $("#Stud_spid").on('input',function () {
 
     let csrfToken = $("#csrfToken").val();
@@ -26,7 +50,24 @@ $(document).ready(function(){
         if(status == "success")
         {
          $("#searchstudent").html(data);
-        }
+
+         $(".student").click(
+          function()
+          { 
+            if($($($(this).find("input")[0])).is(':checked')==true)
+            {
+              $($(this).find("input")[0]).removeAttr("checked");
+            }
+            else
+            {
+              $($(this).find("input")[0]).attr("checked","true");
+            }
+           
+          }
+        );
+
+      }
+
       },"text"); // must write as text string will come
   });
 
@@ -57,6 +98,21 @@ $(document).ready(function(){
           if(status == "success")
           {
            $("#searchstudent").html(data);
+
+           $(".student").click(
+            function()
+            {
+              if($($($(this).find("input")[0])).is(':checked')==true)
+              {
+                $($(this).find("input")[0]).removeAttr("checked");
+              }
+              else
+              {
+                $($(this).find("input")[0]).attr("checked","true");
+              }
+            }
+          );
+
           }
         },"text"); // must write as text string will come
     }
@@ -110,6 +166,7 @@ $(document).ready(function(){
     });
 
 });
+
 function toggleSelect(selectAll)
 {
   let checkboxes = document.getElementsByName('select_stud');

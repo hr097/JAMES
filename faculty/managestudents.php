@@ -84,13 +84,13 @@ $JAMES->init_user_session();
         ?>
 
         <!-- Page info -->
-        <title>AMS | Edit Classroom</title>
+        <title>AMS | Manage Students</title>
 
         <!-- css  -->
         <link rel="stylesheet" href="../css/faculty.css">
 
         <!-- js  -->
-        <script src="../js/faculty/editclassroom.js" type="text/javascript" defer=true></script>
+        <script src="../js/faculty/managestudents.js" type="text/javascript" defer=true></script>
 </head>
 
 <body>
@@ -173,12 +173,6 @@ $JAMES->init_user_session();
                       </div>
                       <!--Semester -->
                       
-
-                      
-                    
-                        
-
-
                     <hr>
 
                     <!-- Student Add data Start -->
@@ -210,7 +204,7 @@ $JAMES->init_user_session();
                         </div>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-primary mr-2 mt-3">Add Student </button>
+                    <button type="button" id="addstudents"class="btn btn-primary mr-2 mt-3">Add Student </button>
                     <button type="reset" class="btn btn-light mt-3">Clear</button>
                   </form>
                   <!--Student Add Data End-->
