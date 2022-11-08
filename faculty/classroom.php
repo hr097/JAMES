@@ -167,21 +167,21 @@ else
 
                     <div class="container mt-5">
                         <div class="row">
-                            <div class="col-md-2 ml-4 classroom-btns-div">
+                            <div class="col-lg-2 col-md-6 col-sm-12  classroom-btns-div">
                                 <button type="button" class="btn btn-primary btn-icon-text mb-1 classroom-btns" id="takeattendance">
                                     <i class="ti-check-box btn-icon-prepend"></i>
                                     Take Attendance
                                 </button>
                             </div>
 
-                            <div class="col-md-2 ml-4 classroom-btns-div">
+                            <div class="col-lg-2 col-md-6 col-sm-12  classroom-btns-div">
                                 <button type="button" class="btn btn-dark btn-icon-text mb-1 classroom-btns" id="modifyclass">
                                     <i class="ti-pencil btn-icon-prepend"></i>
                                     Edit Classroom
                                 </button>
                             </div>
 
-                            <div class="col-md-2 ml-4 classroom-btns-div">
+                            <div class="col-lg-2 col-md-6 col-sm-12  classroom-btns-div">
                                 <button type="button" class="btn btn-warning btn-icon-text mb-1 classroom-btns" id="addfaculty">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-person-plus-fill" viewBox="0 0 16 16">
@@ -194,7 +194,7 @@ else
                                 </button>
                             </div>
 
-                            <div class="col-md-2 ml-4 classroom-btns-div">
+                            <div class="col-lg-2 col-md-6 col-sm-12  classroom-btns-div">
                                 <input type="hidden" id="csrfToken" name="_csrfToken"
                                     value="<?php echo $JAMES->generateCsrfToken();?>">
                                 <input type="hidden" id="classroomid" name="classroomid"
@@ -209,7 +209,7 @@ else
                             </div>
 
                             
-                            <div class="col-md-2 ml-4 classroom-btns-div">
+                            <div class="col-lg-2 col-md-6 col-sm-12  classroom-btns-div">
                                 <button type="button" class="btn btn-danger btn-icon-text mb-1 classroom-btns" id="deleteclass">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>

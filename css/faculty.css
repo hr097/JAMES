@@ -219,12 +219,34 @@ padding-top:7px;
 .classroom-btns{
   width:200px;
 }
-
+.classroom-btns-div{
+  margin-left: 1.5rem;
+}
+.search_fetch_btn{
+  margin-top: 14px;
+}
+@media only screen and (max-width: 991px)
+{
+  .classroom-btns-div {
+    margin-left: 0rem;
+    
+}
+  .classroom-btns{
+    width:100%;
+  }
+}
+@media only screen and (max-width: 1400px) and (min-width: 992px) {
+  .classroom-btns-div {
+    max-width: 200px;
+  }
+}
 @media only screen and (max-width: 768px) {
   .classroom-btns{
     width:80%;
   }
+
   .classroom-btns-div{
+    margin-left: 0rem;
     display: flex;
     justify-content: center;
     place-items: center;
@@ -232,11 +254,10 @@ padding-top:7px;
 }
 
 /*------------------------------------------------ editclassroom -------------------------------------------*/
-.search_fetch_btn{
-  margin-top: 14px;
-}
+
 
 @media (max-width: 767px){
 .search_fetch_btn {
     margin-top: 0;
+}
 }
