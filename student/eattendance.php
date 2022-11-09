@@ -43,7 +43,38 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
       <div class="main-panel">
         <div class="content-wrapper">
 
-        <div class="user-input-section">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+               <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">e-Attendance</h4>
+                    <div class="row" >
+                      <div class="col-lg-9 col-md-8 col-sm-12">
+                        <div class="form-group">
+                          <label>Classroom ID</label>
+                          <input type="hidden" id="spid" name="spid" value="<?php echo $_SESSION['_spid']; ?>">
+                          <input type="text" placeholder="Enter classroom ID" class="form-control" name="input_text" id="input_text" autocomplete="off">
+          
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-12 qr_btnSec">
+                      <button class="btn btn-primary button mr-2" id="btnSubmit" type="submit">Generate<i class="ti ti-reload ml-2" style="user-select: auto;"></i></button>
+                      </div>
+                    </div>
+                    <div class="row mt-4 mb-4" style="justify-content:center">
+                      <div>
+                      <div class="qr-code-container">
+                          <div class="qr-code mb-4"></div>
+                          <div><h4 style="text-align:center">SCAN HERE!</h4></div>
+                      </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- <div class="user-input-section">
             <section class="heading">
             <div class="title">e-Attendance</div>
             <div class="sub-title">Enter classroom ID:</div>
@@ -51,15 +82,13 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
             <section class="user-input">
             <input type="hidden" id="spid" name="spid" value="<?php echo $_SESSION['_spid']; ?>">
             <input type="text" placeholder="Type something..." name="input_text" id="input_text" autocomplete="off">
-            <button class="button" type="submit">Generate<i class="fa-solid fa-rotate"></i></button>
+            <button class="button" type="submit">Generate<i class="ti ti-reload" style="user-select: auto;"></i></button>
             </section>
-        </div>
+        </div> -->
 
         <!-- BELOW TWO DIV IS FOR QR-->
 
-        <div class="qr-code-container">
-            <div class="qr-code"></div>
-        </div>
+       
         
        </div>
       </div>

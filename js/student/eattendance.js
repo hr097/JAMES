@@ -35,8 +35,8 @@ function generate(user_input) {
   
     var qrcode = new QRCode(qr_code_element, {
       text: `${user_input}`,
-      width: 300, //128
-      height: 300,
+      width: 200, //128
+      height: 200,
       colorDark: "#000000",
       colorLight: "#ffffff",
       correctLevel: QRCode.CorrectLevel.H
