@@ -221,7 +221,7 @@ $JAMES->init_user_session();
 
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Student Data</h4>
+              <h4 class="card-title">Student Enrollment</h4>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
