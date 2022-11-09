@@ -41,6 +41,12 @@ $(document).ready(function(){
 
     });
 
+    $(".removestudent").click(function ()
+    {
+      
+
+    });
+
   
   $("#Stud_spid").on('input',function () {
 

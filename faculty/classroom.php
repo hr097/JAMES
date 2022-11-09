@@ -73,7 +73,7 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
                 }   
                 else
                 {
-                    $att_pr=" <td><button type='button' class='btn btn-danger rounded px-3 py-1'>".$record['att_percentage']."%</button></td>";
+                    $att_pr=" <td><button type='button' class='btn btn-danger rounded px-3 py-1'>0%</button></td>";
                 }
 
                
