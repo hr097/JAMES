@@ -36,7 +36,7 @@ document.getElementById("yes-button").onclick = function () {
         }
         else if(data==-1)
         {
-          $("#modalmsg").text("Student Attendance record couldn't be deleted! Try again later.");
+          $("#modalmsg").text("Student attendance record couldn't be deleted! Try again later.");
           $("#modal").css("display","block");
         }
         else
