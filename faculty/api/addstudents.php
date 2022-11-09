@@ -20,8 +20,9 @@ function add_students($classroom_id,$student_list)
         $itr=0;
 
         while($itr<$list_len)
-        {
-            $sql.=" values($classroom_id,'$student_list[$itr]'),";
+        {   
+            $spid = $student_list[$itr];
+            $sql.=" values($classroom_id,'$spid'),";
             $itr++;
         }
 
@@ -56,7 +57,7 @@ function checkRequestParameter()
 if(checkRequestParameter()&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
         $class_id = $JAMES->sanitizeInput($_POST['_cid']);
-        $student_list = $JAMES->sanitizeInput($_POST['_studls']);
+        $student_list = $_POST['_studls'];
         echo(add_students($class_id,$student_list)); 
         
 }

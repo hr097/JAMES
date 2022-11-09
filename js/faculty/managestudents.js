@@ -33,7 +33,7 @@ $(document).ready(function(){
         function (data, status) {
           if(status == "success")
           {
-           alert(data);
+           window.location.reload(true);
           }
         });
 
