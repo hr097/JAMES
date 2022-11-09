@@ -59,7 +59,7 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
         }
         else
         {
-          $user_status = "In-Active";
+          $user_status = "Inactive";
         }
 
         $student_card = "
