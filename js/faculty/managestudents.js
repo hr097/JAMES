@@ -106,7 +106,7 @@ $(document).ready(function(){
     {
 
       spid = $(this).attr("id");
-      $("#modalmsg").html("Deletion of this student doesn't include deletetion of relevant data of attendances! You can readmit student with existing attendance data.<br><br>Do you confirm it?");
+      $("#modalmsg").html("<span style='color:red;text-align:center;'> NOTE: Deletion of this student  includes deletetion of relevant data of attendances!</span><br><br> You can readmit student with new attendance data.<br><br>Do you confirm it?");
       $("#modal").css("display", "block");
 
     });
