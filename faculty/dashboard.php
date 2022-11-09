@@ -56,7 +56,7 @@ else
 // classroom fetch
 
 //@query 
-$sql = "select S.semester,ASCSM.year,ASCSM.division,C.course_name,S.subject_name from vw_ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Courses C where ASCSM.cs_id=CSM.cs_id AND CSM.course_id=C.course_id AND CSM.subject_id=S.subject_id AND ASFM.ams_setup_id=ASCSM.ams_setup_id AND ASFM.fid='$fid';"; 
+$sql = "select S.semester,ASCSM.year,ASCSM.division,C.course_name,S.subject_name from Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Courses C where ASCSM.cs_id=CSM.cs_id AND CSM.course_id=C.course_id AND CSM.subject_id=S.subject_id AND ASFM.ams_setup_id=ASCSM.ams_setup_id AND ASFM.fid='$fid' AND ASFM.setup_status=TRUE;"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 
