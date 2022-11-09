@@ -3,8 +3,8 @@
 
 if(isset($_GET['spid'])&&isset($_GET['classroomid']))
 {
-    echo "STUDENT ID: ".$GET['spid']."<br>";
-    echo "CLASSROOM ID: ".$GET['classroomid'];
+    echo "STUDENT ID: ".$_GET['spid']."<br>";
+    echo "CLASSROOM ID: ".$_GET['classroomid'];
 }
 else
 {
