@@ -123,7 +123,7 @@ if(isset($_GET['classroomid']))
                     <!-- Faculty Add data Start -->
                     <div class="card" id="add_stud_tbl">
                       <div class="card-body">
-                        <h4 class="card-title">Faculty Access</h4>
+                        <h4 class="card-title">Faculty Details</h4>
                         <div class="row">
                           <div class="col-12">
                             <div class="table-responsive">
@@ -166,7 +166,7 @@ if(isset($_GET['classroomid']))
 
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Faculty Data</h4>
+              <h4 class="card-title">Faculty Access</h4>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
