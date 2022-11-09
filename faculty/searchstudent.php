@@ -100,11 +100,6 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                     <span lass='card_back_data' style='font-weight:normal;' >".$user['cur_roll_no']."</span>
                     </p>
 
-                    <p>
-                    <span  class='card_back_title mr-4'> Student Status :</span>
-                    <span lass='card_back_data' style='font-weight:normal;' >".$user_status."</span>
-                    </p>
-
                   </div>
 
                 </div>
@@ -136,14 +131,18 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                    <h4 class='info-data'>".$user['joining_year']."</h4>
 
                    
-                  <h6 class='info-title'>Current Semester</h6>
+                  <h6 class='info-title'>Semester</h6>
                   <h4 class='info-data'>".$user['cur_semester']."</h4>
 
-                 <h6 class='info-title'>Current Division</h6>
+                 <h6 class='info-title'>Division</h6>
                   <h4 class='info-data'>".$user['cur_division']."</h4>
 
-                 <h6 class='info-title'>Current Roll Number</h6>
+                 <h6 class='info-title'>Roll Number</h6>
                   <h4 class='info-data'>".$user['cur_roll_no']."</h4>
+
+                 <h6 class='info-title'>Student Status</h6>
+                  <h4 class='info-data'>".$user_status."</h4>
+                  
                 </div>
               </div>
             </div>
