@@ -1,4 +1,56 @@
 
+/* START::MODAL */
+
+var modal = document.getElementById("modal");
+var span = document.getElementsByClassName("close")[0]; //close modal
+
+span.onclick = function () {
+  //close modal
+  modal.style.display = "none";
+};
+window.onclick = function (event) {
+  //close modal anywhere click
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+var spid = "0";
+
+document.getElementById("yes-button").onclick = function () {
+  // yes-> redirect to deletion api request
+
+  let csrfTokenVal = $("#csrfToken").val();
+
+    $.post("api/removestudent.php",
+    {
+    _cid:$("#classroomid").val(),
+    _spid: spid,
+    _ct:csrfTokenVal,
+    },
+    function(data){
+
+        if(data==1)
+        {
+           window.location.reload(true);
+        }
+        else
+        {   
+            $("#modalmsg").text("Student couldn't be deleted! Try again later.");
+            $("#modal").css("display","block");
+        } 
+    }); 
+
+};
+
+document.getElementById("no-button").onclick = function() { // no-> same page
+    modal.style.display = "none";
+}
+
+/* END::MODAL */
+
+
+
 $(document).ready(function(){
 
 
@@ -31,9 +83,18 @@ $(document).ready(function(){
           _ct: csrfToken
         },
         function (data, status) {
+
           if(status == "success")
           {
-           window.location.reload(true);
+            if(data==1)
+            {
+              window.location.reload(true);
+            }
+            else
+            {
+              $("#modalmsg").text("Student couldn't be added! Try again later.");
+              $("#modal").css("display","block");
+            }
           }
         });
 
@@ -43,7 +104,10 @@ $(document).ready(function(){
 
     $(".removestudent").click(function ()
     {
-      
+
+      spid = $(this).attr("id");
+      $("#modalmsg").html("Deletion of this student doesn't include deletetion of relevant data of attendances! You can readmit student with existing attendance data.<br><br>Do you confirm it?");
+      $("#modal").css("display", "block");
 
     });
 

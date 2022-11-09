@@ -8,9 +8,9 @@ require_once("../../ams.php");
 $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
-function deleteClassroom($ams_setup_id) 
+function deleteStudFromClassroom($ams_setup_id,$spid_) 
 { 
-    $sql= "delete from Ams_setup_course_subject_map where ams_setup_id=$ams_setup_id;";
+    $sql= "delete from Ams_setup_students_map where ams_setup_id=$ams_setup_id and spid='$spid_';";
     
     if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
     {
@@ -22,10 +22,11 @@ function deleteClassroom($ams_setup_id)
     }
 }
 
-if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
+if(isset($_POST['_cid'])&&isset($_POST['_spid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
         $ams_setup_id = $JAMES->sanitizeInput($_POST['_cid']);
-        echo(deleteClassroom($ams_setup_id)); 
+        $spid = $JAMES->sanitizeInput($_POST['_spid']);
+        echo(deleteStudFromClassroom($ams_setup_id,$spid)); 
 }
 else
 {    

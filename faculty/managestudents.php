@@ -88,6 +88,7 @@ $JAMES->init_user_session();
 
         <!-- css  -->
         <link rel="stylesheet" href="../css/faculty.css">
+        <link rel="stylesheet" href="../css/modal.css">
 
         <!-- js  -->
         <script src="../js/faculty/managestudents.js" type="text/javascript" defer=true></script>
@@ -249,6 +250,19 @@ $JAMES->init_user_session();
       </div>
     </div>
   </div>
+
+
+    <!-- modal -->
+    <div id="modal" class="modal">
+    <!-- modal content -->
+    <div class="modal-content" style="width:360px;">
+            <span class="close">&times;</span>
+            <p class="msg unselectable" id="modalmsg"></p>
+            <div class="row" style="margin:auto;margin-bottom:30px;">
+            <button id="yes-button" class="modal-btn">Delete</button>
+            <button id="no-button" class="modal-btn">Cancel</button>
+    </div>
+    </div>
 
   <script>
 
