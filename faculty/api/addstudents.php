@@ -29,7 +29,7 @@ function add_students($classroom_id,$student_list)
 
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql)==1)
         { 
-            return 1;
+            return $sql;
         }
         else
         {
