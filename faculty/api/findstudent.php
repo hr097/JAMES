@@ -10,7 +10,7 @@ $JAMES->init_user_session();
 
 function findStudent($spid,$classroomid) 
 { 
-    $sql= "select Students.*,DATE_FORMAT(Students.dob,'%d-%m-%Y')AS dob from Students where spid like '$spid%' and spid NOT IN(select spid from Ams_setup_students_map where ams_setup_id=$classroomid);";
+    $sql= "select vw_students.*,DATE_FORMAT(vw_students.dob,'%d-%m-%Y')AS dob from vw_students where spid like '$spid%' and spid NOT IN(select spid from Ams_setup_students_map where ams_setup_id=$classroomid);";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     

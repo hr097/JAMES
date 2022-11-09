@@ -16,7 +16,7 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
     $spid = $JAMES->sanitizeInput($_POST['_spid']);
 
     //@query
-    $sql = "select *,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from vw_students where spid='$spid';"; 
+    $sql = "select *,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from Students where spid='$spid';"; 
     $result = mysqli_query($JAMES->connection(),$sql);
     
     if(mysqli_num_rows($result)===1)
@@ -49,6 +49,17 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
         else
         {
             $sem = $user['cur_semester']."<sup>th</sup>";   
+        }
+
+        $user_status = '';
+
+        if($user['stud_status']==true)
+        {
+          $user_status = "Active";
+        }
+        else
+        {
+          $user_status = "In-Active";
         }
 
         $student_card = "
@@ -88,6 +99,12 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                     <span  class='card_back_title mr-4'> Roll No :</span>
                     <span lass='card_back_data' style='font-weight:normal;' >".$user['cur_roll_no']."</span>
                     </p>
+
+                    <p>
+                    <span  class='card_back_title mr-4'> Student Status :</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >".$user_status."</span>
+                    </p>
+
                   </div>
 
                 </div>
