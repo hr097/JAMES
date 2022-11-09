@@ -20,7 +20,7 @@ var spid = "0";
 document.getElementById("yes-button").onclick = function () {
   // yes-> redirect to deletion api request
 
-  let csrfTokenVal = $("#csrfToken").val();
+    let csrfTokenVal = $("#csrfToken").val();
 
     $.post("api/removestudent.php",
     {

@@ -69,6 +69,7 @@ if(isset($_GET['classroomid']))
 
         <!-- css  -->
         <link rel="stylesheet" href="../css/faculty.css">
+        <link rel="stylesheet" href="../css/modal.css">
 
         <!-- js  -->
         <script src="../js/faculty/managefaculty.js" type="text/javascript" defer=true></script>
@@ -112,6 +113,9 @@ if(isset($_GET['classroomid']))
                         </button>
                         <button type="button" id="fetchall" class="btn btn-primary mr-2 mt-3">Fetch All
                         </button>
+
+                        <input type="hidden" id="classroomid" name="_classroomid" value="<?php echo $GLOBALS['classroomid'];?>" >
+                        <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
                       </div>
                     </div>
                     <hr>
@@ -165,7 +169,7 @@ if(isset($_GET['classroomid']))
                     <!--Faculty Add Data End-->
 
                     <button type="submit" class="btn btn-primary mr-2 mt-3">Add Faculty </button>
-                    <button class="btn btn-light mt-3">Clear</button>
+                    <button type="reset" class="btn btn-light mt-3">Clear</button>
                   </form>
                 </div>
               </div>
@@ -208,6 +212,19 @@ if(isset($_GET['classroomid']))
       </div>
     </div>
   </div>
+
+  
+    <!-- modal -->
+    <div id="modal" class="modal">
+    <!-- modal content -->
+    <div class="modal-content" style="width:360px;">
+            <span class="close">&times;</span>
+            <p class="msg unselectable" id="modalmsg"></p>
+            <div class="row" style="margin:auto;margin-bottom:30px;">
+            <button id="yes-button" class="modal-btn"></button>
+            <button id="no-button" class="modal-btn">Cancel</button>
+    </div>
+    </div>
 
    <!-- including footer -->
    <?php
