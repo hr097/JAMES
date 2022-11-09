@@ -12,11 +12,19 @@ function deleteStudFromClassroom($ams_setup_id,$spid_)
 {   
    
     $sql= "delete from Ams_setup_students_map where ams_setup_id=$ams_setup_id and spid='$spid_';";
-    $sql.= "delete from Ams_attendance_master where ams_setup_id=$ams_setup_id and spid='$spid_';";
     
     if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
     {
-        return 1;
+        $sql = "delete from Ams_attendance_master where ams_setup_id=$ams_setup_id and spid='$spid_';";
+        if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+        {
+             return 1;
+        }
+        else
+        {
+             return -1;
+        }
+
     }
     else
     {

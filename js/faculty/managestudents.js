@@ -34,6 +34,11 @@ document.getElementById("yes-button").onclick = function () {
         {
            window.location.reload(true);
         }
+        else if(data==-1)
+        {
+          $("#modalmsg").text("Student Attendance record couldn't be deleted! Try again later.");
+          $("#modal").css("display","block");
+        }
         else
         {   
             $("#modalmsg").text("Student couldn't be deleted! Try again later.");
