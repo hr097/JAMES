@@ -51,7 +51,8 @@ $JAMES->init_user_session();
     $JAMES->ams_redirect("./classroom.php");
   }
 
-
+ // course fetch
+ 
   $sql= "select * from Courses;";//query
   $result = mysqli_query($JAMES->connection(),$sql);
 

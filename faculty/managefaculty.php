@@ -9,6 +9,50 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
+if(isset($_GET['classroomid']))
+    {
+
+    //to fetch faculty who have enrolled in particular classroom
+    $classroomid = $_GET['classroomid'];
+    $fid = $_SESSION['_fid'];
+
+    //@query 
+    $sql = "select F.*,DATE_FORMAT(F.dob,'%d-%m-%Y')AS dob from Faculties F,Ams_setup_faculties_map ASFM WHERE ASFM.fid=F.fid AND ams_setup_id=$classroomid AND NOT ASFM.fid ='$fid';"; 
+    $result = mysqli_query($JAMES->connection(),$sql);
+   
+    $faculty_list = "";
+
+    if(mysqli_num_rows($result)>=1)
+    {
+        while($record = mysqli_fetch_assoc($result))
+        {            
+          $faculty_list.=
+          "
+          <tr id='".$record['fid']."'>
+            <td>".$record["fid"]."</td>
+            <td>".$record["name"]."</td>
+            <td>".$record["email"]."</td>
+            <td>".$record["gender"]."</td>
+            <td>".$record["dob"]."</td>
+            <td>
+              <button type='button' id='".$record['fid']."' class='btn btn-danger ti-trash removefaculty'></button>
+            </td>
+          </tr>
+          ";
+        }
+    }
+    else
+    {
+        $faculty_list.="<tr><td  colspan='6' style='font-size:1.2em;text-align:center;'>No other faculty has access to this classroom.</td></tr>";
+    }
+
+  }
+  else
+  {
+    $JAMES->ams_redirect("./classroom.php");
+  }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +65,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
         ?>
 
         <!-- Page info -->
-        <title>AMS | Edit Classroom</title>
+        <title>AMS | Add Faculty</title>
 
         <!-- css  -->
         <link rel="stylesheet" href="../css/faculty.css">
@@ -141,126 +185,16 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                     <table id="order-listing" class="table">
                       <thead>
                         <tr>
-                          <th>SPID</th>
-                          <th>First Name</th>
-                          <th>Middle Name</th>
-                          <th>Last name</th>
-                          <th>Email Address</th>
+                          <th>FID</th>
+                          <th>Name</th>
+                          <th>Email</th>
                           <th>Gender</th>
-                          <th>Actions</th>
+                          <th>Birthdate</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>2019008990</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008991</td>
-                          <td>Ramani</td>
-                          <td>Harshil</td>
-                          <td>Shaileshbhai</td>
-                          <td>harshilramani9777@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008992</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008993</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008994</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008995</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008996</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008997</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008998</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2019008999</td>
-                          <td>Ghevariya</td>
-                          <td>Archit</td>
-                          <td>Nareshbhai</td>
-                          <td>ghevariyaarchit3@gmail.com</td>
-                          <td>Male</td>
-                          <td>
-                            <button type="button" class="btn btn-danger ti-trash" onclick="DeleteRow()"></button>
-                          </td>
-                        </tr>
+                      <tbody id="listoffaculty">
+                        <?php echo $faculty_list; ?>
                       </tbody>
                     </table>
                   </div>
@@ -274,37 +208,6 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
       </div>
     </div>
   </div>
-
-  <script>
-
-    // Delete Table Row
-    function DeleteRow(o) {
-      var td = event.target.parentNode;
-      var tr = td.parentNode; // the row to be removed
-      tr.parentNode.removeChild(tr);
-    }
-
-    // document.getElementById('add_stud_tbl').style.display = "none";
-    // Search Faculty
-    function Search() {
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("Stud_spid");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("order-listing1");
-      tr = table.getElementsByTagName("tr");
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }
-    }
-  </script>
 
    <!-- including footer -->
    <?php
