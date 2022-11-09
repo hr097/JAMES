@@ -18,13 +18,30 @@ $(document).ready(function(){
      }
     
      if(students_list.length!=0)
-     alert(students_list); // send post request if not empty
-     else
-     alert("Empty request")
+     {
 
-    } 
-  );
+      let csrfToken = $("#csrfToken").val();
+      let classroomid = $("#classroomid").val();
 
+      $.post(
+        "api/findstudent.php",
+        {
+          _studls: students_list,
+          _cid: classroomid,
+          _ct: csrfToken
+        },
+        function (data, status) {
+          if(status == "success")
+          {
+           alert(data);
+          }
+        });
+
+     }
+
+    });
+
+  
   $("#Stud_spid").on('input',function () {
 
     let csrfToken = $("#csrfToken").val();
