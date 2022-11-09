@@ -24,7 +24,7 @@ $(document).ready(function(){
       let classroomid = $("#classroomid").val();
 
       $.post(
-        "api/findstudent.php",
+        "api/addstudents.php",
         {
           _studls: students_list,
           _cid: classroomid,
