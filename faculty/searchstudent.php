@@ -16,7 +16,7 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
     $spid = $JAMES->sanitizeInput($_POST['_spid']);
 
     //@query
-    $sql = "select Courses.course_name,Students.*,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from Students,Courses where Courses,course_id=Students.course_id spid='$spid';"; 
+    $sql = "select Courses.course_name,Students.*,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from Students,Courses where Courses,course_id=Students.course_id and spid='$spid';"; 
     $result = mysqli_query($JAMES->connection(),$sql);
     
     if(mysqli_num_rows($result)===1)
