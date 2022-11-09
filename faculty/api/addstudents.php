@@ -12,7 +12,7 @@ $JAMES->init_user_session();
 function add_students($classroom_id,$student_list)
 {
         //@query
-        $sql = "insert into Ams_setup_students_map(ams_setup_id,spid) ";
+        $sql = "insert into Ams_setup_students_map(ams_setup_id,spid) values";
 
         //loop through students_list
 
@@ -22,7 +22,7 @@ function add_students($classroom_id,$student_list)
         while($itr<$list_len)
         {   
             $spid = $student_list[$itr];
-            $sql.=" values($classroom_id,'$spid'),";
+            $sql.="($classroom_id,'$spid'),";
             $itr++;
         }
 
