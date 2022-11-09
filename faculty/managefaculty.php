@@ -130,7 +130,7 @@ if(isset($_GET['classroomid']))
                               <table id="order-listing1" class="table">
                                 <thead>
                                   <tr>
-                                  <th><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</th>
+                                  <th><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>
                                     <th>FID</th>
                                     <th>Name</th>
                                     <th>Email Address</th>
@@ -139,26 +139,6 @@ if(isset($_GET['classroomid']))
                                   </tr>
                                 </thead>
                                 <tbody id="searchfaculty">
-                                  <!-- <tr>
-                                    <td><input type="checkbox" id="edit_chkbox" autocomplete="off"></td>
-                                    <td>2019008990</td>
-                                    <td>Ghevariya</td>
-                                    <td>Archit</td>
-                                    <td>Nareshbhai</td>
-                                    <td>ghevariyaarchit3@gmail.com</td>
-                                    <td>Male</td>
-                                  </tr> -->
-
-                                  <!-- <tr>
-                                    <td><input type="checkbox" id="edit_chkbox" autocomplete="off"></td>
-                                    <td>2019008991</td>
-                                    <td>Ramani</td>
-                                    <td>Harshil</td>
-                                    <td>Shaileshbhai</td>
-                                    <td>harshilramani9777@gmail.com</td>
-                                    <td>Male</td>
-                                  </tr> -->
-
                                   <tr>
                                     <td  colspan="6" style='font-size:1.2em;text-align:center;'>No Faculty Data</td>
                                   </tr>

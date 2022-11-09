@@ -187,7 +187,7 @@ $JAMES->init_user_session();
                               <table id="order-listing1" class="table">
                                 <thead>
                                    <tr>
-                                    <th><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</th>
+                                    <th><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>
                                     <th>SPID</th>
                                     <th>Name</th>
                                     <th>Email Address</th>
