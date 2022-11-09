@@ -33,6 +33,7 @@ $name = $user['fullname'];
 
 $_SESSION['_spid'] = $spid; // to access this in other pages
 $_SESSION['_gender'] = $gender; // to access this in other pages
+$_SESSION['_name'] = $name; // to access this in other
 
 $attendance_html = "";
 

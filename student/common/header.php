@@ -58,7 +58,7 @@
                 <!-------------------------------------------------------Profile Start------------------------------------------------------->
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
-                        <p class="ac_type" style="margin-right:10px;"><?php echo $name; ?></p>  
+                        <p class="ac_type" style="margin-right:10px;"><?php echo $_SESSION['_name']; ?></p>  
                         <!-- <p class="ac_type" style="font-weight:500;"><?php //echo $_SESSION['_userId']; ?></p>  -->
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             
