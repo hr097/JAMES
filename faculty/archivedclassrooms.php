@@ -36,7 +36,7 @@ $sql = "select S.semester,ASCSM.year,ASCSM.division,C.course_name,S.subject_name
 $result = mysqli_query($JAMES->connection(),$sql);
 
 //@change colors
-    $color_palate = array("#5050b2","#96b2fb","#FF9494","#ffc100","#59616E","#9F8772","#0a6b57","#937DC2","#F0CA86");
+    $color_palate = array("#0a6b57","#9F8772","#937DC2","#F0CA86","#59616E","#5050b2","#96b2fb","#FF9494","#ffc100");
     $classrooms_html = "";
 
     $itr=0;

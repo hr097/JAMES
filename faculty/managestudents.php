@@ -187,7 +187,7 @@ $JAMES->init_user_session();
                               <table id="order-listing1" class="table">
                                 <thead>
                                    <tr>
-                                    <th><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</th>
+                                    <th><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>
                                     <th>SPID</th>
                                     <th>Name</th>
                                     <th>Email Address</th>
@@ -206,7 +206,7 @@ $JAMES->init_user_session();
                         </div>
                       </div>
                     </div>
-                    <button type="button" id="addstudents"class="btn btn-primary mr-2 mt-3">Add Student </button>
+                    <button type="button" id="addstudents"class="btn btn-primary mr-2 mt-3">Add Students</button>
                     <button type="reset" class="btn btn-light mt-3">Clear</button>
                   </form>
                   <!--Student Add Data End-->
@@ -221,7 +221,7 @@ $JAMES->init_user_session();
 
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Student Data</h4>
+              <h4 class="card-title">Student Enrollment</h4>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
@@ -260,7 +260,7 @@ $JAMES->init_user_session();
             <span class="close">&times;</span>
             <p class="msg unselectable" id="modalmsg"></p>
             <div class="row" style="margin:auto;margin-bottom:30px;">
-            <button id="yes-button" class="modal-btn">Delete</button>
+            <button id="yes-button" class="modal-btn"></button>
             <button id="no-button" class="modal-btn">Cancel</button>
     </div>
     </div>

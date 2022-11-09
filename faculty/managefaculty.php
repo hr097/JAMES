@@ -104,15 +104,15 @@ if(isset($_GET['classroomid']))
 
                         <div class="form-group">
                           <label>Faculty FID</label>
-                          <input type="text" class="form-control" id="Stud_spid" placeholder="Enter Faculty FID">
+                          <input type="text" class="form-control" id="Fac_fid" placeholder="Enter Faculty FID">
                         </div>
 
                       </div>
                       <div class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
-                        <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
+                        <!-- <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
                         </button>
                         <button type="button" id="fetchall" class="btn btn-primary mr-2 mt-3">Fetch All
-                        </button>
+                        </button> -->
 
                         <input type="hidden" id="classroomid" name="_classroomid" value="<?php echo $GLOBALS['classroomid'];?>" >
                         <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
@@ -130,35 +130,19 @@ if(isset($_GET['classroomid']))
                               <table id="order-listing1" class="table">
                                 <thead>
                                   <tr>
-                                    <th>Select</th>
-                                    <th>SPID</th>
-                                    <th>First Name</th>
-                                    <th>Middle Name</th>
-                                    <th>Last name</th>
+                                  <th><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>
+                                    <th>FID</th>
+                                    <th>Name</th>
                                     <th>Email Address</th>
                                     <th>Gender</th>
+                                    <th>Birthdate</th>
                                   </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="searchfaculty">
                                   <tr>
-                                    <td><input type="checkbox" id="edit_chkbox" autocomplete="off"></td>
-                                    <td>2019008990</td>
-                                    <td>Ghevariya</td>
-                                    <td>Archit</td>
-                                    <td>Nareshbhai</td>
-                                    <td>ghevariyaarchit3@gmail.com</td>
-                                    <td>Male</td>
+                                    <td  colspan="6" style='font-size:1.2em;text-align:center;'>No Faculty Data</td>
                                   </tr>
 
-                                  <tr>
-                                    <td><input type="checkbox" id="edit_chkbox" autocomplete="off"></td>
-                                    <td>2019008991</td>
-                                    <td>Ramani</td>
-                                    <td>Harshil</td>
-                                    <td>Shaileshbhai</td>
-                                    <td>harshilramani9777@gmail.com</td>
-                                    <td>Male</td>
-                                  </tr>
                                 </tbody>
                               </table>
                             </div>
@@ -168,7 +152,7 @@ if(isset($_GET['classroomid']))
                     </div>
                     <!--Faculty Add Data End-->
 
-                    <button type="submit" class="btn btn-primary mr-2 mt-3">Add Faculty </button>
+                    <button type="button"id="addfaculty" class="btn btn-primary mr-2 mt-3">Add Faculty </button>
                     <button type="reset" class="btn btn-light mt-3">Clear</button>
                   </form>
                 </div>
@@ -182,7 +166,7 @@ if(isset($_GET['classroomid']))
 
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Faculty Data</h4>
+              <h4 class="card-title">Faculty Access</h4>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">

@@ -162,7 +162,9 @@ else
 
                     <h4 class="card-title classroom-title  mb-4 ml-5" style="text-align:right;">
                         <?php
-                        echo $_GET['course']."-".$_GET['year']." | ".$subject_code." |   ".$_GET['subject']."   |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
+                        //echo $_GET['course']."-".$_GET['year']." | ".$subject_code." |   ".$_GET['subject']."   |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
+                        //echo $_GET['course']."-".$_GET['year']." | ".$subject_code." |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
+                        echo $_GET['course']."-".$_GET['year']." | ".$subject_code." | Div-".$_GET['division'];
                     ?>
                     </h4>
 
