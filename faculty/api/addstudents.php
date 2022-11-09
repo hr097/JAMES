@@ -33,7 +33,7 @@ function add_students($classroom_id,$student_list)
         }
         else
         {
-            return -1; 
+            return $sql; 
         }
 
 
