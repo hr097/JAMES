@@ -16,7 +16,7 @@ function add_students($classroom_id,$student_list)
 
         //loop through students_list
 
-        $list_len =  count($students_list);
+        $list_len =  count($student_list);
         $itr=0;
 
         while($itr<$list_len)
