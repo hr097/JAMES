@@ -114,6 +114,14 @@
                             <span class="menu-title">Profile</span>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./eattendance.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-check-box"></i>
+                            <span class="menu-title">e-Attendance</span>
+                        </a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="./notifications.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-bell"></i>

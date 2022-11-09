@@ -62,6 +62,7 @@ else
               <div class="scene">
                 <div class="flip-card" >
                   <div class="card__face card__face--front" style="border-radius: 10px;">
+
                      <?php
                       if($_SESSION['_gender']=="Male")
                       {
@@ -72,7 +73,6 @@ else
                           echo "<img src='../assets/profiles/student-profile-female.png' class='profile_img my-4' style='width:130px;height:130px;border-radius:49%;' alt='Student profile'>";
                       }   
                      ?>
-                    
                     <h4  class="profile_name" style="color:white;margin-top:-12px;" ><?php echo $user['name']; ?></h4>
                   </div>
 
@@ -145,8 +145,6 @@ else
             </div>
           </div>
 
-
-
           <!--Contact Info-->
           <div class="row">
             <div class="col-md-12 mb-2">
@@ -173,6 +171,8 @@ else
           </div>
         </div>
       </div>
+
+                      
        <!-- modal -->
         <div id="modal" class="modal">
             <!-- modal content -->

@@ -167,7 +167,7 @@ body .qr-code-container .qr-code button a i {
 </head>
 <body>
       
-  <!-- <div class="user-input-section">
+  <div class="user-input-section">
     <section class="heading">
       <div class="title">QRcodes</div>
       <div class="sub-title">Generate QRCode for anything!</div>
@@ -176,7 +176,7 @@ body .qr-code-container .qr-code button a i {
       <input type="text" placeholder="Type something..." name="input_text" id="input_text" autocomplete="off">
       <button class="button" type="submit">Generate<i class="fa-solid fa-rotate"></i></button>
     </section>
-  </div> -->
+  </div>
 
   <div class="qr-code-container">
     <div class="qr-code"></div>
@@ -215,7 +215,7 @@ body .qr-code-container .qr-code button a i {
     colorLight: "#ffffff",
     correctLevel: QRCode.CorrectLevel.H
   });
-
+}
 //   let download = document.createElement("button");
 //   qr_code_element.appendChild(download);
 
@@ -237,7 +237,7 @@ body .qr-code-container .qr-code button a i {
 //       download_link.setAttribute("href", `${qr_code_img.getAttribute("src")}`);
 //     }, 300);
 //   }
- }
+
 
 generate({
   value: "https://ams.vnsguit.org/temp/qrtest.php?classroomid=8&spid=2020049910"
