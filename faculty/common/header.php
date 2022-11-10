@@ -112,7 +112,7 @@
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu "  style="">
+                            <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="./newclassroom.php">New</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="./archivedclassrooms.php">Archived</a></li>
                             </ul>

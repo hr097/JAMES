@@ -25,6 +25,7 @@ function sendEmailNotice($student,$email)
     Your attendance is ".$st_att."%
     <br>
     You might not be eligible to sit in examinations held by department and university.
+    
     ";
     
           
