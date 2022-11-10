@@ -47,7 +47,7 @@ document.getElementById("no-button").onclick = function() { // no-> same page
 
 $(document).ready(function(){
 
-    $("#sendnotice").click(
+    $(".sendnotice").click(
         function()
         {
             let email = $(this).attr("id");

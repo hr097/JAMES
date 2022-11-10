@@ -228,7 +228,7 @@ else
                             <div class="col-lg-2 col-md-6 col-sm-12  classroom-btns-div">
                                 <button type="button" class="btn btn-info btn-icon-text mb-1 classroom-btns" id="generatereport">
                                     <i class="ti-import btn-icon-prepend"></i>
-                                    Generate Report
+                                    Download Report
                                 </button>
                             </div>
 
