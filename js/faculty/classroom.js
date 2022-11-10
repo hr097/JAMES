@@ -15,9 +15,19 @@ window.onclick = function (event) {
   }
 };
 
+
+var notice_flag = false;
+
 document.getElementById("yes-button").onclick = function () {
   // yes-> redirect to deletion api request
 
+  if(notice_flag==true)
+  {
+    modal.style.display = "none";
+    notice_flag=false;
+  }
+  else
+  {
   let csrfTokenVal = $("#csrfToken").val();
     $.post("api/deleteclassroom.php",
     {
@@ -27,7 +37,7 @@ document.getElementById("yes-button").onclick = function () {
     function(data){
 
         if(data==1)
-        {
+        {   
             window.location.href = "./dashboard.php";
         }
         else
@@ -36,6 +46,7 @@ document.getElementById("yes-button").onclick = function () {
             $("#modal").css("display","block");
         } 
     }); 
+  }
 
 };
 
@@ -45,28 +56,6 @@ document.getElementById("no-button").onclick = function() { // no-> same page
 
 /* END::MODAL 1 */
 
-
-/* START::MODAL 2*/
-
-var modal2 = document.getElementById("modal2");
-var span2 = document.getElementsByClassName("close2")[0]; //close modal
-
-span2.onclick = function () {
-  //close modal
-  modal2.style.display = "none";
-};
-window.onclick = function (event) {
-  //close modal anywhere click
-  if (event.target == modal2) {
-    modal2.style.display = "none";
-  }
-};
-
-document.getElementById("yes-button2").onclick = function () {
-  modal2.style.display = "none";
-};
-
-/* END::MODAL 2 */
 
 $(document).ready(function(){
 
@@ -90,19 +79,20 @@ $(document).ready(function(){
                   {
                     response = parseInt(data);
   
-                    $("#modal2").css("display","block");
+                    $("#modal").css("display","block");
+                    notice_flag=true;
   
                     if(response === 0)
                     {
-                      $("#modalmsg2").text("Sorry,Notice couldn't be sent!");
+                      $("#modalmsg").text("Sorry,Notice couldn't be sent!");
                     }
                     else if (response === 1)
                     {
-                      $("#modalmsg2").text("Notice has been sent successfully.");
+                      $("#modalmsg").text("Notice has been sent successfully.");
                     }
                     else
                     {
-                        $("#modalmsg2").text(
+                        $("#modalmsg").text(
                             "Try again later! Some unknown error occured."
                         );
                     }
@@ -110,7 +100,7 @@ $(document).ready(function(){
                   }
                   else
                   { 
-                    $("#modalmsg2").text(
+                    $("#modalmsg").text(
                       "Try again later! Some unknown error occured."
                     );
                   }
