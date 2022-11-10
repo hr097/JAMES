@@ -124,7 +124,7 @@ $JAMES->init_user_session();
 
                         <div class="form-group">
                           <label>Student SPID</label>
-                          <input name="_spid" type="text" class="form-control"  id="Stud_spid" placeholder="Enter student SPID">
+                          <input name="_spid" type="text" class="form-control"  id="Stud_spid" placeholder="Enter student SPID" autocomplete="off">
                         </div>
 
                       </div>
