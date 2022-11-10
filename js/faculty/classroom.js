@@ -47,6 +47,57 @@ document.getElementById("no-button").onclick = function() { // no-> same page
 
 $(document).ready(function(){
 
+    $("#sendnotice").click(
+        function()
+        {
+            let email = $(this).attr("id");
+            let classroomid = $("#classroomid").val();
+
+            $.post(
+                "../api/sendnotice.php",
+                {
+                  _cid: classroomid,
+                  _eid: email,
+                  _ct: csrfToken.val()
+                },
+                function (data, status) {
+                  
+                  if(status == "success")
+                  {
+                    response = parseInt(data);
+  
+                    $("#modal").css("display","block");
+                    $("#yes-button").text("Okay");
+  
+                    if(response === 0)
+                    {
+                      $("#modalmsg").text("Sorry,Notice couldn't be sent!");
+                    }
+                    else if (response === 1)
+                    {
+                      $("#modalmsg").text("Notice has been sent successfully.");
+                    }
+                    else
+                    {
+                        $("#modalmsg").text(
+                            "Try again later! Some unknown error occured."
+                        );
+                    }
+
+                  }
+                  else
+                  { 
+                    $("#modal").css("display", "block");
+                    $("#modalmsg").text(
+                      "Try again later! Some unknown error occured."
+                    );
+                    $("#yes-button").text("Okay");
+                  }
+        });
+
+    });
+    
+
 $("#modifyclass").click(function(){
     const classroomid = $("#classroomid").val();
     window.location.href = `managestudents.php?classroomid=${classroomid}`;
