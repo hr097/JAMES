@@ -100,7 +100,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
         <div class="content-wrapper">
             <div class="col-md-12 mb-4">
 
-                <h4 class="font-weight-bold mb-3 coursefont">Archived Classrooms</h4>
+                <h3 class="font-weight-bold mb-3">Archived Classrooms</h3>
 
                 <!-- Classroom sorting -->
                 <div class="row">
