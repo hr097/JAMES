@@ -22,7 +22,11 @@ function sendEmailNotice($student,$email)
 
     Your name is ".$student['name']."    
     <br>
-    Your attendance is ".$st_att."%";
+    Your attendance is ".$st_att."%
+    <br>
+    You might not be eligible to sit in examinations held by department and university.
+    ";
+    
           
     return(($GLOBALS['JAMES']->sendEmail($email,"Attendance Notice",$htmlContent))?1:-1);
 
