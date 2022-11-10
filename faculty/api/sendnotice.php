@@ -12,7 +12,18 @@ $JAMES->init_user_session();
 
 function sendEmailNotice($student,$email) 
 {
- //pending....git 
+    $GLOBALS['JAMES']->todayTime =  date("h:i:s A",  time()); // fetch latest time 
+    
+    //@email template    
+
+    $htmlContent = "
+
+    Your attendance is ".$student['name']."    
+    <br>
+    Your attendance is ".$student['att_percentage'];
+          
+    return(($GLOBALS['JAMES']->sendEmail($email,"Attendance Notice",$htmlContent))?1:-1);
+
 }
 
 function sendNotice($cid,$email) 
