@@ -52,13 +52,14 @@ $(document).ready(function(){
         {
             let email = $(this).attr("id");
             let classroomid = $("#classroomid").val();
+            let csrfTokenVal = $("#csrfToken").val();
 
             $.post(
                 "api/sendnotice.php",
                 {
                   _cid: classroomid,
                   _eid: email,
-                  _ct: csrfToken.val()
+                  _ct: csrfTokenVal
                 },
                 function (data, status) {
                   
