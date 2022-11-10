@@ -8,6 +8,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
+//fetch courses
 $sql= "select * from Courses;";//query
 $result = mysqli_query($JAMES->connection(),$sql);
 

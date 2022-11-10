@@ -119,6 +119,11 @@ $("#addfaculty").click(function(){
     window.location.href = `managefaculty.php?classroomid=${classroomid}`;
 });
 
+$("#takeattendance").click(function(){
+  const classroomid = $("#classroomid").val();
+  window.location.href = `takeattendance.php?classroomid=${classroomid}`;
+});
+
 $("#deleteclass").click(function(){
     $("#modalmsg").html("Deletion of this classroom includes deletetion of relevant data of students,faculty and attendances!<br><br><span style='color:red;text-align:center;'>NOTE: This operation cannot be undone.</span><br><br>Do you confirm it?");
     $("#modal").css("display", "block");

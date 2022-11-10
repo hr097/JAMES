@@ -48,7 +48,7 @@ $JAMES->init_user_session();
   }
   else
   {
-    $JAMES->ams_redirect("./classroom.php");
+    $JAMES->ams_redirect("dashboard.php");
   }
 
  // course fetch
