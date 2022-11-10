@@ -55,7 +55,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)>0)
 {
-    $reader = "<div class='row'><div class='col-md-6'><div class='form-group'><label>Select Classroom</label><select name='reader_selection' id='reader_selection' class='form-control'><option value=''>Not Selected</option></option>";
+    $reader = "<div class='row'><div class='col-md-6'><div class='form-group'><label>Select Classroom</label><select name='reader_selection' id='reader_selection' class='form-control'><option value='0'>Not Selected</option></option>";
 
     while($record = mysqli_fetch_assoc($result))
     {
