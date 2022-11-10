@@ -54,7 +54,7 @@ $(document).ready(function(){
             let classroomid = $("#classroomid").val();
 
             $.post(
-                "../api/sendnotice.php",
+                "api/sendnotice.php",
                 {
                   _cid: classroomid,
                   _eid: email,
