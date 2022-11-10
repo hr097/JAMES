@@ -63,10 +63,10 @@ window.onclick = function (event) {
 };
 
 document.getElementById("yes-button2").onclick = function () {
-  modal.style.display = "none";
+  modal2.style.display = "none";
 };
 
-/* END::MODAL 1 */
+/* END::MODAL 2 */
 
 $(document).ready(function(){
 
@@ -110,7 +110,6 @@ $(document).ready(function(){
                   }
                   else
                   { 
-                    $("#modal2").css("display", "block");
                     $("#modalmsg2").text(
                       "Try again later! Some unknown error occured."
                     );
