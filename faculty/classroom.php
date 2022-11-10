@@ -285,6 +285,17 @@ else
     </div>
     </div>
 
+    <!-- modal 2 -->
+    <div id="modal2" class="modal">
+    <!-- modal content -->
+    <div class="modal-content" style="width:360px;">
+            <span class="close2">&times;</span>
+            <p class="msg unselectable" id="modalmsg2"></p>
+            <div class="row" style="margin:auto;margin-bottom:30px;">
+            <button id="yes-button2" class="modal-btn">Okay</button>
+    </div>
+    </div>
+
 
     <!-- including footer -->
     <?php

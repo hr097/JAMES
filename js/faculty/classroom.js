@@ -1,5 +1,5 @@
 
-/* START::MODAL */
+/* START::MODAL 1*/
 
 var modal = document.getElementById("modal");
 var span = document.getElementsByClassName("close")[0]; //close modal
@@ -43,7 +43,30 @@ document.getElementById("no-button").onclick = function() { // no-> same page
     modal.style.display = "none";
 }
 
-/* END::MODAL */
+/* END::MODAL 1 */
+
+
+/* START::MODAL 2*/
+
+var modal2 = document.getElementById("modal2");
+var span2 = document.getElementsByClassName("close2")[0]; //close modal
+
+span2.onclick = function () {
+  //close modal
+  modal2.style.display = "none";
+};
+window.onclick = function (event) {
+  //close modal anywhere click
+  if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+};
+
+document.getElementById("yes-button2").onclick = function () {
+  modal.style.display = "none";
+};
+
+/* END::MODAL 1 */
 
 $(document).ready(function(){
 
@@ -67,20 +90,19 @@ $(document).ready(function(){
                   {
                     response = parseInt(data);
   
-                    $("#modal").css("display","block");
-                    $("#yes-button").text("Okay");
+                    $("#modal2").css("display","block");
   
                     if(response === 0)
                     {
-                      $("#modalmsg").text("Sorry,Notice couldn't be sent!");
+                      $("#modalmsg2").text("Sorry,Notice couldn't be sent!");
                     }
                     else if (response === 1)
                     {
-                      $("#modalmsg").text("Notice has been sent successfully.");
+                      $("#modalmsg2").text("Notice has been sent successfully.");
                     }
                     else
                     {
-                        $("#modalmsg").text(
+                        $("#modalmsg2").text(
                             "Try again later! Some unknown error occured."
                         );
                     }
@@ -88,11 +110,10 @@ $(document).ready(function(){
                   }
                   else
                   { 
-                    $("#modal").css("display", "block");
-                    $("#modalmsg").text(
+                    $("#modal2").css("display", "block");
+                    $("#modalmsg2").text(
                       "Try again later! Some unknown error occured."
                     );
-                    $("#yes-button").text("Okay");
                   }
         });
 
