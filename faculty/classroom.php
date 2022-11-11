@@ -73,7 +73,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
             <td>".$record['a_days']."</td>
             ".$att_pr."
             <td>
-            <button type='button' id='".$record['email']."' class='btn btn-dark rounded px-3 py-2 ti-announcement sendnotice'></button>
+            <button type='button' id='".$record['email']."' class='btn btn-dark rounded px-3 py-1 ti-announcement sendnotice' style='font-size:15px;'></button>
             </td>
 
             </tr>
