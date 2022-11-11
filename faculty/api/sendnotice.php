@@ -134,8 +134,8 @@ function sendEmailNotice($student,$email)
                   <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #f4f4f4;'>
                       <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                           <tr>
-                              <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 20px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
-                                  <p style='margin: 0; '><span style='font-size: 18px;' >Dear,<br><b>".$student['name']."</b></span>,<br>Your total attendance performance calculated till date in below mentioned subject is depicted below. In order to maintain healthy attendance score(80% and above),you must attend the upcoming lectures conducted by respective subject faculties.
+                              <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 20px 30px; color: #000000; font-family: Poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
+                                  <p style='margin: 0; '><span style='font-size: 18px;font-weight:500;' >Dear,<br><b>".$student['name']."</b></span>,<br><br><br>Your total attendance performance calculated till date in below mentioned subject is depicted below. In order to maintain healthy attendance score<span style='color:green;' >(80% and above)</span>,you must attend the upcoming lectures conducted by respective subject faculties.
                                     </p>
                               </td>
                           </tr>
@@ -152,7 +152,7 @@ function sendEmailNotice($student,$email)
                                     <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 30px 30px;'>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td align='center' style='border-radius: 3px; color: #000000; font-family: Poppins; font-size: 20px; font-weight: 700; line-height: 30px;' >-:Attendance Summary Report:-</td>
+                                                <td align='center' style='border-radius: 3px; color: #000000; font-family: Poppins; font-size: 20px; font-weight: 700; line-height: 30px;' >Attendance Summary Report</td>
                                             </tr>
                                         </table>
                                         <table class = 'AttendanceTable' style='border:2px solid black'>
@@ -211,7 +211,7 @@ function sendEmailNotice($student,$email)
                                 <p style='margin: 0; '> <span style='font-weight:700;' >NOTE: </span> <em><span style='color:red;'>If your total subject attendance will be less than 60% then you may not be eligible to sit in examination held by department/university.</span>Additionally, 
                                     department reserves right to decide candidate's examination eligibility right based on his/her attendance in that particular subject.</em>
                                     </p>
-                                <p style='margin:0;text-align: center;'><br><b style='font-size: 16px;'>".$student['fname'].",</b><br>(".$student['role_name'].")<br><a href='https://vnsguit.org'>Department of Information & Communication Technology</a>,<br><a href='https://www.vnsgu.ac.in/'>Veer Narmad South Gujarat University</a>,<br>Surat-395007.<br></p>
+                                <p style='margin:0;text-align: center;'><br><b style='font-size: 16px;'>".$student['fname'].",</b><br><b>(".$student['role_name'].")</b><br><a href='https://vnsguit.org'>Department of Information & Communication Technology</a>,<br><a href='https://www.vnsgu.ac.in/'>Veer Narmad South Gujarat University</a>,<br>Surat-395007.<br></p>
                             </td>
                         </tr>
                     </table>
