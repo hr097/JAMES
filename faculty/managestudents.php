@@ -34,7 +34,7 @@ $JAMES->init_user_session();
             <td>".$record["gender"]."</td>
             <td>".$record["dob"]."</td>
             <td>
-              <button type='button' id='".$record['spid']."' class='btn btn-danger ti-trash removestudent'></button>
+              <button type='button' id='".$record['spid']."' class='btn btn-danger ti-trash removestudent px-3 py-2 rounded'></button>
             </td>
           </tr>
           ";
