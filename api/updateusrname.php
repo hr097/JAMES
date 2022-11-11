@@ -37,7 +37,9 @@ $JAMES->init_user_session();
                   -webkit-text-size-adjust: 100%;
                   -ms-text-size-adjust: 100%;
               }
-      
+              *{
+                font-family: 'Poppins',Arial;
+              }
               table,
               /* td {
                   mso-table-lspace: 0pt;
@@ -148,18 +150,18 @@ $JAMES->init_user_session();
                 </td>
             </tr>
 
-              <tr>
-                  <td bgcolor='#f4f4f4' align='center' style='padding: 30px 10px 40px 10px;'>
-                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
-                          <tr>
-                              <td align='center' style='background-color:#5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
-                                  <h2 style='font-size:18px; font-weight: 400; color: #111111; margin: 0;'>Have any questions for us or need more information ? </h2>
-                                  <p style='margin: 0;'><a href='mailto:ams.jpd@gmail.com' target='_blank' style='color: black;'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#000000;font-size:16px;' ><br>ams.jpd@gmail.com</a></p>
-                              </td>
-                          </tr>
-                      </table>
-                  </td>
-              </tr>
+            <tr>
+            <td bgcolor='#f4f4f4' align='center' style='padding: 30px 10px 40px 10px;'>
+                <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                    <tr>
+                        <td align='center' style='background : #5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
+                            <h2 style='font-size:18px; font-weight: 400; color: #ffffff; margin: 0;'>Have any questions for us or need more information ? 
+                            <p style='margin: 0;'><a href='mailto:ams.jpd@gmail.com' target='_blank' style='color: rgb(255, 255, 255);'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#ffffff;font-size:16px;'><br>admin.jpd.ams@gmail.com</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
           </table>
       </body>
       
