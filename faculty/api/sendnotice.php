@@ -37,7 +37,9 @@ function sendEmailNotice($student,$email)
                   -webkit-text-size-adjust: 100%;
                   -ms-text-size-adjust: 100%;
               }
-      
+              *{
+                font-family: arial;
+              }
               table,
               /* td {
                   mso-table-lspace: 0pt;
