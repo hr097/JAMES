@@ -50,6 +50,7 @@ function sendEmailNotice($student,$email)
     
             .AttendanceTable{
               margin-top:20px;
+              box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
             }
             
             .AttendanceTable tr td{
@@ -118,7 +119,7 @@ function sendEmailNotice($student,$email)
                                           </tr>
                                       </table>
     
-                                      <table class = 'AttendanceTable' style='border-radius: 10px;padding: 35px 35px;background-color: #fbfcfe;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;'>
+                                      <table class = 'AttendanceTable' style='border-radius: 10px;padding: 35px 35px;background-color: #fbfcfe;'>
                                           <tr>
                                               <td style='color:#000 !important;font-weight: 900;'>SPID</td>
                                               <td style='color:#000 !important;'>".$student['spid']."</td>
