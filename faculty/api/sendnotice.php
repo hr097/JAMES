@@ -152,7 +152,7 @@ function sendEmailNotice($student,$email)
                                           </tr>
                                       </table>
     
-                                      <table class = 'AttendanceTable' style='border-radius: 10px;padding: 35px 35px;background-color: #fbfcfe;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
+                                      <table class = 'AttendanceTable' style='border-radius: 10px;padding: 35px 35px;background-color: #fbfcfe;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;'>
                                           <tr>
                                               <td style='font-weight: 900;'>SPID</td>
                                               <td>".$student['spid']."</td>
