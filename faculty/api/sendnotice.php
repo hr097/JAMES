@@ -132,7 +132,7 @@ function sendEmailNotice($student,$email)
                       <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                           <tr>
                               <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 20px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
-                                  <p style='margin: 0; '><span style='font-size: 16px;'>Dear <b>".$student['name']."</b></span>,<br>Your total attendance performance calculated till date is depicted below. In order to maintain a healthy attendance score(80% and above),you must attend all the upcoming lectures conducted by respective subject faculties.
+                                  <p style='margin: 0; '><span style='font-size: 20px;'>Dear <b>".$student['name']."</b></span>,<br>Your total attendance performance calculated till date is depicted below. In order to maintain a healthy attendance score(80% and above),you must attend all the upcoming lectures conducted by respective subject faculties.
                                     </p>
                               </td>
                           </tr>
@@ -149,7 +149,7 @@ function sendEmailNotice($student,$email)
                                     <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 30px 30px;'>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td align='center' style='border-radius: 3px; color: #000000; font-family: poppins; font-size: 16px; font-weight: 700; line-height: 30px;' >Atendance summary</td>
+                                                <td align='center' style='border-radius: 3px; color: #000000; font-family: poppins; font-size: 16px; font-weight: 700; line-height: 30px;' >Attendance summary</td>
                                             </tr>
                                         </table>
                                         <table class = 'AttendanceTable' style='border:2px solid black'>
@@ -211,7 +211,7 @@ function sendEmailNotice($student,$email)
                                 <p style='margin: 0; '> Please note: If your total subject attendance will be less than 60% then you may not be eligible to sit in examination held by department/university. Additionally, 
                                     department reserves right to decide candidate's examination eligibility right based on his/her attendance in that particular subject.
                                     </p>
-                                <p style='margin:0;text-align: center;'><br><b>".$student['fname']."</b><br>".$student['role_name'].",<br>Department of Information, Communication & Technology,<br>Veer Narmad South Gujarat University,<br>Surat-395007<br></p>
+                                <p style='margin:0;text-align: center;'><br><b>".$student['fname'].",</b><br>".$student['role_name'].",<br>Department of Information, Communication & Technology,<br>Veer Narmad South Gujarat University,<br>Surat-395007<br></p>
                             </td>
                         </tr>
                     </table>
