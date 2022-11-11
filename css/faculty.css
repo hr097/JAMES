@@ -286,3 +286,34 @@ padding-top:7px;
 .separator:not(:empty)::after {
   margin-left: .25em;
 }
+
+/* classroom page */
+.manage-std-btn{
+  background-color: #393E46;
+  color: white;
+}
+
+.manage-std-btn:hover{
+  background-color: #272b30;
+  color: white;
+}
+
+.download-btn{
+  background-color: #5F6F94;
+  color: white;
+}
+
+.download-btn:hover{
+  background-color: #4c5773;
+  color: white;
+}
+
+.add-faculty-btn{
+  background-color: #ffc100;
+  color: white;
+}
+
+.add-faculty-btn:hover{
+  background-color: #e9af00;
+  color: white;
+}

@@ -73,7 +73,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
             <td>".$record['a_days']."</td>
             ".$att_pr."
             <td>
-            <button type='button' id='".$record['email']."' class='btn btn-dark rounded px-3 py-2 ti-announcement sendnotice' ></button>
+            <button type='button' id='".$record['email']."' class='btn manage-std-btn rounded px-3 py-2 ti-announcement sendnotice' ></button>
             </td>
 
             </tr>
@@ -157,7 +157,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
                             </div>
 
                             <div class="col-lg-2 col-md-6 col-sm-12  classroom-btns-div">
-                                <button type="button" class="btn btn-dark btn-icon-text mb-1 classroom-btns" id="modifyclass">
+                                <button type="button" class="btn manage-std-btn btn-icon-text mb-1 classroom-btns" id="modifyclass">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                                     <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                     <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
@@ -168,7 +168,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
                             </div>
 
                             <div class="col-lg-2 col-md-6 col-sm-12  classroom-btns-div">
-                                <button type="button" class="btn btn-warning btn-icon-text mb-1 classroom-btns" id="addfaculty">
+                                <button type="button" class="btn add-faculty-btn btn-icon-text mb-1 classroom-btns" id="addfaculty">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-person-plus-fill" viewBox="0 0 16 16">
                                         <path
@@ -239,7 +239,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
             </div>
 
                <!--Table End-->
-            <button type="button" class="btn btn-info btn-icon-text mb-1 " id="generatereport">
+            <button type="button" class="btn download-btn btn-icon-text mb-1 " id="generatereport">
                                 <i class="ti-import btn-icon-prepend"></i>
                                 Download Report
             </button>
