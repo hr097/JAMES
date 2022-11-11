@@ -135,13 +135,12 @@ $("#generatereport").click(function(){
     },
     function(data){
 
-        if(data==0)
+        if(data=="0")
         {
             window.location.reload();
         }
         else
         { 
-            alert(data);
             window.location.replace(data);
         } 
     }); 
