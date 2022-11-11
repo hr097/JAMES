@@ -140,7 +140,8 @@ $("#generatereport").click(function(){
             window.location.reload();
         }
         else
-        {
+        { 
+            alert(data);
             window.location.replace(data);
         } 
     }); 
