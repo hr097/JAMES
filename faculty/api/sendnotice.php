@@ -19,7 +19,6 @@ function sendEmailNotice($student,$email)
     $st_att = $student['att_percentage']??0;
 
     $htmlContent = "
-
     <!DOCTYPE html>
     <html>
     <head>
@@ -30,21 +29,9 @@ function sendEmailNotice($student,$email)
         <link href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet'>
         <style type='text/css'>
            
-            body,
-            table,
-            td,
-            /* a {
-                -webkit-text-size-adjust: 100%;
-                -ms-text-size-adjust: 100%;
-            } */
             *{
               font-family: 'Poppins',Arial;
             }
-    
-            img {
-                -ms-interpolation-mode: bicubic;
-            }
-    
             
             img {
                 border: 0;
@@ -54,10 +41,6 @@ function sendEmailNotice($student,$email)
                 text-decoration: none;
             }
     
-            table {
-                /* border-collapse: collapse !important; */
-            }
-    
             body {
                 height: 100% !important;
                 margin: 0 !important;
@@ -65,26 +48,15 @@ function sendEmailNotice($student,$email)
                 width: 100% !important;
             }
     
-          
-            a[x-apple-data-detectors] {
-                color: inherit !important;
-                text-decoration: none !important;
-                font-size: inherit !important;
-                font-family: inherit !important;
-                font-weight: inherit !important;
-                line-height: inherit !important;
-            }
             .AttendanceTable{
               margin-top:20px;
             }
             
             .AttendanceTable tr td{
-              
               padding: 5px 25px 5px 15px;
-              font-family: poppins;
               font-size: 14px;
-    
             }
+    
             @media screen and (max-width:600px) {
                 h1 {
                     font-size: 32px !important;
@@ -92,18 +64,11 @@ function sendEmailNotice($student,$email)
                 }
             }
     
-           
-            div[style*='margin: 16px 0;'] {
-                margin: 0 !important;
-            }
         </style>
     </head>
     
     <body style='background-color: #ffffff;margin: 0 !important; padding: 0 !important;'>
-        
-    
         <table border='0' cellpadding='0' cellspacing='0' width='100%'>
-           
             <tr>
                 <td align='center' style ='background: #5755a5'>
                     <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
@@ -113,11 +78,12 @@ function sendEmailNotice($student,$email)
                     </table>
                 </td>
             </tr>
+    
             <tr>
                 <td  align='center' style='padding: 0px 10px 0px 10px;background : #5755a5'>
                     <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                         <tr>
-                            <td bgcolor='#ffffff' align='center' valign='top' style='padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #4b49ac; font-family: poppins; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;'>
+                            <td  align='center' valign='top' style='background-color:#fff;padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #4b49ac; font-family: poppins; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;'>
                                 <h1 style='font-size: 35px; font-weight: 500; margin: 2;'><b>Attendance Notice</b></h1> <img src='https://live.staticflickr.com/65535/52097859173_5b6d3573df_n.jpg' width='250' height='120' style='display: block; border: 0px;' />
                             </td>
                         </tr>
@@ -176,7 +142,7 @@ function sendEmailNotice($student,$email)
                                           </tr>
                                           <tr>
                                               <td style='font-weight: 900;'>Subject Name</td>
-                                              <td><b>".$student['subject_name']."</b></td>
+                                              <td>".$student['subject_name']."</td>
                                           </tr>
                                           <tr>
                                               <td style='font-weight: 900;'>Present Count</td>
