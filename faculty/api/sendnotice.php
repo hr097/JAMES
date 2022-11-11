@@ -20,12 +20,221 @@ function sendEmailNotice($student,$email)
 
     $htmlContent = "
 
-    Your name is ".$student['name']."    
-    <br>
-    Your attendance is ".$st_att."%
-    <br>
-    You might not be eligible to sit in examinations held by department and university.
-    
+    <!DOCTYPE html>
+      <html>
+      <head>
+          <title></title>
+          <meta http-equiv='Content-Type' content='text/html, charset=utf-8' />
+          <meta name='viewport' content='width=device-width, initial-scale=1'>
+          <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+          <style type='text/css'>
+             
+              body,
+              table,
+              td,
+              a {
+                  -webkit-text-size-adjust: 100%;
+                  -ms-text-size-adjust: 100%;
+              }
+      
+              table,
+              /* td {
+                  mso-table-lspace: 0pt;
+                  mso-table-rspace: 0pt;
+              } */
+      
+              img {
+                  -ms-interpolation-mode: bicubic;
+              }
+      
+              
+              img {
+                  border: 0;
+                  height: auto;
+                  line-height: 100%;
+                  outline: none;
+                  text-decoration: none;
+              }
+      
+              table {
+                  border-collapse: collapse !important;
+              }
+      
+              body {
+                  height: 100% !important;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                  width: 100% !important;
+              }
+      
+            
+              a[x-apple-data-detectors] {
+                  color: inherit !important;
+                  text-decoration: none !important;
+                  font-size: inherit !important;
+                  font-family: inherit !important;
+                  font-weight: inherit !important;
+                  line-height: inherit !important;
+              }
+              .AttendanceTable{
+                margin-top:20px;
+              }
+              
+              .AttendanceTable,.AttendanceTable tr td{
+                border: 2px solid black;
+                padding: 5px 25px 5px 15px;
+                font-family: poppins;
+                font-size: 14px;
+
+              }
+              @media screen and (max-width:600px) {
+                  h1 {
+                      font-size: 32px !important;
+                      line-height: 32px !important;
+                  }
+              }
+      
+             
+              div[style*='margin: 16px 0;'] {
+                  margin: 0 !important;
+              }
+          </style>
+      </head>
+      
+      <body style='background-color: #ffffff;margin: 0 !important; padding: 0 !important;'>
+          
+      
+          <table border='0' cellpadding='0' cellspacing='0' width='100%'>
+             
+              <tr>
+                  <td align='center' style ='background: #5755a5'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                          <tr>
+                              <td align='center' valign='top' style='padding: 40px 10px 40px 10px;'> </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              <tr>
+                  <td  align='center' style='padding: 0px 10px 0px 10px;background : #5755a5'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                          <tr>
+                              <td bgcolor='#ffffff' align='center' valign='top' style='padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #4b49ac; font-family: poppins; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;'>
+                                  <h1 style='font-size: 35px; font-weight: 500; margin: 2;'><b>Attendance Notice</b></h1> <img src='https://live.staticflickr.com/65535/52097859173_5b6d3573df_n.jpg' width='250' height='120' style='display: block; border: 0px;' />
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              
+              <tr>
+                  <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #f4f4f4;'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                          <tr>
+                              <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 20px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
+                                  <p style='margin: 0; '><span style='font-size: 16px;'>Dear <b>".$student['name']."</b></span>,<br>Your total attendance performance calculated till date is depicted below. In order to maintain a healthy attendance score(80% and above),you must attend all the upcoming lectures conducted by respective subject faculties.
+                                    </p>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              <tr>
+                <td bgcolor='#f4f4f4' align='center' style='padding: 0px 10px 0px 10px;'>
+                    <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                      <tr>
+                        <td bgcolor='#ffffff' align='left'>
+                            <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+                                <tr>
+                                    <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 30px 30px;'>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td align='center' style='border-radius: 3px; color: #000000; font-family: poppins; font-size: 16px; font-weight: 700; line-height: 30px;' >Atendance summary</td>
+                                            </tr>
+                                        </table>
+                                        <table class = 'AttendanceTable' style='border:2px solid black'>
+                                            <tr>
+                                                <td>SPID</td>
+                                                <td>".$student['spid']."</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>".$student['name']."</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Roll No.</td>
+                                                <td>".$student['cur_roll_no']."</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Course Name</td>
+                                                <td>".$student['course_name']."</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Semester</td>
+                                                <td>".$student['cur_semester']."</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Division</td>
+                                                <td>".$student['cur_division']."</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Subject Name</td>
+                                                <td><b>".$student['subject_name']."</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Present Count</td>
+                                                <td ><span style='padding:0px 12px;color:white;font-size:14px;background-color: #57B657;border-radius: 8px;'>".$student['p_days']." Days</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Absent Count</td>
+                                                <td ><span style='padding:0px 12px;color:white;font-size:14px;background-color: #FF4747;border-radius: 8px;'>".$student['a_days']." Days</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Average Present</td>
+                                                <td ><span style='padding:0px 12px;color:white;font-size:14px;background-color: #FFC100;border-radius: 8px;'>".$st_att."</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr> 
+                    </table>
+                </td>
+              </tr>
+              
+              <tr>
+                <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #f4f4f4;'>
+                    <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                        <tr>
+                            <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
+                                <p style='margin: 0; '> Please note: If your total subject attendance will be less than 60% then you may not be eligible to sit in examination held by department/university. Additionally, 
+                                    department reserves right to decide candidate's examination eligibility right based on his/her attendance in that particular subject.
+                                    </p>
+                                <p style='margin:0;text-align: center;'><br><b>".$student['fname']."</b><br>".$student['role_name'].",<br>Department of Information, Communication & Technology,<br>Veer Narmad South Gujarat University,<br>Surat-395007<br></p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+              <tr>
+                  <td bgcolor='#f4f4f4' align='center' style='padding: 30px 10px 40px 10px;'>
+                      <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                          <tr>
+                              <td align='center' style='background : #5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
+                                  <h2 style='font-size:18px; font-weight: 400; color: #ffffff; margin: 0;'>Have any questions for us or need more information ? 
+                                  <p style='margin: 0;'><a href='mailto:ams.jpd@gmail.com' target='_blank' style='color: rgb(255, 255, 255);'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#ffffff;font-size:16px;'><br>admin.jpd.ams@gmail.com</a></p>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+      </body>
+      
+      </html>
+     
     ";
     
           
