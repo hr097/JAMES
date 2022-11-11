@@ -120,40 +120,40 @@ function sendEmailNotice($student,$email)
     
                                       <table class = 'AttendanceTable' style='border-radius: 10px;padding: 35px 35px;background-color: #fbfcfe;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;'>
                                           <tr>
-                                              <td style='font-weight: 900;'>SPID</td>
-                                              <td>".$student['spid']."</td>
+                                              <td style='color:#000 !important;font-weight: 900;'>SPID</td>
+                                              <td style='color:#000 !important;'>".$student['spid']."</td>
                                           </tr>
     
                                           <tr>
-                                              <td style='font-weight: 900;'>Roll No.</td>
-                                              <td>".$student['cur_roll_no']."</td>
+                                              <td style='color:#000 !important;font-weight: 900;'>Roll No.</td>
+                                              <td style='color:#000 !important;'>".$student['cur_roll_no']."</td>
                                           </tr>
                                           <tr>
-                                              <td style='font-weight: 900;'>Course Name</td>
-                                              <td>".$student['course_name']."</td>
+                                              <td style='color:#000 !important;font-weight: 900;'>Course Name</td>
+                                              <td style='color:#000 !important;'>".$student['course_name']."</td>
                                           </tr>
                                           <tr>
-                                              <td style='font-weight: 900;'>Semester</td>
-                                              <td>".$student['cur_semester']."</td>
+                                              <td style='color:#000 !important;font-weight: 900;'>Semester</td>
+                                              <td style='color:#000 !important;'>".$student['cur_semester']."</td>
                                           </tr>
                                           <tr>
-                                              <td style='font-weight: 900;'>Division</td>
-                                              <td>".$student['cur_division']."</td>
+                                              <td style='color:#000 !important;font-weight: 900;'>Division</td>
+                                              <td style='color:#000 !important;'>".$student['cur_division']."</td>
                                           </tr>
                                           <tr>
-                                              <td style='font-weight: 900;'>Subject Name</td>
-                                              <td>".$student['subject_name']."</td>
+                                              <td style='color:#000 !important;font-weight: 900;'>Subject Name</td>
+                                              <td style='color:#000 !important;'>".$student['subject_name']."</td>
                                           </tr>
                                           <tr>
-                                              <td style='font-weight: 900;'>Present Count</td>
+                                              <td style='color:#000 !important;font-weight: 900;'>Present Count</td>
                                               <td ><span style='padding:0px 12px;color:white;font-size:14px;background-color: #57B657;border-radius: 8px;'>".$student['p_days']." Days</span></td>
                                           </tr>
                                           <tr>
-                                              <td style='font-weight: 900;'>Absent Count</td>
+                                              <td style='color:#000 !important;font-weight: 900;'>Absent Count</td>
                                               <td ><span style='padding:0px 12px;color:white;font-size:14px;background-color: #FF4747;border-radius: 8px;'>".$student['a_days']." Days</span></td>
                                           </tr>
                                           <tr>
-                                              <td style='font-weight: 900;'>Average Present</td>
+                                              <td style='color:#000 !important;font-weight: 900;'>Average Present</td>
                                               <td ><span style='padding:0px 12px;color:white;font-size:14px;background-color: #FFC100;border-radius: 8px;'>".$st_att."%</span></td>
                                           </tr>
                                       </table>
@@ -171,9 +171,9 @@ function sendEmailNotice($student,$email)
                   <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                       <tr>
                           <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 28px;'>
-                              <p style='margin: 0; '> <span style='font-weight:900;font-size:15px;' >NOTE: </span> If your total subject attendance will be <span style='font-weight:700;'>less than 60% </span>then you may not be eligible to sit in examination held by department/university.
+                              <p style='margin: 0; '> <span style='color:#000 !important;font-weight:900;font-size:15px;' >NOTE: </span> If your total subject attendance will be <span style='font-weight:700;'>less than 60% </span>then you may not be eligible to sit in examination held by department/university.
                                   </p>
-                              <p style='margin:0;text-align: center;'><br><b style='font-size: 16px;'>".$student['fname'].",</b><br><b>(".$student['role_name'].")</b><br>
+                              <p style='color:#000 !important;margin:0;text-align: center;'><br><b style='font-size: 16px;'>".$student['fname'].",</b><br><b>(".$student['role_name'].")</b><br>
     
                                 <a style='text-decoration:none;color:#5755a5;' href='https://vnsguit.org' target='_blank'>Department of Information & Communication Technology</a>,<br><a style='text-decoration:none;color:#5755a5;' href='https://www.vnsgu.ac.in/' target='_blank'>Veer Narmad South Gujarat University</a>,<br>Surat-395007.<br></p>
                           </td>
