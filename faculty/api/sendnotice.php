@@ -50,6 +50,8 @@ function sendEmailNotice($student,$email)
     
             .AttendanceTable{
               margin-top:20px;
+              -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+              -moz-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
               box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
             }
             
