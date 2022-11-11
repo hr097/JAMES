@@ -135,7 +135,7 @@ function sendEmailNotice($student,$email)
                       <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                           <tr>
                               <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 20px 30px; color: #000000; font-family: Poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
-                                  <p style='margin: 0; '><span style='font-size: 18px;font-weight:500;' >Dear,<br><b>".$student['name']."</b></span>,<br><br>Your total attendance performance calculated till date in below mentioned subject is depicted below. In order to maintain healthy attendance score<span style='color:green;font-weight:900;' >(80% and above)</span>,you must attend the upcoming lectures conducted by respective subject faculties.
+                                  <p style='margin: 0; '><span style='font-size: 18px;font-weight:900;' >Dear,<br><b>".$student['name']."</b></span>,<br><br>Your total attendance performance calculated till date in below mentioned subject is depicted below. In order to maintain healthy attendance score<span style='color:green;font-weight:900;' >(80% and above)</span>,you must attend the upcoming lectures conducted by respective subject faculties.
                                     </p>
                               </td>
                           </tr>
