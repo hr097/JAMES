@@ -141,7 +141,7 @@ $("#generatereport").click(function(){
         }
         else
         {
-            window.location.href = data;
+            window.location.replace(data);
         } 
     }); 
 });
