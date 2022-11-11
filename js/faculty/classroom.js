@@ -125,17 +125,17 @@ $("#takeattendance").click(function(){
 });
 
 $("#generatereport").click(function(){
-  const classroomid = $("#classroomid").val();
-  //Api request
+
   let csrfTokenVal = $("#csrfToken").val();
+
     $.post("api/downloadreport.php",
     {
     _cid:$("#classroomid").val(),
     _ct:csrfTokenVal,
     },
     function(data){
-
-        if(data=="0")
+  
+        if(data==0)
         {
             window.location.reload();
         }
@@ -143,7 +143,7 @@ $("#generatereport").click(function(){
         { 
             window.location.replace(data);
         } 
-    }); 
+    },"text");  // must specify text
 });
 
 $("#deleteclass").click(function(){
