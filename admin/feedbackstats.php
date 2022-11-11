@@ -12,15 +12,15 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 $u = $_SESSION["_userId"];
 
 //@query
-$sql = "select count(*) as total from ams_feedback;";
+$sql = "select count(*) as total from Ams_feedback;";
 $result = mysqli_query($JAMES->connection(), $sql);
 $result = mysqli_fetch_array($result);
 
-$sql2 = "select cast(avg(rating) as decimal(2,1)) as avge from ams_feedback;";
+$sql2 = "select cast(avg(rating) as decimal(2,1)) as avge from Ams_feedback;";
 $result2 = mysqli_query($JAMES->connection(), $sql2);
 $result2 = mysqli_fetch_array($result2);
 
-$sql3 = "select * from ams_feedback order by rating desc;";
+$sql3 = "select * from Ams_feedback order by rating desc;";
 $result3 = mysqli_query($JAMES->connection(), $sql3);
 $sort = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
 while ($row = mysqli_fetch_array($result3)) {
@@ -30,7 +30,7 @@ $sort = $sort . "</tbody>";
 
 // ! Re-start from HERE for query logic
 // ? Add $inputMail instead of sample email
-$sql4 = "select * from ams_feedback where email = 'harshilramani.mscit20@vnsgu.ac.in';";
+$sql4 = "select * from Ams_feedback where email = 'harshilramani.mscit20@vnsgu.ac.in';";
 $result4 = mysqli_query($JAMES->connection(), $sql4);
 $searchbymail = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
 while ($row2 = mysqli_fetch_array($result4)) {
