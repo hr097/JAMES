@@ -124,6 +124,28 @@ $("#takeattendance").click(function(){
   window.location.href = `takeattendance.php?classroomid=${classroomid}`;
 });
 
+$("#generatereport").click(function(){
+  const classroomid = $("#classroomid").val();
+  //Api request
+  let csrfTokenVal = $("#csrfToken").val();
+    $.post("api/downloadreport.php",
+    {
+    _cid:$("#classroomid").val(),
+    _ct:csrfTokenVal,
+    },
+    function(data){
+
+        if(data==0)
+        {
+            window.location.reload();
+        }
+        else
+        {
+            window.location.href = data;
+        } 
+    }); 
+});
+
 $("#deleteclass").click(function(){
     $("#modalmsg").html("Deletion of this classroom includes deletetion of relevant data of students,faculty and attendances!<br><br><span style='color:red;text-align:center;'>NOTE: This operation cannot be undone.</span><br><br>Do you confirm it?");
     $("#modal").css("display", "block");
