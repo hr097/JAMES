@@ -11,7 +11,7 @@ $JAMES->init_user_session();
 
     function generateReport()
     {
-       return "https:ams.vnsguit.org/reportgeneration/test.xlsx"; //! remove it
+       return "https://ams.vnsguit.org/reportgeneration/test.xlsx"; //! remove it
     }
 
     if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
