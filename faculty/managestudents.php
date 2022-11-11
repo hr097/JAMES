@@ -128,6 +128,7 @@ $JAMES->init_user_session();
                         </div>
 
                       </div>
+                      
                       <div class="form-group search_fetch_btn">
                         <!-- <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search
                         </button> --> 
@@ -136,11 +137,12 @@ $JAMES->init_user_session();
                       </div>
                     </div>
 
-                    
+                    <hr style="margin-bottom:30px;">
                       <!--Course -->
-                      
+                    
                       <div class="row">
                           <div class="col-lg-3 col-md-3 col-sm-12">
+                            
                           <?php echo $course_html;?>
                           </div>
                         <div class="col-lg-3 col-md-3 col-sm-12">
@@ -175,7 +177,7 @@ $JAMES->init_user_session();
                       </div>
                       <!--Semester -->
                       
-                    <hr>
+                    <hr class="">
 
                     <!-- Student Add data Start -->
                     <div class="card" id="add_stud_tbl">
