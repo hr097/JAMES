@@ -11,10 +11,13 @@ var spid = $("#spid").val();
 generate("https://ams.vnsguit.org");
   
 btn.addEventListener("click", () => {
-  let user_input = `https://ams.vnsguit.org/temp/qrtest.php?classroomid=
-  ${$("#input_text").val()}
-  &spid=${spid}
-  `;
+  // let user_input = `https://ams.vnsguit.org/temp/qrtest.php?classroomid=
+  // ${$("#input_text").val()}
+  // &spid=${spid}
+  // `;
+  
+  let user_input = `https://ams.vnsguit.org`;
+
   if (user_input.value != "") {
     if (qr_code_element.childElementCount == 0) {
       generate(user_input);
