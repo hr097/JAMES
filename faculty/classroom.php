@@ -4,16 +4,14 @@ require_once("../ams.php");
 $JAMES = new AMS("User");
 $JAMES->init_user_session();
 
-if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
-{
- $JAMES->ams_redirect("../login.php");
+if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="2")) {
+    $JAMES->ams_redirect("../login.php");
 }
 
 $classroom_status="-";
 $classroom_id="";
 
-if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset($_GET['semester'])&&isset($_GET['division']))
-{
+if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset($_GET['semester'])&&isset($_GET['division'])) {
     $fid = $_SESSION['_fid'];
     $sem = $_GET['semester'];
     $year = $_GET['year'];
@@ -22,7 +20,7 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
     $subject = $_GET['subject'];
 
     //Archive and Unarchive
-    
+
     //query
     $sql= "select S.subject_code,ASCSM.ams_setup_id,ASFM.setup_status from Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Course_subject_map CSM,Subjects S,Courses C where ASCSM.cs_id=CSM.cs_id AND CSM.course_id=C.course_id AND CSM.subject_id=S.subject_id AND ASFM.ams_setup_id=ASCSM.ams_setup_id AND 
     ASFM.fid='$fid' AND
@@ -31,19 +29,15 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
     ASCSM.division='$div' AND
     C.course_name='$course' AND
     S.subject_name='$subject';";
-    
-    $result = mysqli_query($JAMES->connection(),$sql);
-    
-    if(mysqli_num_rows($result)==1)
-    {
+
+    $result = mysqli_query($JAMES->connection(), $sql);
+
+    if (mysqli_num_rows($result)==1) {
         $classroom = mysqli_fetch_assoc($result);
 
-        if($classroom['setup_status']==true)
-        {
+        if ($classroom['setup_status']==true) {
             $classroom_status = "Archive";
-        }
-        else
-        {
+        } else {
             $classroom_status = "Unarchive";
         }
 
@@ -51,34 +45,26 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
         $subject_code = $classroom['subject_code'];
 
         //to fetch students who have enrolled in particular classroom
-    
-        //@query 
-        $sql = "select S.email,S.spid,S.cur_roll_no,S.name,ASSM.spid,ASSM.p_days,a_days,(round(( (p_days) / (p_days + a_days)*100))) As att_percentage from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroom_id;"; 
-        $result = mysqli_query($JAMES->connection(),$sql);
+
+        //@query
+        $sql = "select S.email,S.spid,S.cur_roll_no,S.name,ASSM.spid,ASSM.p_days,a_days,(round(( (p_days) / (p_days + a_days)*100))) As att_percentage from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroom_id;";
+        $result = mysqli_query($JAMES->connection(), $sql);
 
         $student_list = "";
 
-        if(mysqli_num_rows($result)>=1)
-        {
-            while($record = mysqli_fetch_assoc($result))
-            {            
-
-                if($record['att_percentage']>=80)
-                {
+        if (mysqli_num_rows($result)>=1) {
+            while ($record = mysqli_fetch_assoc($result)) {
+                if ($record['att_percentage']>=80) {
                     $att_pr=" <td><button type='button' class='btn btn-success rounded px-3 py-1'>".$record['att_percentage']."%</button></td>";
-                }
-                else if($record['att_percentage']>=50)
-                {
+                } elseif ($record['att_percentage']>=50) {
                     $att_pr=" <td><button type='button' class='btn btn-warning rounded px-3 py-1'>".$record['att_percentage']."%</button></td>";
-                }   
-                else
-                {
+                } else {
                     $att_pr=" <td><button type='button' class='btn btn-danger rounded px-3 py-1'>0%</button></td>";
                 }
 
-               
-            $student_list.=
-            "
+
+                $student_list.=
+                "
             <tr>
             <td>".$record['cur_roll_no']."</td>
             <td>".$record['spid']."</td>
@@ -93,20 +79,13 @@ if(isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset(
             </tr>
             ";
             }
-        }
-        else
-        {
+        } else {
             $student_list.="<tr><td  colspan='7' style='font-size:1.2em;text-align:center;'>No Student Enrollment Yet!</td></tr>";
         }
-        
-    }
-    else
-    {
+    } else {
         $JAMES->ams_redirect("../login.php");
     }
-}
-else
-{
+} else {
     $JAMES->ams_redirect("../login.php");
 }
 
@@ -122,7 +101,7 @@ else
     <!-- including footer -->
     <?php
           include './common/header.php'
-          ?>
+?>
 
     <!-- Page info -->
     <title>AMS | Classroom</title>
@@ -162,11 +141,11 @@ else
 
                     <h4 class="card-title classroom-title  mb-4 ml-5" style="text-align:right;">
                         <?php
-                        //echo $_GET['course']."-".$_GET['year']." | ".$subject_code." |   ".$_GET['subject']."   |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
-                        //echo $_GET['course']."-".$_GET['year']." | ".$subject_code." |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
-                        echo $_GET['course']."-".$_GET['year']." | ".$subject_code." | Div-".$_GET['division'];
-                    ?>
-                    </h4>
+                            //echo $_GET['course']."-".$_GET['year']." | ".$subject_code." |   ".$_GET['subject']."   |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
+                            //echo $_GET['course']."-".$_GET['year']." | ".$subject_code." |   Sem ".$_GET['semester']."| Div-".$_GET['division'];
+                            echo $_GET['course']."-".$_GET['year']." | ".$subject_code." | Div-".$_GET['division'];
+                        ?>
+                    </h4>   
 
                     <div class="container mt-5">
                         <div class="row">
@@ -224,15 +203,6 @@ else
                                     Delete Classroom
                                 </button>
                             </div>
-
-                            <div class="col-lg-2 col-md-6 col-sm-12  classroom-btns-div">
-                                <button type="button" class="btn btn-info btn-icon-text mb-1 classroom-btns" id="generatereport">
-                                    <i class="ti-import btn-icon-prepend"></i>
-                                    Download Report
-                                </button>
-                            </div>
-
-
                         </div>
                     </div>
 
@@ -263,12 +233,18 @@ else
                                     </div>
                                 </div>
                             </div>
-                            <!--Table End-->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+               <!--Table End-->
+            <button type="button" class="btn btn-info btn-icon-text mb-1 " id="generatereport">
+                                <i class="ti-import btn-icon-prepend"></i>
+                                Download Report
+            </button>
+
+        </div>                    
     </div>
     </div>
     </div>
@@ -288,7 +264,7 @@ else
     <!-- including footer -->
     <?php
     include './common/footer.php'
-    ?>
+?>
 
 
 </body>
