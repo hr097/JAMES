@@ -65,7 +65,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
                       <div>
                       <div class="qr-code-container">
                           <div class="qr-code mb-4"></div>
-                          <div><h4 style="text-align:center;font-weight:700;">SCAN HERE!</h4></div>
+                          <div><h4 style="text-align:center;font-weight:700;">SCAN THIS CODE!</h4></div>
                       </div>
                       </div>
                     </div>
