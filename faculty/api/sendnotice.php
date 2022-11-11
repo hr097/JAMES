@@ -27,6 +27,7 @@ function sendEmailNotice($student,$email)
           <meta http-equiv='Content-Type' content='text/html, charset=utf-8' />
           <meta name='viewport' content='width=device-width, initial-scale=1'>
           <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+          <link href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet'>
           <style type='text/css'>
              
               body,
@@ -188,7 +189,7 @@ function sendEmailNotice($student,$email)
                                             </tr>
                                             <tr>
                                                 <td>Average Present</td>
-                                                <td ><span style='padding:0px 12px;color:white;font-size:14px;background-color: #FFC100;border-radius: 8px;'>".$st_att."</span></td>
+                                                <td ><span style='padding:0px 12px;color:white;font-size:14px;background-color: #FFC100;border-radius: 8px;'>".$st_att."%</span></td>
                                             </tr>
                                         </table>
                                     </td>
