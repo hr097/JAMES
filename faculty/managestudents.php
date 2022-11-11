@@ -137,7 +137,10 @@ $JAMES->init_user_session();
                       </div>
                     </div>
 
-                    <hr style="margin-bottom:30px;">
+                    <!-- <hr style="margin-bottom:30px;" class="addStudentHr"> -->
+                    <div class="separator">OR</div>
+
+                    
                       <!--Course -->
                     
                       <div class="row">

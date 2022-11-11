@@ -160,7 +160,7 @@ else
                                             <div class="col-md-6">
                                                 <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>">
                                                 <input type="hidden" id="classroomid" name="classroomid" value='<?php echo $GLOBALS['classroom_id'];?>'>
-                                                <button type="submit" class="btn btn-primary mr-2 mt-3" id="TakeattButton">Take Attendance</button>
+                                                <button type="submit" class="btn btn-primary mr-2 mt-3" id="TakeattButton">Fetch Attendance</button>
                                             </div>
                                         </div>
                                     </form>

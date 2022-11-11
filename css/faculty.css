@@ -261,3 +261,28 @@ padding-top:7px;
     margin-top: 0;
 }
 }
+
+/*---------------------------------------------- manage students ------------------------------------------- */
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color:#e5e5e5;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.separator:not(:empty)::before {
+  margin-right: .25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: .25em;
+}
