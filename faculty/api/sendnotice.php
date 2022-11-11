@@ -37,11 +37,12 @@ function sendNotice($cid,$email)
 {        
     //@query
     $sql = "
-    SELECT S.name,S.cur_roll_no,S.cur_semester,C.course_name,SB.subject_name,SB.subject_code,F.name As fname,ASCSM.year,ASCSM.division,ASSM.p_days,ASSM.a_days,(round(( (ASSM.p_days) / (ASSM.p_days + ASSM.a_days)*100))) As att_percentage FROM Students S,Faculties F,Subjects SB,Courses C,Course_subject_map CSM,Ams_setup_students_map ASSM,Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM WHERE
+    SELECT S.name,S.cur_roll_no,S.cur_semester,C.course_name,SB.subject_name,SB.subject_code,F.name As fname,FR.role_name,S.spid,ASCSM.year,ASCSM.division,ASSM.p_days,ASSM.a_days,(round(( (ASSM.p_days) / (ASSM.p_days + ASSM.a_days)*100))) As att_percentage FROM Students S,Faculties F,Subjects SB,Courses C,Course_subject_map CSM,Ams_setup_students_map ASSM,Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Faculty_roles FR WHERE
     S.course_id=C.course_id AND
     CSM.course_id=C.course_id AND
     CSM.subject_id=SB.subject_id AND
     F.fid=ASFM.fid AND
+    F.role_id=FR.role_id AND
     S.spid=ASSM.spid AND
     ASCSM.cs_id=CSM.cs_id AND
     ASCSM.ams_setup_id=ASSM.ams_setup_id AND
