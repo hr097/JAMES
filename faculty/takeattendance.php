@@ -133,7 +133,7 @@ else
                                                 <input type="date" name="currdate" class="form-control" value="<?php echo date("Y-m-d");?>">
                                             </div>
                                         </div>
-                                        <div style="font-size: 15px;font-weight:500;" class="mb-3">Pick a time</div>
+                                        <div style="font-size: 17px;font-weight:700;" class="mb-3">Pick a time</div>
                                         
                                         <!--Time Picker-->
                                         <div class="row">
