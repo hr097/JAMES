@@ -27,10 +27,10 @@ if(isset($_GET['classroomid']))
            $student_list.=
            "
            <tr class='student'>
-           <td><input type='checkbox'  class='edit_checkbox' name='select_stud' id='".$record['spid']."'></td>
+           <td><input type='checkbox' class='edit_checkbox' name='select_stud' id='".$record['spid']."'><span style='visibility:hidden;'>0</span></td>
+           <td>".$record['cur_roll_no']."</td>
            <td>".$record['spid']."</td>
            <td>".$record['name']."</td>
-           <td>".$record['email']."</td>
            <td>".$record['gender']."</td>
            <td>".$record['dob']."</td>
            </tr>
@@ -39,7 +39,7 @@ if(isset($_GET['classroomid']))
      }
      else
      {
-         $student_list.="<tr><td  colspan='7' style='font-size:1.2em;text-align:center;'>No Student Enrollment!</td></tr>";
+         $student_list.="<tr><td  colspan='6' style='font-size:1.2em;text-align:center;'>No Student Enrollment!</td></tr>";
      }
  
 }
@@ -167,53 +167,38 @@ else
                                 </div>
                             </div>
                         </div>
+                        </div>
+
                         <!--Form End-->
   
-                    <!-------------------------------------------------------Table Start------------------------------------------------------->
-            <div class="col-lg-12 grid-margin">
-
-                <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Enrolled Students Details</h4>
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="table-responsive">
-                        <table id="order-listing" class="table" id="tbl">
-                                <thead>
-                                   <tr>
-                                    <th><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>
-                                    <th>SPID</th>
-                                    <th>Name</th>
-                                    <th>Email Address</th>
-                                    <th>Gender</th>
-                                    <th>Birthdate</th>
-                                  </tr>
-                                </thead>
-                            <tbody id="studentdata">
-                            <?php echo $student_list; ?>
-                            </tbody>
-                        </table>
+                        <div class="card mt-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Enrolled Students Attendance</h4>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive">
+                                        <table id="order-listing" class="table" >
+                                            <thead>
+                                                <tr>
+                                                <th>Action</th>
+                                                <th>Roll Number</th>
+                                                <th>SPID</th>
+                                                <th>Name</th>
+                                                <th>Gender</th>
+                                                <th>Birthdate</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="enrolledstudentlist">
+                                                <?php
+                                                echo $student_list;
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!--Table End-->
-                
-                </div>
-                <button type="button" id="submitattendance"class="btn btn-primary mr-2 mt-4">Submit Attendance</button>
-                    <!-- <button type="reset"  class="btn btn-light mt-3">Clear</button> -->
-                </div>
-
-                </div>
-       
-                </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+                    </div>            
         <!-- modal -->
         <div id="modal" class="modal">
         <!-- modal content -->

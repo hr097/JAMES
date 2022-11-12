@@ -112,13 +112,42 @@ $(document).ready(function(){
     $(".student").click(
         function()
         {
-          if($($($(this).find("input")[0])).is(':checked')==true)
+          $("#order-listing").DataTable().destroy();
+
+          if($($($(this).find("input")[0])).is(':checked')==false)
           {
-            $($(this).find("input")[0]).removeAttr("checked");
+
+            $($(this).find("input")[0]).siblings()[0].innerHTML = "0";
+            $('#order-listing').DataTable({
+              "aLengthMenu": [
+                [5, 10, 15, -1],
+                [5, 10, 15, "All"]
+              ],
+              "order":[],
+              "iDisplayLength": 10,
+              "language": {
+                search: ""
+              }
+            });
+            //$($(this).find("input")[0]).siblings()[0].text();
+
           }
-          else
+          else 
           {
-            $($(this).find("input")[0]).attr("checked","true");
+            //$($(this).find("input")[0]).attr("checked","true");
+            $($(this).find("input")[0]).siblings()[0].innerHTML = "1";
+            $('#order-listing').DataTable({
+              "aLengthMenu": [
+                [5, 10, 15, -1],
+                [5, 10, 15, "All"]
+              ],
+              "order":[],
+              "iDisplayLength": 10,
+              "language": {
+                search: ""
+              }
+            });
+
           }
         }
       );
