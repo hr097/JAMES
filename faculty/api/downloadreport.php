@@ -10,7 +10,9 @@ $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
     function generateReport()
-    {
+    {   /* Nupur write your excel generation code <here></here>*/
+        /* Apart from that when you need data from database just inform me I will write query */
+        
        return "https://ams.vnsguit.org/reportgeneration/test.xlsx"; //! remove it
     }
 
