@@ -166,23 +166,22 @@ $(document).ready(function(){
     
             if(status == "success")
             {   
+              student_list= JSON.parse(data);
 
-              if(data==1)
+              if(student_list.response==-1)
               {
-                student_list= JSON.parse(data);
-                alert(student_list);
-                console.log(student_list);
+                $("#modalmsg").text("Something went wrong! Try again later.");
+                $("#modal").css("display","block");
               }
-              else if(data==0)
+              else if(student_list.response==0)
               {
                 $("#modalmsg").text("No latest attendance found in classroom!");
                 $("#modal").css("display","block");
               }
               else
               {
-                 $("#modalmsg").text("Something went wrong! Try again later.");
-                 $("#modal").css("display","block");
-                 submit_flag=false;
+                 alert(student_list.response);
+                 console.log(student_list.response);
               }
             }
           });//MUST specify it

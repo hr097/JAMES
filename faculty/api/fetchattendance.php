@@ -17,7 +17,7 @@ function fetchAttendanceFromAmsApi($reader_no,$date,$time1,$time2)
     
     if(mysqli_num_rows($result)>0)
     {
-        $student = array("-");
+        $student = array("");
         while($record = mysqli_fetch_assoc($result))
         {
             array_push($student,$record['spid']);
@@ -27,7 +27,7 @@ function fetchAttendanceFromAmsApi($reader_no,$date,$time1,$time2)
     }
     else
     {
-        return $sql;
+        return 0;
     }
 }
 
