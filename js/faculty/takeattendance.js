@@ -95,7 +95,6 @@ else if(fetch_att_flag==true)
 }
 else if(fetch_att_flag2==true)
 {
-
   fetch_att_flag2=false;
 }
 else
@@ -165,7 +164,7 @@ $(document).ready(function(){
           function (data, status) {
     
             if(status == "success")
-            {   
+            {   alert("Success!");
               student_list = JSON.parse(data);
 
               if(student_list.response==-1)
