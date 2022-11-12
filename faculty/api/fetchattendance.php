@@ -8,10 +8,10 @@ require_once("../../ams.php");
 $JAMES = new AMS("User");
 $JAMES->init_user_session();
 
-function fetchAttendanceFromAmsApi($reader_no,$date,$time1,$time2) 
+function fetchAttendanceFromAmsApi($reader_no,$time1,$time2) 
 {   
     //query
-    $sql= "select Ams_api.spid FROM Ams_api where reader_no=$reader_no AND DATE_FORMAT(DATE(reading_date_time),'%Y-%m-%d')='$date' AND DATE_FORMAT(TIME(reading_date_time),'%H:%i')>'$time1' AND DATE_FORMAT(TIME(reading_date_time),'%H:%i')<'$time2';";
+    $sql= "select Ams_api.spid FROM Ams_api where reader_no=$reader_no AND reading_date_time BETWEEN '$time1' AND '$time2';";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
@@ -38,7 +38,10 @@ if(isset($_POST['_r_no'])&&isset($_POST['_dt'])&&isset($_POST['_toti'])&&isset($
         $t1 = $JAMES->sanitizeInput($_POST['_toti']);
         $t2 = $JAMES->sanitizeInput($_POST['_froti']);
 
-        $message=fetchAttendanceFromAmsApi($reader,$d,$t1,$t2);
+        $p1 = $d." ".$t1.":00";
+        $p2 = $d." ".$t2.":00";
+
+        $message=fetchAttendanceFromAmsApi($reader,$p1,$p2);
         echo(json_encode(array('response' => $message)));
 
          
