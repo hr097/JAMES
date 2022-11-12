@@ -99,13 +99,13 @@ if(checkRequestParameter()&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csr
         $PR_student_list = $_POST['_prstudls'];
         $AB_student_list = $_POST['_abstudls'];
 
-        if(count($PR_student_list)>0)
+        if(count($PR_student_list)>0&&$PR_student_list[0]!=" ")
         {
             $p = add_present($fid,$class_id,$PR_student_list);
             echo $p;
         }
         
-        if(count($AB_student_list)>0)
+        if(count($AB_student_list)>0&&$AB_student_list[0]!=" ")
         {
             $a =  add_absent($fid,$class_id,$AB_student_list);
             echo $a;
