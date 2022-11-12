@@ -166,7 +166,7 @@ $(document).ready(function(){
     
             if(status == "success")
             {   
-              student_list= JSON.parse(data);
+              student_list = JSON.parse(data);
 
               if(student_list.response==-1)
               {
