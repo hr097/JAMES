@@ -28,9 +28,8 @@ while ($row = mysqli_fetch_array($result3)) {
 }
 $sort = $sort . "</tbody>";
 
-// ! Re-start from HERE for query logic
-// ? Add $inputMail instead of sample email
-$sql4 = "select * from Ams_feedback where email = 'harshilramani.mscit20@vnsgu.ac.in';";
+$emailTemp = "document.getElementById('email_input').innerHTML";
+$sql4 = "select * from Ams_feedback where email = $emailTemp;";
 $result4 = mysqli_query($JAMES->connection(), $sql4);
 $searchbymail = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
 while ($row2 = mysqli_fetch_array($result4)) {
@@ -38,6 +37,14 @@ while ($row2 = mysqli_fetch_array($result4)) {
 }
 $searchbymail = $searchbymail . "</tbody>";
 
+// $fidTemp = "document.getElementById('feedback_input')";
+// $sql5 = "select * from Ams_feedback where fb_id = fidTemp;";
+// $result5 = mysqli_query($JAMES->connection(), $sql5);
+// $searchbyfid = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
+// while ($row2 = mysqli_fetch_array($result5)) {
+//     $searchbyfid = $searchbyfid . "<tr><td>" . $row2['fb_id'] . "</td><td>" . $row2['email'] . "</td><td>" . $row2['description'] . "</td><td>" . $row2['givenAt'] . "</td><td>" . $row2['rating'] . "</td><td></tr>";
+// }
+// $searchbyfid = $searchbyfid . "</tbody>";
 
 // if(mysqli_num_rows($result)>=0)
 // {
@@ -129,7 +136,7 @@ $searchbymail = $searchbymail . "</tbody>";
                             <div class="form-group">
                                 <form class="form-inline">
                                     <div class="form-group mb-2">
-                                        <input type="text" id="staticEmail2" placeholder="email@example.com" class="form-control form-group-lg">
+                                        <input type="text" id="email_input" placeholder="email@example.com" class="form-control form-group-lg">
                                     </div>
                                     <button type="submit" class="btn btn-primary mb-2 ml-2" onclick="searchMail()">Search Data</button>
                                     <!-- Add a Clear field button -->
@@ -155,7 +162,7 @@ $searchbymail = $searchbymail . "</tbody>";
                             <div class="form-group">
                                 <form class="form-inline">
                                     <div class="form-group mb-2">
-                                        <input type="text" id="staticEmail2" placeholder="XXXXXX" class="form-control form-group-lg">
+                                        <input type="text" id="feedback_input" placeholder="XX" class="form-control form-group-lg">
                                     </div>
                                     <button type="submit" class="btn btn-primary mb-2  ml-2" onclick="searchfId()">Search Data</button>
                                     <!-- Add a Clear field button -->
@@ -213,6 +220,7 @@ $searchbymail = $searchbymail . "</tbody>";
     }
 
     function searchfId() {
+        // document.getElementById('fiddata').innerHTML = "";
     }
 </script>
 
