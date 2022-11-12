@@ -164,7 +164,7 @@ $(document).ready(function(){
           function (data, status) {
     
             if(status == "success")
-            {   alert("Success!");
+            {   
               student_list = JSON.parse(data);
 
               if(student_list.response==-1)
@@ -178,14 +178,15 @@ $(document).ready(function(){
                 $("#modal").css("display","block");
               }
               else
-              {   
+              {   console.log("1");
                  let st_ls_len = student_list.response.length;
 
                  for(let i=0;i<st_ls_len;i++)
-                 {
+                 {console.log("2");
                    $(`#${student_list.response[i]}`).attr("checked",true);
                    $(`#${student_list.response[i]}`).siblings()[0].innerHTML = "1";
                  }
+                 console.log("3");
               }
 
             }
