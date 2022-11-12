@@ -132,7 +132,7 @@ else
                                          
                                             <div class="form-group col-md-6 ">
                                                 <label>Date</label>
-                                                <input type="date" name="currdate" class="form-control" value="<?php echo date("Y-m-d");?>">
+                                                <input type="date" id="currdate" name="currdate" class="form-control" value="<?php echo date("Y-m-d");?>">
                                             </div>
                                         </div>
                                         <div style="font-size: 17px;font-weight:700;" class="mb-3">Pick a time</div>
@@ -143,7 +143,7 @@ else
                                                 
                                                 <div class="form-group">
                                                 <label>From</label>
-                                                <input type="time" name="fromtime" class="form-control" id="appt" required>
+                                                <input type="time" name="fromtime" class="form-control" id="fromtime" required>
                                                     
                                             </div>
                                             </div>
@@ -151,7 +151,7 @@ else
                                                 
                                                 <div class="form-group">
                                                 <label>To</label>
-                                                <input type="time"  class="form-control" id="appt" name="totime" required>
+                                                <input type="time"  class="form-control" id="totime" name="totime" required>
                                                     
                                                 </div>
                                             </div>
@@ -163,7 +163,7 @@ else
                                                 <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>">
                                                 <input type="hidden" id="classroomid" name="classroomid" value='<?php echo $GLOBALS['classroomid'];?>'>
                                                 <input type="hidden" id="fid" name="fid" value='<?php echo $GLOBALS['fid'];?>'>
-                                                <button type="submit" class="btn btn-primary mr-2 mt-3" id="TakeattButton">Fetch Attendance</button>
+                                                <button type="button" class="btn btn-primary mr-2 mt-3" id="TakeattButton">Fetch Attendance</button>
                                             </div>
                                         </div>
                                     </form>

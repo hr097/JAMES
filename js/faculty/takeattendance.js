@@ -4,6 +4,8 @@
 var modal = document.getElementById("modal");
 var span = document.getElementsByClassName("close")[0]; //close modal
 var submit_flag = false;
+var fetch_att_flag = false;
+var fetch_att_flag2 = false;
 
 span.onclick = function () {
   //close modal
@@ -86,6 +88,16 @@ if(submit_flag)
 
    }
 }
+else if(fetch_att_flag==true)
+{
+  fetch_att_flag=false;
+  modal.style.display = "none";
+}
+else if(fetch_att_flag2==true)
+{
+
+  fetch_att_flag2=false;
+}
 else
 {
   window.location.reload();
@@ -108,6 +120,76 @@ $(document).ready(function(){
         $("#modal").css("display", "block");
 
     });
+
+    $("#TakeattButton").click(
+      function(){
+      fetch_att_flag= true; 
+      let reader = $("#reader_selection").val();
+      let curdate = $("#currdate").val();
+      let time1 = $("#fromtime").val();
+      let time2 = $("#totime").val();
+      let csrfToken = $("#csrfToken").val();
+      
+      if(reader=="0")
+      {
+        $("#modalmsg").html("Please select a classroom number!"); 
+        $("#modal").css("display", "block");
+      }
+      else if(curdate=="")
+      {
+        $("#modalmsg").html("Please select a valid date!"); 
+        $("#modal").css("display", "block");
+      }
+      else if(time1=="")
+      {
+        $("#modalmsg").html("Please select a valid \" FROM \" time!"); 
+        $("#modal").css("display", "block");
+      }
+      else if(time2=="")
+      {
+        $("#modalmsg").html("Please select a valid \" TO \" time!"); 
+        $("#modal").css("display", "block");
+      }
+      else
+      {
+        fetch_att_flag2=true;
+        $.post(
+          "api/fetchattendance.php",
+          {
+            _r_no:reader,
+            _dt:curdate ,
+            _toti:time1,
+            _froti: time2,
+            _ct: csrfToken
+          },
+          function (data, status) {
+    
+            if(status == "success")
+            {   
+              alert(data);
+              if(data==1)
+              {
+                
+              }
+              else if(data==0)
+              {
+                $("#modalmsg").text("No latest attendance found in classroom!");
+                $("#modal").css("display","block");
+              }
+              else
+              {
+                 $("#modalmsg").text("Something went wrong! Try again later.");
+                 $("#modal").css("display","block");
+                 submit_flag=false;
+              }
+            }
+          });//MUST specify it
+    
+      }
+      
+      
+
+  });
 
     $(".student").click(
         function()
