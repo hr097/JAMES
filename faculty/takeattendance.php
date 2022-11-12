@@ -143,7 +143,7 @@ else
                                                 
                                                 <div class="form-group">
                                                 <label>From</label>
-                                                <input type="time" step="2" name="fromtime" class="form-control" id="fromtime" required>
+                                                <input type="time" name="fromtime" class="form-control" id="fromtime" required>
                                                     
                                             </div>
                                             </div>
@@ -151,7 +151,7 @@ else
                                                 
                                                 <div class="form-group">
                                                 <label>To</label>
-                                                <input type="time" step="2" class="form-control" id="totime" name="totime" required>
+                                                <input type="time" class="form-control" id="totime" name="totime" required>
                                                     
                                                 </div>
                                             </div>
