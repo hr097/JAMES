@@ -27,7 +27,7 @@ function fetchAttendanceFromAmsApi($reader_no,$time1,$time2)
     }
     else
     {
-        return $sql;
+        return 0; //change to sql for debuging
     }
 }
 
