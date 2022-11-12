@@ -45,6 +45,17 @@ if(submit_flag)
     let classroomid = $("#classroomid").val();
     let fid = $("#fid").val();
 
+    if(students_list1.length<1)
+    {
+      students_list1.push(" ");
+    }
+
+    
+    if(students_list2.length<1)
+    {
+      students_list2.push(" ");
+    }
+
     $.post(
       "api/submitattendance.php",
       {
