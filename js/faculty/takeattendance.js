@@ -77,7 +77,8 @@ if(submit_flag)
 }
 else
 {
-  modal.style.display = "none";
+  //modal.style.display = "none";
+  window.location.reload();
 }
 
 };
