@@ -60,6 +60,10 @@ function sendEmailNotice($student,$email)
               font-size: 14px;
             }
     
+            .present-data{
+                padding:5px 12px !important;
+            }
+    
             @media screen and (max-width:600px) {
                 h1 {
                     font-size: 32px !important;
@@ -149,15 +153,15 @@ function sendEmailNotice($student,$email)
                                           </tr>
                                           <tr>
                                               <td style='color:#000 !important;font-weight: 900;'>Present Count</td>
-                                              <td ><span style='padding:5px 12px;color:white;font-size:14px;background-color: #57B657;border-radius: 8px;'>".$student['p_days']." Days</span></td>
+                                              <td ><span class="present-data" style='color:white;font-size:14px;background-color: #57B657;border-radius: 8px;'>".$student['p_days']." Days</span></td>
                                           </tr>
                                           <tr>
                                               <td style='color:#000 !important;font-weight: 900;'>Absent Count</td>
-                                              <td ><span style='padding:5px 12px;color:white;font-size:14px;background-color: #FF4747;border-radius: 8px;'>".$student['a_days']." Days</span></td>
+                                              <td ><span class="present-data" style='color:white;font-size:14px;background-color: #FF4747;border-radius: 8px;'>".$student['a_days']." Days</span></td>
                                           </tr>
                                           <tr>
                                               <td style='color:#000 !important;font-weight: 900;'>Average Present</td>
-                                              <td ><span style='padding:5px 12px;color:white;font-size:14px;background-color: #FFC100;border-radius: 8px;'>".$st_att."%</span></td>
+                                              <td ><span class="present-data" style='color:white;font-size:14px;background-color: #FFC100;border-radius: 8px;'>".$st_att."%</span></td>
                                           </tr>
                                       </table>
                                   </td>
@@ -170,7 +174,7 @@ function sendEmailNotice($student,$email)
             </tr>
             
             <tr>
-              <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #f4f4f4;'>
+              <td  align='center' style='padding: 0px 10px 0px 10px; background-color: #e2e1e1;'>
                   <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                       <tr>
                           <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 28px;'>
