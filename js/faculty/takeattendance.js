@@ -166,10 +166,12 @@ $(document).ready(function(){
     
             if(status == "success")
             {   
-              alert(data);
+
               if(data==1)
               {
-                
+                student_list= JSON.parse(data);
+                alert(student_list);
+                console.log(student_list);
               }
               else if(data==0)
               {

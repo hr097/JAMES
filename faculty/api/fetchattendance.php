@@ -11,7 +11,7 @@ $JAMES->init_user_session();
 function fetchAttendanceFromAmsApi($reader_no,$time1,$time2) 
 {   
     //AND DATE_FORMAT(TIME(reading_date_time),'%r')>$time1 AND DATE_FORMAT(TIME(reading_date_time),'%r')<$time2;
-    $sql= "select Ams_api.spid FROM Ams_api where reader_no=$reader_no AND reading_date_time BETWEEN $time1 AND $time2;";
+    $sql= "select Ams_api.spid FROM Ams_api where reader_no=$reader_no AND reading_date_time BETWEEN '$time1' AND '$time2';";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
