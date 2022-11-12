@@ -8,11 +8,13 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 {
  $JAMES->ams_redirect("../login.php");
 }
+$classroomid="";
 
 if(isset($_GET['classroomid']))
-{
+{   
      //to fetch students who have enrolled in particular classroom
      $classroomid = $_GET['classroomid'];
+     $fid = $_SESSION['_fid'];
 
      //@query 
      $sql = "select S.*,DATE_FORMAT(S.dob,'%d-%m-%Y')AS dob from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroomid;"; 
@@ -159,7 +161,8 @@ else
                                         <div class="row" style="margin-top:-30px;">
                                             <div class="col-md-6">
                                                 <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>">
-                                                <input type="hidden" id="classroomid" name="classroomid" value='<?php echo $GLOBALS['classroom_id'];?>'>
+                                                <input type="hidden" id="classroomid" name="classroomid" value='<?php echo $GLOBALS['classroomid'];?>'>
+                                                <input type="hidden" id="fid" name="fid" value='<?php echo $GLOBALS['fid'];?>'>
                                                 <button type="submit" class="btn btn-primary mr-2 mt-3" id="TakeattButton">Fetch Attendance</button>
                                             </div>
                                         </div>
@@ -180,7 +183,7 @@ else
                                         <table id="order-listing" class="table" >
                                             <thead>
                                                 <tr>
-                                                <th>Action</th>
+                                                <th><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>
                                                 <th>Roll Number</th>
                                                 <th>SPID</th>
                                                 <th>Name</th>
@@ -195,6 +198,7 @@ else
                                             </tbody>
                                         </table>
                                     </div>
+                                    <button type="button" id="submitattendance"class="btn btn-primary mr-2 mt-3">Submit Attendance</button>
                                 </div>
                             </div>
                         </div>

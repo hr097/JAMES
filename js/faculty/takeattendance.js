@@ -3,6 +3,7 @@
 
 var modal = document.getElementById("modal");
 var span = document.getElementsByClassName("close")[0]; //close modal
+var submit_flag = false;
 
 span.onclick = function () {
   //close modal
@@ -15,38 +16,69 @@ window.onclick = function (event) {
   }
 };
 
-
-var notice_flag = false;
-
 document.getElementById("yes-button").onclick = function () {
   // yes-> redirect to deletion api request
 
-  if(notice_flag==true)
-  {
-    modal.style.display = "none";
-    notice_flag=false;
-  }
-  else
-  {
-  let csrfTokenVal = $("#csrfToken").val();
-    $.post("api/deleteclassroom.php",
-    {
-    _cid:$("#classroomid").val(),
-    _ct:csrfTokenVal,
-    },
-    function(data){
+if(submit_flag)
+{
+  let i=0;
+  const stud_len = $(".student").length;
+  const students_list1 = [];
+  const students_list2 = [];
 
-        if(data==1)
-        {   
-            window.location.href = "./dashboard.php";
+   for(i=0;i<stud_len;i++)
+   {
+      if($($($(".student").find("input")[i])).is(':checked')==true)
+      {
+        students_list1.push($($(".student").find("input")[i]).attr("id"));
+      }
+      else
+      {
+        students_list2.push($($(".student").find("input")[i]).attr("id"));
+      }
+   }
+  
+   if(students_list1.length>1||students_list2.length>1)
+   {
+    
+    let csrfToken = $("#csrfToken").val();
+    let classroomid = $("#classroomid").val();
+    let fid = $("#fid").val();
+
+    $.post(
+      "api/submitattendance.php",
+      {
+        _prstudls: students_list1,
+        _abstudls: students_list2,
+        _fid:fid,
+        _cid: classroomid,
+        _ct: csrfToken
+      },
+      function (data, status) {
+
+        if(status == "success")
+        {
+          if(data==11)
+          {
+              $("#modalmsg").text("Student attendance submitted successfully.");
+              $("#modal").css("display","block");
+              submit_flag=false;
+          }
+          else
+          {
+             $("#modalmsg").text("Student attendance couldn't be submitted! Try again later.");
+             $("#modal").css("display","block");
+             submit_flag=false;
+          }
         }
-        else
-        {   
-            $("#modalmsg").text("Classroom couldn't be deleted! Try again later.");
-            $("#modal").css("display","block");
-        } 
-    }); 
-  }
+      });
+
+   }
+}
+else
+{
+  modal.style.display = "none";
+}
 
 };
 
@@ -60,63 +92,20 @@ $(document).ready(function(){
 
     $("#submitattendance").click(
         function(){
-    
-        let i=0;
-        const stud_len = $(".student").length;
-        const students_list = [];
-    
-         for(i=0;i<stud_len;i++)
-         {
-            if($($($(".student").find("input")[i])).is(':checked')==true)
-            {
-              students_list.push($($(".student").find("input")[i]).attr("id"));
-            }
-         }
-        
-         if(students_list.length!=0)
-         {
-            
-          alert(students_list);//! remove
+        submit_flag= true;  
+        $("#modalmsg").html("Are you sure about this? Attendance cannot be modified once submitted.<br><br>Do you confirm it?"); 
+        $("#modal").css("display", "block");
 
-          let csrfToken = $("#csrfToken").val();
-          let classroomid = $("#classroomid").val();
-    
-          $.post(
-            "api/submitattendance.php",
-            {
-              _studls: students_list,
-              _cid: classroomid,
-              _ct: csrfToken
-            },
-            function (data, status) {
-    
-              if(status == "success")
-              {
-                if(data==1)
-                {
-                    $("#modalmsg").text("Student attendance submitted successfully.");
-                    $("#modal").css("display","block");
-                }
-                else
-                {
-                  $("#modalmsg").text("Student attendance couldn't be submitted! Try again later.");
-                  $("#modal").css("display","block");
-                }
-              }
-            });
-    
-         }
-    
     });
 
     $(".student").click(
         function()
         {
           $("#order-listing").DataTable().destroy();
-
-          if($($($(this).find("input")[0])).is(':checked')==false)
+          
+          if($($($(this).find("input")[0])).is(':checked')==true)
           {
-
+            $($(this).find("input")[0]).removeAttr("checked");
             $($(this).find("input")[0]).siblings()[0].innerHTML = "0";
             $('#order-listing').DataTable({
               "aLengthMenu": [
@@ -129,12 +118,13 @@ $(document).ready(function(){
                 search: ""
               }
             });
+
             //$($(this).find("input")[0]).siblings()[0].text();
 
           }
           else 
           {
-            //$($(this).find("input")[0]).attr("checked","true");
+            $($(this).find("input")[0]).attr("checked","true");
             $($(this).find("input")[0]).siblings()[0].innerHTML = "1";
             $('#order-listing').DataTable({
               "aLengthMenu": [

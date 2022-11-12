@@ -34,7 +34,7 @@ function add_faculties($classroom_id,$faculty_list)
         }
         else
         {
-            return $sql; 
+            return 0; 
         }
 
 
