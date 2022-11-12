@@ -35,7 +35,7 @@ if(isset($_GET['classroomid']))
             <td>".$record["gender"]."</td>
             <td>".$record["dob"]."</td>
             <td>
-              <button type='button' id='".$record['fid']."' class='btn btn-danger ti-trash removefaculty'></button>
+              <button type='button' id='".$record['fid']."' class='btn btn-danger ti-trash removefaculty rounded px-3 py-2'></button>
             </td>
           </tr>
           ";
@@ -100,7 +100,7 @@ if(isset($_GET['classroomid']))
 
                     <!-- Faculty Spid & Search Button-->
                     <div class="row">
-                    <div class="col-lg-7 col-md-7 col-sm-12">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
 
                         <div class="form-group">
                           <label>Faculty FID</label>
