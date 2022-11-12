@@ -180,19 +180,22 @@ $(document).ready(function(){
               }
               else
               {
+                 alert(student_list.response.length);
+
                  let st_ls_len = student_list.response.length;
 
                  for(let i=0;i<st_ls_len;i++)
                  {
                   let student = $(`#${student_list.response[i]}`);
-
+                  console.log(student);
+                  
                   if(student==true)
                   {
                     student.attr("checked",true);
                   }
                  }
               }
-              
+
             }
           },"text");//MUST specify it
     
