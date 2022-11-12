@@ -186,17 +186,6 @@ $(document).ready(function(){
                  {
                    $(`#${student_list.response[i]}`).attr("checked",true);
                    $(`#${student_list.response[i]}`).siblings()[0].innerHTML = "1";
-                   $('#order-listing').DataTable({
-                     "aLengthMenu": [
-                       [5, 10, 15, -1],
-                       [5, 10, 15, "All"]
-                     ],
-                     "order":[],
-                     "iDisplayLength": 10,
-                     "language": {
-                       search: ""
-                     }
-                   });
                  }
               }
 
