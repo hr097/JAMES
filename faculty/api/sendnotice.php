@@ -153,15 +153,15 @@ function sendEmailNotice($student,$email)
                                           </tr>
                                           <tr>
                                               <td style='color:#000 !important;font-weight: 900;'>Present Count</td>
-                                              <td ><span class="present-data" style='color:white;font-size:14px;background-color: #57B657;border-radius: 8px;'>".$student['p_days']." Days</span></td>
+                                              <td ><span class='present-data' style='color:white;font-size:14px;background-color: #57B657;border-radius: 8px;'>".$student['p_days']." Days</span></td>
                                           </tr>
                                           <tr>
                                               <td style='color:#000 !important;font-weight: 900;'>Absent Count</td>
-                                              <td ><span class="present-data" style='color:white;font-size:14px;background-color: #FF4747;border-radius: 8px;'>".$student['a_days']." Days</span></td>
+                                              <td ><span class='present-data' style='color:white;font-size:14px;background-color: #FF4747;border-radius: 8px;'>".$student['a_days']." Days</span></td>
                                           </tr>
                                           <tr>
                                               <td style='color:#000 !important;font-weight: 900;'>Average Present</td>
-                                              <td ><span class="present-data" style='color:white;font-size:14px;background-color: #FFC100;border-radius: 8px;'>".$st_att."%</span></td>
+                                              <td ><span class='present-data' style='color:white;font-size:14px;background-color: #FFC100;border-radius: 8px;'>".$st_att."%</span></td>
                                           </tr>
                                       </table>
                                   </td>
