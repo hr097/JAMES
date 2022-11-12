@@ -77,7 +77,7 @@ $JAMES = new AMS("Admin");
         $uid =  $JAMES->sanitizeInput($data['_uid']);
         $readerNo = $JAMES->sanitizeInput($data['_r_no']);
         $message = insertStudAttendance($uid,$readerNo);
-        echo json_encode(array('response' => $message));
+        echo $message;
     }
 
 ?>
