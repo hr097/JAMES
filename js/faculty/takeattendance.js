@@ -184,7 +184,7 @@ $(document).ready(function(){
                  console.log(student_list.response);
               }
             }
-          },"json");//MUST specify it
+          },"text");//MUST specify it
     
       }
       
