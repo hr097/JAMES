@@ -186,13 +186,7 @@ $(document).ready(function(){
 
                  for(let i=0;i<st_ls_len;i++)
                  {
-                  let student = $(`#${student_list.response[i]}`);
-                  console.log(student);
-                  
-                  if(student==true)
-                  {
-                    student.attr("checked",true);
-                  }
+                   $(`#${student_list.response[i]}`).attr("checked",true);
                  }
               }
 
