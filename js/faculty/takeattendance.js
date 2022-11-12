@@ -58,7 +58,7 @@ if(submit_flag)
 
         if(status == "success")
         {
-          if(data==11)
+          if(data==11|data==1)
           {
               $("#modalmsg").text("Student attendance submitted successfully.");
               $("#modal").css("display","block");
@@ -77,7 +77,6 @@ if(submit_flag)
 }
 else
 {
-  //modal.style.display = "none";
   window.location.reload();
 }
 
