@@ -10,7 +10,7 @@ $JAMES->init_user_session();
 
 function fetchAttendanceFromAmsApi($reader_no,$date,$time1,$time2) 
 {   
-    //
+    //query
     $sql= "select Ams_api.spid FROM Ams_api where reader_no=$reader_no AND DATE_FORMAT(DATE(reading_date_time),'%Y-%m-%d')='$date' AND DATE_FORMAT(TIME(reading_date_time),'%H:%i')>'$time1' AND DATE_FORMAT(TIME(reading_date_time),'%H:%i')<'$time2';";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
@@ -27,7 +27,7 @@ function fetchAttendanceFromAmsApi($reader_no,$date,$time1,$time2)
     }
     else
     {
-        return 0;
+        return $sql;
     }
 }
 
