@@ -2,11 +2,10 @@ $(document).ready(function(){
 
     $("#reader_selection").on('change',function () {
 
-        let csrfToken = $("#csrfToken").val();
         let classroomid = $(this).val();
 
         if(typeof(EventSource) !== "undefined") {
-            var source = new EventSource(`api/liverfidreading2.php?cid=${classroomid}`);
+            var source = new EventSource(`api/liverfidreading.php?cid=${classroomid}`);
 
             source.addEventListener("message", function(e) {
                 console.log(e.data)
