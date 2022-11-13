@@ -4,7 +4,7 @@ $(document).ready(function(){
         setInterval(
         function ()
         {   
-            var classroomid = $(this).val();
+            var classroomid = $("#reader_selection").val();
             var csrfToken = $("#csrfToken").val();
 
             $.post(
