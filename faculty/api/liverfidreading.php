@@ -12,7 +12,7 @@ $JAMES->init_user_session();
 
 function getAmsApi($classroomid) 
 {   
-    $sql= "select Students.spid,Students.name,Students.gender,Students.dob,Students.cur_semester FROM Students,Ams_api WHERE Ams_api.spid=Students.spid and Ams_api.reader_no=$classroomid and Ams_api.reading_no=max(Ams_api.reading_no);";
+    $sql= "select MAX(Ams_api.reading_no),Students.spid,Students.name,Students.gender,Students.dob,Students.cur_semester FROM Students,Ams_api WHERE Ams_api.spid=Students.spid and Ams_api.reader_no=$classroomid;";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
