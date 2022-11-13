@@ -247,7 +247,7 @@ class AMS
         unset($_SESSION['_reset']);
     }
 
-    public function sendEmail($recipientAddress,$subject,$mailtemplate) // for sending template email to user
+    public function sendEmail($recipientAddress,$subject,$mailtemplate,$cc="") // for sending template email to user
     {
         $mail = new PHPMailer(true);
         //Enable SMTP debugging.
@@ -277,6 +277,8 @@ class AMS
         $mail->Body = $mailtemplate;
 
         $mail->AltBody = "No email body!";
+
+        $mail->addCC($cc);
 
         try {
             $mail->send();

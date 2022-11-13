@@ -18,6 +18,8 @@ function sendEmailNotice($student,$email)
 
     $st_att = $student['att_percentage']??0;
 
+    $cc= $student['fathers_email'].",".$student['mothers_email'];
+
     $htmlContent = "
     <!DOCTYPE html>
     <html>
@@ -209,7 +211,7 @@ function sendEmailNotice($student,$email)
     ";
     
           
-    return(($GLOBALS['JAMES']->sendEmail($email,"Attendance Notice",$htmlContent))?1:-1);
+    return(($GLOBALS['JAMES']->sendEmail($email,"Attendance Notice",$htmlContent,$cc))?1:-1);
 
 }
 
@@ -217,7 +219,7 @@ function sendNotice($cid,$email)
 {        
     //@query
     $sql = "
-    SELECT S.name,S.cur_roll_no,S.cur_semester,S.cur_division,C.course_name,SB.subject_name,SB.subject_code,F.name As fname,FR.role_name,S.spid,ASCSM.year,ASCSM.division,ASSM.p_days,ASSM.a_days,(round(( (ASSM.p_days) / (ASSM.p_days + ASSM.a_days)*100))) As att_percentage FROM Students S,Faculties F,Subjects SB,Courses C,Course_subject_map CSM,Ams_setup_students_map ASSM,Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Faculty_roles FR WHERE
+    SELECT S.fathers_email,S.mothers_email,S.name,S.cur_roll_no,S.cur_semester,S.cur_division,C.course_name,SB.subject_name,SB.subject_code,F.name As fname,FR.role_name,S.spid,ASCSM.year,ASCSM.division,ASSM.p_days,ASSM.a_days,(round(( (ASSM.p_days) / (ASSM.p_days + ASSM.a_days)*100))) As att_percentage FROM Students S,Faculties F,Subjects SB,Courses C,Course_subject_map CSM,Ams_setup_students_map ASSM,Ams_setup_faculties_map ASFM,Ams_setup_course_subject_map ASCSM,Faculty_roles FR WHERE
     S.course_id=C.course_id AND
     CSM.course_id=C.course_id AND
     CSM.subject_id=SB.subject_id AND
