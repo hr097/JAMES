@@ -251,7 +251,7 @@ class AMS
     {
         $mail = new PHPMailer(true);
         //Enable SMTP debugging.
-        // $mail->SMTPDebug = 3;         for debugging                      
+         $mail->SMTPDebug = 3;         //for debugging                      
         //Set PHPMailer to use SMTP.
         //  $mail->isSMTP();           //@comment it as vnsgu server can't send SMTP email it will send it from root domain    
         //Set SMTP host name                          
