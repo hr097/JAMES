@@ -49,7 +49,7 @@ if(isset($_GET['cid'])&&isset($_SESSION['_userId']))
 {
         $cid = $JAMES->sanitizeInput($_GET['cid']);
         $message=getAmsApi($cid);
-        echo "data: ".$message;
+        echo "\event:message\ndata: ".$message;
         flush();
 }
 else
