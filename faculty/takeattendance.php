@@ -51,7 +51,7 @@ else
 }
 
 
-//fetch courses
+//fetch readers
 $sql= "select * from Ams_readers;";//query
 $result = mysqli_query($JAMES->connection(),$sql);
 
