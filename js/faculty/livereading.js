@@ -5,7 +5,7 @@ $(document).ready(function(){
         let classroomid = $(this).val();
 
         if(typeof(EventSource) !== "undefined") {
-            var source = new EventSource(`api/liverfidreading.php?cid=${classroomid}`);
+            var source = new EventSource(`api/liverfidreading2.php?cid=${classroomid}`);
 
             source.addEventListener("message", function(e) {
                 console.log(e.data)
