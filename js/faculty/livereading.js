@@ -1,8 +1,10 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
-    $("#reader_selection").on('change',function () {
+//     $("#reader_selection").on('change',function () {
 
-        let classroomid = $(this).val();
+        //let classroomid = $(this).val();
+        let classroomid=2;
+
 
         if(typeof(EventSource) !== "undefined") {
             var source = new EventSource(`api/liverfidreading.php?cid=${classroomid}`);
@@ -17,6 +19,6 @@ $(document).ready(function(){
           }
              
     
-    });
+//     });
 
-});
+// });
