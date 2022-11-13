@@ -19,6 +19,7 @@ function sendEmailNotice($student,$email)
     $st_att = $student['att_percentage']??0;
 
     $cc= $student['fathers_email'];
+    $cc2 = $student['mothers_email'];
 
     $htmlContent = "
     <!DOCTYPE html>
@@ -211,7 +212,7 @@ function sendEmailNotice($student,$email)
     ";
     
           
-    return(($GLOBALS['JAMES']->sendEmail($email,"Attendance Notice",$htmlContent,$cc))?1:-1);
+    return(($GLOBALS['JAMES']->sendEmail($email,"Attendance Notice",$htmlContent,$cc,$cc2))?1:-1);
 
 }
 
