@@ -18,7 +18,7 @@ function sendEmailNotice($student,$email)
 
     $st_att = $student['att_percentage']??0;
 
-    $cc= $student['fathers_email'].",".$student['mothers_email'];
+    $cc= $student['fathers_email'];
 
     $htmlContent = "
     <!DOCTYPE html>
