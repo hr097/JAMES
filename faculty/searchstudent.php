@@ -169,22 +169,22 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                  <!-- <span id='mode'>
                     <i class='ti-pencil email_edit_icon d-flex justify-content-end' style='position:relative;bottom:10px;' id='edit_icon'></i>
                 </span> --> 
-                 <h4 id='para_email' class='email_edit_para info-data'>".$user['email']."</h4> 
+                 <h4 id='para_email' class='email_edit_para info-data'><a href='mailto:".$user['email']."'>".$user['email']."</a></h4> 
                  <input type='hidden' id='csrfToken' name='_csrfToken' value='".$JAMES->generateCsrfToken()."'> 
                 <h6 class='info-title'>Student Contact</h6>
-                 <h4 class='info-data'>".$user['contact_no']."</h4>
+                 <h4 class='info-data'><a href='tel:".$user['contact_no']."'>".$user['contact_no']."</a></h4>
 
                 <h6 class='info-title'>Father's Email</h6>
-                 <h4 class='info-data'>".$user['fathers_email']."</h4>
+                 <h4 class='info-data'><a href='mailto:".$user['fathers_email']."'>".$user['fathers_email']."</a></h4>
 
                 <h6 class='info-title'>Father's Contact</h6>
-                 <h4 class='info-data'>".$user['fathers_contact']."</h4>
+                 <h4 class='info-data'><a href='tel:".$user['fathers_contact']."'>".$user['fathers_contact']."</a></h4>
 
                 <h6 class='info-title'>Mother's Email</h6>
-                 <h4 class='info-data'>".$user['mothers_email']."</h4>
+                 <h4 class='info-data'><a href='mailto:".$user['mothers_email']."'>".$user['mothers_email']."</a></h4>
 
                 <h6 class='info-title'>Mother's Contact</h6>
-                 <h4 class='info-data'>".$user['mothers_contact']."</h4>
+                 <h4 class='info-data'><a href='tel:".$user['mothers_contact']."'>".$user['mothers_contact']."</a></h4>
 
                 </div>
                 </div>
