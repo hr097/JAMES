@@ -12,11 +12,11 @@ $JAMES->init_user_session();
 
 function getAmsApi($classroomid) 
 {   
-    $sql= "select MAX(Ams_api.reading_no),Students.spid,Students.name,Students.gender,DATE_FORMAT(Students.dob,'%d/%m/%Y') AS dob,Students.cur_semester FROM Students,Ams_api WHERE Ams_api.spid=Students.spid and Ams_api.reader_no=$classroomid;";
+    $sql= "select MAX(Ams_api.reading_no) As reading_no,Students.spid,Students.name,Students.gender,DATE_FORMAT(Students.dob,'%d/%m/%Y') AS dob,Students.cur_semester FROM Students,Ams_api WHERE Ams_api.spid=Students.spid and Ams_api.reader_no=$classroomid;";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
-    if(mysqli_num_rows($result)>0)
+    if(mysqli_num_rows($result)>=1)
     {
         $faculty = "";
         while($record = mysqli_fetch_assoc($result))
