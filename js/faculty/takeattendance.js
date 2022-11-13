@@ -122,6 +122,7 @@ $(document).ready(function(){
 
     $("#TakeattButton").click(
       function(){
+      $("#order-listing").DataTable().destroy();
       fetch_att_flag= true; 
       let reader = $("#reader_selection").val();
       let curdate = $("#currdate").val();
