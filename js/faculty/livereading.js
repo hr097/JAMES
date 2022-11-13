@@ -2,28 +2,27 @@ $(document).ready(function(){
 
     $("#reader_selection").on('change',function () {
 
-        let classroomid = $(this).val();
+        var classroomid = $(this).val();
+        var csrfToken = $("#csrfToken").val();
 
-        if(typeof(EventSource) !== "undefined") {
-            var source = new EventSource(`api/liverfidreading.php?cid=${classroomid}`);
+        setInterval(
+        function ()
+        {
+            $.post(
+            "api/liverfidreading.php",
+            {
+                _cid: classroomid,
+                _ct: csrfToken
+            },
+            function (data, status) {
+                if(status == "success")
+                {
+                $("#rfidcarddata").html(data);
+                }
+            },"text"); // must write as text string will come
 
-              source.onmessage = function(event) {
-                $("#rfidcarddata").html(event.data);;
-              };
-
-              source.onerror = function(event) {
-                $("#rfidcarddata").html(event.data);
-              };
-              
-              source.onopen = function(event) {
-                $("#rfidcarddata").html(event.data);
-              };
-
-          } else {
-            alert("Sorry, your browser does not support server-sent events...");
-          }
-             
-    
+         },1000); 
+         
     });
 
 });

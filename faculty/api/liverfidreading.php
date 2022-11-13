@@ -1,8 +1,7 @@
 <?php
-header('Content-Type: text/event-stream');
-header('Cache-Control: no-cache');
+header('Content-Type: application/json');
 header('Access-Control-Allow-Origin:ams.vnsguit.org'); 
-header('Access-Control-Allow-Methods: GET');
+header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
 
@@ -43,14 +42,10 @@ function getAmsApi($classroomid)
     }
 }
 
-//&&isset($_GET['_ct'])&&$_GET['_ct']==$_SESSION['_csrfToken']
-
-if(isset($_GET['cid'])&&isset($_SESSION['_userId']))
+if(isset($_POST['cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
-        $cid = $JAMES->sanitizeInput($_GET['cid']);
-        $message=getAmsApi($cid);
-        echo $message;
-        flush();
+        $cid = $JAMES->sanitizeInput($_POST['cid']);
+        echo getAmsApi($cid);
 }
 else
 {    
