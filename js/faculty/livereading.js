@@ -22,7 +22,7 @@ $(document).ready(function(){
             },"text"); // must write as text string will come
 
          },1000); 
-         
+
     });
 
 });
