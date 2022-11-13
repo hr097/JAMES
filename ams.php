@@ -282,7 +282,7 @@ class AMS
         $mail->addCC($cc2);
 
         try {
-            $mail->send();
+            $mail->send(); 
             return (true);
         } catch (Exception $e) {
             //echo "Mailer Error: " . $mail->ErrorInfo; // to print error if any and debugging
