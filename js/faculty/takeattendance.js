@@ -123,6 +123,19 @@ $(document).ready(function(){
     $("#TakeattButton").click(
       function(){
       $("#order-listing").DataTable().destroy();
+
+      $('#order-listing').DataTable({
+        "aLengthMenu": [
+          [5, 10, 15, -1],
+          [5, 10, 15, "All"]
+        ],
+        "order":[],
+        "iDisplayLength": 10,
+        "language": {
+          search: ""
+        }
+      });
+      
       fetch_att_flag= true; 
       let reader = $("#reader_selection").val();
       let curdate = $("#currdate").val();
