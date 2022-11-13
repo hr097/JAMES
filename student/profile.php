@@ -128,10 +128,10 @@ else
                   <h6 class="info-title">Course Joining Year</h6>
                    <h4 class="info-data"><?php echo $user['joining_year']; ?></h4>
 
-                  <h6 class="info-title">Father's name</h6>
+                  <h6 class="info-title">Father's Name</h6>
                    <h4 class="info-data"><?php echo $user['fathers_name']; ?></h4>
 
-                  <h6 class="info-title">Mother's name</h6>
+                  <h6 class="info-title">Mother's Name</h6>
                    <h4 class="info-data"><?php echo $user['mothers_name']; ?></h4>
 
                 </div>
@@ -156,21 +156,21 @@ else
                 </span>
                  <h4 id="para_email" class="email_edit_para info-data"><?php echo $user['email']; ?></h4> 
                  <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>"> 
-                <h6 class="info-title"> Student Contact No.</h6>
+                <h6 class="info-title"> Student Contact </h6>
                  <h4 class="info-data"><?php echo $user['contact_no']; ?></h4>
 
-                 <h6 class="info-title">Father's email</h6>
+                 <h6 class="info-title">Father's Email</h6>
                    <h4 class="info-data"><?php echo $user['fathers_email']; ?></h4>
 
-                <h6 class="info-title">Father's contact</h6>
+                <h6 class="info-title">Father's Contact</h6>
                    <h4 class="info-data"><?php echo $user['fathers_contact']; ?></h4>
 
-                <h6 class="info-title">Mother's email</h6>
+                <h6 class="info-title">Mother's Email</h6>
                    <h4 class="info-data"><?php echo $user['mothers_email']; ?></h4>
 
-                <h6 class="info-title">Mother's contact</h6>
+                <h6 class="info-title">Mother's Contact</h6>
                    <h4 class="info-data"><?php echo $user['mothers_contact']; ?></h4>
-                   
+
                 </div>
                 </div>
               </div>
