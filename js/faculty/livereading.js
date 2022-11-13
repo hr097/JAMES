@@ -7,13 +7,8 @@ $(document).ready(function(){
         if(typeof(EventSource) !== "undefined") {
             var source = new EventSource(`api/liverfidreading.php?cid=${classroomid}`);
 
-            // source.addEventListener("message", function(e) {
-            //     console.log(e.data)
-            //     $("#rfidcarddata").html(e.data);
-            //   })
-
             source.onmessage = function(event) {
-                document.getElementById("rfidcarddata").innerHTML = event.data;
+                $("#rfidcarddata").html(event.data);;
               };
 
           } else {
