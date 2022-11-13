@@ -123,14 +123,6 @@ $(document).ready(function(){
     $("#TakeattButton").click(
       function(){
 
-      let i=0;
-      const stud_len = $(".student").length;
-
-      for(i=0;i<stud_len;i++)
-      {
-        $($(".student").find("input")[i]).removeAttr("checked");
-      }
-
       fetch_att_flag= true; 
       let reader = $("#reader_selection").val();
       let curdate = $("#currdate").val();
@@ -174,6 +166,15 @@ $(document).ready(function(){
     
             if(status == "success")
             {   
+
+              let i=0;
+              const stud_len = $(".student").length;
+        
+              for(i=0;i<stud_len;i++)
+              {
+                $($(".student").find("input")[i]).removeAttr("checked");
+              }
+              
               student_list = JSON.parse(data);
 
               if(student_list.response==-1)
