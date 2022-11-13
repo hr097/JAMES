@@ -1,13 +1,12 @@
 $(document).ready(function(){
 
     $("#reader_selection").on('change',function () {
-
-        var classroomid = $(this).val();
-        var csrfToken = $("#csrfToken").val();
-
         setInterval(
         function ()
-        {
+        {   
+            var classroomid = $(this).val();
+            var csrfToken = $("#csrfToken").val();
+
             $.post(
             "api/liverfidreading.php",
             {
