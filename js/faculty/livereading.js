@@ -45,7 +45,12 @@ function getLatestData()
                    
                 // }
 
-               $("#rfidcarddata").html(data);
+                if(data=="<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>")
+                {
+                    $("#rfidcarddata").empty();
+                }
+
+               $("#rfidcarddata").prepend(data);
         }
     },"text"); // must write as text string will come
 }

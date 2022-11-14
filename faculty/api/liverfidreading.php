@@ -11,15 +11,14 @@ $JAMES->init_user_session();
 
 function getAmsApi($classroomid) 
 {   
-    $sql= "select Students.cur_semester,Students.spid,Students.name,Students.gender,DATE_FORMAT(Ams_api.reading_date_time,'%d/%m/%Y %h:%i:%s') AS rdt,Students.cur_semester FROM Students,Ams_api,Courses WHERE Ams_api.spid=Students.spid and Courses.course_id=Students.course_id and Ams_api.reader_no=$classroomid ORDER BY Ams_api.reading_no DESC  LIMIT 5;";
+    $sql= "select Students.cur_semester,Students.spid,Students.name,Students.gender,DATE_FORMAT(Ams_api.reading_date_time,'%d/%m/%Y %h:%i:%s') AS rdt,Students.cur_semester FROM Students,Ams_api,Courses WHERE Ams_api.spid=Students.spid and Courses.course_id=Students.course_id and Ams_api.reader_no=$classroomid AND Ams_api.reading_no=(select MAX(Ams_api.reading_no) FROM Ams_api);";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
-    if(mysqli_num_rows($result)>=1)
+    if(mysqli_num_rows($result)==1)
     {
         $faculty = "";
-        while($record = mysqli_fetch_assoc($result))
-        {
+        $record = mysqli_fetch_assoc($result);
 
         $faculty.=
         "
@@ -31,7 +30,6 @@ function getAmsApi($classroomid)
         <td>".$record['cur_semester']."</td>
         </tr>
         ";
-        }
 
         return $faculty;
     }
