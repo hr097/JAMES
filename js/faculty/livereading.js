@@ -1,4 +1,5 @@
 var data_copy="";
+
 function getLatestData()
 {
     let classroomid = $("#reader_selection").val();
@@ -19,7 +20,10 @@ function getLatestData()
                  </tr>`)
                 {   
                     $("#rfidcarddata").html(null);
+                    if(data!=data_copy)
+                    {
                     $("#rfidcarddata").html(data);
+                    }
                 }
                 else
                 {   
