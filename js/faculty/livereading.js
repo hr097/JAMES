@@ -17,6 +17,7 @@ function getLatestData()
 
                 if(data==`<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>`)
                 {   
+                    console.log(data);
                     if($("#rfidcarddata").html()!=data)
                     {
                         $("#rfidcarddata").empty();
