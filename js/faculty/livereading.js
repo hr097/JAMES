@@ -1,4 +1,4 @@
-var data_copy="";
+var data_bckp="";
 
 function getLatestData()
 {
@@ -50,7 +50,12 @@ function getLatestData()
                     $("#rfidcarddata").empty();
                 }
 
-               $("#rfidcarddata").prepend(data);
+                if(data!="<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>"&&data!=data_bckp)
+                {
+                    $("#rfidcarddata").prepend(data);
+                    data_bckp=data;
+                }
+               
         }
     },"text"); // must write as text string will come
 }
