@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: json/event-stream');
+header('Content-Type: text/event-stream');
 header('Cache-Control: no-cache');
 
 require_once("../../ams.php");
@@ -15,7 +15,7 @@ function getAmsApi($classroomid)
     
     if(mysqli_num_rows($result)==1)
     {
-        $student  = array();
+        $student  = "";
         $record = mysqli_fetch_assoc($result);
 
         // $faculty.=
@@ -29,13 +29,9 @@ function getAmsApi($classroomid)
         // </tr>
         // ";
 
-        $student['spid'] = $record['spid'];
-        $student['name'] = $record['name'];
-        $student['gender'] = $record['gender'];
-        $student['rdt'] = $record['rdt'];
-        $student['cur_semester'] = $record['cur_semester'];
+        $student .= $record['spid']."|".$record['name'];
 
-        return json_endcode($student);
+        return $student;
     }
     else
     {
