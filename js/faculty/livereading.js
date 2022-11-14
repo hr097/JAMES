@@ -20,7 +20,7 @@ function getLatestData()
                     if($("#rfidcarddata").html()!=data)
                     {
                         $("#rfidcarddata").empty();
-                        $("#rfidcarddata").html(data);s
+                        $("#rfidcarddata").html(data);
                     }
                 }
                 else
