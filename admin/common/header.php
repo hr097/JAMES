@@ -38,7 +38,7 @@
 
     <!-------------------------------------------------------Nav-Bar Start------------------------------------------------------->
     <div class="container-scroller" style="background-color: #F5F7FF;">
-        <!-- partial:partials/_navbar.php -->
+        <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center">
 
@@ -48,25 +48,30 @@
                     <span class="icon-menu"></span>
                 </button>
 
-                <a class="navbar-brand brand-logo mr-5" href="./dashboard.php"><img src="../assets/logos/logo.svg"
+                <a class="navbar-brand brand-logo mr-3" href="./dashboard.php"><img src="../assets/logos/logo.svg"
                         alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini mr-1" href="./dashboard.php"><img src="../assets/logos/logo-mini.svg"
-                        alt="logo"  /></a>
+                <a class="navbar-brand brand-logo-mini" href="./dashboard.php"><img src="../assets/logos/logo-mini.svg"
+                        alt="logo" width="34px" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
 
-
-                <!-------------------------------------------------------Profile Start------------------------------------------------------->
+                <!-- -----------------------------------------------------Profile Start ----------------------------------------------------- -->
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
-                        <p class="ac_type" style="margin-right:10px;">Admin Dashboard</p>  
-                        <!-- <p class="ac_type" style="font-weight:500;"><?php //echo $_SESSION['_userId']; ?></p>  -->
+                        <p class="ac_type" style="margin-right:10px;">Admin Dashboard</p>
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                               <img src='../assets/profiles/admin-profile.png' alt='profile-img' />     
+                        <img src='../assets/profiles/admin-profile.png' alt='profile-img' />
+ 
+
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="../php/logout.php">
+                            <a class="dropdown-item" href="./profile.php">
+                                <i class="icon-head menu-icon"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href='../php/logout.php'>
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
                             </a>
@@ -74,17 +79,17 @@
                     </li>
                 </ul>
 
-                <!-------------------------------------------------------Profile End------------------------------------------------------->
+                <!-------------------------------------------------------Profile End----------------------------------------------------- -->
 
             </div>
         </nav>
-        <!-------------------------------------------------------Nav-Bar End------------------------------------------------------->
+        <!-- -----------------------------------------------------Nav Bar End----------------------------------------------------- -->
 
-        <!-------------------------------------------------------Side Nav-Bar Start------------------------------------------------------->
+        <!-- -----------------------------------------------------Side Nav Bar Start----------------------------------------------------- -->
         <div class="container-fluid page-body-wrapper">
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                    <li class="nav-item">
+                <li class="nav-item">
                         <a class="nav-link" href="./dashboard.php">
                             <i class="icon-grid menu-icon"></i>
                             <span class="menu-title">Home</span>
@@ -111,14 +116,13 @@
                             </ul>
                         </div>
                     </li>
-                     
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="./feedbackstats.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-comment-alt"></i>
                             <span class="menu-title">Feedback Review</span>
                         </a>
                     </li>
-                   
 
                     <li class="nav-item">
                         <a class="nav-link" href="./about.php" aria-expanded="false" aria-controls="ui-basic">
@@ -126,6 +130,5 @@
                             <span class="menu-title">About</span>
                         </a>
                     </li>
-
             </nav>
             <!-------------------------------------------------------Side Nav-Bar End------------------------------------------------------->
