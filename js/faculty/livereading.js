@@ -29,20 +29,18 @@ function getLatestData()
             }
             else
             {   
+                if(data==`<tr>
+                <td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td>
+                </tr>`)
+                {
+                    $("#rfidcarddata").html(null);
+                }
+
                 if(data_bckp!=data)
-                {       
-                    if(data==`<tr>
-                    <td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td>
-                    </tr>`)
-                    {
-                        $("#rfidcarddata").html(null);
-                    }
-                    
+                {      
                     $("#rfidcarddata").prepend(data);
                     data_bckp=data;
                 }
-
-                
             }
         }
     },"text"); // must write as text string will come
