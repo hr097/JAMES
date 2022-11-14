@@ -44,7 +44,7 @@ function getAmsApi($classroomid)
 //{
         //$cid = $JAMES->sanitizeInput($_POST['_cid']);
         $cid=2;
-        echo getAmsApi($cid);
+        echo "data: ".getAmsApi($cid);
         flush();
 //}
 //else
