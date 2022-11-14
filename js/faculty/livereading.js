@@ -17,10 +17,10 @@ function getLatestData()
 
                 if(data==`<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>`)
                 {   
-                    if(("#rfidcarddata").html()!=data)
+                    if($("#rfidcarddata").html()!=data)
                     {
-                        ("#rfidcarddata").empty();
-                        ("#rfidcarddata").html(data);s
+                        $("#rfidcarddata").empty();
+                        $("#rfidcarddata").html(data);s
                     }
                 }
                 else
