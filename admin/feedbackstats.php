@@ -4,10 +4,10 @@ require_once("../ams.php");
 $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
-if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
-{
- $JAMES->ams_redirect("../login.php");
-}
+// if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+// {
+//  $JAMES->ams_redirect("../login.php");
+// }
 
 $u = $_SESSION["_userId"];
 
@@ -22,11 +22,10 @@ $result2 = mysqli_fetch_array($result2);
 
 $sql3 = "select * from Ams_feedback order by rating desc;";
 $result3 = mysqli_query($JAMES->connection(), $sql3);
-$sort = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
+$sort="";
 while ($row = mysqli_fetch_array($result3)) {
-    $sort = $sort . "<tr><td>" . $row['fb_id'] . "</td><td>" . $row['email'] . "</td><td>" . $row['description'] . "</td><td>" . $row['givenAt'] . "</td><td>" . $row['rating'] . "</td><td></tr>";
+    $sort = $sort . "<tr><td>" . $row['fb_id'] . "</td><td>" . $row['email'] . "</td><td>" . $row['description'] . "</td><td>" . $row['givenAt'] . "</td><td>" . $row['rating'] . "</td></tr>";
 }
-$sort = $sort . "</tbody>";
 
 // $emailTemp = "document.getElementById('email_input').innerHTML";
 // $sql4 = "select * from Ams_feedback where email = $emailTemp;";
@@ -56,6 +55,7 @@ $sort = $sort . "</tbody>";
 // }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,172 +65,48 @@ $sort = $sort . "</tbody>";
     require_once('./common/header.php');
     ?>
 
-    <!-- css  -->
-    <link rel="stylesheet" href="../css/student.css">
-    <link rel="stylesheet" href="../css/modal.css">
-
     <!-- js  -->
-    <script src="../js/student/feedback.js" type="text/javascript" defer=true></script>
+    <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
     <title>AMS | Feedback Stats</title>
 
 </head>
-
-<!-- FEEDBACK STATS STARTS -->
-
 <body>
-    <div class="container">
 
-        <div class="row">
-            <div class="col-md-12">
-                <h4 class="font-weight-bold">Feedback Statistics</h4>
-            </div>
-
-            <div class="col-md-12 grid-margin stretch-card">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h6 class="info-title">Total No. of Feedbacks Received :</h6>
+<!-------------------------------------------------------Main Content------------------------------------------------------->
+      <!--Subeject Setup Form Start-->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12  grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title mb-5">Feedback Statistics</h4>
+                            <h6 class="info-title">Total No. of Feedbacks</h6>
                             <h4 class="info-data"><?php echo $result['total']; ?></h4>
 
-                            <h6 class="info-title">Average Feedback Rating : </h6>
+                            <h6 class="info-title">Average Feedback Rating</h6>
                             <h4 class="info-data"><?php echo $result2['avge']; ?></h4>
 
-                            <h6 class="info-title">Sort Feedbacks (by ratings): </h6>
-                            <button type="submit" class="btn btn-primary mb-2" onclick="displayData()">Sort</button>
-
-                            <div class="col-lg-12 grid-margin">
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row" <div class="col-12">
-                                            <div class="table">
-                                                <table class="table" id="sdata">
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="form-inline">
-                                <h6 class="info-title"> Search Feedback by : </h6>
-                                <div class="dropdown show ml-2 mb-1" id="ui-basic">
-                                    <a class="btn btn-secondary dropdown-toggle mb-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Select Criteria
-                                    </a>
-
-                                    <div class="dropdown-menu mb-1" aria-labelledby="dropdownMenuLink" aria-controls="ui-basic">
-                                        <a class="dropdown-item" href="#" onclick="displayMail()">Email Address</a>
-                                        <a class="dropdown-item" href="#" onclick="displayfId()">Feedback IDs</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="mailblock" hidden="true">
-                            <h6 class="info-title">Enter Email Address</h6>
-                            <div class="form-group">
-                                <form class="form-inline">
-                                    <div class="form-group mb-2">
-                                        <input type="text" id="email_input" placeholder="email@example.com" class="form-control form-group-lg">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary mb-2 ml-2" onclick="searchMail()">Search Data</button>
-                                    <button type="button" class="btn btn-primary mb-2 ml-2" onclick="clearfield()">Clear</button>
-                                    <!-- Add a Clear field button -->
-                                </form>
-                                <div class="col-lg-12 grid-margin">
-
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row" <div class="col-12">
-                                                <div class="table">
-                                                    <table class="table" id="maildata">
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="fidblock" hidden="true">
-                            <h6 class="info-title">Enter Feedback ID </h6>
-                            <div class="form-group">
-                                <form class="form-inline">
-                                    <div class="form-group mb-2">
-                                        <input type="text" id="feedback_input" placeholder="XX" class="form-control form-group-lg">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary mb-2  ml-2" onclick="searchfId()">Search Data</button>
-                                    <button type="button" class="btn btn-primary mb-2 ml-2" onclick="clearfield2()">Clear</button>
-                                    <!-- Add a Clear field button -->
-                                </form>
-                                <div class="col-lg-12 grid-margin">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row" <div class="col-12">
-                                                <div class="table">
-                                                    <table class="table" id="fiddata">
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-
-
-                        <h4 class="info-data"></h4>
-                    </div>
+                            <button type="submit" class="btn btn-primary mb-2" onclick="displayData()">Sort Feedbacks (by ratings)</button>
                 </div>
+              </div>
             </div>
+            <!--Faculty Form End-->
+          </div>
         </div>
-    </div>
+        </div>
+        </div>
+        </div>
 
-    </div>
+   
+    
 
-
+     <!-- including footer -->
     <?php
     require_once('./common/footer.php');
     ?>
 
 </body>
-<script>
-    function displayData() {
-        document.getElementById('sdata').innerHTML = "<?php echo $sort; ?>";
-    }
-
-    function displayMail() {
-        document.getElementById('mailblock').hidden = false;
-        document.getElementById('fidblock').hidden = true;
-    }
-
-    function displayfId() {
-        document.getElementById('fidblock').hidden = false;
-        document.getElementById('mailblock').hidden = true;
-    }
-
-    // function searchMail() {
-    //     document.getElementById('maildata').innerHTML = "<?php echo $searchbymail; ?>";
-    // }
-
-    function searchfId() {
-        // document.getElementById('fiddata').innerHTML = "";
-    }
-
-    function clearfield(){
-        document.getElementById('email_input').textContent = "";
-    }
-    function clearfield2(){
-        document.getElementById('feedback_input').textContent = "";
-    }
-</script>
-
 </html>
