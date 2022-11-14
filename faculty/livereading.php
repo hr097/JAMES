@@ -95,8 +95,12 @@ else
 
                     <!-- <hr > -->
 
+                    <div id="rfidcarddata">
+                      
+                    </div>
+
                     <!-- RFID data Start -->
-                    <div class="card" style="margin-bottom:10px;margin-top:-30px;" id="add_stud_tbl">
+                    <!-- <div class="card" style="margin-bottom:10px;margin-top:-30px;" id="add_stud_tbl">
                       <div class="card-body">
                         <h4 class="card-title">Card Scanning Details</h4>
                         <div class="row">
@@ -122,8 +126,10 @@ else
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <!--Faculty Add Data End-->
+                    </div> -->
+
+            
+                    <!--RFID Stud card Data End-->
 
                    </form>
                   </div>
