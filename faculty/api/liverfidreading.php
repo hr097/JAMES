@@ -45,7 +45,7 @@ header('Cache-Control: no-cache');
         //$cid = $JAMES->sanitizeInput($_POST['_cid']);
        // $cid=2;
        // echo "data: ".getAmsApi($cid);
-        echo "data: hello";
+        echo "data: hello\n";
         flush();
 //}
 //else
