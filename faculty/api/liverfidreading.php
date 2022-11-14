@@ -57,17 +57,16 @@ function getAmsApi($classroomid)
                 $sem = $record['cur_semester']."<sup>th</sup>";   
             }
     
-    
+            // <div class='card__face card__face--front' style='border-radius: 10px;'>
+
+            // ".$profile."
+            //   <h4  class='profile_name' style='color:white;margin-top:-12px;' >".$record['name']."</h4>
+            // </div>
 
             $faculty.="<div class='container my-3' align='center' style='padding-bottom: 3%;'>
 
               <div class='scene'>
                 <div class='flip-card' >
-                  <div class='card__face card__face--front' style='border-radius: 10px;'>
-
-                  ".$profile."
-                    <h4  class='profile_name' style='color:white;margin-top:-12px;' >".$record['name']."</h4>
-                  </div>
 
                   <div  class='card__face card__face--back py-4 pl-4' style='font-weight:500;font-size: 15px;' align='left'>
                     <p class='mt-3'>
