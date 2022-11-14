@@ -42,6 +42,7 @@ function getLatestData()
 $(document).ready(function(){
 
     $("#reader_selection").on('change',function () {
+        $("#rfidcarddata").html(null);
         setInterval(
         function ()
         {   
