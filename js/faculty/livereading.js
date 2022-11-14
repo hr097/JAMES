@@ -27,7 +27,9 @@ function getLatestData()
                 data_bckp = data;
             }
             else
-            {
+            {   console.log(data_bckp);
+                console.log(data);
+                
                 if(data_bckp!=data)
                 {
                     $("#rfidcarddata").prepend(data);
