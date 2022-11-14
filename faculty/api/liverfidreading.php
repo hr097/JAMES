@@ -35,19 +35,19 @@ function getAmsApi($classroomid)
     }
     else
     {
-        return "<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>";
-
+        return 0;
     }
 }
 
-if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
-{
-        $cid = $JAMES->sanitizeInput($_POST['_cid']);
+//if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
+//{
+        //$cid = $JAMES->sanitizeInput($_POST['_cid']);
+        $cid=2;
         echo getAmsApi($cid);
-}
-else
-{    
-    $JAMES->ams_redirect("../../login.php"); // when outside request comes redirect to login
-}
+//}
+//else
+//{    
+//    $JAMES->ams_redirect("../../login.php"); // when outside request comes redirect to login
+//}
 
 ?>

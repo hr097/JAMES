@@ -1,4 +1,3 @@
-var data_bckp="";
 
 function getLatestData()
 {
@@ -14,48 +13,15 @@ function getLatestData()
     function (data, status) {
         if(status == "success")
         {         
-
-                // if(data==`<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>`)
-                // {   
-                //     if($("#rfidcarddata").html()!=data)
-                //     {
-                //         $("#rfidcarddata").empty();
-                //         $("#rfidcarddata").html(data);
-                //         data_copy=data;
-                //     }
-                // }
-                // else
-                // {   
-                //     if(data_copy=="")
-                //     {
-                //         $("#rfidcarddata").prepend(data);
-                //         data_copy=data;
-                //     }
-                //     else if(data_copy!=data)
-                //     {   
-                //         if($("#rfidcarddata").html()==`<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>`)
-                //         {
-                //             $("#rfidcarddata").empty();
-                //         }
-                        
-                //         $("#rfidcarddata").prepend(data);
-                //         data_copy=data;
-                        
-                //     }
-                   
-                // }
-
-                if(data=="<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>")
+                if(data==0)
                 {
                     $("#rfidcarddata").empty();
+                    $("#rfidcarddata").html("<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>");
                 }
-
-                if(data!="<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>"&&data!=data_bckp)
-                {
+                else 
+                {   
                     $("#rfidcarddata").prepend(data);
-                    data_bckp=data;
                 }
-               
         }
     },"text"); // must write as text string will come
 }
@@ -63,11 +29,20 @@ function getLatestData()
 $(document).ready(function(){
 
     $("#reader_selection").on('change',function () {
-        setInterval(
-        function ()
-        {   
-         getLatestData();
-        },1000); 
+        // setInterval(
+        // function ()
+        // {   
+        //  getLatestData();
+        // },1000); 
+
+        if(typeof(EventSource) !== "undefined") {
+            var source = new EventSource("liverfidreading.php");
+            source.onmessage = function(event) {
+              $("#rfidcarddata").html(event.data);
+            };
+          } else {
+            alert("Sorry, your browser does not support server-sent events...");
+          }
 
     });
 
