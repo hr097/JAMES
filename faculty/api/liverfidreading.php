@@ -117,7 +117,7 @@ function getAmsApi($classroomid)
     }
 }
 
-if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_recordId']))
+if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
         $cid = $JAMES->sanitizeInput($_POST['_cid']);
         echo getAmsApi($cid);

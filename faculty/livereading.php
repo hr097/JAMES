@@ -96,7 +96,7 @@ else
                     <!-- <hr > -->
 
                     <div id="rfidcarddata">
-                      
+
                     </div>
 
                     <!-- RFID data Start -->
