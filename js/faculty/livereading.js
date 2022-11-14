@@ -1,6 +1,6 @@
 
 var data_bckp="";
-
+var req_num=1;
 function getLatestData()
 {
     let classroomid = $("#reader_selection").val();
@@ -9,6 +9,7 @@ function getLatestData()
     if(req_num==1)
     {
         $("#rfidcarddata").html(null);
+        req_num=2;
     }
 
     $.post(
@@ -22,7 +23,7 @@ function getLatestData()
         {           
             console.log($("#rfidcarddata").text()!=data);
             data_bckp = data;
-            
+
             if(data_bckp!=data)
             {
                 $("#rfidcarddata").prepend(data);
