@@ -31,7 +31,8 @@ function getAmsApi($classroomid)
 if(isset($_GET['cid'])&&isset($_SESSION['_userId']))
 {
         $cid = $JAMES->sanitizeInput($_GET['cid']);
-        echo "data: ".getAmsApi($cid)."\n";
+        $data = getAmsApi($cid);
+        echo "data: {$data}\n";
         flush();
 }
 else
