@@ -38,7 +38,9 @@ function getLatestData()
                 //             $("#rfidcarddata").empty();
                 //         }
                         
-                        $("#rfidcarddata").html(data);
+                        if(data!=data_copy)
+                        $("#rfidcarddata").prepend(data);
+                        data_copy=data;
                     //     data_copy=data;
                         
                     // }
