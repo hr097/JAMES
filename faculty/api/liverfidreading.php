@@ -15,11 +15,11 @@ function getAmsApi($classroomid)
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
-    if(mysqli_num_rows($result)==1)
+    if(mysqli_num_rows($result)>=1)
     {
         $faculty = "";
-        $record = mysqli_fetch_assoc($result);
-
+        while($record = mysqli_fetch_assoc($result))
+        {
         $faculty.=
         "
         <tr class='student'>
@@ -30,6 +30,7 @@ function getAmsApi($classroomid)
         <td>".$record['cur_semester']."</td>
         </tr>
         ";
+        }
 
         return $faculty;
     }
