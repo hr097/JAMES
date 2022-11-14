@@ -107,7 +107,7 @@ else
                                     <th>SPID</th>
                                     <th>Name</th>
                                     <th>Gender</th>
-                                    <th>Birthdate</th>
+                                    <th>Scanned At</th>
                                     <th>Semester</th>
                                   </tr>
                                 </thead>
