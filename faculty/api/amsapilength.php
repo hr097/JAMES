@@ -2,7 +2,7 @@
 header('Content-Type: text/event-stream');
 header('Cache-Control: no-cache');
 
-$data="Helllo world";
+$data="Helllo worldalsdhjbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnadssssssssssssssssssssssssssssssssssssssssssssssssssssssssss";
 
 
 echo "data: {$data}\n\n";
