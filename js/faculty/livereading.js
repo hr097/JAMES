@@ -36,16 +36,12 @@ $(document).ready(function(){
         // },1000); 
 
         if(typeof(EventSource) !== "undefined") {
-            var source = new EventSource("api/liverfidreading.php");
-            // source.onmessage = function(event) {
-            //   $("#rfidcarddata").html(event.data);
-            // };
+            var source = new EventSource("api/amsapilength.php");
 
-            source.addEventListener("message", function(event)
-            {
-                alert(event.data);
-            })
-            
+            source.onmessage = function(event) {
+              $("#rfidcarddata").html(event.data);
+            };
+
           } else {
             alert("Sorry, your browser does not support server-sent events...");
           }
