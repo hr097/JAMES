@@ -1,5 +1,5 @@
 
-var req_num=1;
+var data_bckp="";
 
 function getLatestData()
 {
@@ -21,10 +21,12 @@ function getLatestData()
         if(status == "success")
         {           
             console.log($("#rfidcarddata").text()!=data);
-            if($("#rfidcarddata").text()!=data)
+            data_bckp = data;
+            
+            if(data_bckp!=data)
             {
                 $("#rfidcarddata").prepend(data);
-                req_num=2;
+                data_bckp=data;
             }
         }
     },"text"); // must write as text string will come
