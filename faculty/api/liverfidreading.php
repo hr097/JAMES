@@ -6,9 +6,9 @@ header('Cache-Control: no-cache');
 // header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
 
-require_once("../../ams.php");
-$JAMES = new AMS("User");
-$JAMES->init_user_session();
+// require_once("../../ams.php");
+// $JAMES = new AMS("User");
+// $JAMES->init_user_session();
 
 function getAmsApi($classroomid) 
 {   
