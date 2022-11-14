@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/event-stream');
+header('Content-Type: json/event-stream');
 header('Cache-Control: no-cache');
 
 require_once("../../ams.php");
