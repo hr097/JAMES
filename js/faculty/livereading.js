@@ -1,8 +1,8 @@
 
 function getLatestData()
 {
-    var classroomid = $("#reader_selection").val();
-    var csrfToken = $("#csrfToken").val();
+    let classroomid = $("#reader_selection").val();
+    let csrfToken = $("#csrfToken").val();
 
     $.post(
     "api/liverfidreading.php",
@@ -24,6 +24,9 @@ $(document).ready(function(){
         setInterval(
         function ()
         {   
+
+    let classroomid = $("#reader_selection").val();
+    let csrfToken = $("#csrfToken").val();
             
     $.post(
         "api/amsapilength.php",
