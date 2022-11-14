@@ -15,19 +15,22 @@ function getLatestData()
         if(status == "success")
         {         
 
-                if(data==`<tr>
-                 <td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td>
-                 </tr>`)
+                if(data==`<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>`)
                 {   
-                    $("#rfidcarddata").empty();
-                    if(data!=data_copy)
+                    if(("#rfidcarddata").html()!=data)
                     {
-                    $("#rfidcarddata").html(data);
+                        ("#rfidcarddata").empty();
+                        ("#rfidcarddata").html(data);s
                     }
                 }
                 else
                 {   
-                    if(data!=data_copy)
+                    if(data_copy=="")
+                    {
+                        $("#rfidcarddata").prepend(data);
+                        data_copy=data;
+                    }
+                    else if(data_copy!=data)
                     {
                         $("#rfidcarddata").prepend(data);
                         data_copy=data;

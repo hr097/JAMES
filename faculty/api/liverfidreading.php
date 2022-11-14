@@ -35,10 +35,7 @@ function getAmsApi($classroomid)
     }
     else
     {
-        return "
-        <tr>
-        <td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td>
-        </tr>";
+        return "<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>";
 
     }
 }
