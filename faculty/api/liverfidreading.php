@@ -66,7 +66,8 @@ function getAmsApi($classroomid)
 
                  <div class='card__face card__face--front' style='border-radius: 10px;'>
 
-                   <h4  class='profile_name' style='color:white;margin-top:102px;' >".$record['name']."</h4>
+                   <h4  class='profile_name' style='color:white;margin-top:82px;' >".$record['name']."</h4>
+                   <h4  class='profile_name' style='color:white;margin-top:5px;font-size:0.8em;' >".$record['gender']."</h4>
                  </div>
 
                   <div  class='card__face card__face--back py-4 pl-4' style='font-weight:500;font-size: 15px;' align='left'>
