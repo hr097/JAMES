@@ -15,37 +15,36 @@ function getLatestData()
         if(status == "success")
         {         
 
-                if(data==`<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>`)
-                {   
-                    if($("#rfidcarddata").html()!=data)
-                    {
-                        $("#rfidcarddata").empty();
+                // if(data==`<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>`)
+                // {   
+                //     if($("#rfidcarddata").html()!=data)
+                //     {
+                //         $("#rfidcarddata").empty();
+                //         $("#rfidcarddata").html(data);
+                //         data_copy=data;
+                //     }
+                // }
+                // else
+                // {   
+                //     if(data_copy=="")
+                //     {
+                //         $("#rfidcarddata").prepend(data);
+                //         data_copy=data;
+                //     }
+                //     else if(data_copy!=data)
+                //     {   
+                //         if($("#rfidcarddata").html()==`<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>`)
+                //         {
+                //             $("#rfidcarddata").empty();
+                //         }
+                        
                         $("#rfidcarddata").html(data);
-                        data_copy=data;
-                    }
-                }
-                else
-                {   
-                    if(data_copy=="")
-                    {
-                        $("#rfidcarddata").prepend(data);
-                        data_copy=data;
-                    }
-                    else if(data_copy!=data)
-                    {   
-                        if($("#rfidcarddata").html()==`<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>`)
-                        {
-                            $("#rfidcarddata").empty();
-                        }
+                    //     data_copy=data;
                         
-                        $("#rfidcarddata").prepend(data);
-                        data_copy=data;
-                        
-                    }
+                    // }
                    
                 }
                
-        }
     },"text"); // must write as text string will come
 }
 
