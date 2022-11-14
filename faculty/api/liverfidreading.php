@@ -15,11 +15,11 @@ function getAmsApi($classroomid)
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
-    if(mysqli_num_rows($result)>=1)
+    if(mysqli_num_rows($result)==1)
     {
         $faculty = "";
-        while($record = mysqli_fetch_assoc($result))
-        {
+        $record = mysqli_fetch_assoc($result);
+
             // $faculty.=
             // "
             // <tr class='student'>
@@ -40,21 +40,21 @@ function getAmsApi($classroomid)
                 $profile =  "<img src='../assets/profiles/student-profile-female.png' class='profile_img my-4' style='width:130px;height:130px;border-radius:49%;' alt='Student profile'>";
             }   
 
-            if($user['cur_semester']==1)
+            if($record['cur_semester']==1)
             {
-                $sem = $user['cur_semester']."<sup>st</sup>";
+                $sem = $record['cur_semester']."<sup>st</sup>";
             }
-            else if($user['cur_semester']==2)
+            else if($record['cur_semester']==2)
             {
-                $sem = $user['cur_semester']."<sup>nd</sup>";    
+                $sem = $record['cur_semester']."<sup>nd</sup>";    
             }
-            else if($user['cur_semester']==3)
+            else if($record['cur_semester']==3)
             {
-                $sem = $user['cur_semester']."<sup>rd</sup>";   
+                $sem = $record['cur_semester']."<sup>rd</sup>";   
             }
             else
             {
-                $sem = $user['cur_semester']."<sup>th</sup>";   
+                $sem = $record['cur_semester']."<sup>th</sup>";   
             }
     
     
@@ -103,8 +103,6 @@ function getAmsApi($classroomid)
               <!-------------------------------------------------------Student Card End------------------------------------------------------->
             </div>
           </div>";
-
-        }
 
         return $faculty;
     }
