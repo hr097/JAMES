@@ -94,20 +94,15 @@ else
                     </div>
 
                     <!-- <hr > -->
-
-                    <div id="rfidcarddata">
-
-                    </div>
-
                     <!-- RFID data Start -->
-                    <!-- <div class="card" style="margin-bottom:10px;margin-top:-30px;" id="add_stud_tbl">
+                    <div class="card" style="margin-bottom:10px;margin-top:-30px;" id="add_stud_tbl">
                       <div class="card-body">
                         <h4 class="card-title">Card Scanning Details</h4>
                         <div class="row">
                           <div class="col-12">
                             <div class="table-responsive">
                               <table id="order-listing1" class="table">
-                                <thead>
+                                <!-- <thead>
                                   <tr>
                                     <th>SPID</th>
                                     <th>Name</th>
@@ -115,7 +110,7 @@ else
                                     <th>Birthdate</th>
                                     <th>Semester</th>
                                   </tr>
-                                </thead>
+                                </thead> -->
                                 <tbody id="rfidcarddata">
                                   <tr>
                                     <td  colspan="5" style='font-size:1.2em;text-align:center;'>No Scanned Cards Details</td>
@@ -126,7 +121,7 @@ else
                           </div>
                         </div>
                       </div>
-                    </div> -->
+                    </div>
 
             
                     <!--RFID Stud card Data End-->
