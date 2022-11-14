@@ -58,7 +58,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
 
                     <li>
                       <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Events</h6>
-                      <h5 class="info-data" style="margin-left:5px;">No events announceed yet.</h5> 
+                      <h5 class="info-data" style="margin-left:5px;">No events announced yet.</h5> 
                     </li>
 
                     <li>
@@ -92,7 +92,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
 
                     <li>
                       <h6 class="info-title font-weight-bold" style="margin-bottom:15px;">Assignments</h6>
-                      <h5 class="info-data" style="margin-left:5px;">Hurrey! No assignments to show</h5> 
+                      <h5 class="info-data" style="margin-left:5px;">Hurray! No assignments to show</h5> 
                     </li>
 
                     <li>
@@ -110,11 +110,11 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
   
   <script>
   
-    <!-- including footer -->
+    // <!-- including footer -->
     <?php
     require_once('./common/footer.php');
     ?>
-
+</script>
 
   
 </body>

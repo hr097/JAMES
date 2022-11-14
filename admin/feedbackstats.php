@@ -28,14 +28,14 @@ while ($row = mysqli_fetch_array($result3)) {
 }
 $sort = $sort . "</tbody>";
 
-$emailTemp = "document.getElementById('email_input').innerHTML";
-$sql4 = "select * from Ams_feedback where email = $emailTemp;";
-$result4 = mysqli_query($JAMES->connection(), $sql4);
-$searchbymail = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
-while ($row2 = mysqli_fetch_array($result4)) {
-    $searchbymail = $searchbymail . "<tr><td>" . $row2['fb_id'] . "</td><td>" . $row2['email'] . "</td><td>" . $row2['description'] . "</td><td>" . $row2['givenAt'] . "</td><td>" . $row2['rating'] . "</td><td></tr>";
-}
-$searchbymail = $searchbymail . "</tbody>";
+// $emailTemp = "document.getElementById('email_input').innerHTML";
+// $sql4 = "select * from Ams_feedback where email = $emailTemp;";
+// $result4 = mysqli_query($JAMES->connection(), $sql4);
+// $searchbymail = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
+// while ($row2 = mysqli_fetch_array($result4)) {
+//     $searchbymail = $searchbymail . "<tr><td>" . $row2['fb_id'] . "</td><td>" . $row2['email'] . "</td><td>" . $row2['description'] . "</td><td>" . $row2['givenAt'] . "</td><td>" . $row2['rating'] . "</td><td></tr>";
+// }
+// $searchbymail = $searchbymail . "</tbody>";
 
 // $fidTemp = "document.getElementById('feedback_input')";
 // $sql5 = "select * from Ams_feedback where fb_id = fidTemp;";
@@ -139,6 +139,7 @@ $searchbymail = $searchbymail . "</tbody>";
                                         <input type="text" id="email_input" placeholder="email@example.com" class="form-control form-group-lg">
                                     </div>
                                     <button type="submit" class="btn btn-primary mb-2 ml-2" onclick="searchMail()">Search Data</button>
+                                    <button type="button" class="btn btn-primary mb-2 ml-2" onclick="clearfield()">Clear</button>
                                     <!-- Add a Clear field button -->
                                 </form>
                                 <div class="col-lg-12 grid-margin">
@@ -165,6 +166,7 @@ $searchbymail = $searchbymail . "</tbody>";
                                         <input type="text" id="feedback_input" placeholder="XX" class="form-control form-group-lg">
                                     </div>
                                     <button type="submit" class="btn btn-primary mb-2  ml-2" onclick="searchfId()">Search Data</button>
+                                    <button type="button" class="btn btn-primary mb-2 ml-2" onclick="clearfield2()">Clear</button>
                                     <!-- Add a Clear field button -->
                                 </form>
                                 <div class="col-lg-12 grid-margin">
@@ -215,12 +217,19 @@ $searchbymail = $searchbymail . "</tbody>";
         document.getElementById('mailblock').hidden = true;
     }
 
-    function searchMail() {
-        document.getElementById('maildata').innerHTML = "<?php echo $searchbymail; ?>";
-    }
+    // function searchMail() {
+    //     document.getElementById('maildata').innerHTML = "<?php echo $searchbymail; ?>";
+    // }
 
     function searchfId() {
         // document.getElementById('fiddata').innerHTML = "";
+    }
+
+    function clearfield(){
+        document.getElementById('email_input').textContent = "";
+    }
+    function clearfield2(){
+        document.getElementById('feedback_input').textContent = "";
     }
 </script>
 
