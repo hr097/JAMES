@@ -39,7 +39,7 @@ $(document).ready(function(){
             {   
                 let stud_len = $(".student").length;
                 console.log(stud_len); 
-                if(stud_len==undefined)
+                if(stud_len==0)
                 {
                     getLatestData();
                 } 
