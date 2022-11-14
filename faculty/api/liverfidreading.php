@@ -1,7 +1,8 @@
 <?php
-header('Content-Type: application/json');
+header('Content-Type: text/event-stream');
+header('Cache-Control: no-cache');
 header('Access-Control-Allow-Origin:ams.vnsguit.org'); 
-header('Access-Control-Allow-Methods: POST');
+//header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
 
@@ -44,6 +45,7 @@ function getAmsApi($classroomid)
         //$cid = $JAMES->sanitizeInput($_POST['_cid']);
         $cid=2;
         echo getAmsApi($cid);
+        flush();
 //}
 //else
 //{    
