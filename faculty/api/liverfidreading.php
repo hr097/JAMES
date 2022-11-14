@@ -32,7 +32,7 @@ if(isset($_GET['cid'])&&isset($_SESSION['_userId']))
 {
         $cid = $JAMES->sanitizeInput($_GET['cid']);
         $data = getAmsApi($cid);
-        echo "data: {$data}\n";
+        echo "data: {$data}\n\n";
         flush();
 }
 else
