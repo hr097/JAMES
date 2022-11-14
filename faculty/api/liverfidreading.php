@@ -78,7 +78,7 @@ function getAmsApi($classroomid)
                     
                     <p>
                     <span  class='card_back_title mr-4'> Birthdate :</span>
-                    <span lass='card_back_data' style='font-weight:normal;' >&nbsp".$record['dob']."</span>
+                    <span lass='card_back_data' style='font-weight:normal;'>".$record['dob']."</span>
                     </p>
 
                     <p>
