@@ -26,7 +26,7 @@ $(document).ready(function(){
                 }
             },"text"); // must write as text string will come
 
-         },3000); 
+         },1000); 
 
     });
 
