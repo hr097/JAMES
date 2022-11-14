@@ -19,7 +19,7 @@ function getLatestData()
                  <td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td>
                  </tr>`)
                 {   
-                    $("#rfidcarddata").html(" ");
+                    $("#rfidcarddata").empty();
                     if(data!=data_copy)
                     {
                     $("#rfidcarddata").html(data);
