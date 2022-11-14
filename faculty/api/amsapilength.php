@@ -2,7 +2,7 @@
 header('Content-Type: text/event-stream');
 header('Cache-Control: no-cache');
 
-$api="ok";
+$api="ok".$_GET['cid'];
 $data="Hello".$api."ok";
 
 
