@@ -17,6 +17,12 @@ $(document).ready(function(){
                 if(status == "success")
                 {
                 $("#rfidcarddata").html(data);
+
+                    //Card flip
+                    var card = document.querySelector(".flip-card");
+                    card.addEventListener("click", function () {
+                        card.classList.toggle("is-flipped");
+                    });
                 }
             },"text"); // must write as text string will come
 
@@ -24,10 +30,6 @@ $(document).ready(function(){
 
     });
 
-  //Card flip
-  var card = document.querySelector(".flip-card");
-  card.addEventListener("click", function () {
-    card.classList.toggle("is-flipped");
-  });
+
 
 });
