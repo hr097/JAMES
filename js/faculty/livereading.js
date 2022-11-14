@@ -8,7 +8,7 @@ function getLatestData()
     
     if(req_num==1)
     {
-        $("#rfidcarddata").html("");
+        $("#rfidcarddata").html(null);
     }
 
     $.post(
