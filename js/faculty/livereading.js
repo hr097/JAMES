@@ -36,7 +36,8 @@ $(document).ready(function(){
         // },1000); 
 
         if(typeof(EventSource) !== "undefined") {
-            var source = new EventSource("api/amsapilength.php?cid=12345");
+            let classroomid = $("#reader_selection").val();
+            var source = new EventSource("api/amsapilength.php?cid="+classroomid);
 
             source.onmessage = function(event) {
               $("#rfidcarddata").html(event.data);
