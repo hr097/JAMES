@@ -71,7 +71,7 @@ function getAmsApi($classroomid)
 
                   <div  class='card__face card__face--back py-4 pl-4' style='font-weight:500;font-size: 15px;' align='left'>
                     <p class='mt-3'>
-                    <span  class='card_back_title mr-4'> SPID :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <span  class='card_back_title mr-4'> SPID :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
                     <span class='card_back_data' style='font-weight:normal;'>".$record['spid']."</span>
                     </p>
 
@@ -83,17 +83,17 @@ function getAmsApi($classroomid)
 
                     <p>
                     <span  class='card_back_title mr-4'> Course :</span>
-                    <span lass='card_back_data' style='font-weight:normal;' >".$record['course_name']."</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >&nbsp&nbsp".$record['course_name']."</span>
                     </p>
 
                     <p>
                     <span  class='card_back_title mr-1'> Semester :</span>
-                    <span lass='card_back_data' style='font-weight:normal;' >&nbsp".$sem."</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >&nbsp&nbsp&nbsp".$sem."</span>
                     </p>
 
                     <p>
                     <span  class='card_back_title mr-3'> Division :</span>
-                    <span lass='card_back_data' style='font-weight:normal;' >&nbsp".$record['cur_division']."</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >&nbsp&nbsp&nbsp".$record['cur_division']."</span>
                     </p>
 
                   </div>
