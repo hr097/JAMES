@@ -11,6 +11,6 @@ $data="<tr class='student'>
          </tr>";
 
 
-echo "data: ".$data."\n\n";
+echo "data: {$data}\n\n";
 flush();
 ?>
