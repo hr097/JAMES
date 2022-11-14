@@ -15,21 +15,27 @@ function getAmsApi($classroomid)
     
     if(mysqli_num_rows($result)==1)
     {
-        $faculty = "";
+        $student  = array();
         $record = mysqli_fetch_assoc($result);
 
-        $faculty.=
-        "
-        <tr class='student'>
-        <td>".$record['spid']."</td>
-        <td>".$record['name']."</td>
-        <td>".$record['gender']."</td>
-        <td>".$record['rdt']."</td>
-        <td>".$record['cur_semester']."</td>
-        </tr>
-        ";
+        // $faculty.=
+        // "
+        // <tr class='student'>
+        // <td>".$record['spid']."</td>
+        // <td>".$record['name']."</td>
+        // <td>".$record['gender']."</td>
+        // <td>".$record['rdt']."</td>
+        // <td>".$record['cur_semester']."</td>
+        // </tr>
+        // ";
 
-        return $faculty;
+        $student['spid'] = $record['spid'];
+        $student['name'] = $record['name'];
+        $student['gender'] = $record['gender'];
+        $student['rdt'] = $record['rdt'];
+        $student['cur_semester'] = $record['cur_semester'];
+
+        return json_endcode($student);
     }
     else
     {
