@@ -6,7 +6,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 
 require_once("../../ams.php");
-$JAMES = new AMS("record");
+$JAMES = new AMS("User");
 $JAMES->init_record_session();
 
 function getAmsApi($classroomid) 
