@@ -15,14 +15,8 @@ $(document).ready(function(){
             },
             function (data, status) {
                 if(status == "success")
-                {
-                $("#rfidcarddata").html(data);
-
-                    //Card flip
-                    var card = document.querySelector(".flip-card");
-                    card.addEventListener("click", function () {
-                        card.classList.toggle("is-flipped");
-                    });
+                {       
+                     $("#rfidcarddata").html(data);
                 }
             },"text"); // must write as text string will come
 
@@ -30,6 +24,10 @@ $(document).ready(function(){
 
     });
 
-
-
 });
+
+                    // //Card flip
+                    // var card = document.querySelector(".flip-card");
+                    // card.addEventListener("click", function () {
+                    //     card.classList.toggle("is-flipped");
+                    // });
