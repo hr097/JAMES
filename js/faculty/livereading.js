@@ -25,26 +25,35 @@ $(document).ready(function(){
         function ()
         {   
 
-    let classroomid = $("#reader_selection").val();
-    let csrfToken = $("#csrfToken").val();
+    // let classroomid = $("#reader_selection").val();
+    // let csrfToken = $("#csrfToken").val();
+    // let cur_time = "2022-11-14 12:24:52";
             
-    $.post(
-        "api/amsapilength.php",
-        {
-            _cid: classroomid,
-            _ct: csrfToken
-        },
-        function (data, status) {
-            if(status == "success")
-            {   
-                let stud_len = $(".student").length;
-                console.log(stud_len); 
-                if(stud_len==0)
-                {
+    // $.post(
+    //     "api/amsapilength.php",
+    //     {
+    //         _cid: classroomid,
+    //         _ct: csrfToken,
+    //         _tm: cur_time
+    //     },
+    //     function (data, status) {
+    //         if(status == "success")
+    //         {   
+    //             let stud_len = $(".student").length;
+    //             console.log(stud_len); 
+
+    //             var old_len=0;
+
+    //             if(stud_len==0)
+    //             {
                     getLatestData();
-                } 
-            }
-        },"text"); // must write as text string will come
+        //         } 
+        //         else if(stud_len==data)
+        //         {
+
+        //         }
+        //     }
+        // },"text"); // must write as text string will come
 
         },1000); 
 

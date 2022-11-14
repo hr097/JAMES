@@ -9,9 +9,9 @@ require_once("../../ams.php");
 $JAMES = new AMS("User");
 $JAMES->init_user_session();
 
-function getAmsApi($classroomid) 
+function getAmsApiLength($classroomid,$time) 
 {   
-    $sql= "select count(Ams_api.reading_no) As record_len FROM Ams_api where Ams_api.reader_no=$classroomid;";
+    $sql= "select count(Ams_api.reading_no) As record_len FROM Ams_api where Ams_api.reader_no=$classroomid and Ams_api.reading_date_time>='$time';";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
@@ -31,10 +31,11 @@ function getAmsApi($classroomid)
     }
 }
 
-if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
+if(isset($_POST['_cid'])&&isset($_POST['_tm'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
         $cid = $JAMES->sanitizeInput($_POST['_cid']);
-        echo getAmsApi($cid);
+        $time = $JAMES->sanitizeInput($_POST['_tm']);
+        echo getAmsApiLength($cid,$time);
 }
 else
 {    
