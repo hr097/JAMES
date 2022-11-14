@@ -1,6 +1,7 @@
 
 var data_bckp="";
 var req_num=1;
+
 function getLatestData()
 {
     let classroomid = $("#reader_selection").val();
@@ -22,14 +23,16 @@ function getLatestData()
         {         
             if(req_num==1)  
             {
+                $("#rfidcarddata").prepend(data);
                 data_bckp = data;
-                $("#rfidcarddata").prepend(data);
             }
-
-            if(data_bckp!=data)
+            else
             {
-                $("#rfidcarddata").prepend(data);
-                data_bckp=data;
+                if(data_bckp!=data)
+                {
+                    $("#rfidcarddata").prepend(data);
+                    data_bckp=data;
+                }
             }
         }
     },"text"); // must write as text string will come
