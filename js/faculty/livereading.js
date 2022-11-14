@@ -3,7 +3,7 @@ function getLatestData()
 {
     let classroomid = $("#reader_selection").val();
     let csrfToken = $("#csrfToken").val();
-
+    $("#rfidcarddata").html("");
     $.post(
     "api/liverfidreading.php",
     {
