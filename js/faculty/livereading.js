@@ -9,7 +9,6 @@ function getLatestData()
     if(req_num==1)
     {
         $("#rfidcarddata").html(null);
-        req_num=2;
     }
 
     $.post(
@@ -20,9 +19,11 @@ function getLatestData()
     },
     function (data, status) {
         if(status == "success")
-        {           
-            console.log($("#rfidcarddata").text()!=data);
-            data_bckp = data;
+        {         
+            if(req_num==1)  
+            {
+                data_bckp = data;
+            }
 
             if(data_bckp!=data)
             {
