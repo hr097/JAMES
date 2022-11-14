@@ -1,9 +1,9 @@
 <?php
 header('Content-Type: text/event-stream');
 header('Cache-Control: no-cache');
-header('Access-Control-Allow-Origin:ams.vnsguit.org'); 
+// header('Access-Control-Allow-Origin:ams.vnsguit.org'); 
 //header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
+// header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
 
 require_once("../../ams.php");
