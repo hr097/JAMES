@@ -1,13 +1,15 @@
 
-var req_num =1;
+var req_num=1;
 
 function getLatestData()
 {
     let classroomid = $("#reader_selection").val();
     let csrfToken = $("#csrfToken").val();
     
-    if(req_num == 1)
-    $("#rfidcarddata").html("");
+    if(req_num==1)
+    {
+        $("#rfidcarddata").html("");
+    }
 
     $.post(
     "api/liverfidreading.php",
@@ -18,7 +20,8 @@ function getLatestData()
     function (data, status) {
         if(status == "success")
         {           
-            if($("#rfidcarddata").html()!=data)
+            console.log($("#rfidcarddata").text()!=data);
+            if($("#rfidcarddata").text()!=data)
             {
                 $("#rfidcarddata").prepend(data);
                 req_num=2;
