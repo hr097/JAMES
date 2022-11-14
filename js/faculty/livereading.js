@@ -1,4 +1,4 @@
-
+var data_copy="";
 function getLatestData()
 {
     let classroomid = $("#reader_selection").val();
@@ -22,8 +22,13 @@ function getLatestData()
                     $("#rfidcarddata").html(data);
                 }
                 else
-                {
-                    $("#rfidcarddata").prepend(data);
+                {   
+                    if(data!=data_copy)
+                    {
+                        $("#rfidcarddata").prepend(data);
+                        data_copy=data;
+                    }
+                   
                 }
                
         }
