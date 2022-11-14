@@ -351,7 +351,7 @@ else
         <div class="content-wrapper">
           <div class="row">
             <!-------------------------------------------------------Table Start------------------------------------------------------->
-            <div class="col-lg-12 grid-margin">
+            <div class="col-sm-12 col-md-12 col-lg-12 grid-margin">
 
                 <div class="card">
                   <div class="card-body">
@@ -395,6 +395,7 @@ else
                         </div>
                       </div>
                     </div>
+
                   </div>
                 </div>
                   <!--Table End-->

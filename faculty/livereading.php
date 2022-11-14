@@ -102,19 +102,16 @@ else
                           <div class="col-12">
                             <div class="table-responsive">
                               <table id="order-listing1" class="table">
-                                <!-- <thead>
+                                <thead>
                                   <tr>
                                     <th>SPID</th>
                                     <th>Name</th>
                                     <th>Gender</th>
-                                    <th>Birthdate</th>
+                                    <th>Scanned At</th>
                                     <th>Semester</th>
                                   </tr>
-                                </thead> -->
+                                </thead>
                                 <tbody id="rfidcarddata">
-                                  <tr>
-                                    <td  colspan="5" style='font-size:1.2em;text-align:center;'>No Scanned Cards Details</td>
-                                  </tr>
                                 </tbody>
                               </table>
                             </div>
