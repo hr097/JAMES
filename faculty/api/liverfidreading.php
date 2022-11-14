@@ -77,8 +77,8 @@ function getAmsApi($classroomid)
 
                     
                     <p>
-                    <span  class='card_back_title mr-4'> Roll No :</span>
-                    <span lass='card_back_data' style='font-weight:normal;' >".$record['dob']."</span>
+                    <span  class='card_back_title mr-4'> Birthdate :</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >&nbsp".$record['dob']."</span>
                     </p>
 
                     <p>
@@ -88,12 +88,12 @@ function getAmsApi($classroomid)
 
                     <p>
                     <span  class='card_back_title mr-1'> Semester :</span>
-                    <span lass='card_back_data' style='font-weight:normal;' >".$sem."</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >&nbsp".$sem."</span>
                     </p>
 
                     <p>
                     <span  class='card_back_title mr-3'> Division :</span>
-                    <span lass='card_back_data' style='font-weight:normal;' >".$record['cur_division']."</span>
+                    <span lass='card_back_data' style='font-weight:normal;' >&nbsp".$record['cur_division']."</span>
                     </p>
 
                   </div>
