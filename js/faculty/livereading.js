@@ -38,15 +38,15 @@ function getLatestData()
                 //             $("#rfidcarddata").empty();
                 //         }
                         
-                        if(data!=data_copy)
-                        $("#rfidcarddata").prepend(data);
-                        data_copy=data;
-                    //     data_copy=data;
+                //         $("#rfidcarddata").prepend(data);
+                //         data_copy=data;
                         
-                    // }
+                //     }
                    
-                }
-               
+                // }
+
+               $("#rfidcarddata").html(data);
+        }
     },"text"); // must write as text string will come
 }
 
