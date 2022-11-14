@@ -1,26 +1,49 @@
+
+function getLatestData()
+{
+    var classroomid = $("#reader_selection").val();
+    var csrfToken = $("#csrfToken").val();
+
+    $.post(
+    "api/liverfidreading.php",
+    {
+        _cid: classroomid,
+        _ct: csrfToken
+    },
+    function (data, status) {
+        if(status == "success")
+        {           
+            $("#rfidcarddata").prepend(data);
+        }
+    },"text"); // must write as text string will come
+}
+
 $(document).ready(function(){
 
     $("#reader_selection").on('change',function () {
         setInterval(
         function ()
         {   
-            var classroomid = $("#reader_selection").val();
-            var csrfToken = $("#csrfToken").val();
+            
+    $.post(
+        "api/amsapilength.php",
+        {
+            _cid: classroomid,
+            _ct: csrfToken
+        },
+        function (data, status) {
+            if(status == "success")
+            {   
+                let stud_len = $(".student").length;
+                console.log(stud_len); 
+                if(stud_len==undefined)
+                {
+                    getLatestData();
+                } 
+            }
+        },"text"); // must write as text string will come
 
-            $.post(
-            "api/liverfidreading.php",
-            {
-                _cid: classroomid,
-                _ct: csrfToken
-            },
-            function (data, status) {
-                if(status == "success")
-                {       
-                     $("#rfidcarddata").html(data);
-                }
-            },"text"); // must write as text string will come
-
-         },1000); 
+        },1000); 
 
     });
 

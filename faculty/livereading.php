@@ -112,9 +112,6 @@ else
                                   </tr>
                                 </thead>
                                 <tbody id="rfidcarddata">
-                                  <tr>
-                                    <td  colspan="5" style='font-size:1.2em;text-align:center;'>No Scanned Cards Details</td>
-                                  </tr>
                                 </tbody>
                               </table>
                             </div>
