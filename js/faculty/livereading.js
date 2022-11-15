@@ -1,4 +1,6 @@
 
+var data_bckp = "";
+
 function getLatestData()
 {
     let classroomid = $("#reader_selection").val();
@@ -18,9 +20,10 @@ function getLatestData()
                     $("#rfidcarddata").empty();
                     $("#rfidcarddata").html("<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>");
                 }
-                else
+                else if(data!=data_bckp)
                 {   
                     $("#rfidcarddata").prepend(data);
+                    data_bckp=data;
                 }
         }
     },"text"); // must write as text string will come
