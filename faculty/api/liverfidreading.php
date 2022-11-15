@@ -25,7 +25,7 @@ function getAmsApi($classroomid)
         <td>".$record['spid']."</td>
         <td>".$record['name']."</td>
         <td>".$record['gender']."</td>
-        <td>".$record['edt']."</td>
+        <td>".$record['rdt']."</td>
         <td>".$record['cur_semester']."</td>
         </tr>
         ";
