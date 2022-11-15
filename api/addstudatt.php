@@ -7,7 +7,6 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 require_once("../ams.php");
 $JAMES = new AMS("Admin");
-
     function insertStudAttendance($uid,$rNo) 
     {   
         //@query 
@@ -18,11 +17,8 @@ $JAMES = new AMS("Admin");
         if(mysqli_num_rows($result)===1)
         {
             $result = mysqli_fetch_assoc($result);
-            
             $spid = $result['spid'];
-          
             $sql = "insert into Ams_api(reader_no,spid) values($rNo,'$spid');";
-
             if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
             {
                 return 1;// attendance successful
@@ -31,7 +27,6 @@ $JAMES = new AMS("Admin");
             {
                 return -1;// something went wrong!
             }
-           
         }
         else
         {

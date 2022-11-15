@@ -207,12 +207,23 @@ $(document).ready(function(){
       
 
   });
-
+    
     $(".student").click(
         function()
         {
           $("#order-listing").DataTable().destroy();
-          
+          $('#order-listing').DataTable({
+            "aLengthMenu": [
+              [5, 10, 15, -1],
+              [5, 10, 15, "All"]
+            ],
+            "order":[],
+            "iDisplayLength": 10,
+            "language": {
+              search: ""
+            }
+          });
+          $("#order-listing").DataTable().destroy();
           if($($($(this).find("input")[0])).is(':checked')==true)
           {
             $($(this).find("input")[0]).removeAttr("checked");
@@ -234,11 +245,11 @@ $(document).ready(function(){
           }
           else 
           {
-            $($(this).find("input")[0]).attr("checked","true");
+            $($(this).find("input")[0]).attr('checked',true);
             $($(this).find("input")[0]).siblings()[0].innerHTML = "1";
             $('#order-listing').DataTable({
               "aLengthMenu": [
-                [5, 10, 15, -1],
+                [5, 10, 15, -1], 
                 [5, 10, 15, "All"]
               ],
               "order":[],
@@ -253,7 +264,11 @@ $(document).ready(function(){
       );
 
 });
-
+function checkAtt(event)
+    {
+      event.preventDefault();
+      
+    }
 function toggleSelect(selectAll)
 {
   let checkboxes = document.getElementsByName('select_stud');
