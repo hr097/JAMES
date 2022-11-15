@@ -1,10 +1,9 @@
 <?php
-header('Content-Type: text/event-stream');
-header('Cache-Control: no-cache');
-header('Access-Control-Allow-Origin:ams.vnsguit.org'); 
-header('Access-Control-Allow-Methods: GET');
-header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin:ams.vnsguit.org'); 
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, Access-Control-Allow-Methods,Authorization');
 
 require_once("../../ams.php");
 $JAMES = new AMS("User");
@@ -19,7 +18,18 @@ function getAmsApi($classroomid)
     if(mysqli_num_rows($result)==1)
     {
         $record = mysqli_fetch_assoc($result);
-        $student.= $record['spid']."|".$record['name']."|".$record['gender']."|".$record['rdt']."|".$record['cur_semester'];
+
+        $student.=
+        "
+        <tr class='student'>
+        <td>".$record['spid']."</td>
+        <td>".$record['name']."</td>
+        <td>".$record['gender']."</td>
+        <td>".$record['edt']."</td>
+        <td>".$record['cur_semester']."</td>
+        </tr>
+        ";
+
         return $student;
     }
     else
@@ -28,12 +38,11 @@ function getAmsApi($classroomid)
     }
 }
 
-if(isset($_GET['cid'])&&isset($_SESSION['_userId']))
+if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
-        $cid = $JAMES->sanitizeInput($_GET['cid']);
+        $cid = $JAMES->sanitizeInput($_POST['_cid']);
         $data = getAmsApi($cid);
-        echo "data: {$data}\n\n";
-        flush();
+        echo $data;
 }
 else
 {    
