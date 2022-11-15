@@ -209,66 +209,95 @@ $(document).ready(function(){
   });
     
     $(".student").click(
-        function()
+        function(e)
         {
           $("#order-listing").DataTable().destroy();
-          $('#order-listing').DataTable({
-            "aLengthMenu": [
-              [5, 10, 15, -1],
-              [5, 10, 15, "All"]
-            ],
-            "order":[],
-            "iDisplayLength": 10,
-            "language": {
-              search: ""
+          var senderElementName = e.target.tagName.toLowerCase();
+          console.log(senderElementName)
+          if(senderElementName == 'tr' || senderElementName == 'td' ) {
+            console.log($($($(this).find("input")[0])).is(':checked'))
+            if($($($(this).find("input")[0])).is(':checked')==true)
+            {
+              $($(this).find("input")[0]).click();
+              $($(this).find("input")[0]).siblings()[0].innerHTML = "0";
+              $('#order-listing').DataTable({
+                "aLengthMenu": [
+                  [5, 10, 15, -1],
+                  [5, 10, 15, "All"]
+                ],
+                "order":[],
+                "iDisplayLength": 10,
+                "language": {
+                  search: ""
+                }
+              });
+
+              //$($(this).find("input")[0]).siblings()[0].text();
+
             }
-          });
-          $("#order-listing").DataTable().destroy();
-          if($($($(this).find("input")[0])).is(':checked')==true)
-          {
-            $($(this).find("input")[0]).removeAttr("checked");
-            $($(this).find("input")[0]).siblings()[0].innerHTML = "0";
-            $('#order-listing').DataTable({
-              "aLengthMenu": [
-                [5, 10, 15, -1],
-                [5, 10, 15, "All"]
-              ],
-              "order":[],
-              "iDisplayLength": 10,
-              "language": {
-                search: ""
-              }
-            });
+            else 
+            {
+              $($(this).find("input")[0]).click();
+              $($(this).find("input")[0]).siblings()[0].innerHTML = "1";
+              $('#order-listing').DataTable({
+                "aLengthMenu": [
+                  [5, 10, 15, -1], 
+                  [5, 10, 15, "All"]
+                ],
+                "order":[],
+                "iDisplayLength": 10,
+                "language": {
+                  search: ""
+                }
+              });
 
-            //$($(this).find("input")[0]).siblings()[0].text();
-
+            }
           }
-          else 
-          {
-            $($(this).find("input")[0]).attr('checked',true);
-            $($(this).find("input")[0]).siblings()[0].innerHTML = "1";
-            $('#order-listing').DataTable({
-              "aLengthMenu": [
-                [5, 10, 15, -1], 
-                [5, 10, 15, "All"]
-              ],
-              "order":[],
-              "iDisplayLength": 10,
-              "language": {
-                search: ""
-              }
-            });
+          else{
+            if($($($(this).find("input")[0])).is(':checked')==true)
+            {
+              
+              $($(this).find("input")[0]).siblings()[0].innerHTML = "1";
+              $('#order-listing').DataTable({
+                "aLengthMenu": [
+                  [5, 10, 15, -1],
+                  [5, 10, 15, "All"]
+                ],
+                "order":[],
+                "iDisplayLength": 10,
+                "language": {
+                  search: ""
+                }
+              });
 
+              //$($(this).find("input")[0]).siblings()[0].text();
+
+            }
+            else 
+            {
+    
+              $($(this).find("input")[0]).siblings()[0].innerHTML = "0";
+              $('#order-listing').DataTable({
+                "aLengthMenu": [
+                  [5, 10, 15, -1], 
+                  [5, 10, 15, "All"]
+                ],
+                "order":[],
+                "iDisplayLength": 10,
+                "language": {
+                  search: ""
+                }
+              });
+
+            }
           }
+          
+          
         }
       );
 
 });
-function checkAtt(event)
-    {
-      event.preventDefault();
-      
-    }
+
 function toggleSelect(selectAll)
 {
   let checkboxes = document.getElementsByName('select_stud');

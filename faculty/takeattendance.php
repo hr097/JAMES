@@ -29,7 +29,7 @@ if(isset($_GET['classroomid']))
            $student_list.=
            "
            <tr class='student'>
-           <td><input type='checkbox' class='edit_checkbox' onclick={checkAtt(event)} name='select_stud' id='".$record['spid']."'><span style='visibility:hidden;'>0</span></td>
+           <td><input type='checkbox' class='edit_checkbox'  name='select_stud' id='".$record['spid']."'><span style='visibility:hidden;'>0</span></td>
            <td>".$record['cur_roll_no']."</td>
            <td>".$record['spid']."</td>
            <td>".$record['name']."</td>
