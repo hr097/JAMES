@@ -20,16 +20,16 @@ function getLatestData()
                 if(data==0)
                 {
                     $("#rfidcarddata").empty();
-                    $("#rfidcarddata").html("<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>");
-                    console.log(data+"is no-data");
-                    data_bckp="<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>";
+                    // $("#rfidcarddata").html("<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>");
+                    // console.log(data+"is no-data");
+                    // data_bckp="<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>";
                 }
                 else if(data!=data_bckp)
                 {   
-
+                    if(data_bckp!=data)
                     $("#rfidcarddata").prepend(data);
                     data_bckp=data;
-                    console.log(data+"is there");
+                    
                 }
         }
     },"text"); // must write as text string will come
