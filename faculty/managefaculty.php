@@ -127,7 +127,7 @@ if(isset($_GET['classroomid']))
                         <div class="row">
                           <div class="col-12">
                             <div class="table-responsive">
-                              <table id="order-listing1" class="table">
+                              <table id="order-listing" class="table">
                                 <thead>
                                   <tr>
                                   <th><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>

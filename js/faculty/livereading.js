@@ -14,25 +14,31 @@ function getLatestData()
     },
     function (data, status) {
         if(status == "success")
-        {         
-                console.log(data_bckp);
-
+        {        
+          console.log(data);
+          console.log(data_bckp); 
+          
                 if(data==0)
                 {
                     $("#rfidcarddata").empty();
-                    $("#rfidcarddata").html("<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>");
-                    console.log(data+"is no-data");
-                    data_bckp="<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Latest Data Available</td></tr>";
+                    $("#rfidcarddata").html("<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Data Available</td></tr>");
                 }
                 else if(data!=data_bckp)
                 {   
-                    if(data==0)
+                    let check = $("#rfidcarddata").html();
+                    console.log(check);
+                    check = check.trim();
+                    
+                    let condition = (check=="<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Data Available</td></tr>");
+
+                    console.log(condition);
+
+                    if(condition)
                     {
                       $("#rfidcarddata").empty();
                     }
                     $("#rfidcarddata").prepend(data);
                     data_bckp=data;
-                    console.log(data+"is there");
                 }
         }
     },"text"); // must write as text string will come
@@ -44,7 +50,7 @@ $(document).ready(function(){
         
       setInterval(function (){
         getLatestData();
-      },1500);
+      },5000);
 
     });
 

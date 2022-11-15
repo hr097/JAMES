@@ -189,7 +189,7 @@ $JAMES->init_user_session();
                         <div class="row">
                           <div class="col-12">
                             <div class="table-responsive">
-                              <table id="order-listing1" class="table">
+                              <table id="order-listing" class="table">
                                 <thead>
                                    <tr>
                                     <th><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>
@@ -202,11 +202,12 @@ $JAMES->init_user_session();
                                 </thead>
                                 <tbody id="searchstudent">
                                    <tr>
-                                   <td  colspan="7" style='font-size:1.2em;text-align:center;'>No Student Data</td>
+                                   <td  colspan="6" style='font-size:1.2em;text-align:center;'>No Student Data</td>
                                    </tr>
                                 </tbody>
                               </table>
                             </div>
+                            
                           </div>
                         </div>
                       </div>
@@ -219,6 +220,7 @@ $JAMES->init_user_session();
               </div>
             </div>
           </div>
+
 
           <!-- Add Student End -->
 
@@ -254,8 +256,7 @@ $JAMES->init_user_session();
 
         </div>
       </div>
-    </div>
-  </div>
+
 
 
     <!-- modal -->
