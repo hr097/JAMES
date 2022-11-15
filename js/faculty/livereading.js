@@ -36,6 +36,18 @@ function getLatestData()
                 }
                 else if(data!=data_bckp)
                 {   
+                  $("#order-listing").DataTable().destroy();
+                    $('#order-listing').DataTable({
+                      "aLengthMenu": [
+                        [5, 10, 15, -1],
+                        [5, 10, 15, "All"]
+                      ],
+                      "order":[],
+                      "iDisplayLength": 10,
+                      "language": {
+                        search: ""
+                      }
+                    });
                     $("#rfidcarddata").prepend(data);
                     data_bckp=data;
                 }
