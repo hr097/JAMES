@@ -25,9 +25,10 @@ function getLatestData()
                 }
                 else if(data!=data_bckp)
                 {   
-                    let check = $($("#rfidcarddata").html()).trim();
+                    let check = $("#rfidcarddata").html();
                     console.log(check);
-
+                    check = check.trim();
+                    
                     let condition = (check=="<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Data Available</td></tr>");
 
                     console.log(condition);
