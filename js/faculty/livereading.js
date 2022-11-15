@@ -32,7 +32,7 @@ $(document).ready(function(){
         
       setInterval(function (){
         getLatestData();
-      })
+      },1500);
 
     });
 
