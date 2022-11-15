@@ -112,6 +112,7 @@ else
                                   </tr>
                                 </thead>
                                 <tbody id="rfidcarddata">
+                                  
                                 </tbody>
                               </table>
                             </div>
