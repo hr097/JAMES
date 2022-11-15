@@ -14,9 +14,10 @@ function getLatestData()
     },
     function (data, status) {
         if(status == "success")
-        {         
-                console.log(data_bckp);
-
+        {        
+          console.log(data);
+          console.log(data_bckp); 
+          
                 if(data==0)
                 {
                     $("#rfidcarddata").empty();
@@ -37,7 +38,7 @@ $(document).ready(function(){
         
       setInterval(function (){
         getLatestData();
-      },1500);
+      },5000);
 
     });
 
