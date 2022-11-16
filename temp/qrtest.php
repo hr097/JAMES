@@ -1,9 +1,9 @@
 <?php
 
 
-if(isset($_GET['spid'])&&isset($_GET['classroomid']))
+if(isset($_GET['ip'])&&isset($_GET['classroomid']))
 {
-    echo "STUDENT ID: ".$_GET['spid']."<br>";
+    echo "IP ADDRESS: ".$_GET['ip']."<br>";
     echo "CLASSROOM ID: ".$_GET['classroomid'];
 }
 else

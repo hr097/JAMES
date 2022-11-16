@@ -134,6 +134,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="./takeeattendance.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-check-box"></i>
+                            <span class="menu-title">e-Attendance</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="./searchstudent.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-search"></i>
                             <span class="menu-title">Search</span>
@@ -146,7 +153,6 @@
                             <span class="menu-title">Feedback</span>
                         </a>
                     </li>
-
 
                     <li class="nav-item">
                         <a class="nav-link" href="./about.php" aria-expanded="false" aria-controls="ui-basic">
