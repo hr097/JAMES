@@ -86,7 +86,7 @@ if(isset($_SESSION["_liverfidreq"]))
                     <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
                      
                     <div class='row'>
-                        <div class='col-md-6'>
+                        <div class='col-sm-12 col-lg-12 col-md-6'>
                             <div class='form-group rs'>
                                 
                                 <!--reader list -->
