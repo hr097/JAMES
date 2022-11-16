@@ -35,7 +35,7 @@ $(document).ready(function(){
     $("#reader_selection").on('change',function () {
 
       $(".rs").hide();
-      $("#btnreaderchange").html("<button type='button' id='changereader' class='btn btn-primary'>Change Reader</button>");
+      $("#btnreaderchange").html("<button type='button' id='changereader' class='btn btn-primary'style='float:left;' >Change Reader</button>");
       
       $("#changereader").click(function () {
         window.location.reload();
