@@ -22,7 +22,7 @@ function getLatestData()
                     $("#rfidcarddata").empty();
                     $("#rfidcarddata").html("<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Data Available</td></tr>");
                 }
-                else if(data!=data_bckp)
+                else if(data!=data_bckp&&data!=-1)
                 {   
                     if(req_num==1)
                     {
