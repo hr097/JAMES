@@ -56,11 +56,10 @@ $ip_address = $_SERVER['SERVER_NAME'];
                           <label>Classroom ID</label>
                           <input type="hidden" id="ip" name="ip" value="<?php echo $ip_address; ?>">
                           <input type="text" placeholder="Enter classroom ID" class="form-control" name="input_text" id="input_text" autocomplete="off">
-          
                         </div>
                       </div>
                       <div class="col-lg-3 col-md-4 col-sm-12 qr_btnSec">
-                      <button class="btn btn-primary button mr-2" id="btnSubmit" type="submit">Generate<i class="ti ti-reload ml-2" style="user-select: auto;"></i></button>
+                      <button class="btn btn-primary button mr-2" style="margin-top:30px;" id="btnSubmit" type="submit">Generate<i class="ti ti-reload ml-2" style="user-select: auto;"></i></button>
                       </div>
                     </div>
                     <div class="row mt-4 mb-4" style="justify-content:center">
