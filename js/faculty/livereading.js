@@ -1,5 +1,6 @@
 
 var data_bckp = "";
+var req_num=1;
 
 function getLatestData()
 {
@@ -22,7 +23,12 @@ function getLatestData()
                     $("#rfidcarddata").html("<tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Data Available</td></tr>");
                 }
                 else if(data!=data_bckp)
-                { 
+                {   
+                    if(req_num==1)
+                    {
+                      $("#rfidcarddata").empty();
+                      req_num++;
+                    }
                     $("#rfidcarddata").prepend(data);
                     data_bckp=data;
                 }
@@ -43,7 +49,7 @@ $(document).ready(function(){
 
       setInterval(function (){
         getLatestData();
-      },5000);
+      },1000);
 
     });
 

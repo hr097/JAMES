@@ -121,7 +121,7 @@ $JAMES->init_user_session();
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Update Faculty</h4>
+                            <h4 class="card-title">Edit Faculty</h4>
                             <form class="forms-sample">
 
                                 <!-- FID and Role -->
@@ -149,7 +149,7 @@ $JAMES->init_user_session();
                                             <th>Role</th>
                                             <th>Gender</th>
                                             <th>DOB</th>
-                                            <th>Update | Delete</th>
+                                            <th>Update & Delete</th>
 
                                         </tr>
                                     </thead>
