@@ -9,7 +9,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
-$ip_address = $_SERVER['SERVER_NAME'];
+$ip_address = $_SERVER['HTTP_HOST'];
 
 ?>
 
