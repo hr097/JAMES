@@ -76,7 +76,7 @@ if(isset($_SESSION["_liverfidreq"])) {
               <div class="card">
                 <div class="card-body">
 
-                  <h4 class="card-title mb-2">Classroom Reader<?php echo $test; ?></h4>
+                  <h4 class="card-title mb-2">Classroom Reader<?php echo $test." This"; ?></h4>
                   <form class="forms-sample">
 
                     <!-- Live RFID Reader Updates Button-->
