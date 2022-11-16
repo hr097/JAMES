@@ -127,7 +127,7 @@ $JAMES->init_user_session();
                                 <!-- FID and Role -->
                                 <div class="row">
                                     <div class="form-group col-md-10">
-                                        <label>Serch Faculty</label>
+                                        <label>Search Faculty</label>
                                         <input type="text" class="form-control" placeholder="Enter Faculty Id">
                                     </div>
 
