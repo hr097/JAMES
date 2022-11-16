@@ -81,3 +81,9 @@
     background-color: #593c96 !important;
     color: #fff !important;
   }
+
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
