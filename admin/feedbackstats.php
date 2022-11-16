@@ -4,55 +4,34 @@ require_once("../ams.php");
 $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
-// if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
-// {
-//  $JAMES->ams_redirect("../login.php");
-// }
+if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+{
+ $JAMES->ams_redirect("../login.php");
+}
 
 $u = $_SESSION["_userId"];
 
-//@query
-$sql = "select count(*) as total from Ams_feedback;";
-$result = mysqli_query($JAMES->connection(), $sql);
-$result = mysqli_fetch_array($result);
+$sql = "Select count(*) As TotalFeedbacks,FORMAT(avg(rating),2) as avg_rating from Ams_feedback;";
 
-$sql2 = "select cast(avg(rating) as decimal(2,1)) as avge from Ams_feedback;";
-$result2 = mysqli_query($JAMES->connection(), $sql2);
-$result2 = mysqli_fetch_array($result2);
+$ttlfeedbacks = 0;
+$avg_rating = 0.0;
 
-$sql3 = "select * from Ams_feedback order by rating desc;";
-$result3 = mysqli_query($JAMES->connection(), $sql3);
-$sort="";
-while ($row = mysqli_fetch_array($result3)) {
-    $sort = $sort . "<tr><td>" . $row['fb_id'] . "</td><td>" . $row['email'] . "</td><td>" . $row['description'] . "</td><td>" . $row['givenAt'] . "</td><td>" . $row['rating'] . "</td></tr>";
-}
+$result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
+    
+    if(mysqli_num_rows($result)>0)  
+    {
+        $record = "";
+        $record = mysqli_fetch_assoc($result);
 
-// $emailTemp = "document.getElementById('email_input').innerHTML";
-// $sql4 = "select * from Ams_feedback where email = $emailTemp;";
-// $result4 = mysqli_query($JAMES->connection(), $sql4);
-// $searchbymail = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
-// while ($row2 = mysqli_fetch_array($result4)) {
-//     $searchbymail = $searchbymail . "<tr><td>" . $row2['fb_id'] . "</td><td>" . $row2['email'] . "</td><td>" . $row2['description'] . "</td><td>" . $row2['givenAt'] . "</td><td>" . $row2['rating'] . "</td><td></tr>";
-// }
-// $searchbymail = $searchbymail . "</tbody>";
-
-// $fidTemp = "document.getElementById('feedback_input')";
-// $sql5 = "select * from Ams_feedback where fb_id = fidTemp;";
-// $result5 = mysqli_query($JAMES->connection(), $sql5);
-// $searchbyfid = "<thead><tr><th>Feedback ID</th><th>Email ID</th><th>Description</th><th>Date Time Stamp</th><th>Rating</th></tr></thead><tbody id='tbody'>";
-// while ($row2 = mysqli_fetch_array($result5)) {
-//     $searchbyfid = $searchbyfid . "<tr><td>" . $row2['fb_id'] . "</td><td>" . $row2['email'] . "</td><td>" . $row2['description'] . "</td><td>" . $row2['givenAt'] . "</td><td>" . $row2['rating'] . "</td><td></tr>";
-// }
-// $searchbyfid = $searchbyfid . "</tbody>";
-
-// if(mysqli_num_rows($result)>=0)
-// {
-//     $tot = $result;
-// }
-// else
-// {
-//     $JAMES->ams_redirect("../login.php");
-// }
+        $ttlfeedbacks = $record['TotalFeedbacks'];
+        $avg_rating = $record['avg_rating'];
+        
+    }
+    else
+    {
+        $ttlfeedbacks = 0;
+        $avg_rating = 0.0;
+    }
 
 ?>
 
@@ -200,8 +179,24 @@ while ($row = mysqli_fetch_array($result3)) {
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
+                <button type='button' onclick="window.history.back()"s
+                        style="verticle-align:middle;padding:9px;width:90px;height:40px;float:left;position:relative;bottom:10px;display:inline;border-radius:12px;"
+                        class='btn form-control btn-primary btn-icon-text ml-3 mb-2'>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                        </svg>
+                        Back
+                </button>
+
                 <div class="col-sm-12 col-md-12 col-lg-12  grid-margin stretch-card">
+
+
+                        
                     <div class="card">
+
                         <div class="card-body">
                             <h4 class="card-title mb-5">Feedback Statistics</h4>
     
@@ -217,7 +212,7 @@ while ($row = mysqli_fetch_array($result3)) {
                                                     <circle cx='70' cy='70' r='70'></circle>
                                                 </svg>
                                                 <div class='number'>
-                                                    <h2>5<span></span></h2>
+                                                    <h2><?php $GLOBALS['ttlfeedbacks'];?><span></span></h2>
                                                     <p>Feedbacks</p>
                                                 </div>
                                             </div>
@@ -232,7 +227,7 @@ while ($row = mysqli_fetch_array($result3)) {
                                                     <circle cx='70' cy='70' r='70'></circle>
                                                 </svg>
                                                 <div class='number'>
-                                                    <h2>4.5<span></span></h2>
+                                                    <h2><?php $GLOBALS['avg_rating']."%";?><span></span></h2>
                                                     <p>AVG. Rating</p>
                                                 </div>
                                             </div>
@@ -266,7 +261,7 @@ while ($row = mysqli_fetch_array($result3)) {
                                     </thead>
                                     <tbody>
 
-                                        <!-- <?php echo $attendance_html;?> -->
+                                        <!-- <?php echo $feedbackrecords;?> -->
 
                                     </tbody>
                                 </table>
