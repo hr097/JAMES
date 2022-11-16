@@ -30,7 +30,7 @@ else
 }
 
 if(isset($_SESSION["_liverfidreq"])) {
-  session_unset($_SESSION["_liverfidreq"]);
+ $test =  session_unset($_SESSION["_liverfidreq"]);
 }
 
 ?>
@@ -76,7 +76,7 @@ if(isset($_SESSION["_liverfidreq"])) {
               <div class="card">
                 <div class="card-body">
 
-                  <h4 class="card-title mb-2">Classroom Reader</h4>
+                  <h4 class="card-title mb-2">Classroom Reader<?php echo $test; ?></h4>
                   <form class="forms-sample">
 
                     <!-- Live RFID Reader Updates Button-->
