@@ -136,7 +136,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./takeeattendance.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-check-box"></i>
-                            <span class="menu-title">Take e-Attendance</span>
+                            <span class="menu-title">e-Attendance</span>
                         </a>
                     </li>
 
