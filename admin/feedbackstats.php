@@ -37,11 +37,9 @@ $u = $_SESSION["_userId"];
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
     if(mysqli_num_rows($result)>=1)  
-    {
+    {    $feedbacks_rcd = ""; // do not remove
         while($record = mysqli_fetch_assoc($result))
         {   
-            $feedbacks_rcd = ""; // do not remove
-
             $feedbacks_rcd.=
             "
             <tr class='feedback'>
