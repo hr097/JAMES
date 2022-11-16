@@ -317,3 +317,23 @@ padding-top:7px;
   background-color: #e9af00;
   color: white;
 }
+
+/*------------------------------------------------ e-Attendance -------------------------------------------*/
+.qr-code-container{
+  padding: 25px;
+  box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+  background: #ffffff;
+  border-radius: 10px;
+
+}
+@media (min-width: 768px) {
+#btnSubmit{
+margin-top: 27px;
+}
+}
+
+@media(max-width: 767px){
+.qr_btnSec{
+  text-align: center;
+}
+}

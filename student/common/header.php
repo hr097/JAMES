@@ -118,7 +118,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./eattendance.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-check-box"></i>
-                            <span class="menu-title">e-Attendance</span>
+                            <span class="menu-title">e-Attendance Scan</span>
                         </a>
                     </li>
 
