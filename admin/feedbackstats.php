@@ -11,7 +11,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 
 $u = $_SESSION["_userId"];
 
-    $sql = "Select count(*) As TotalFeedbacks,FORMAT(avg(rating),2) as avg_rating from Ams_feedback;";
+    $sql = "select count(*) As TotalFeedbacks,FORMAT(avg(rating),2) as avg_rating from Ams_feedback;";
 
     $ttlfeedbacks = 0;
     $avg_rating = 0.0;
@@ -26,10 +26,33 @@ $u = $_SESSION["_userId"];
         $avg_rating = $record['avg_rating'];
         
     }
-    else
+
+    $feedback_rcd =  "
+    <tr>
+    <td  colspan='5' style='font-size:1.2em;text-align:center;'>No Feedbacks Yet!</td>
+    </tr>";
+
+    $sql = "select * from Ams_feedback;";
+
+    $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
+    
+    if(mysqli_num_rows($result)>=1)  
     {
-        $ttlfeedbacks = 0;
-        $avg_rating = 0.0;
+        while($record = mysqli_fetch_assoc($result))
+        {   
+            $feedbacks_rcd = ""; // do not remove
+
+            $feedbacks_rcd.=
+            "
+            <tr class='feedback'>
+            <td>".$record['fb_id']."</td>
+            <td>".$record['email']."</td>
+            <td>".$record['description']."</td>
+            <td>".$record['givenAt']."</td>
+            <td>".$record['rating']."</td>
+            </tr>
+            ";
+        }
     }
 
 ?>
@@ -260,7 +283,7 @@ $u = $_SESSION["_userId"];
                                     </thead>
                                     <tbody>
 
-                                        <!-- <?php echo $feedbackrecords;?> -->
+                                        <?php echo $feedbacks_rcd;?>
 
                                     </tbody>
                                 </table>
