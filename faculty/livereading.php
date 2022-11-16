@@ -72,12 +72,13 @@ else
               <div class="card">
                 <div class="card-body">
 
-                  <h4 class="card-title">Classroom Reader</h4>
+                  <h4 class="card-title rs">Classroom Reader</h4>
                   <form class="forms-sample">
 
                     <!-- Live RFID Reader Updates Button-->
-
-                    <div class='row'>
+                    <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
+                    
+                    <div class='row rs'>
                         <div class='col-md-6'>
                             <div class='form-group'>
                                 
@@ -87,7 +88,7 @@ else
 
                                 </div>
                                 <div class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
-                                    <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
+
                                 </div>
                             </div>
                         </div>
