@@ -88,7 +88,7 @@ else
 
                                </div>
                             </div>
-                            <div id="btnreaderchange" class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
+                            <div id="btnreaderchange" class="form-group search_fetch_btn col-md-12">
                             </div>
                         </div>
                     </div>
