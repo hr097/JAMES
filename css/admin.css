@@ -58,3 +58,26 @@
     margin-top: 7px;
   }
   
+  /* Regisration Page */
+
+  .searchbtn{
+    margin-top: 30px !important;
+  }
+
+
+  @media only screen and (max-width: 770px) {
+    .searchbtn{
+      margin-top: 0px !important;
+    }
+  }
+
+
+  .updatebtn{
+    background-color: #6C4AB6 !important;
+    color: #fff !important;
+  }
+
+  .updatebtn:hover{
+    background-color: #593c96 !important;
+    color: #fff !important;
+  }
