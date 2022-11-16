@@ -3,7 +3,7 @@
 
 if(isset($_GET['ip'])&&isset($_GET['classroomid']))
 {
-    echo "STUDENT ID: ".$_GET['ip']."<br>";
+    echo "IP ADDRESS: ".$_GET['ip']."<br>";
     echo "CLASSROOM ID: ".$_GET['classroomid'];
 }
 else

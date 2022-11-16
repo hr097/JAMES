@@ -9,7 +9,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
-$ip_address = "127.0.0.1 (Change This to server IP address)";
+$ip_address = $_SERVER['SERVER_NAME'];
 
 ?>
 
