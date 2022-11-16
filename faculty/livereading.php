@@ -72,7 +72,7 @@ else
               <div class="card">
                 <div class="card-body">
 
-                  <h4 class="card-title">Classroom Reader</h4>
+                  <h4 class="card-title mb-2">Classroom Reader</h4>
                   <form class="forms-sample">
 
                     <!-- Live RFID Reader Updates Button-->
