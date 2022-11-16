@@ -11,16 +11,15 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 
 $u = $_SESSION["_userId"];
 
-$sql = "Select count(*) As TotalFeedbacks,FORMAT(avg(rating),2) as avg_rating from Ams_feedback;";
+    $sql = "Select count(*) As TotalFeedbacks,FORMAT(avg(rating),2) as avg_rating from Ams_feedback;";
 
-$ttlfeedbacks = 0;
-$avg_rating = 0.0;
+    $ttlfeedbacks = 0;
+    $avg_rating = 0.0;
 
-$result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
+   $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
     if(mysqli_num_rows($result)>0)  
     {
-        $record = "";
         $record = mysqli_fetch_assoc($result);
 
         $ttlfeedbacks = $record['TotalFeedbacks'];
@@ -212,7 +211,7 @@ $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
                                                     <circle cx='70' cy='70' r='70'></circle>
                                                 </svg>
                                                 <div class='number'>
-                                                    <h2><?php $GLOBALS['ttlfeedbacks'];?><span></span></h2>
+                                                    <h2><?php echo $GLOBALS['ttlfeedbacks'];?><span></span></h2>
                                                     <p>Feedbacks</p>
                                                 </div>
                                             </div>
@@ -227,7 +226,7 @@ $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
                                                     <circle cx='70' cy='70' r='70'></circle>
                                                 </svg>
                                                 <div class='number'>
-                                                    <h2><?php $GLOBALS['avg_rating']."%";?><span></span></h2>
+                                                    <h2><?php echo $GLOBALS['avg_rating']."%";?><span></span></h2>
                                                     <p>AVG. Rating</p>
                                                 </div>
                                             </div>
