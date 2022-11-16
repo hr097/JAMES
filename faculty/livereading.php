@@ -29,6 +29,13 @@ else
     $JAMES->ams_redirect("../login.php");
 }
 
+
+if(isset($_SESSION["_liverfidreq"]))
+{
+  $_SESSION["_liverfidreq"]=" ";
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -75,9 +82,9 @@ else
                   <h4 class="card-title mb-2">Classroom Reader</h4>
                   <form class="forms-sample">
 
-                    <!-- Live RFID Reader Updates Button-->
+                    <!-- Live RFID Reader Updates Button -->
                     <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
-                    
+                     
                     <div class='row'>
                         <div class='col-md-6'>
                             <div class='form-group rs'>
