@@ -15,7 +15,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)>0)
 {
-    $reader = "<label>Select Reader</label><select name='reader_selection' id='reader_selection' class='form-control rs'><option value='0'>Not Selected</option>";
+    $reader = "<label>Select Reader</label><select name='reader_selection' id='reader_selection' class='form-control'><option value='0'>Not Selected</option>";
 
     while($record = mysqli_fetch_assoc($result))
     {
@@ -80,19 +80,19 @@ else
                     
                     <div class='row'>
                         <div class='col-md-6'>
-                            <div class='form-group'>
+                            <div class='form-group rs'>
                                 
                                 <!--reader list -->
 
                                 <?php echo $reader;?>
 
-                                </div>
-                                <div id="btnreaderchange" class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
-
-                                </div>
+                               </div>
+                            </div>
+                            <div id="btnreaderchange" class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
                             </div>
                         </div>
                     </div>
+
 
                     <!-- <hr > -->
                     <!-- RFID data Start -->
