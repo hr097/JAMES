@@ -29,6 +29,10 @@ else
     $JAMES->ams_redirect("../login.php");
 }
 
+if(isset($_SESSION["_liverfidreq"])) {
+  session_unset($_SESSION["_liverfidreq"]);
+}
+
 ?>
 
 <!DOCTYPE html>
