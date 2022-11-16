@@ -160,41 +160,42 @@ $(document).ready(function () {
         "text"
       ); //MUST specify it
     }
-    //DYNAMIC SORTING OF DATATABLE BASED ON CHECKBOX START
-    $.fn.dataTable.ext.order["dom-checkbox"] = function (settings, col) {
-      return this.api()
-        .column(col, { order: "index" })
-        .nodes()
-        .map(function (td, i) {
-          return $("input", td).prop("checked") ? "1" : "0";
-        });
-    };
-    var table = $("#order-listing1").DataTable({
-      columnDefs: [
-        {
-          targets: [0, 1, 2],
-          orderDataType: "dom-checkbox"
-        }
-      ],
-      aLengthMenu: [
-        [5, 10, 15, -1],
-        [5, 10, 15, "All"]
-      ],
-      order: [],
-      iDisplayLength: 10,
-      language: {
-        search: ""
-      }
-    });
-
-    $(":checkbox").on("change", function (e) {
-      var row = $(this).closest("tr");
-      var hmc = row.find(":checkbox:checked").length;
-      var kluj = parseInt(hmc);
-      row.find("td.counter").text(kluj);
-      table.row(row).invalidate("dom");
-    });
     
+    
+  });
+  //DYNAMIC SORTING OF DATATABLE BASED ON CHECKBOX START
+  $.fn.dataTable.ext.order["dom-checkbox"] = function (settings, col) {
+    return this.api()
+      .column(col, { order: "index" })
+      .nodes()
+      .map(function (td, i) {
+        return $("input", td).prop("checked") ? "1" : "0";
+      });
+  };
+  var table = $("#order-listing1").DataTable({
+    columnDefs: [
+      {
+        targets: [0, 1, 2],
+        orderDataType: "dom-checkbox"
+      }
+    ],
+    aLengthMenu: [
+      [5, 10, 15, -1],
+      [5, 10, 15, "All"]
+    ],
+    order: [],
+    iDisplayLength: 10,
+    language: {
+      search: ""
+    }
+  });
+
+  $(":checkbox").on("change", function (e) {
+    var row = $(this).closest("tr");
+    var hmc = row.find(":checkbox:checked").length;
+    var kluj = parseInt(hmc);
+    row.find("td.counter").text(kluj);
+    table.row(row).invalidate("dom");
   });
 });
 
