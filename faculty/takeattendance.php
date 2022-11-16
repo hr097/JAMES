@@ -29,7 +29,7 @@ if(isset($_GET['classroomid']))
            $student_list.=
            "
            <tr class='student'>
-           <td><input type='checkbox' class='edit_checkbox'  name='select_stud' id='".$record['spid']."'><span style='visibility:hidden;'>0</span></td>
+           <td><input type='checkbox' readonly class='edit_checkbox'  name='select_stud' id='".$record['spid']."'><span style='visibility:hidden;'>0</span></td>
            <td>".$record['cur_roll_no']."</td>
            <td>".$record['spid']."</td>
            <td>".$record['name']."</td>
@@ -180,10 +180,10 @@ else
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive">
-                                        <table id="order-listing" class="table" >
+                                        <table id="order-listing1" class="table" >
                                             <thead>
                                                 <tr>
-                                                <th><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>
+                                                <th id="selectALL"><label for="selectall"><input class='m-0' type="checkbox" name="selectall" id="selectall" onclick="toggleSelect(this)"/>&nbsp&nbsp&nbsp Select All</label></th>
                                                 <th>Roll Number</th>
                                                 <th>SPID</th>
                                                 <th>Name</th>
