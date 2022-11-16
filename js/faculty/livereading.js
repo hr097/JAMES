@@ -34,6 +34,8 @@ $(document).ready(function(){
 
     $("#reader_selection").on('change',function () {
       $(".rs").hide();
+      $("#btnreaderchange").html("");
+
       setInterval(function (){
         getLatestData();
       },5000);
