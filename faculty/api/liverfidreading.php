@@ -30,7 +30,27 @@ function getAmsApi($classroomid)
         </tr>
         ";
 
-        return $student;
+
+        if(!isset($_SESSION["_liverfidreq"])) {
+            // No token present, generate a new one
+            $_SESSION["_liverfidreq"] = $student;
+            return $student;
+        } else {
+            // Reuse the token
+
+            if($_SESSION["_liverfidreq"]==$student)
+            {
+                return -1;
+            }
+            else
+            {
+                return $student;
+            }
+        }
+
+        
+
+        
     }
     else
     {
