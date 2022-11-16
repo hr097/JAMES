@@ -33,12 +33,20 @@ function getLatestData()
 $(document).ready(function(){
 
     $("#reader_selection").on('change',function () {
+
       $(".rs").hide();
+      $("#btnreaderchange").html("<button type='button' id='changereader' class='btn btn-primary'>Change Reader</button>");
+      
+      $("#changereader").click(function () {
+        window.location.reload();
+      })
+
       setInterval(function (){
         getLatestData();
       },5000);
 
     });
+
 
 });
 

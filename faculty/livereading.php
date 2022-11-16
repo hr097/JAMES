@@ -72,27 +72,27 @@ else
               <div class="card">
                 <div class="card-body">
 
-                  <h4 class="card-title rs">Classroom Reader</h4>
+                  <h4 class="card-title mb-2">Classroom Reader</h4>
                   <form class="forms-sample">
 
                     <!-- Live RFID Reader Updates Button-->
                     <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
                     
-                    <div class='row rs'>
+                    <div class='row'>
                         <div class='col-md-6'>
-                            <div class='form-group'>
+                            <div class='form-group rs'>
                                 
                                 <!--reader list -->
 
                                 <?php echo $reader;?>
 
-                                </div>
-                                <div class="form-group search_fetch_btn col-lg-5 col-md-5 col-sm-12">
-
-                                </div>
+                               </div>
+                            </div>
+                            <div id="btnreaderchange" class="form-group search_fetch_btn col-md-12">
                             </div>
                         </div>
                     </div>
+
 
                     <!-- <hr > -->
                     <!-- RFID data Start -->
