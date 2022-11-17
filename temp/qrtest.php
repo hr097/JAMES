@@ -19,9 +19,7 @@ else
 
     <head>
 
-        <title></title>
-
-        <link rel="icon" href="" type="image/icon type">
+        <title>AMS | e-Attendance </title>
 
         <style type="text/css">
 
@@ -34,7 +32,9 @@ else
 
     <body>
 
-    <img src="../assets/other/att_success2.gif" style="margin:auto;max-width:100%lwidth:100%;margin-top:40%;" alt="Attendance marked">
+    
+    
+    <img src="../assets/other/att_success2.gif" style="height:1300px;width:100%;" alt="Attendance marked">
 
     </body>
 
