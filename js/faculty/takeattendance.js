@@ -60,13 +60,13 @@ document.getElementById("yes-button").onclick = function () {
           if (status == "success") {
             if ((data == 11) | (data == 1)) {
               $("#modalmsg").text("Student attendance submitted successfully.");
-              $("#modal").css("display", "block");
+             $("#modal").css("display", "flex");
               submit_flag = false;
             } else {
               $("#modalmsg").text(
                 "Student attendance couldn't be submitted! Try again later."
               );
-              $("#modal").css("display", "block");
+             $("#modal").css("display", "flex");
               submit_flag = false;
             }
           }
@@ -96,7 +96,7 @@ $(document).ready(function () {
     $("#modalmsg").html(
       "Are you sure about this? Attendance cannot be modified once submitted.<br><br>Do you confirm it?"
     );
-    $("#modal").css("display", "block");
+   $("#modal").css("display", "flex");
   });
 
   $("#TakeattButton").click(function () {
@@ -109,16 +109,16 @@ $(document).ready(function () {
 
     if (reader == "0") {
       $("#modalmsg").html("Please select a classroom number!");
-      $("#modal").css("display", "block");
+     $("#modal").css("display", "flex");
     } else if (curdate == "") {
       $("#modalmsg").html("Please select a valid date!");
-      $("#modal").css("display", "block");
+     $("#modal").css("display", "flex");
     } else if (time1 == "") {
       $("#modalmsg").html('Please select a valid " FROM " time!');
-      $("#modal").css("display", "block");
+     $("#modal").css("display", "flex");
     } else if (time2 == "") {
       $("#modalmsg").html('Please select a valid " TO " time!');
-      $("#modal").css("display", "block");
+     $("#modal").css("display", "flex");
     } else {
       fetch_att_flag2 = true;
       $.post(
@@ -143,10 +143,10 @@ $(document).ready(function () {
 
             if (student_list.response == -1) {
               $("#modalmsg").text("Something went wrong! Try again later.");
-              $("#modal").css("display", "block");
+             $("#modal").css("display", "flex");
             } else if (student_list.response == 0) {
               $("#modalmsg").text("No latest attendance found in classroom!");
-              $("#modal").css("display", "block");
+             $("#modal").css("display", "flex");
             } else {
               let st_ls_len = student_list.response.length;
 
