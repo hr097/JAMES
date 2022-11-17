@@ -83,7 +83,7 @@ $(document).ready(function () {
     });
 
     
-  $("feedbacktxt").on("input",function(){
+  $("#feedbacktxt").on("input",function(){
     var str = $("#feedbacktxt").val();
     var count = 0;
     if(str.length<=999){
