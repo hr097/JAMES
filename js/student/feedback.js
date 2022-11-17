@@ -50,7 +50,7 @@ $(document).ready(function () {
                   {
                     response = parseInt(data);
   
-                    $("#modal").css("display","flex");
+                    $("#modal").css("display","fl");
                     $("#yes-button").text("Okay");
   
                     if(response === 0)
