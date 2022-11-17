@@ -81,20 +81,27 @@ $(document).ready(function () {
       }
 
     });
-});
 
-// Letter counter
-function countWord() {
-    var str = document.getElementById("feedbacktxt").value;
+    
+  $("feedbacktxt").on("input",function(){
+    var str = $("#feedbacktxt").val();
     var count = 0;
     if(str.length<=999){
         for (var i = 0; i < str.length; i++) {
             count++;
         }
     }
+    // var show_words=count.concat("/999");
+    document.getElementById("counter").innerHTML = count+"/999";
+  });
+});
 
-// var show_words=count.concat("/999");
-document.getElementById("counter").innerHTML = count+"/999";
+// Letter counter
+function countWord() {
+    
+
 
 }
+
+
 
