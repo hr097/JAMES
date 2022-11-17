@@ -100,7 +100,7 @@ if(isset($_GET['classroomid']))
 
                     <!-- Faculty Spid & Search Button-->
                     <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
 
                         <div class="form-group">
                           <label>Faculty FID</label>
@@ -119,7 +119,7 @@ if(isset($_GET['classroomid']))
                       </div>
                     </div>
 
-                    <hr>
+                    <hr style='margin-top:-30px;'>
 
                     <!-- Faculty Add data Start -->
                     <div class="card" id="add_stud_tbl">
