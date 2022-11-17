@@ -116,7 +116,7 @@ $(document).ready(function(){
       spid = $(this).attr("id");
       $("#modalmsg").html("<span style='color:red;text-align:center;'> NOTE: Deletion of this student  includes deletetion of relevant data of attendances!</span><br><br> You can readmit student with new attendance data.<br><br>Do you confirm it?");
       $("#yes-button").text("Delete");
-      $("#modal").css("display", "block");
+      $("#modal").css("display","flex");
 
     });
 

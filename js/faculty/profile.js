@@ -1,4 +1,4 @@
-/* START::MODAL */modal.style.display 
+/* START::MODAL */
 
 var modal = document.getElementById("modal");
 var span = document.getElementsByClassName("close")[0]; //close modal

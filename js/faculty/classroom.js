@@ -43,7 +43,7 @@ document.getElementById("yes-button").onclick = function () {
         else
         {   
             $("#modalmsg").text("Classroom couldn't be deleted! Try again later.");
-            $("#modal").css("display","block");
+            $("#modal").css("display","flex");
         } 
     }); 
   }
@@ -79,7 +79,7 @@ $(document).ready(function(){
                   {
                     response = parseInt(data);
   
-                    $("#modal").css("display","block");
+                    $("#modal").css("display","flex");
                     notice_flag=true;
   
                     if(response === 0)

@@ -36,7 +36,7 @@ document.getElementById("yes-button").onclick = function () {
         else 
         {
           $("#modalmsg").text("Faculty access couldn't be removed! Try again later.");
-          $("#modal").css("display","block");
+          $("#modal").css("display","flex");
         }
     }); 
 
@@ -93,7 +93,7 @@ $(document).ready(function(){
                 {
                   $("#modalmsg").text("Faculty couldn't be added! Try again later.");
                   $("#yes-button").text("Okay");
-                  $("#modal").css("display","block");
+                  $("#modal").css("display","flex");
                 }
               }
             });
