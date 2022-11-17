@@ -6,7 +6,7 @@ $(document).ready(function () {
     let qr_code_element = document.querySelector(".qr-code");
     let btn = document.querySelector(".button");
     
-    var ip = $("#ip").val(); // This will be IP Address
+    // var ip = $("#ip").val(); // This will be IP Address
     
     generate("https://ams.vnsguit.org");
       
@@ -16,7 +16,6 @@ $(document).ready(function () {
       {
           let user_input = `https://ams.vnsguit.org/temp/qrtest.php?classroomid=
           ${$("#input_text").val()}
-          &ip=${ip}
           `;
         
           if (user_input.value != "") {
@@ -50,8 +49,7 @@ $(document).ready(function () {
     
       }
       
-     
-      
+    
       /* END::QR CODE GENERATOR */
     
     });
