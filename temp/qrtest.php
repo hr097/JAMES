@@ -38,7 +38,9 @@ else
 
     </body>
 
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        setTimeout(function(){ window.close();});
+    </script>
 
     <noscript>Sorry, Your browser does not support JavaScript !!!</noscript>
 
