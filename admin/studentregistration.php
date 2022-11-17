@@ -45,12 +45,12 @@ $JAMES->init_user_session();
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>SPID</label>
-                                        <input type="text" class="form-control" placeholder="Enter Student Id">
+                                        <input type="text" class="form-control" placeholder="e.g. 20200XXXXX">
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" placeholder="Enter Email">
+                                    <input type="email" class="form-control" placeholder="e.g. example@vnsgu.ac.in">
                                 </div>
                                 </div>
 
@@ -83,7 +83,7 @@ $JAMES->init_user_session();
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Contact No</label>
                                         <input type="number" class="form-control" id="" value=""
-                                            placeholder="Enter Contact No">
+                                            placeholder="e.g. +91 XXXX XXXX">
                                     </div>
 
                                     <div class="form-group col-md-6">
@@ -99,8 +99,13 @@ $JAMES->init_user_session();
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Course ID</label>
-                                        <input type="text" class="form-control" id="" value=""
-                                            placeholder="Enter Course ID">
+                                        <select class="form-control">
+                                            <option>Not Selected</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
@@ -149,13 +154,13 @@ $JAMES->init_user_session();
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Father's Email</label>
                                         <input type="text" class="form-control" id="" value=""
-                                            placeholder="Enter Father's Name">
+                                            placeholder="e.g. example@gmail.com">
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                     <label>Father's Contact</label>
                                     <input type="number" class="form-control" id="" value=""
-                                            placeholder="Enter Father's Contact No">
+                                            placeholder="e.g. +91 XXXX XXXX">
                                 </div>
                                 </div>
 

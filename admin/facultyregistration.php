@@ -45,7 +45,7 @@ $JAMES->init_user_session();
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>FID</label>
-                                        <input type="text" class="form-control" placeholder="Enter Faculty Id">
+                                        <input type="text" class="form-control" placeholder="e.g. FIDXXXXXXX">
                                     </div>
 
                                     <div class="form-group col-md-6">
@@ -89,7 +89,7 @@ $JAMES->init_user_session();
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Contact No</label>
                                         <input type="number" class="form-control" id="" value=""
-                                            placeholder="Enter Contact No">
+                                            placeholder="+91 XXXX XXXX">
                                     </div>
 
                                     <div class="form-group col-md-6">
@@ -102,7 +102,7 @@ $JAMES->init_user_session();
                                 <!-- Email & Password -->
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" placeholder="Enter Email">
+                                    <input type="email" class="form-control" placeholder="e.g. example@vnsgu.ac.in">
                                 </div>
 
                                 <div class="form-group">

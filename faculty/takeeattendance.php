@@ -66,14 +66,15 @@ $ip_address = $_SERVER['HTTP_HOST'];
                       <div>
                       <div class="qr-code-container">
                           <div class="qr-code mb-4"></div>
-                          <div><h4 style="text-align:center;font-weight:700;">SCAN THIS CODE <br> FOR ATTENDANCE!</h4></div>
+                          <div><h4 style="text-align:center;font-weight:700;">SCAN HERE !</h4></div>
                       </div>
                       </div>
                     </div>
+                    <p style='font-size:1.5em;text-align:center;' class='mt-5'>Coming Soon!</p>
+
                 </div>
               </div>
             </div>
-            <p style='font-size:1.5em;margin:auto;' class='mt-5'>Coming Soon!</p>
           </div>
 
           
