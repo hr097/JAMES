@@ -1,10 +1,10 @@
 <?php
 
 
-if(isset($_GET['ip'])&&isset($_GET['classroomid']))
+if(isset($_GET['classroomid']))
 {
-    echo "IP ADDRESS: ".$_GET['ip']."<br>";
     echo "CLASSROOM ID: ".$_GET['classroomid'];
+    echo "<br><br>Your attendance has been marked successfully as present.";
 }
 else
 {
