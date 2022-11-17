@@ -67,10 +67,6 @@
 
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="./profile.php">
-                                <i class="icon-head menu-icon"></i>
-                                Profile
-                            </a>
                             <a class="dropdown-item" href='../php/logout.php'>
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
@@ -108,9 +104,9 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="./amsreaderregistration.php">AMS Reader</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="./facultyregistration.php">Faculty</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="./studentregistration.php">Student</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="./amsreaderregistration.php">AMS Reader</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="./courseregistration.php">Course</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="./subjectregistration.php">Subject</a></li>
                             </ul>

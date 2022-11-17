@@ -4,10 +4,57 @@ require_once("../ams.php");
 $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
-// if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
-// {
-//  $JAMES->ams_redirect("../login.php");
-// }
+if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+{
+ $JAMES->ams_redirect("../login.php");
+}
+
+if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
+{
+        $r_no = $JAMES->sanitizeInput($_POST['_rno']);
+
+        
+        $sql= "insert into Ams_readers(reader_no) values($r_no);";
+        
+        if(!mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+        {
+           echo "<script>alert('reader couldn't be added!')</script>"; 
+        }
+         
+}
+
+//fetch readers
+$sql= "select * from Ams_readers;";//query
+$result = mysqli_query($JAMES->connection(),$sql);
+
+if(mysqli_num_rows($result)>0)
+{
+    $reader = "";
+
+    while($record = mysqli_fetch_assoc($result))
+    {
+      $reader.=
+      "
+            <tr>
+            <td>".$record['reader_id']."</td>
+            <td>".$record['reader_no']."</td>
+            <td>
+                <button id='".$record['reader_id']."' type='button' class='btn btn-danger rounded px-3 py-2 deletereader'><i
+                        class='ti-trash'></i></button>
+            </td>
+            </tr>
+      ";
+    }
+
+}
+else
+{
+    $reader = "<tr><td  colspan='3' style='font-size:1.2em;text-align:center;'>No Reader Registered Yet!</td></tr>";
+}
+
+
+
+
 
 ?>
 
@@ -18,10 +65,12 @@ $JAMES->init_user_session();
     <!-- including header -->
     <?php
     require_once('./common/header.php');
-?>
+    ?>
+
+    <link rel="stylesheet" href="../css/modal.css">
 
     <!-- js  -->
-    <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
+    <script src="../js/admin/amsreaderregistration.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
     <title>AMS | Reader Regisration</title>
@@ -37,25 +86,21 @@ $JAMES->init_user_session();
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">AMS Reader Regisration</h4>
-                            <form class="forms-sample">
+                            <form class="forms-sample" action="amsreaderregistration.php" method="POST">
 
-                                <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
+                                <input type="hidden" id="csrfToken" name="_ct" value="<?php echo $JAMES->generateCsrfToken();?>" >
 
-                                <!-- FID and Role -->
+                                <!-- Reader nO -->
                                 <div class="row">
-                                    <div class="form-group col-sm-6 col-md-6 col-lg-6">
-                                        <label>Reader ID</label>
-                                        <input type="text" class="form-control" placeholder="Enter Reader Id">
-                                    </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-12">
                                         <label>Reader No</label>
-                                        <input type="number" class="form-control" placeholder="Enter Reader No">
+                                        <input type="number" class="form-control" name="_rno" placeholder="Enter Reader No" required>
                                     </div>
                                 </div>
 
 
-                                <button type="button" id="" class="btn btn-primary mr-2 mt-3">Add Reader</button>
+                                <button type="submit" id="" class="btn btn-primary mr-2 mt-3">Add Reader</button>
                                 <button class="btn btn-light mt-3">Clear</button>
                             </form>
                         </div>
@@ -66,11 +111,11 @@ $JAMES->init_user_session();
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Edit Reader</h4>
-                            <form class="forms-sample">
+                            <h4 class="card-title">AMS Readers Details</h4>
+                            <!-- <form class="forms-sample"> 
 
-                                <!-- FID and Role -->
-                                <div class="row">
+                                
+                               <div class="row">
                                     <div class="form-group col-md-10">
                                         <label>Search Reader</label>
                                         <input type="text" class="form-control" placeholder="Enter Reader Id">
@@ -82,7 +127,7 @@ $JAMES->init_user_session();
                                     </div>
                                 </div>
 
-                            </form>
+                            </form> -->
 
                             <div class="table-responsive mt-4">
                                 <table id="" class="table">
@@ -90,21 +135,12 @@ $JAMES->init_user_session();
                                         <tr>
                                             <th>Reader ID</th>
                                             <th>Reader No</th>
-                                            <th>Update & Delete</th>
+                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>
-                                                <button type='button' class='btn updatebtn rounded px-3 py-2 mr-2'><i
-                                                        class="ti-pencil"></i></button>
-                                                <button type='button' class='btn btn-danger rounded px-3 py-2'><i
-                                                        class="ti-trash"></i></button>
-                                            </td>
-                                        </tr>
+                                    <tbody id="readerdata">
+                                        <?php echo $reader; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -119,11 +155,23 @@ $JAMES->init_user_session();
         </div>
     </div>
 
+    <!-- modal -->
+    <div id="modal" class="modal">
+    <!-- modal content -->
+    <div class="modal-content" style="width:360px;">
+            <span class="close">&times;</span>
+            <p class="msg unselectable" id="modalmsg"></p>
+            <div class="row" style="margin:auto;margin-bottom:30px;">
+            <button id="yes-button" class="modal-btn">Okay</button>
+            <button id="no-button" class="modal-btn">Cancel</button>
+    </div>
+    </div>
+
 
     <!-- including footer -->
     <?php
-require_once('./common/footer.php');
-?>
+    require_once('./common/footer.php');
+    ?>
 
 </body>
 

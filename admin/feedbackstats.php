@@ -1,15 +1,13 @@
 <?php
 
 require_once("../ams.php");
-$JAMES = new AMS("Admin");
+$JAMES = new AMS("User");
 $JAMES->init_user_session();
 
 if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 {
  $JAMES->ams_redirect("../login.php");
 }
-
-$u = $_SESSION["_userId"];
 
     $sql = "select count(*) As TotalFeedbacks,FORMAT(avg(rating),2) as avg_rating from Ams_feedback;";
 

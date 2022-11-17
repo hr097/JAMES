@@ -5,11 +5,12 @@
  $JAMES->init_user_session();
 
 
-//  if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
-//  {
-//   $JAMES->ams_redirect("../login.php");
-//  }
-// ?>
+ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+ {
+  $JAMES->ams_redirect("../login.php");
+ }
+ 
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +30,7 @@
 
         <!-- page information-->
         <title>AMS | Admin Dashboard</title>
+        
     </head>
 
     <body>

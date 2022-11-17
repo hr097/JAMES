@@ -1,3 +1,18 @@
+<?php
+
+ require_once("../ams.php");
+ $JAMES = new AMS("User");
+ $JAMES->init_user_session();
+
+
+ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+ {
+  $JAMES->ams_redirect("../login.php");
+ }
+ 
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +20,16 @@
     <!-- including header -->
     <?php
           include './common/header.php'
-        ?>
+    ?>
 
     <!-- Page info -->
     <title>AMS | About Us</title>
 
     <!-- css  -->
     <link rel="stylesheet" href="../css/faculty.css">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../assets/logos/favicon.ico">
 
 </head>
 

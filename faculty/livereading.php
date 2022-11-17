@@ -26,7 +26,7 @@ if(mysqli_num_rows($result)>0)
 }
 else
 {
-    $JAMES->ams_redirect("../login.php");
+  $reader ="<label>Select Reader</label><select name='reader_selection' id='reader_selection' class='form-control'><option value='0'>Not Selected</option></select>";
 }
 
 
