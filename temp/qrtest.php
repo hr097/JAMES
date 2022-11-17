@@ -33,7 +33,7 @@ else
 
     <center><p style="font-size:5em;margin-top:200px;font-family:Poppins,'Arial';"><?php echo "Classroom code: ".$html; ?></p>
     <p style="font-size:5em;font-family:Poppins,'Arial';color:green;">Attendance marked successfully</p></center>
-    <img src="../assets/other/att_success2.gif" style="height:980px;width:100%;" alt="Attendance marked">
+    <img src="../assets/other/att_success2.gif" style="height:980px;width:100%;margin-top:-30px;" alt="Attendance marked">
     
 
     </body>
