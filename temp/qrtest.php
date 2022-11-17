@@ -39,7 +39,7 @@ else
     </body>
 
     <script type="text/javascript">
-        setTimeout(function(){ window.close();});
+        setTimeout(function(){ window.close();},5000);
     </script>
 
     <noscript>Sorry, Your browser does not support JavaScript !!!</noscript>
