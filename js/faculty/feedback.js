@@ -70,7 +70,7 @@ $(document).ready(function () {
                   }
                   else
                   { 
-                    $("#modal").css("display", "block");
+                    $("#modal").css("display", "flex");
                     $("#modalmsg").text(
                       "Try again later! Some unknown error occured."
                     );

@@ -99,7 +99,7 @@ $(document).ready(function(){
                     },
                     function(data){
                         
-                    $("#modal").css("display", "block");
+                    $("#modal").css("display", "flex");
 
                     if(data>1)
                     {

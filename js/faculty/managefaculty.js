@@ -108,7 +108,7 @@ $(document).ready(function(){
       fid = $(this).attr("id");
       $("#modalmsg").html("Are you sure you want to remove access of selected faculty from this classroom?<br><br>Do you confirm it?");
       $("#yes-button").text("Delete");
-      $("#modal").css("display", "block");
+      $("#modal").css("display", "flex");
 
     });
 

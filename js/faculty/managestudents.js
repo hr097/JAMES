@@ -38,13 +38,13 @@ document.getElementById("yes-button").onclick = function () {
         {
             $("#modalmsg").text("Student attendance record couldn't be deleted! Try again later.");
             $("#yes-button").text("Okay");
-            $("#modal").css("display","block");
+            $("#modal").css("display", "flex");
         }
         else
         {   
             $("#modalmsg").text("Student couldn't be deleted! Try again later.");
             $("#yes-button").text("Okay");
-            $("#modal").css("display","block");
+            $("#modal").css("display", "flex");
         } 
     }); 
 
@@ -101,7 +101,7 @@ $(document).ready(function(){
             {
               $("#modalmsg").text("Student couldn't be added! Try again later.");
               $("#yes-button").text("Okay");
-              $("#modal").css("display","block");
+              $("#modal").css("display", "flex");
             }
           }
         });

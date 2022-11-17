@@ -1,4 +1,4 @@
-/* START::MODAL */
+/* START::MODAL */modal.style.display 
 
 var modal = document.getElementById("modal");
 var span = document.getElementsByClassName("close")[0]; //close modal
@@ -74,7 +74,7 @@ $(document).ready(function () {
                 if (status == "success") {
                   response = parseInt(data);
 
-                  $("#modal").css("display", "block");
+                  $("#modal").css("display", "flex");
 
                   if (response === 0) {
                     $("#modalmsg").text("Your email couldn't be updated.");

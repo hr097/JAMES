@@ -5,7 +5,7 @@ var forgetPasswordBtn = document.getElementById("forgotpassword");
 
 var span = document.getElementsByClassName("close")[0]; //close modal
 forgetPasswordBtn.onclick = function() { // open modal
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 span.onclick = function() {  //close modal
   modal.style.display = "none";
