@@ -24,11 +24,106 @@ $JAMES->init_user_session();
     <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
-    <title>AMS | Course Regisration</title>
+    <title>AMS | Faculty Regisration</title>
 
 </head>
 
 <body>
+    <!-------------------------------------------------------Main Content------------------------------------------------------->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Course Regisration</h4>
+                            <form class="forms-sample">
+
+                                <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
+
+                                <div class="form-group">
+                                        <label>Course Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Course Name">
+                                    </div>
+
+                                <!-- Total Semester-->
+                                <div class="form-group">
+                                    <label>Total Semester</label>
+                                    <input type="text" class="form-control" placeholder="Enter Total Semester">
+                                </div>
+
+                                <button type="button" id="" class="btn btn-primary mr-2 mt-3">Add Course</button>
+                                <button class="btn btn-light mt-3">Clear</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--Course Registration Form End-->
+
+                <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Edit Course</h4>
+                            <form class="forms-sample">
+
+                                <!-- FID and Role -->
+                                <div class="row">
+                                    <div class="form-group col-md-10">
+                                        <label>Search Course</label>
+                                        <input type="text" class="form-control" placeholder="Enter Course Id">
+                                    </div>
+
+                                    <div class="form-group col-md-2 ">
+                                        <button type="button" id=""
+                                            class="btn btn-primary searchbtn mt-4">Search</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                            <div class="table-responsive mt-4">
+                                <table id="" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>FID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Gender</th>
+                                            <th>DOB</th>
+                                            <th>Update & Delete</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>No data</td>
+                                            <td>No data</td>
+                                            <td>No data</td>
+                                            <td>No data</td>
+                                            <td>No data</td>
+                                            <td>No data</td>
+                                            <td>
+                                                <button type='button' class='btn updatebtn rounded px-3 py-2 mr-2'><i
+                                                        class="ti-pencil"></i></button>
+                                                <button type='button' class='btn btn-danger rounded px-3 py-2'><i
+                                                        class="ti-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Updation End -->
+
+            </div>
+        </div>
+    </div>
+
 
     <!-- including footer -->
     <?php
