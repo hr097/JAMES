@@ -225,7 +225,7 @@ $u = $_SESSION["_userId"];
                                 <div class='row'>
                                     <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
                                         <div class='subcard'>
-                                            <div class='percent' style='--clr:#57B657;--num:5;'>
+                                            <div class='percent' style='--clr:#57B657;--num:<?php echo $GLOBALS['ttlfeedbacks'];?>;'>
                                                 <div class='dot'></div>
                                                 <svg>
                                                     <circle cx='70' cy='70' r='70'></circle>
@@ -240,14 +240,14 @@ $u = $_SESSION["_userId"];
                                     </div>
                                     <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
                                         <div class='subcard'>
-                                            <div class='percent' style='--clr:#FF9494;--num:4.5;'>
+                                            <div class='percent' style='--clr:#FF9494;--num:<?php echo (100*$GLOBALS['avg_rating'])/5;?>;'>
                                                 <div class='dot'></div>
                                                 <svg>
                                                     <circle cx='70' cy='70' r='70'></circle>
                                                     <circle cx='70' cy='70' r='70'></circle>
                                                 </svg>
                                                 <div class='number'>
-                                                    <h2><?php echo $GLOBALS['avg_rating']."%";?><span></span></h2>
+                                                    <h2><?php echo $GLOBALS['avg_rating'];?><span></span></h2>
                                                     <p>AVG. Rating</p>
                                                 </div>
                                             </div>
