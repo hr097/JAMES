@@ -34,7 +34,7 @@ else
 
     <body>
 
-    <img src="../assets/other/att_success.gif" style="margin:auto;max-width:100%lwidth:100%;margin-top:40%;" alt="Attendance marked">
+    <img src="../assets/other/att_success2.gif" style="margin:auto;max-width:100%lwidth:100%;margin-top:40%;" alt="Attendance marked">
 
     </body>
 
