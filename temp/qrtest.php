@@ -3,8 +3,7 @@
 
 if(isset($_GET['classroomid']))
 {
-    echo "CLASSROOM ID: ".$_GET['classroomid'];
-    echo "<br><br>Your attendance has been marked successfully as present.";
+    $html = $_GET['classroomid'];
 }
 else
 {
@@ -32,9 +31,10 @@ else
 
     <body>
 
+    <center><h1 style="margin-top:200px;font-family:Poppins,'Arial';"><?php echo "Classroom code: ".$html; ?></h1>
+    <h2 style="font-family:Poppins,'Arial';color:green;">Attendance marked successfully</h2></center>
+    <img src="../assets/other/att_success2.gif" style="height:980px;width:100%;margin-top:100px;" alt="Attendance marked">
     
-    
-    <img src="../assets/other/att_success2.gif" style="height:980px;width:100%;margin-top:150px;" alt="Attendance marked">
 
     </body>
 
