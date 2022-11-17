@@ -91,7 +91,6 @@ $(document).ready(function () {
             count++;
         }
     }
-    // var show_words=count.concat("/999");
     document.getElementById("counter").innerHTML = count+"/999";
   });
 });
