@@ -49,7 +49,7 @@ $(document).ready(function () {
                   {
                     response = parseInt(data);
   
-                    $("#modal").css("display","block");
+                    $("#modal").css("display","flex");
                     $("#yes-button").text("Okay");
   
                     if(response === 0)
@@ -70,7 +70,7 @@ $(document).ready(function () {
                   }
                   else
                   { 
-                    $("#modal").css("display", "block");
+                    $("#modal").css("display", "flex");
                     $("#modalmsg").text(
                       "Try again later! Some unknown error occured."
                     );

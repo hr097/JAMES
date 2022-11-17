@@ -43,7 +43,7 @@ document.getElementById("yes-button").onclick = function () {
         else
         {   
             $("#modalmsg").text("Classroom couldn't be deleted! Try again later.");
-            $("#modal").css("display","block");
+            $("#modal").css("display","flex");
         } 
     }); 
   }
@@ -79,7 +79,7 @@ $(document).ready(function(){
                   {
                     response = parseInt(data);
   
-                    $("#modal").css("display","block");
+                    $("#modal").css("display","flex");
                     notice_flag=true;
   
                     if(response === 0)
@@ -148,7 +148,7 @@ $("#generatereport").click(function(){
 
 $("#deleteclass").click(function(){
     $("#modalmsg").html("Deletion of this classroom includes deletetion of relevant data of students,faculty and attendances!<br><br><span style='color:red;text-align:center;'>NOTE: This operation cannot be undone.</span><br><br>Do you confirm it?");
-    $("#modal").css("display", "block");
+    $("#modal").css("display", "flex");
 });
 
 $("#classmode").click(function(){

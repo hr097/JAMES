@@ -74,7 +74,7 @@ $(document).ready(function () {
                 if (status == "success") {
                   response = parseInt(data);
 
-                  $("#modal").css("display", "block");
+                  $("#modal").css("display", "flex");
 
                   if (response === 0) {
                     $("#modalmsg").text("Your email couldn't be updated.");
