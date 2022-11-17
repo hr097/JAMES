@@ -31,8 +31,8 @@ else
 
     <body>
 
-    <center><h1 style="margin-top:200px;font-family:Poppins,'Arial';"><?php echo "Classroom code: ".$html; ?></h1>
-    <h2 style="font-family:Poppins,'Arial';color:green;">Attendance marked successfully</h2></center>
+    <center><p style="font-size:5em;margin-top:200px;font-family:Poppins,'Arial';"><?php echo "Classroom code: ".$html; ?></p>
+    <p style="font-size:5em;font-family:Poppins,'Arial';color:green;">Attendance marked successfully</p></center>
     <img src="../assets/other/att_success2.gif" style="height:980px;width:100%;margin-top:100px;" alt="Attendance marked">
     
 
