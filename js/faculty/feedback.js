@@ -95,12 +95,6 @@ $(document).ready(function () {
   });
 });
 
-// Letter counter
-function countWord() {
-    
-
-
-}
 
 
 
