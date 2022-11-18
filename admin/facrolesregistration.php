@@ -16,7 +16,7 @@ if(isset($_POST['_sb'])&&isset($_POST['_rn'])&&isset($_POST['_ct'])&&$_POST['_ct
         $r_n = $JAMES->sanitizeInput($_POST['_rn']);
 
         
-        $sql= "insert into Faculty_roles(role_name) values($r_n);";
+        $sql= "insert into Faculty_roles(role_name) values('$r_n');";
         
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
@@ -102,7 +102,7 @@ else
                                 <div class="row">
 
                                     <div class="form-group col-md-12">
-                                        <label>Reader Name</label>
+                                        <label>Role Name</label>
                                         <input type="text" class="form-control" name="_rn" placeholder="Enter Role Name" required>
                                     </div>
                                 </div>
