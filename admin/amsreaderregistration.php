@@ -11,7 +11,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 
 $error = "";
 
-if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
+if(isset($_POST['_sb'])&&isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
         $r_no = $JAMES->sanitizeInput($_POST['_rno']);
 
@@ -108,7 +108,7 @@ else
                                 </div>
 
 
-                                <button type="submit" id="" class="btn btn-primary mr-2 mt-3">Add Reader</button>
+                                <button type="submit" name="_sb" id="" class="btn btn-primary mr-2 mt-3">Add Reader</button>
                                 <button class="btn btn-light mt-3">Clear</button>
                             </form>
                         </div>
