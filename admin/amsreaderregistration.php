@@ -16,13 +16,13 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         
         $sql= "insert into Ams_readers(reader_no) values($r_no);";
         
-        if(0==mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+        if(1==mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
-           echo "<script>alert('reader couldn't be added!')</script>"; 
+           echo "<script>alert('reader added successfully !')</script>";
         }
         else
         {
-            echo "<script>alert('reader added successfully !')</script>"; 
+            echo "<script>alert('reader couldn't be added!')</script>"; 
         }
          
 }
