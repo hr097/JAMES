@@ -1,7 +1,7 @@
 <?php
 
 
-if(isset($_GET['classroomid']))
+if(isset($_GET['classroomid'])) //! must add spid
 {
     $html = $_GET['classroomid'];
 }
