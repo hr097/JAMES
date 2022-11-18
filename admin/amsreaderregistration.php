@@ -16,7 +16,7 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         
         $sql= "inserte into Ams_readers(reader_no) values($r_no);";
         
-        if(1==mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+        if(mysqli_query($GLOBALS['JAMES']->connection(),$sql)==1)
         {
            echo "<script>alert('reader added successfully !')</script>";
         }
