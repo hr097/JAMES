@@ -105,7 +105,7 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="./amsreaderregistration.php">AMS Reader</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="./facrolesregistration.php">Faculty Roles</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="./facrolesregistration.php">Faculty Role</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="./facultyregistration.php">Faculty</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="./studentregistration.php">Student</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="./courseregistration.php">Course</a></li>
