@@ -20,11 +20,11 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
-            $error = "<span style='color:green;'>reader added successfully !</span>";
+            $error = "<span style='color:green;float:right;'>reader added successfully !</span>";
         }
         else
         {
-            $error = "<span style='color:red;'>reader couldn't be added!</span>"; 
+            $error = "<span style='color:red;float:right;'>reader couldn't be added!</span>"; 
         }
 
         $error.="<script>setTimeout(function(){window.location.href='amsreaderregistration.php';},3000);</script>";
