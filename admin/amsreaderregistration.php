@@ -16,7 +16,7 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         $r_no = $JAMES->sanitizeInput($_POST['_rno']);
 
         
-        $sql= "insert into Ams_readers(reader_no) values('$r_no');";
+        $sql= "insert into Ams_readers(reader_no) values($r_no);";
         
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
@@ -26,6 +26,8 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         {
             $error = "reader couldn't be added!"; 
         }
+
+        $error.="<script>setTimeout(function(){window.location.reload();},3000);</script>";
          
 }
 
@@ -91,7 +93,7 @@ else
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">AMS Reader Regisration <span id="errormsg"><?php echo $error;?></span></h4>
+                            <h4 class="card-title">AMS Reader Regisration <span style="style:color;green;" id="errormsg"><?php echo $error;?></span></h4>
                             <form class="forms-sample" action="amsreaderregistration.php" method="POST">
 
                                 <input type="hidden" id="csrfToken" name="_ct" value="<?php echo $JAMES->generateCsrfToken();?>" >
