@@ -24,7 +24,7 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         }
         else
         {
-            $error = "<span style='color:green;'>reader couldn't be added!</span>"; 
+            $error = "<span style='color:red;'>reader couldn't be added!</span>"; 
         }
 
         $error.="<script>setTimeout(function(){window.location.reload();},3000);</script>";
