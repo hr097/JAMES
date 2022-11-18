@@ -27,7 +27,7 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
             $error = "<span style='color:red;'>reader couldn't be added!</span>"; 
         }
 
-        $error.="<script>setTimeout(function(){window.location.reload();},3000);</script>";
+        $error.="<script>setTimeout(function(){window.location.href='amsreaderregistration.php';},3000);</script>";
          
 }
 
