@@ -16,15 +16,15 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         $r_no = $JAMES->sanitizeInput($_POST['_rno']);
 
         
-        $sql= "insert into Ams_readers(reader_no) values($r_no);";
+        $sql= "insert into Ams_readers(reader_no) values('$r_no');";
         
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
-            $error =  "<script>alert('reader added successfully !')</script>";
+            $error = "<script>alert('reader added successfully !');</script>";
         }
         else
         {
-            $error = "<script>alert('reader couldn't be added!')</script>"; 
+            $error = "<script>alert('reader couldn't be added!');</script>"; 
         }
          
 }
