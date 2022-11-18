@@ -102,7 +102,7 @@ else
                                 <div class="row">
 
                                     <div class="form-group col-md-12">
-                                        <label>Role Name</label>
+                                        <label>New Role Name</label>
                                         <input type="text" class="form-control" name="_rn" placeholder="Enter Role Name" required>
                                     </div>
                                 </div>

@@ -117,7 +117,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./feedbackstats.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-comment-alt"></i>
-                            <span class="menu-title">Feedback Review</span>
+                            <span class="menu-title">Feedback Stats</span>
                         </a>
                     </li>
 
