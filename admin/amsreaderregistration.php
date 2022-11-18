@@ -20,6 +20,10 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         {
            echo "<script>alert('reader couldn't be added!')</script>"; 
         }
+        else
+        {
+            echo "<script>alert('reader added successfully !')</script>"; 
+        }
          
 }
 
