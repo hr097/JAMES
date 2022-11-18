@@ -63,7 +63,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 ?>
 
     <!-- js  -->
-    <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
+    <!-- <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script> -->
 
     <!-- page information-->
     <title>AMS | Feedback Stats</title>
