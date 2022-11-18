@@ -20,11 +20,11 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
-            $error = "reader added successfully !";
+            $error = "<span style='color:green;'>reader added successfully !</span>";
         }
         else
         {
-            $error = "reader couldn't be added!"; 
+            $error = "<span style='color:green;'>reader couldn't be added!</span>"; 
         }
 
         $error.="<script>setTimeout(function(){window.location.reload();},3000);</script>";
@@ -93,7 +93,7 @@ else
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">AMS Reader Regisration <span style="style:color;green;" id="errormsg"><?php echo $error;?></span></h4>
+                            <h4 class="card-title">AMS Reader Regisration <?php echo $error;?></h4>
                             <form class="forms-sample" action="amsreaderregistration.php" method="POST">
 
                                 <input type="hidden" id="csrfToken" name="_ct" value="<?php echo $JAMES->generateCsrfToken();?>" >
