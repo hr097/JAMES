@@ -14,9 +14,9 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         $r_no = $JAMES->sanitizeInput($_POST['_rno']);
 
         
-        $sql= "inserte into Ams_readers(reader_no) values($r_no);";
+        $sql= "insert into Ams_readers(reader_no) values($r_no);";
         
-        if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+        if(!mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
             echo "<script>alert('reader added successfully !')</script>";
         }
