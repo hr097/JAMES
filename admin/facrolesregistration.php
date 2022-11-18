@@ -32,7 +32,7 @@ if(isset($_POST['_sb'])&&isset($_POST['_rn'])&&isset($_POST['_ct'])&&$_POST['_ct
 }
 
 //fetch readers
-$sql= "select * from Faculty_roles;";//query
+$sql= "select * from Faculty_roles order by role_id;";//query
 $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)>0)
