@@ -9,7 +9,28 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
  $JAMES->ams_redirect("../login.php");
 }
 
-// $ip_address = $_SERVER['HTTP_HOST'];
+ 
+$u = $_SESSION["_userId"];
+
+//fetch related classroom id's
+$sql= "select ASFM.ams_setup_id FROM Ams_setup_faculties_map ASFM,Faculties F where F.fid=ASFM.fid and F.email='$u'and ASFM.setup_status=TRUE;";//query
+$result = mysqli_query($JAMES->connection(),$sql);
+
+if(mysqli_num_rows($result)>0)
+{
+    $classroom_codes = "<label>Classroom Code</label><select name='classcode_selection' id='classcode_selection' class='form-control'><option value=''>Not Selected</option></option>";
+
+    while($record = mysqli_fetch_assoc($result))
+    {
+      $classroom_codes.="<option value='".$record['ams_setup_id']."' >".$record['ams_setup_id']."</option>";
+    }
+
+    $classroom_codes.="</select>";
+}
+else
+{
+  $classroom_codes = "<label>Classroom Code</label><select name='classcode_selection' id='classcode_selection' class='form-control'><option value='0'>Not Selected</option></option></select>";
+}
 
 ?>
 
@@ -53,9 +74,16 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                     <div class="row" >
                       <div class="col-lg-9 col-md-8 col-sm-12">
                         <div class="form-group">
-                          <label>Classroom ID</label>
-                          <input type="hidden" id="ip" name="ip" value="<?php echo $ip_address; ?>">
-                          <input type="text" placeholder="Enter classroom ID" class="form-control" name="input_text" id="input_text" autocomplete="off">
+                          <!-- <label>Classroom ID</label> -->
+                          <!-- <input type="hidden" id="ip" name="ip" value="<?php// echo $ip_address; ?>"> -->
+                          <!-- <input type="text" placeholder="Enter classroom ID" class="form-control" name="input_text" id="input_text" autocomplete="off"> -->
+                          <!--Course -->
+
+                          <?php echo $classroom_codes;?>
+
+                        <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
+
+
                         </div>
                       </div>
                       <div class="col-lg-3 col-md-4 col-sm-12 qr_btnSec">
@@ -66,12 +94,11 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
                       <div>
                       <div class="qr-code-container">
                           <div class="qr-code mb-4"></div>
-                          <div><h4 style="text-align:center;font-weight:700;">SCAN HERE !</h4></div>
+                          <div><h4 style="text-align:center;font-weight:700;">SCAN THIS QR <br> FOR ATTENDANCE !</h4></div>
                       </div>
                       </div>
                     </div>
-                    <p style='font-size:1.5em;text-align:center;' class='mt-5'>Coming Soon!</p>
-
+                    <!-- <p style='font-size:1.5em;text-align:center;' class='mt-5'>Coming Soon!</p> -->
                 </div>
               </div>
             </div>

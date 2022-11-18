@@ -6,16 +6,14 @@ $(document).ready(function () {
     let qr_code_element = document.querySelector(".qr-code");
     let btn = document.querySelector(".button");
     
-    // var ip = $("#ip").val(); // This will be IP Address
-    
     generate("https://ams.vnsguit.org");
       
     btn.addEventListener("click", () => {
 
-      if($("#input_text").val()!="")
+      if($("#classcode_selection").val()!=0)
       {
-          let user_input = `https://ams.vnsguit.org/temp/qrtest.php?classroomid=
-          ${$("#input_text").val()}
+          let user_input = `https://ams.vnsguit.org/api/eattendancefill.php?classroomid=
+          ${$("#classcode_selection").val()}
           `;
         
           if (user_input.value != "") {

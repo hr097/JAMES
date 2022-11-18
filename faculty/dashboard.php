@@ -49,7 +49,7 @@ if(mysqli_num_rows($result)>0)
 }
 else
 {
-    $JAMES->ams_redirect("../login.php");
+  $course_html = "<div class='row'><div class='col-md-6'><div class='form-group'><label>Course</label><select name='course_selection' id='course_selection' class='form-control'><option value=''>Not Selected</option></option></select></div></div>";
 }
 
 

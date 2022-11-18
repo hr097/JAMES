@@ -208,7 +208,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
 
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h4 class="card-title">Students Attendance</h4>
+                            <h4 class="card-title">Students Attendance<span style='float:right;font-weight:500;'><?php echo "Class Code: ".$classroom_id;?></span></h4>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive">
