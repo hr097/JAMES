@@ -20,11 +20,11 @@ if(isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfT
         
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
-            $error = "<script>alert('reader added successfully !');</script>";
+            $error = "reader added successfully !";
         }
         else
         {
-            $error = "<script>alert('reader couldn't be added!');</script>"; 
+            $error = "reader couldn't be added!"; 
         }
          
 }
