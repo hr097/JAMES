@@ -113,8 +113,8 @@ if($JAMES->checkSession()===true) // if session active than redirect user to his
                                     <!-- Remember me , forgot password and  login button : End -->
                             </form>
                             <!-- Form : End -->
-                        </div>
-                        <p style="text-align:center;font-size:0.5em;position:relative;top:30px;">© <?php echo date("Y") ?> J. P. Dawer. All Rights Reserved | Developed by <a href="amsdevelopers.php">JAMES</a></p> 
+                        </div><!--© <?php //echo date("Y") ?> J. P. Dawer. All Rights Reserved | -->
+                        <p style="text-align:center;font-size:0.5em;position:relative;top:30px;">Developed by <a href="amsdevelopers.php">JAMES</a></p> 
                     </div>
                </div>
            </div>
