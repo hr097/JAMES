@@ -193,12 +193,12 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 <body>
 
     <!-------------------------------------------------------Main Content------------------------------------------------------->
-    <!--Subeject Setup Form Start-->
+    <!--Subject Setup Form Start-->
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
                 <button type='button' onclick="window.history.back()"s
-                        style="verticle-align:middle;padding:9px;width:90px;height:40px;float:left;position:relative;bottom:10px;display:inline;border-radius:12px;"
+                        style="vertical-align:middle;padding:9px;width:90px;height:40px;float:left;position:relative;bottom:10px;display:inline;border-radius:12px;"
                         class='btn form-control btn-primary btn-icon-text ml-3 mb-2'>
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
