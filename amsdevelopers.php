@@ -96,7 +96,7 @@
                     </div>
                     <div class="card-footer">
                         <p class="mb-0 font-weight-bolder">Harshil Ramani</p>
-                        <small class="text-muted">Sr. Software Developer,Team Leader</small>
+                        <small class="text-muted">Sr. Software Engineer,Team Leader</small>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@
                     </div>
                     <div class="card-footer">
                         <p class="mb-0 font-weight-bolder">Shubham Khunt</p>
-                        <small class="text-muted">Sr. Software Developer</small>
+                        <small class="text-muted">Sr. Software Engineer</small>
                     </div>
                 </div>
             </div>
@@ -190,7 +190,7 @@
                     </div>
                     <div class="card-footer">
                         <p class="mb-0 font-weight-bolder">Archit Ghevariya</p>
-                        <small class="text-muted">Full Stack Developer</small>
+                        <small class="text-muted">Sr. Full Stack Developer</small>
                     </div>
 
                 </div>
@@ -331,7 +331,7 @@
                     </div>
                     <div class="card-footer">
                         <p class="mb-0 font-weight-bolder">Nupul Kukadiya</p>
-                        <small class="text-muted">Sr.Fullstack Developer</small>
+                        <small class="text-muted">Fullstack Developer</small>
                     </div>
 
                 </div>
@@ -427,7 +427,7 @@
                     <div class="card-footer">
                         <p class="mb-0 font-weight-bolder">Krish Bhanderi</p>
                         <small class="text-muted">
-                            Lead Backend Developer
+                             Backend Developer
                         </small>
                     </div>
                 </div>
@@ -473,7 +473,7 @@
                     <div class="card-footer">
                         <p class="mb-0 font-weight-bolder">Tulsi Rathod</p>
                         <small class="text-muted">
-                            Lead Frontend Developer
+                             Frontend Developer
                         </small>
                     </div>
                 </div>
@@ -520,7 +520,7 @@
                     <div class="card-footer">
                         <p class="mb-0 font-weight-bolder">Jaydev Jadhav</p>
                         <small class="text-muted">
-                            Lead Backend Developer
+                             Backend Developer
                         </small>
                     </div>
                 </div>
@@ -568,7 +568,7 @@
                     <div class="card-footer">
                         <p class="mb-0 font-weight-bolder">Meet Makwana</p>
                         <small class="text-muted">
-                            Lead Frontend Developer
+                             Frontend Developer
                         </small>
                     </div>
                 </div>
