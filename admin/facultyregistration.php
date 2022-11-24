@@ -99,16 +99,28 @@ $JAMES->init_user_session();
                                 </div>
 
 
-                                <!-- Email & Password -->
+                                <!-- Email -->
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" class="form-control" placeholder="e.g. example@vnsgu.ac.in">
                                 </div>
 
-                                <div class="form-group">
+                                <!-- password status -->
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Enter Password">
+                                        <input type="password" class="form-control" placeholder="Enter Password">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                    <label>Status</label>
+                                    <select class="form-control">
+                                            <option>Active</option>
+                                            <option>InActive</option>
+                                    </select>
+                                    </div>
                                 </div>
+
 
                                 <button type="button" id="" class="btn btn-primary mr-2 mt-3">Add Faculty</button>
                                 <button class="btn btn-light mt-3">Clear</button>
