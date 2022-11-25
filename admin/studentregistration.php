@@ -97,6 +97,19 @@ if($student['stud_status']==0)
     ";
 
 }
+else if($student['stud_status']==1)
+{
+
+    $statusBox = "
+    <label>Student Status</label>
+    <select name='status' class='form-control'required>
+        <option value='1'selected>Active</option>
+        <option value='0'>InActive</option>
+    </select>
+    </div>
+    ";
+
+}
 else
 {
     $statusBox = "
