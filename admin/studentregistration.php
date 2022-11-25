@@ -30,7 +30,7 @@ $JAMES->init_user_session();
 
 
     <!-- page information-->
-    <title>AMS | Student Regisration</title>
+    <title>AMS | Student Registration</title>
 
 </head>
 

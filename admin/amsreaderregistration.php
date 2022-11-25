@@ -81,7 +81,7 @@ else
     <script src="../js/admin/amsreaderregistration.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
-    <title>AMS | Reader Regisration</title>
+    <title>AMS | Reader Registration</title>
 
 </head>
 

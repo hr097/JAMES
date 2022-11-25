@@ -58,6 +58,7 @@ document.getElementById("no-button").onclick = function() { // no-> same page
 
 
 $(document).ready(function(){
+  
 
     $(".sendnotice").click(
         function()

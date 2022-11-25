@@ -81,7 +81,7 @@ else
     <script src="../js/admin/facrolesregistration.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
-    <title>AMS | Faculty Roles Regisration</title>
+    <title>AMS | Faculty Roles Registration</title>
 
 </head>
 
