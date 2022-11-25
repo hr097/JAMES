@@ -24,14 +24,14 @@ $JAMES->init_user_session();
     <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
-    <title>AMS | Subject Registration</title>
+    <title>AMS | Class Backup</title>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Subject Registration</h4>
+                            <h4 class="card-title">Student Backup</h4>
                             <form class="forms-sample">
 
                                 <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
@@ -61,15 +61,23 @@ $JAMES->init_user_session();
 
                                 <!-- Total Semester-->
                                 <div class="form-group">
-                                    <label for="sub_code">Subject Code</label>
-                                    <input  class="form-control" type="text" id="sub_code" placeholder="Subject Name">
+                                    <label for="division">Div</label>
+                                    <select id="division" class="form-control">
+                                            <option>Select Division</option>
+                                            <option>A</option>
+                                            <option>B</option>
+                                            <option>C</option>
+                                            <option>D</option>
+                                            <option>E</option>
+                                            <option>F</option>
+                                            <option>G</option>
+                                            <option>H</option>
+                                            <option>I</option>
+                                        </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="sub_name">Subject Name</label>
-                                    <input class="form-control" type="text" id="sub_name" placeholder="Subject Name">
-                                </div>
+                    
 
-                                <button type="button" id="" class="btn btn-primary mr-2 mt-3">Add Subject</button>
+                                <button type="button" id="" class="btn btn-primary mr-2 mt-3">Search</button>
                                 <button class="btn btn-light mt-3">Clear</button>
                             </form>
                         </div>
@@ -80,14 +88,14 @@ $JAMES->init_user_session();
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Edit Subject</h4>
+                            <h4 class="card-title">Backup Student</h4>
                             <form class="forms-sample">
 
                                 <!-- FID and Role -->
                                 <div class="row">
                                     <div class="form-group col-md-10">
-                                        <label>Search Subject</label>
-                                        <input type="text" class="form-control" placeholder="Enter Subject Code">
+                                        <label>Search SPID</label>
+                                        <input type="text" class="form-control" placeholder="Enter Student SPID">
                                     </div>
 
                                     <div class="form-group col-md-2 ">
