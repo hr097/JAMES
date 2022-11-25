@@ -48,7 +48,7 @@ $div_array = array("A","B","C","D","E","F","G","H","I");
 $div_html = "<select name='div_Selection' class='form-control' required><option>Not Selected</option>";
 $arr_length = count($div_array);
 
-for($value=0;$i<=$arr_length;$i++)
+for($value=0;$i<=$arr_length;$value++)
 {       
     $s3 = "";
     if($student['cur_division']==$div_array[$value])
