@@ -246,19 +246,19 @@ $division_html.= "</select>";
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>SPID</label>
-                                        <input type="text" class="form-control" id="studspid" placeholder="XXXXXXXXXX" value="<?php echo $student['spid'];?>" required>
+                                        <input type="text"  minlength="10"  maxlength="10" class="form-control" id="studspid" placeholder="XXXXXXXXXX" value="<?php echo $student['spid'];?>" required>
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Email</label>
-                                        <input type="email" class="form-control" id="studemail" placeholder="example@vnsgu.ac.in" value="<?php echo $student['email'];?>" required>
+                                        <input type="email" minlength="13"  maxlength="256" class="form-control" id="studemail" placeholder="example@vnsgu.ac.in" value="<?php echo $student['email'];?>" required>
                                     </div>
                                 </div>
 
                                 <!-- Name-->
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" id="studname" placeholder="Enter Student Name" value="<?php echo $student['name'];?>" required>
+                                    <input type="text" minlength="10"  maxlength="256" class="form-control" id="studname" placeholder="Enter Student Name" value="<?php echo $student['name'];?>" required>
                                 </div>
 
 
@@ -276,13 +276,13 @@ $division_html.= "</select>";
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Contact No</label>
-                                        <input type="text" class="form-control" id="studcontact" value="<?php echo $student['contact_no'];?>" placeholder="+91 XXXXXXXXXX" required>
+                                        <input type="text" minlength="14"  maxlength="14" class="form-control" id="studcontact" value="<?php echo $student['contact_no'];?>" placeholder="+91 XXXXXXXXXX" required>
                                             
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Joining Year</label>
-                                        <input type="text" class="form-control" id="studjoinyear" value="<?php echo $student['joining_year'];?>" placeholder="XXXX" required>
+                                        <input type="text" minlength="4"  maxlength="4" class="form-control" id="studjoinyear" value="<?php echo $student['joining_year'];?>" placeholder="XXXX" required>
                                     </div>
                                 </div>
 
@@ -302,7 +302,7 @@ $division_html.= "</select>";
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Current Roll No</label>
-                                        <input type="number" name="studrollno" class="form-control" id="studrollno" value="<?php echo $student['cur_roll_no'];?>" placeholder="Enter Roll No" required> 
+                                        <input type="number" minlength="1"  maxlength="4"name="studrollno" class="form-control" id="studrollno" value="<?php echo $student['cur_roll_no'];?>" placeholder="Enter Roll No" required> 
                                     </div>
                                 </div>
 
@@ -325,40 +325,40 @@ $division_html.= "</select>";
 
                                 <div class="form-group">
                                     <label>Father's Name</label>
-                                    <input type="text" name="fname" class="form-control"  value="<?php echo $student['fathers_name'];?>" placeholder="Enter Father's Name">
+                                    <input type="text" name="fname" minlength="10"  maxlength="256" class="form-control"  value="<?php echo $student['fathers_name'];?>" placeholder="Enter Father's Name">
                                 </div>
 
 
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Father's Email</label>
-                                        <input type="text" name="femail" class="form-control" id="femail"  value="<?php echo $student['fathers_email'];?>"  placeholder="example@gmail.com">
+                                        <input type="text" name="femail" minlength="13"  maxlength="256" class="form-control" id="femail"  value="<?php echo $student['fathers_email'];?>"  placeholder="example@gmail.com">
                                            
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Father's Contact</label>
-                                        <input type="text" name="fcontact" class="form-control" id="fcontact"  value="<?php echo $student['fathers_contact'];?>" placeholder="+91 XXXXXXXXXX">
+                                        <input type="text" name="fcontact" minlength="14"  maxlength="14" class="form-control" id="fcontact"  value="<?php echo $student['fathers_contact'];?>" placeholder="+91 XXXXXXXXXX">
                                             
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Mother's Name</label>
-                                    <input type="text" name="mname" class="form-control" id="mname" placeholder="Enter Mother's Name"  value="<?php echo $student['mothers_name'];?>">
+                                    <input type="text" name="mname" minlength="10"  maxlength="256" class="form-control" id="mname" placeholder="Enter Mother's Name"  value="<?php echo $student['mothers_name'];?>">
                                 </div>
 
 
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Mother's Email</label>
-                                        <input type="text" name="memail" class="form-control" id="memail"  value="<?php echo $student['mothers_email'];?>" placeholder="example@vnsgu.ac.in">
+                                        <input type="text" name="memail" minlength="13"  maxlength="256" class="form-control" id="memail"  value="<?php echo $student['mothers_email'];?>" placeholder="example@vnsgu.ac.in">
                                             
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Mother's Contact</label>
-                                        <input type="text" class="form-control" id="mcontact"  value="<?php echo $student['mothers_contact'];?>" placeholder="+91 XXXXXXXXXX">
+                                        <input type="text" class="form-control" minlength="14"  maxlength="14" id="mcontact"  value="<?php echo $student['mothers_contact'];?>" placeholder="+91 XXXXXXXXXX">
                                             
                                     </div>
 
