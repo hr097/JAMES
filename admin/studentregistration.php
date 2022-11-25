@@ -370,7 +370,7 @@ else
                                 <div class="row">
                                     <div class="form-group col-md-10">
                                         <label>Search Student</label>
-                                        <input type="text" id="Stud_spid" minlength="10" maxlength="10" class="form-control" placeholder="Enter Student SPID">
+                                        <input type="text" autocomplete="off" id="Stud_spid" minlength="10" maxlength="10" class="form-control" placeholder="Enter Student SPID">
                                     </div>
 
                                     <div class="form-group col-md-2 ">
