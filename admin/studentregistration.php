@@ -180,11 +180,12 @@ $division_html = "<select name='division_Selection' class='form-control' require
 for($value=0;$value<$arr_length;$value++)
 {       
     $s3 = "";
-
-    if($student['cur_division']==$div_array[$value])
-    {
-        $s3="selected";
-    }
+     
+    
+    // if($student['cur_division']==$div_array[$value])
+    // {
+    //     $s3="selected";
+    // }
 
     $division_html.= "<option value='".$div_array[$value]."' ".$s3.">".$div_array[$value]."</option>";
 }
