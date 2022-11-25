@@ -52,7 +52,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)>0)
 {
-    $course_html = "<select name='course_Selection' id='course_selection' class='form-control' required><option value=''>Not Selected</option></option>";
+    $course_html = "<select name='course_selection' id='course_selection' class='form-control' required><option value=''>Not Selected</option></option>";
 
     //course
     while($record = mysqli_fetch_assoc($result))
@@ -67,7 +67,7 @@ if(mysqli_num_rows($result)>0)
 
       }
 
-      $course_html.="<option value='".$record['course_name']."' ".$select.">".$record['course_name']."</option>";
+      $course_html.="<option value='".$record['total_semester']."_".$record['course_name']."'  ".$select.">".$record['course_name']."</option>";
     }
 
     $course_html.="</select>";
@@ -155,7 +155,7 @@ else
 }
 
 
-$sem_html = "<select  name='sem_Selection' class='form-control' required><option value='' >Not Selected</option>";
+$sem_html = "<select id='sem_selection'  name='sem_selection' class='form-control' required><option value='' >Not Selected</option>";
 
 $i = 1;
 while($i<=$ts)
