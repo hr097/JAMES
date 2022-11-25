@@ -84,13 +84,26 @@ else
 
 
 
-if($student['stud_status']==false)
+if($student['stud_status']==1)
 {
 
     $statusBox = "
     <label>Student Status</label>
     <select name='status' class='form-control'required>
-        <option value='1'>Active</option>
+        <option value='1' selected>Active</option>
+        <option value='0' >InActive</option>
+    </select>
+    </div>
+    ";
+
+}
+else if($student['stud_status']==0&&$student['stud_status']!="")
+{
+
+    $statusBox = "
+    <label>Student Status</label>
+    <select name='status' class='form-control'required>
+        <option value='1' >Active</option>
         <option value='0' selected>InActive</option>
     </select>
     </div>
