@@ -46,22 +46,6 @@ $statusBox = "";
 $courseBox = "";
 
 
-$division_html = "<select name='division_Selection' class='form-control' required><option value=''>Not Selected</option>";
-
-
-for($value=0;$value<$arr_length;$value++)
-{       
-    $s3 = "";
-    if($student['cur_division']==$div_array[$value])
-    {
-        $s3="selected";
-    }
-
-    $division_html.= "<option value='".$div_array[$value]."' ".$s3.">".$div_array[$value]."</option>";
-}
-
-$division_html.= "</select>";
-
 //courses fetch for dropdown
 $sql= "select * from Courses;";//query
 $result = mysqli_query($JAMES->connection(),$sql);
@@ -188,6 +172,24 @@ else
         ";
 
 }
+
+
+$division_html = "<select name='division_Selection' class='form-control' required><option value=''>Not Selected</option>";
+
+
+for($value=0;$value<$arr_length;$value++)
+{       
+    $s3 = "";
+
+    if($student['cur_division']==$div_array[$value])
+    {
+        $s3="selected";
+    }
+
+    $division_html.= "<option value='".$div_array[$value]."' ".$s3.">".$div_array[$value]."</option>";
+}
+
+$division_html.= "</select>";
 
 ?>
 
