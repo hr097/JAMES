@@ -298,18 +298,15 @@ $division_html.= "</select>";
 
 
                                 <div class="row">
+                                    <div class="form-group col-sm-6 col-md-6 col-lg-6">
+                                        <label>Current Semester </label>
+                                        <?php //echo $sem_html; ?>
+                                    </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Current Division</label>
                                         <?php echo $division_html; ?>
                                     </div>
-
-                                    <div class="form-group col-sm-6 col-md-6 col-lg-6">
-                                        <label>Current Semester </label>
-                                        <?php echo $sem_html; ?>
-                                    </div>
-
-                                  
                                 </div>
 
 
