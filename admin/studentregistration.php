@@ -14,8 +14,6 @@ $student = array("spid"=>"","name"=>"","gender"=>"","dob"=>"","email"=>"","conta
 
 $button = "";
 
-
-
 if(isset($_GET["spid"]))
 {   
     $spid = $_GET["spid"];
@@ -45,7 +43,22 @@ else
 $genderBox= "";
 $statusBox = "";
 $courseBox = "";
+$div_array = array("A","B","C","D","E","F","G","H","I");
 
+$div_html = "<select name='div_Selection' class='form-control' required><option>Not Selected</option>";
+$arr_length = count($div_array);
+
+for($value=0;$i<=$arr_length;$i++)
+{       
+    $s3 = "";
+    if($student['cur_division']==$div_array[$value])
+    {
+        $s3="selected";
+    }
+    $div_html.= "<option value='".$div_array[$value]."' ".$s3.">".$div_array[$value]."</option>";
+}
+
+$div_html.= "</select>";
 
 //courses fetch for dropdown
 $sql= "select * from Courses;";//query
@@ -102,21 +115,7 @@ else
   ";
 }
 
-$div_array = array("A","B","C","D","E","F","G","H","I");
 
-$div_html = "<select name='div_Selection' class='form-control' required><option>Not Selected</option>";
-
-foreach($div_array as $key => $value)
-{       
-    $s3 = "";
-    if($student['cur_division']==$value)
-    {
-        $s3="selected";
-    }
-    $div_html.= "<option value='".$value."' ".$s3.">".$value."</option>";
-}
-
-$div_html.= "</select>";
 
 if($student['stud_status']==0)
 {
