@@ -19,7 +19,7 @@ if(isset($_GET["spid"]))
 {   
     $spid = $_GET["spid"];
 
-    $sql= "select A.*,B.*,DATE_FORMAT(A.dob,'%d-%m-%Y')AS dob from Students A,Courses B where A.course_id=B.course_id AND A.spid='$spid';";
+    $sql= "select DATE_FORMAT(A.dob,'%d-%m-%Y')AS dob,A.*,B.*, from Students A,Courses B where A.course_id=B.course_id AND A.spid='$spid';";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
