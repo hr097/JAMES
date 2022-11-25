@@ -226,7 +226,7 @@ else
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Student Regisration <?php echo $error;?></h4>
-                            <form class="forms-sample" name="addstudents" action='studentregistration.php' method="POST" enctype="multipart/form-data">
+                            <form autocomplete="off" class="forms-sample" name="addstudents" action='studentregistration.php' method="POST" enctype="multipart/form-data">
 
                                 <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
 
