@@ -10,7 +10,7 @@ $JAMES->init_user_session();
 
 function findStudent($spid) 
 { 
-    $sql= "select DATE_FORMAT(A.dob,'%d-%m-%Y')AS dob,A.*,B.course_name from Students A,Courses B where A.course_id=B.course_id AND A.spid='$spid';";
+    $sql= "select DATE_FORMAT(A.dob,'%d-%m-%Y')AS fdob,A.*,B.course_name from Students A,Courses B where A.course_id=B.course_id AND A.spid='$spid';";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
@@ -26,7 +26,7 @@ function findStudent($spid)
             <td>".$record['name']."</td>
             <td>".$record['email']."</td>
             <td>".$record['gender']."</td>
-            <td>".$record['dob']."</td>
+            <td>".$record['fdob']."</td>
             <td>".$record['course_name']."</td>
             <td>
             <button id='".$record['spid']."' type='button' class='btn updatebtn rounded px-3 py-2 mr-2'><i
