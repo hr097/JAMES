@@ -24,7 +24,6 @@ function findStudent($spid)
             <tr class='student'>
             <td>".$record['spid']."</td>
             <td>".$record['name']."</td>
-            <td>".$record['email']."</td>
             <td>".$record['gender']."</td>
             <td>".$record['fdob']."</td>
             <td>".$record['course_name']."</td>
@@ -43,7 +42,7 @@ function findStudent($spid)
     {
         return "
         <tr>
-        <td  colspan='7' style='font-size:1.2em;text-align:center;'>SPID Not Found!</td>
+        <td  colspan='6' style='font-size:1.2em;text-align:center;'>SPID Not Found!</td>
         </tr>";
     }
 }

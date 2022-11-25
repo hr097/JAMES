@@ -387,7 +387,6 @@ else
                                         <tr>
                                             <th>SPID</th>
                                             <th>Name</th>
-                                            <th>Email</th>
                                             <th>Gender</th>
                                             <th>Birthdate</th>
                                             <th>Course</th>
@@ -396,7 +395,7 @@ else
                                     </thead>
                                     <tbody id="searchstudent">
                                         <tr>
-                                            <td  colspan='7' style='font-size:1.2em;text-align:center;'>No Data Found</td>
+                                            <td  colspan='6' style='font-size:1.2em;text-align:center;'>No Data Found</td>
                                            
                                         </tr>
                                     </tbody>
