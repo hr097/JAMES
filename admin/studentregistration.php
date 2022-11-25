@@ -53,7 +53,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
 if(mysqli_num_rows($result)>0)
 {
     $course_html = "<select name='course_Selection' id='course_selection' class='form-control' required><option value=''>Not Selected</option></option>";
-    $sem_html = "<select  name='sem_Selection'class='form-control' required><option>Not Selected</option>";
+    $sem_html = "<select  name='sem_Selection' class='form-control' required><option value='' >Not Selected</option>";
 
 
     //course
@@ -300,7 +300,7 @@ $division_html.= "</select>";
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Current Semester </label>
-                                        <?php //echo $sem_html; ?>
+                                        <?php echo $sem_html; ?>
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
