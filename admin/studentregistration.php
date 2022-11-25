@@ -84,7 +84,7 @@ else
 
 
 
-if($student['stud_status']==0)
+if($student['stud_status']==false)
 {
 
     $statusBox = "
