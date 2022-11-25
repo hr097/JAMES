@@ -44,7 +44,7 @@ else
 $genderBox= "";
 $statusBox = "";
 $courseBox = "";
-
+$ts=0;
 
 //courses fetch for dropdown
 $sql= "select * from Courses;";//query
@@ -53,8 +53,6 @@ $result = mysqli_query($JAMES->connection(),$sql);
 if(mysqli_num_rows($result)>0)
 {
     $course_html = "<select name='course_Selection' id='course_selection' class='form-control' required><option value=''>Not Selected</option></option>";
-    $sem_html = "<select  name='sem_Selection' class='form-control' required><option value='' >Not Selected</option>";
-
 
     //course
     while($record = mysqli_fetch_assoc($result))
@@ -66,23 +64,6 @@ if(mysqli_num_rows($result)>0)
 
         //semester
         $ts = $student['total_semester'];
-
-        $i = 1;
-
-
-        while($i<=$ts)
-        {    
-            $s2="";
-            if($student['cur_semester']==$i)
-            {
-                $s2="selected";
-
-            }
-            $sem_html.="<option value='".$i."' ".$s2.">".$i."</option>";
-            $i++;
-        }
-
-        $sem_html.="</select>";
 
       }
 
@@ -173,6 +154,22 @@ else
 
 }
 
+
+$sem_html = "<select  name='sem_Selection' class='form-control' required><option value='' >Not Selected</option>";
+
+$i = 1;
+while($i<=$ts)
+{    
+    $s2="";
+    if($student['cur_semester']==$i)
+    {
+        $s2="selected";
+    }
+    $sem_html.="<option value='".$i."' ".$s2.">".$i."</option>";
+    $i++;
+}
+
+$sem_html.="</select>";
 
 $division_html = "<select name='division_Selection' class='form-control' required><option value=''>Not Selected</option>";
 
