@@ -4,10 +4,16 @@ require_once("../ams.php");
 $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
-// if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
-// {
-//  $JAMES->ams_redirect("../login.php");
-// }
+if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+{
+ $JAMES->ams_redirect("../login.php");
+}
+
+
+if(isset($_GET["spid"]))
+{
+ echo "<script>alert('stud');</script>";
+}
 
 ?>
 
@@ -22,15 +28,18 @@ $JAMES->init_user_session();
 
     <!-- css -->
     <link rel="stylesheet" href="../css/alert.css">
+    
+    <link rel="stylesheet" href="../css/modal.css">
+
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'>
 
 
     <!-- js  -->
-    <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
+    <script src="../js/admin/studentregistration.js" type="text/javascript" defer=true></script>
 
 
     <!-- page information-->
-    <title>AMS | Student Regisration</title>
+    <title>AMS | Student Registration</title>
 
 </head>
 
@@ -43,20 +52,20 @@ $JAMES->init_user_session();
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Student Regisration</h4>
-                            <form class="forms-sample">
+                            <form class="forms-sample" >
 
-                                <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
+                                <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
 
                                 <!-- SPID and Email -->
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>SPID</label>
-                                        <input type="text" class="form-control" placeholder="e.g. 20200XXXXX">
+                                        <input type="text" class="form-control" placeholder="XXXXXXXXXX" required>
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Email</label>
-                                        <input type="email" class="form-control" placeholder="e.g. example@vnsgu.ac.in">
+                                        <input type="email" class="form-control" placeholder="example@vnsgu.ac.in">
                                     </div>
                                 </div>
 
@@ -89,7 +98,7 @@ $JAMES->init_user_session();
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Contact No</label>
                                         <input type="number" class="form-control" id="" value=""
-                                            placeholder="e.g. +91 XXXX XXXX">
+                                            placeholder="+91 XXXXXXXXXX">
                                     </div>
 
                                     <div class="form-group col-md-6">
@@ -113,7 +122,7 @@ $JAMES->init_user_session();
 
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
-                                        <label>Course ID</label>
+                                        <label>Course Name</label>
                                         <select class="form-control">
                                             <option>Not Selected</option>
                                             <option>1</option>
@@ -124,7 +133,7 @@ $JAMES->init_user_session();
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
-                                        <label>Roll No</label>
+                                        <label>Current Roll No</label>
                                         <input type="number" class="form-control" id="" value=""
                                             placeholder="Enter Roll No">
                                     </div>
@@ -169,13 +178,13 @@ $JAMES->init_user_session();
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Father's Email</label>
                                         <input type="text" class="form-control" id="" value=""
-                                            placeholder="e.g. example@gmail.com">
+                                            placeholder="example@gmail.com">
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Father's Contact</label>
                                         <input type="number" class="form-control" id="" value=""
-                                            placeholder="e.g. +91 XXXX XXXX">`
+                                            placeholder="+91 XXXXXXXXXX">`
                                     </div>
                                 </div>
 
@@ -189,13 +198,13 @@ $JAMES->init_user_session();
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Mother's Email</label>
                                         <input type="text" class="form-control" id="" value=""
-                                            placeholder="e.g. example@vnsgu.ac.in">
+                                            placeholder="example@vnsgu.ac.in">
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Mother's Contact</label>
                                         <input type="number" class="form-control" id="" value=""
-                                            placeholder="e.g. +91 XXXX XXXX">
+                                            placeholder="+91 XXXXXXXXXX">
                                     </div>
 
 
@@ -203,7 +212,7 @@ $JAMES->init_user_session();
 
                                 </div>
 
-                                <button type="button" id="" class="btn btn-primary mr-2 mt-3">Add Student</button>
+                                <button type="submit" id="" class="btn btn-primary mr-2 mt-3">Add Student</button>
                                 <button class="btn btn-light mt-3">Clear</button>
                             </form>
                         </div>
@@ -221,11 +230,11 @@ $JAMES->init_user_session();
                                 <div class="row">
                                     <div class="form-group col-md-10">
                                         <label>Search Student</label>
-                                        <input type="text" class="form-control" placeholder="Enter Student SPID">
+                                        <input type="text" id="Stud_spid" minlength="10" maxlength="10" class="form-control" placeholder="Enter Student SPID">
                                     </div>
 
                                     <div class="form-group col-md-2 ">
-                                        <button type="button" id=""
+                                        <button type="button" id="searchstudentbtn"
                                             class="btn btn-primary searchbtn mt-4">Search</button>
                                     </div>
                                 </div>
@@ -237,29 +246,18 @@ $JAMES->init_user_session();
                                     <thead>
                                         <tr>
                                             <th>SPID</th>
-                                            <th>Roll No</th>
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Gender</th>
-                                            <th>DOB</th>
-                                            <th>Update & Delete</th>
-
+                                            <th>Birthdate</th>
+                                            <th>Course</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="searchstudent">
                                         <tr>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>
-                                                <button type='button' class='btn updatebtn rounded px-3 py-2 mr-2'><i
-                                                        class="ti-pencil"></i></button>
-                                                <button type='button' class='btn btn-danger rounded px-3 py-2'><i
-                                                        class="ti-trash"></i></button>
-                                            </td>
+                                            <td  colspan='7' style='font-size:1.2em;text-align:center;'>No Data Found</td>
+                                           
                                         </tr>
                                     </tbody>
                                 </table>
@@ -271,6 +269,21 @@ $JAMES->init_user_session();
             </div>
         </div>
     </div>
+
+
+    
+    <!-- modal -->
+    <div id="modal" class="modal">
+    <!-- modal content -->
+    <div class="modal-content" style="width:360px;">
+            <span class="close">&times;</span>
+            <p class="msg unselectable" id="modalmsg"></p>
+            <div class="row" style="margin:auto;margin-bottom:30px;">
+            <button id="yes-button" class="modal-btn">Okay</button>
+            <button id="no-button" class="modal-btn">Cancel</button>
+    </div>
+    </div>
+
 
 
     <!-- including footer -->

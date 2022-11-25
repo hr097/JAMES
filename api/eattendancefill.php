@@ -1,7 +1,7 @@
 <?php
 
 
-if(isset($_GET['classroomid'])) //! must add spid
+if(isset($_GET['classroomid'])) //! must add spid and set to post request
 {
     $html = $_GET['classroomid'];
 }
