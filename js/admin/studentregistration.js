@@ -25,7 +25,7 @@ document.getElementById("no-button").onclick = function() { // no-> same page
 $(document).ready(function(){
 
 
-   $("#course_selection").onchange(function () {
+   $("#course_selection").change(function () {
     $("#sem_selection").empty();
     $("#sem_selection").append("<option value=''>Not Selected</option>");
 
