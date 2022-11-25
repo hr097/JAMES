@@ -24,7 +24,7 @@ $JAMES->init_user_session();
     <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
-    <title>AMS | Faculty Regisration</title>
+    <title>AMS | Faculty Registration</title>
 
 </head>
 

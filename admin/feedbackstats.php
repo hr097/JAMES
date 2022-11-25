@@ -221,7 +221,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
                             <div class='container'>
 
                                 <div class='row'>
-                                    <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
+                                    <div class='col-lg-6 col-md-6 col-sm-12' style='display:flex;justify-content: center;'>
                                         <div class='subcard'>
                                             <div class='percent' style='--clr:#57B657;--num:<?php echo $GLOBALS['ttlfeedbacks'];?>;'>
                                                 <div class='dot'></div>
@@ -236,7 +236,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
                                             </div>
                                         </div>
                                     </div>
-                                    <div class='col-lg-4 col-md-4 col-sm-12' style='display:flex;justify-content: center;'>
+                                    <div class='col-lg-6 col-md-6 col-sm-12' style='display:flex;justify-content: center;'>
                                         <div class='subcard'>
                                             <div class='percent' style='--clr:#FF9494;--num:<?php echo (100*$GLOBALS['avg_rating'])/5;?>;'>
                                                 <div class='dot'></div>

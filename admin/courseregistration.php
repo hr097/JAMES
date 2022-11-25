@@ -24,7 +24,7 @@ $JAMES->init_user_session();
     <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
-    <title>AMS | Faculty Regisration</title>
+    <title>AMS | Faculty Registration</title>
 
 </head>
 
@@ -70,7 +70,7 @@ $JAMES->init_user_session();
                                 <div class="row">
                                     <div class="form-group col-md-10">
                                         <label>Search Course</label>
-                                        <input type="text" class="form-control" placeholder="Enter Course Id">
+                                        <input type="text" class="form-control" placeholder="Enter Course Name">
                                     </div>
 
                                     <div class="form-group col-md-2 ">
@@ -85,30 +85,22 @@ $JAMES->init_user_session();
                                 <table id="" class="table">
                                     <thead>
                                         <tr>
-                                            <th>FID</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Gender</th>
-                                            <th>DOB</th>
-                                            <th>Update & Delete</th>
+                                            <th>Course ID</th>
+                                            <th>Course Name</th>
+                                            <th>Total Semester</th>
+                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>No data</td>
-                                            <td>
+                                            <td colspan="4" style="text-align:center;font-size:1.2em;">No data</td>
+                                            <!-- <td>
                                                 <button type='button' class='btn updatebtn rounded px-3 py-2 mr-2'><i
                                                         class="ti-pencil"></i></button>
                                                 <button type='button' class='btn btn-danger rounded px-3 py-2'><i
                                                         class="ti-trash"></i></button>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     </tbody>
                                 </table>

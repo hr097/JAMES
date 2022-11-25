@@ -113,7 +113,12 @@
                             </ul>
                         </div>
                     </li>
-                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="./classbckup.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-cloud-down"></i>
+                            <span class="menu-title">Backup</span>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./feedbackstats.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-comment-alt"></i>
