@@ -270,7 +270,7 @@ else
 
                                     <div class="form-group col-md-6">
                                         <label>Joining Year</label>
-                                        <input type="text" class="form-control" id="studjoinyear" value="<?php echo $student['joining_year'];?>" required>
+                                        <input type="text" class="form-control" id="studjoinyear" value="<?php echo $student['joining_year'];?>" placeholder="XXXX" required>
                                     </div>
                                 </div>
 
