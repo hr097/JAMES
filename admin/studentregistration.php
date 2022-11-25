@@ -11,7 +11,8 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 
 $error = "";
 $student = array("spid"=>"","name"=>"","gender"=>"","dob"=>"","email"=>"","contact_no"=>"","course_name"=>"","joining_year"=>"","cur_semester"=>"","cur_division"=>"","cur_roll_no"=>"","stud_status"=>"","fathers_name"=>"","fathers_email"=>"","fathers_contact"=>"","mothers_name"=>"","mothers_email"=>"","mothers_contact"=>"");
-
+$div_array = array("A","B","C","D","E","F","G","H","I");
+$arr_length = count($div_array);
 $button = "";
 
 if(isset($_GET["spid"]))
@@ -43,12 +44,12 @@ else
 $genderBox= "";
 $statusBox = "";
 $courseBox = "";
-$div_array = array("A","B","C","D","E","F","G","H","I");
 
-$division_html = "<select name='div_Selection' class='form-control' required><option>Not Selected</option>";
-$arr_length = count($div_array);
 
-for($value=0;$value<=$arr_length;$value++)
+$division_html = "<select name='division_Selection' class='form-control' required><option value=''>Not Selected</option>";
+
+
+for($value=0;$value<$arr_length;$value++)
 {       
     $s3 = "";
     if($student['cur_division']==$div_array[$value])
@@ -308,7 +309,7 @@ else
 
 
                                 <!-- Parent Details -->
-                                <h4 class="card-title mt-4">Parent Details</h4>
+                                <h4 class="card-title mt-4">Parents Details</h4>
 
                                 <div class="form-group">
                                     <label>Father's Name</label>
