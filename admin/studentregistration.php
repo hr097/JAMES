@@ -45,7 +45,7 @@ $statusBox = "";
 $courseBox = "";
 $div_array = array("A","B","C","D","E","F","G","H","I");
 
-$div_html = "<select name='div_Selection' class='form-control' required><option>Not Selected</option>";
+$division_html = "<select name='div_Selection' class='form-control' required><option>Not Selected</option>";
 $arr_length = count($div_array);
 
 for($value=0;$value<=$arr_length;$value++)
@@ -55,10 +55,11 @@ for($value=0;$value<=$arr_length;$value++)
     {
         $s3="selected";
     }
-    $div_html.= "<option value='".$div_array[$value]."' ".$s3.">".$div_array[$value]."</option>";
+
+    $division_html.= "<option value='".$div_array[$value]."' ".$s3.">".$div_array[$value]."</option>";
 }
 
-$div_html.= "</select>";
+$division_html.= "</select>";
 
 //courses fetch for dropdown
 $sql= "select * from Courses;";//query
@@ -301,7 +302,7 @@ else
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Current Division</label>
-                                        <?php echo $div_html; ?>
+                                        <?php echo $division_html; ?>
                                     </div>
                                 </div>
 
