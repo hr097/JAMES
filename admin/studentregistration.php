@@ -249,7 +249,7 @@ if(isset($_GET["spid"]))
 {   
 
     $update_email = "readonly='true'";
-    $spid = $_GET["spid"];
+    $spid = $JAMES->sanitizeInput($_GET["spid"]);
 
     $sql= "select A.*,B.*,C.uid from Students A,Courses B,Rfid_uid_spid_map C where A.spid=C.spid and A.course_id=B.course_id AND A.spid='$spid';";
 
