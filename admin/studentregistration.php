@@ -170,9 +170,9 @@ if(isset($_POST['addstudent']))
     else
     {    
         $password = $GLOBALS['JAMES']->generatePassword();
-        $password = crypt($password,'$2a$10$1qAz2wSx3eDc4rFv5tGb5t');
-        
-        $sql = "insert into Users (username,password,user_type) values('$stud_email','$password',1);";
+        $password_enc = crypt($password,'$2a$10$1qAz2wSx3eDc4rFv5tGb5t');
+
+        $sql = "insert into Users (username,password,user_type) values('$stud_email','$password_enc',1);";
 
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {    
