@@ -24,7 +24,7 @@ else
     $JAMES->ams_redirect("../login.php");
 }
 
-$user_fathers_name = $user['fathers_name'];
+$user_fathers_name = ($user['fathers_name']=="")?"-": $user['fathers_name'];
 $user_mothers_name = $user['mothers_name'];
 
 $user_fathers_email = $user['fathers_email'];
