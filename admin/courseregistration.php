@@ -91,7 +91,7 @@ else if(isset($_GET["opt"])&&$_GET["course_id"]&&$_GET["opt"]=="dlt") // delete 
     }
     else
     {
-        $error="<span id='response_msg' style='color:red;float:right;'>Failed to delete!</span>";
+        $error="<span id='response_msg' style='color:red;float:right;'>Failed to Delete!</span>";
     }
     $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
 }

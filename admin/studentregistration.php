@@ -644,7 +644,7 @@ $division_html.= "</select>";
                                     </thead>
                                     <tbody id="searchstudent">
                                         <tr>
-                                            <td  colspan='6' style='font-size:1.2em;text-align:center;'>No Data Found</td>
+                                            <td  colspan='6' style='font-size:1.2em;text-align:center;'>No Data</td>
                                            
                                         </tr>
                                     </tbody>
