@@ -167,13 +167,13 @@ else
 
                                 <div class="form-group">
                                         <label>Course Name</label>
-                                        <input type="text" name="course_name" class="form-control" placeholder="Enter Course Name" value="<?php echo $course_name;?>" required>
+                                        <input type="text" autocomplete="off" name="course_name" class="form-control" placeholder="Enter Course Name" value="<?php echo $course_name;?>" required>
                                     </div>
 
                                 <!-- Total Semester-->
                                 <div class="form-group">
                                     <label>Total Semester</label>
-                                    <input type="number" name="totalsem" maxlength="2" minlength="1" class="form-control" placeholder="Enter Total Semester" value="<?php echo $ts;?>" required>
+                                    <input type="number" autocomplete="off" name="totalsem" maxlength="2" minlength="1" class="form-control" placeholder="Enter Total Semester" value="<?php echo $ts;?>" required>
                                 </div>
 
                                 <?php echo $button; ?>

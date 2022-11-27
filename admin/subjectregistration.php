@@ -191,11 +191,11 @@ $sem_html.="</select>";
                                 <!-- Total Semester-->
                                 <div class="form-group">
                                     <label for="sub_code">Subject Code</label>
-                                    <input  class="form-control" name="subject_code" type="text" id="sub_code" placeholder="Subject Code" required>
+                                    <input  class="form-control" autocomplete="off" name="subject_code" type="text" id="sub_code" placeholder="Subject Code" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="sub_name">Subject Name</label>
-                                    <input class="form-control" name="subject_name" type="text" id="sub_name" placeholder="Subject Name"  required>
+                                    <input class="form-control"  autocomplete="off" name="subject_name" type="text" id="sub_name" placeholder="Subject Name"  required>
                                 </div>
 
                                 <?php echo $button; ?>
@@ -216,7 +216,7 @@ $sem_html.="</select>";
                                 <div class="row">
                                     <div class="form-group col-md-10">
                                         <label>Search Subject</label>
-                                        <input type="number" id="subject_code" class="form-control" placeholder="Enter Subject Code">
+                                        <input type="number" autocomplete="off" id="subject_code" class="form-control" placeholder="Enter Subject Code">
                                     </div>
 
                                     <div class="form-group col-md-2 ">
