@@ -28,9 +28,7 @@ function sendLoginInvitation($student_email,$password)
      
     ";
     
-          
-    //return(($GLOBALS['JAMES']->sendEmail($student_email,"Login Invitation",$htmlContent))?1:-1);
-    return 1;
+    return(($GLOBALS['JAMES']->sendEmail($student_email,"Login Invitation",$htmlContent))?1:-1);
 }
 
 function findcourseId($cname)
@@ -173,6 +171,7 @@ if(isset($_POST['addstudent']))
     {    
         $password = $GLOBALS['JAMES']->generatePassword();
         $sql = "insert into Users (username,password,user_type) values('$stud_email','$password',1);";
+
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {    
 
@@ -211,8 +210,8 @@ if(isset($_POST['addstudent']))
                     {   
                         if(sendLoginInvitation($stud_email,$password))
                         {
-                        $error="<span id='response_msg' style='color:green;float:right;'>Student Added Successfully!</span>";
-                        $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
+                            $error="<span id='response_msg' style='color:green;float:right;'>Student Added Successfully!</span>";
+                            $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
                         }
                         else
                         {
