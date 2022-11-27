@@ -191,7 +191,7 @@ $sem_html.="</select>";
                                 <!-- Total Semester-->
                                 <div class="form-group">
                                     <label for="sub_code">Subject Code</label>
-                                    <input  class="form-control" autocomplete="off" name="subject_code" type="text" id="sub_code" placeholder="Subject Code" required>
+                                    <input  class="form-control" autocomplete="off" name="subject_code" type="number" id="sub_code" placeholder="Subject Code" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="sub_name">Subject Name</label>
