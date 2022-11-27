@@ -240,7 +240,7 @@ $division_html.= "</select>";
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>SPID</label>
-                                        <input type="text" name="studspid" pattern="[0-9]{10}" minlength="10"  maxlength="10" class="form-control" id="studspid" placeholder="XXXXXXXXXX" value="<?php echo $student['spid'];?>" required>
+                                        <input type="number" name="studspid" pattern="[0-9]{10}" minlength="10"  maxlength="10" class="form-control" id="studspid" placeholder="XXXXXXXXXX" value="<?php echo $student['spid'];?>" required>
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
