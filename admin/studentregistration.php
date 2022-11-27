@@ -85,10 +85,10 @@ if(isset($_POST['updatestudent']))
     fathers_contact='$stud_fcontact',
     mothers_name='$stud_mname',
     mothers_email='$stud_memail',
-    mothers_contact='$stud_mcontact',
+    mothers_contact='$stud_mcontact'
     where spid='$stud_spid' and email='$stud_email';";
 
-    //$sql.="update Rfid_uid_spid_map set uid='$stud_rfidno' where spid='$stud_spid';";
+    $sql.="update Rfid_uid_spid_map set uid='$stud_rfidno' where spid='$stud_spid';";
     
     if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
     {
@@ -98,7 +98,7 @@ if(isset($_POST['updatestudent']))
     else
     {
         //$error="<span style='color:red;float:right;'>Failed to Update!</span>";
-        $error = $sql;
+        $error .= $sql;
         $error.= "<br>".mysqli_error();
         //$error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
     }
