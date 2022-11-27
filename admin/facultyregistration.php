@@ -4,10 +4,10 @@ require_once("../ams.php");
 $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
-// if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
-// {
-//  $JAMES->ams_redirect("../login.php");
-// }
+if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+{
+ $JAMES->ams_redirect("../login.php");
+}
 
 ?>
 
@@ -18,10 +18,10 @@ $JAMES->init_user_session();
     <!-- including header -->
     <?php
     require_once('./common/header.php');
-?>
+    ?>
 
     <!-- js  -->
-    <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
+    <script src="../js/admin/facultyregistration.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
     <title>AMS | Faculty Registration</title>
@@ -39,7 +39,7 @@ $JAMES->init_user_session();
                             <h4 class="card-title">Faculty Regisration</h4>
                             <form class="forms-sample">
 
-                                <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
+                                <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
 
                                 <!-- FID and Role -->
                                 <div class="row">
