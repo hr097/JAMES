@@ -63,14 +63,14 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
         }
 
 
-        $user_fathers_name = $user['fathers_name'];
-        $user_mothers_name = $user['mothers_name'];
-
-        $user_fathers_email = $user['fathers_email'];
-        $user_mothers_email = $user['mothers_email'];
-
-        $user_fathers_contact = $user['fathers_contact'];
-        $user_mothers_contact = $user['fathers_contact'];
+        $user_fathers_name = ($user['fathers_name']=="")?"-": $user['fathers_name'];
+        $user_mothers_name = ($user['mothers_name']=="")?"-": $user['mothers_name'];
+        
+        $user_fathers_email = ($user['fathers_email']=="")?"-": $user['fathers_email'];
+        $user_mothers_email = ($user['mothers_email']=="")?"-": $user['mothers_email'];
+        
+        $user_fathers_contact = ($user['fathers_contact']=="")?"-": $user['fathers_contact'];
+        $user_mothers_contact = ($user['mothers_contact']=="")?"-": $user['mothers_contact'];
 
         $student_card = "
 
