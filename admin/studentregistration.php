@@ -10,7 +10,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 }
 
 $error = "";
-$student = array("spid"=>"","name"=>"","gender"=>"","dob"=>"","email"=>"","contact_no"=>"","course_name"=>"","joining_year"=>"","cur_semester"=>"","cur_division"=>"","cur_roll_no"=>"","stud_status"=>"","fathers_name"=>"","fathers_email"=>"","fathers_contact"=>"","mothers_name"=>"","mothers_email"=>"","mothers_contact"=>"");
+$student = array("spid"=>"","name"=>"","gender"=>"","dob"=>"","email"=>"","contact_no"=>"","course_name"=>"","joining_year"=>"","cur_semester"=>"","cur_division"=>"","cur_roll_no"=>"","stud_status"=>"","fathers_name"=>"","fathers_email"=>"","fathers_contact"=>"","mothers_name"=>"","mothers_email"=>"","mothers_contact"=>"","uid"=>"");
 $div_array = array("A","B","C","D","E","F","G","H","I");
 $arr_length = count($div_array);
 $button = "";
@@ -19,7 +19,7 @@ if(isset($_GET["spid"]))
 {   
     $spid = $_GET["spid"];
 
-    $sql= "select A.*,B.* from Students A,Courses B where A.course_id=B.course_id AND A.spid='$spid';";
+    $sql= "select A.*,B.*,C.uid from Students A,Courses B,Rfid_uid_spid_map C where A.spid=C.spid and A.course_id=B.course_id AND A.spid='$spid';";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
@@ -88,12 +88,10 @@ if($student['stud_status']==1)
 {
 
     $statusBox = "
-    <label>Student Status</label>
     <select name='status' class='form-control'required>
         <option value='1' selected>Active</option>
         <option value='0' >InActive</option>
     </select>
-    </div>
     ";
 
 }
@@ -101,24 +99,20 @@ else if($student['stud_status']==0&&$student['stud_status']!="")
 {
 
     $statusBox = "
-    <label>Student Status</label>
     <select name='status' class='form-control'required>
         <option value='1' >Active</option>
         <option value='0' selected>InActive</option>
     </select>
-    </div>
     ";
 
 }
 else
 {
     $statusBox = "
-    <label>Student Status</label>
     <select name='status' class='form-control' required>
             <option value='1' selected>Active</option>
             <option value='0'>InActive</option>
     </select>
-    </div>
     ";
 }
 
@@ -286,9 +280,19 @@ $division_html.= "</select>";
                                     </div>
                                 </div>
 
+                                <div class="row">
                                 <!-- Status-->
-                                <div class="form-group mb-5 ">
-                                <?php echo $statusBox; ?>
+                                <div class="form-group mb-5 col-sm-6 col-md-6 col-lg-6">
+                                    <label>Student Status</label>
+                                    <?php echo $statusBox; ?>
+                                </div>
+
+                                <div class="form-group mb-5 col-sm-6 col-md-6 col-lg-6">
+                                    <label>RFID Number</label>
+                                    <input type="text" minlength="11" pattern="[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}"  maxlength="11" class="form-control" id="studrfid" value="<?php echo $student['uid'];?>" placeholder="XX XX XX XX" required>
+                                </div>
+
+                                </div>
 
 
                                 <!-- Course Details -->
