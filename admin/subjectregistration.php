@@ -70,7 +70,7 @@ if(isset($_POST["addsubject"]))
         }
         else
         {
-            $error = "<span id='response_msg' style='color:red;float:right;'>Subject couldn't be mapped!</span>"; 
+            $error = "<span id='response_msg' style='color:red;float:right;'>Subject couldn't be Mapped!</span>"; 
         }
        
     }
