@@ -126,6 +126,12 @@ class AMS
         ini_set('display_errors', 1);
     }
 
+    public function generatePassword()// to debug error on production
+    {
+        $data = '12$3890ABC@DJKL4567MNOPQlmnop@qrsRSTUV!WXYZaEF^GHIbce%fghijktuvw-xyz';
+        return substr(str_shuffle($data), 0,10);
+    }
+
     public function sanitizeInput($data) // to prevent XSS atatcks and SQL injection atatcks;
     {
         $data = trim($data);
@@ -253,7 +259,7 @@ class AMS
         //Enable SMTP debugging.
          //$mail->SMTPDebug = 3;         //for debugging on only                      
         //Set PHPMailer to use SMTP.
-        //  $mail->isSMTP();           //@comment it as vnsgu server can't send SMTP email it will send it from root domain    
+          //$mail->isSMTP();           //@comment it as vnsgu server can't send SMTP email it will send it from root domain    
         //Set SMTP host name                          
         $mail->Host = "smtp.gmail.com";
         //Set this to true if SMTP host requires authentication to send email

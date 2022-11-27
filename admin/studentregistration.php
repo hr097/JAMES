@@ -17,6 +17,21 @@ $button = "";
 $update_email = "";
 
 
+function sendLoginInvitation($student_email,$password)
+{
+    //$GLOBALS['JAMES']->todayTime =  date("h:i:s A",  time()); // fetch latest time 
+
+    $htmlContent = "
+
+    <h1>Your username is : ".$student_email."</h1><br>
+    <h1>Your Password is : ".$password."</h1>
+     
+    ";
+    
+          
+    return(($GLOBALS['JAMES']->sendEmail($student_email,"Login Invitation",$htmlContent))?1:-1);
+}
+
 function findcourseId($cname)
 {
     $sql= "select * from Courses where course_name='$cname';";//query
@@ -43,27 +58,27 @@ if(isset($_POST['updatestudent']))
     //PERSONAL
     $stud_spid = $_POST['studspid'];
     $stud_email = $_POST['studemail'];
-    $stud_name = $_POST['studname'];
+    $stud_name = $JAMES->sanitizeInput($_POST['studname']);
     $stud_gender = $_POST['studgender'];
     $stud_dob = $_POST['studdob'];
-    $stud_contact = $_POST['studcontact'];
-    $stud_joinyear = $_POST['studjoiningyear'];
+    $stud_contact = $JAMES->sanitizeInput($_POST['studcontact']);
+    $stud_joinyear = $JAMES->sanitizeInput($_POST['studjoiningyear']);
     $stud_status = $_POST['studstatus'];
-    $stud_rfidno = $_POST['studrfidno'];
+    $stud_rfidno = $JAMES->sanitizeInput($_POST['studrfidno']);
 
     //ACADEMIC
     $course; 
     $stud_sem = $_POST['sem_selection'];
     $stud_div = $_POST['division_selection'];
-    $stud_rollno = $_POST['rollno_selection'];
+    $stud_rollno = $JAMES->sanitizeInput($_POST['rollno_selection']);
 
     //PARENTAL
-    $stud_fname = $_POST['fname'];
-    $stud_femail = $_POST['femail'];
-    $stud_fcontact = $_POST['fcontact'];
-    $stud_mname = $_POST['mname'];
-    $stud_memail = $_POST['memail'];
-    $stud_mcontact = $_POST['mcontact'];
+    $stud_fname = $JAMES->sanitizeInput($_POST['fname']);
+    $stud_femail = $JAMES->sanitizeInput($_POST['femail']);
+    $stud_fcontact = $JAMES->sanitizeInput($_POST['fcontact']);
+    $stud_mname = $JAMES->sanitizeInput($_POST['mname']);
+    $stud_memail = $JAMES->sanitizeInput($_POST['memail']);
+    $stud_mcontact = $JAMES->sanitizeInput($_POST['mcontact']);
 
 
     $cid = findcourseId($course);
@@ -119,34 +134,116 @@ if(isset($_POST['addstudent']))
 
     $course = $_POST['course_selection'];
     $course = substr($course,strpos($course,"_")+1);
-
+    
     //PERSONAL
-    $stud_spid = $_POST['studspid'];
-    $stud_email = $_POST['studemail'];
-    $stud_name = $_POST['studname'];
+    $stud_spid = $JAMES->sanitizeInput($_POST['studspid']);
+    $stud_email = $JAMES->sanitizeInput($_POST['studemail']);
+    $stud_name = $JAMES->sanitizeInput($_POST['studname']);
     $stud_gender = $_POST['studgender'];
     $stud_dob = $_POST['studdob'];
-    $stud_contact = $_POST['studcontact'];
-    $stud_joinyear = $_POST['studjoiningyear'];
+    $stud_contact = $JAMES->sanitizeInput($_POST['studcontact']);
+    $stud_joinyear = $JAMES->sanitizeInput($_POST['studjoiningyear']);
     $stud_status = $_POST['studstatus'];
-    $stud_rfidno = $_POST['studrfidno'];
+    $stud_rfidno = $JAMES->sanitizeInput($_POST['studrfidno']);
 
     //ACADEMIC
-    $course;
+    $course; 
     $stud_sem = $_POST['sem_selection'];
     $stud_div = $_POST['division_selection'];
-    $stud_rollno = $_POST['rollno_selection'];
+    $stud_rollno = $JAMES->sanitizeInput($_POST['rollno_selection']);
 
     //PARENTAL
-    $stud_fname = $_POST['fname'];
-    $stud_femail = $_POST['femail'];
-    $stud_fcontact = $_POST['fcontact'];
-    $stud_mname = $_POST['mname'];
-    $stud_memail = $_POST['memail'];
-    $stud_mcontact = $_POST['mcontact'];
+    $stud_fname = $JAMES->sanitizeInput($_POST['fname']);
+    $stud_femail = $JAMES->sanitizeInput($_POST['femail']);
+    $stud_fcontact = $JAMES->sanitizeInput($_POST['fcontact']);
+    $stud_mname = $JAMES->sanitizeInput($_POST['mname']);
+    $stud_memail = $JAMES->sanitizeInput($_POST['memail']);
+    $stud_mcontact = $JAMES->sanitizeInput($_POST['mcontact']);
+
+    $sql = "select * from Students where spid='$stud_spid' OR email='$stud_email';";
+    $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
+
+    if(mysqli_num_rows($result)==1)
+    {    
+        $error="<span id='response_msg' style='color:red;float:right;'>SPID or Email Already Registered!</span>";
+        $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
+    }
+    else
+    {    
+        $password = $GLOBALS['JAMES']->generatePassword();
+        $sql = "insert into Users (username,password,user_type) values('$stud_email','$password',1);";
+        if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+        {    
+
+                $cid = findcourseId($course);
+
+                $sql= "
+                insert into Students 
+                (spid,name,gender,dob,email,contact_no,course_id,joining_year,cur_semester,cur_division,cur_roll_no,stud_status,
+                fathers_name,fathers_email,fathers_contact,mothers_name,mothers_email,mothers_contact)
+                values(
+                '$stud_spid',
+                '$stud_name',
+                '$stud_gender',
+                '$stud_dob',
+                '$stud_email',
+                '$stud_contact',
+                $cid,
+                $stud_joinyear,
+                $stud_sem,
+                '$stud_div',
+                $stud_rollno,
+                $stud_status,
+                '$stud_fname',
+                '$stud_femail',
+                '$stud_fcontact',
+                '$stud_mname',
+                '$stud_memail',
+                '$stud_mcontact'
+                ;";
+
+            
+                if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+                {    
+
+                    $sql="insert into Rfid_uid_spid_map (uid,spid) values('$stud_rfidno','$stud_spid');";
+                    if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+                    {   
+                        if(sendLoginInvitation($stud_email,$password))
+                        {
+                        $error="<span id='response_msg' style='color:green;float:right;'>Student Added Successfully!</span>";
+                        $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
+                        }
+                        else
+                        {
+                            $error="<span id='response_msg' style='color:blue;float:right;'>Failed to Send an Invitation!</span>";
+                            $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
+                        }
+                    }
+                    else
+                    { 
+                        $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add!</span>";
+                        $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
+                    }
+                }
+                else
+                {
+                    $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add!</span>";
+                    $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
+                }
+
+        }
+        else
+        {
+            $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add!</span>";
+            $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
+        }
+       
+    }
 
 }
 
+//findstudent details
 if(isset($_GET["spid"]))
 {   
 
