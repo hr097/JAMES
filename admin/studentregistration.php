@@ -97,19 +97,19 @@ if(isset($_POST['updatestudent']))
         $sql="update Rfid_uid_spid_map set uid='$stud_rfidno' where spid='$stud_spid';";
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {   
-            $error="<span style='color:green;float:right;'>Student Updated!</span>";
-            $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
+            $error="<span id='response_msg' style='color:green;float:right;'>Student Updated!</span>";
+            $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
         }
         else
         { 
-            $error="<span style='color:red;float:right;'>Failed to Update!</span>";
-            $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
+            $error="<span id='response_msg' style='color:red;float:right;'>Failed to Update!</span>";
+            $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
         }
     }
     else
     {
-        $error="<span style='color:red;float:right;'>Failed to Update!</span>";
-        $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
+        $error="<span id='response_msg' style='color:red;float:right;'>Failed to Update!</span>";
+        $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
     }
 }
 
@@ -164,7 +164,7 @@ if(isset($_GET["spid"]))
     }
     else
     {
-       $error="<span style='color:red;float:right;'>SPID Not Found!</span>";
+       $error="<span id='response_msg' style='color:red;float:right;'>SPID Not Found!</span>";
        $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
     }
 
