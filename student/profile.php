@@ -24,6 +24,15 @@ else
     $JAMES->ams_redirect("../login.php");
 }
 
+$user_fathers_name = $user['fathers_name'];
+$user_mothers_name = $user['mothers_name'];
+
+$user_fathers_email = $user['fathers_email'];
+$user_mothers_email = $user['mothers_email'];
+
+$user_fathers_contact = $user['fathers_contact'];
+$user_mothers_contact = $user['fathers_contact'];
+
 ?>
 
 <!DOCTYPE html>
@@ -129,10 +138,10 @@ else
                    <h4 class="info-data"><?php echo $user['joining_year']; ?></h4>
 
                   <h6 class="info-title">Father's Name</h6>
-                   <h4 class="info-data"><?php echo $user['fathers_name']; ?></h4>
+                   <h4 class="info-data"><?php echo $user_fathers_name; ?></h4>
 
                   <h6 class="info-title">Mother's Name</h6>
-                   <h4 class="info-data"><?php echo $user['mothers_name']; ?></h4>
+                   <h4 class="info-data"><?php echo $user_mothers_name; ?></h4>
 
                 </div>
               </div>
@@ -160,16 +169,16 @@ else
                  <h4 class="info-data"><?php echo $user['contact_no']; ?></h4>
 
                  <h6 class="info-title">Father's Email</h6>
-                   <h4 class="info-data"><?php echo $user['fathers_email']; ?></h4>
+                   <h4 class="info-data"><?php echo $user_fathers_email; ?></h4>
 
                 <h6 class="info-title">Father's Contact</h6>
-                   <h4 class="info-data"><?php echo $user['fathers_contact']; ?></h4>
+                   <h4 class="info-data"><?php echo $user_fathers_contact; ?></h4>
 
                 <h6 class="info-title">Mother's Email</h6>
-                   <h4 class="info-data"><?php echo $user['mothers_email']; ?></h4>
+                   <h4 class="info-data"><?php echo $user_mothers_email; ?></h4>
 
                 <h6 class="info-title">Mother's Contact</h6>
-                   <h4 class="info-data"><?php echo $user['mothers_contact']; ?></h4>
+                   <h4 class="info-data"><?php echo $user_mothers_contact; ?></h4>
 
                 </div>
                 </div>

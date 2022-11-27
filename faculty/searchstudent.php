@@ -62,6 +62,16 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
           $user_status = "Inactive";
         }
 
+
+        $user_fathers_name = $user['fathers_name'];
+        $user_mothers_name = $user['mothers_name'];
+
+        $user_fathers_email = $user['fathers_email'];
+        $user_mothers_email = $user['mothers_email'];
+
+        $user_fathers_contact = $user['fathers_contact'];
+        $user_mothers_contact = $user['fathers_contact'];
+
         $student_card = "
 
              <div class='container my-3' align='center' style='padding-bottom: 3%;'>
@@ -125,10 +135,10 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                    <h4 class='info-data'>".$user['gender']."</h4>
 
                    <h6 class='info-title'>Father's Name</h6>
-                   <h4 class='info-data'>".$user['fathers_name']."</h4>
+                   <h4 class='info-data'>".$user_fathers_name."</h4>
 
                   <h6 class='info-title'>Mother's Name</h6>
-                   <h4 class='info-data'>".$user['mothers_name']."</h4>
+                   <h4 class='info-data'>".$user_mothers_name."</h4>
 
                    <h6 class='info-title'>Course Name</h6>
                    <h4 class='info-data'>".$user['course_name']."</h4>
@@ -169,22 +179,22 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                  <!-- <span id='mode'>
                     <i class='ti-pencil email_edit_icon d-flex justify-content-end' style='position:relative;bottom:10px;' id='edit_icon'></i>
                 </span> --> 
-                 <h4 id='para_email' class='email_edit_para info-data'><a href='mailto:".$user['email']."'>".$user['email']."<i class='bi bi-envelope-fill ml-1'></i></a></h4> 
+                 <h4 id='para_email' class='email_edit_para info-data'><a href='mailto:".$user_email."'>".$user_email."<i class='bi bi-envelope-fill ml-1'></i></a></h4> 
                  <input type='hidden' id='csrfToken' name='_csrfToken' value='".$JAMES->generateCsrfToken()."'> 
                 <h6 class='info-title'>Student Contact</h6>
-                 <h4 class='info-data'><a href='tel:".$user['contact_no']."'>".$user['contact_no']."<i class='bi bi-telephone ml-1'></i></a></h4>
+                 <h4 class='info-data'><a href='tel:".$user_contact_no."'>".$user_contact_no."<i class='bi bi-telephone ml-1'></i></a></h4>
 
                 <h6 class='info-title'>Father's Email</h6>
-                 <h4 class='info-data'><a href='mailto:".$user['fathers_email']."'>".$user['fathers_email']."<i class='bi bi-envelope-fill ml-1'></i></a></h4>
+                 <h4 class='info-data'><a href='mailto:".$user_fathers_email."'>".$user_fathers_email."<i class='bi bi-envelope-fill ml-1'></i></a></h4>
 
                 <h6 class='info-title'>Father's Contact</h6>
-                 <h4 class='info-data'><a href='tel:".$user['fathers_contact']."'>".$user['fathers_contact']."<i class='bi bi-telephone ml-1'></i></a></h4>
+                 <h4 class='info-data'><a href='tel:".$user_fathers_contact."'>".$user_fathers_contact."<i class='bi bi-telephone ml-1'></i></a></h4>
 
                 <h6 class='info-title'>Mother's Email</h6>
-                 <h4 class='info-data'><a href='mailto:".$user['mothers_email']."'>".$user['mothers_email']."<i class='bi bi-envelope-fill ml-1'></i></a></h4>
+                 <h4 class='info-data'><a href='mailto:".$user_mothers_email."'>".$user_mothers_email."<i class='bi bi-envelope-fill ml-1'></i></a></h4>
 
                 <h6 class='info-title'>Mother's Contact</h6>
-                 <h4 class='info-data'><a href='tel:".$user['mothers_contact']."'>".$user['mothers_contact']."<i class='bi bi-telephone ml-1'></i></a></h4>
+                 <h4 class='info-data'><a href='tel:".$user_mothers_contact."'>".$user_mothers_contact."<i class='bi bi-telephone ml-1'></i></a></h4>
 
                 </div>
                 </div>
