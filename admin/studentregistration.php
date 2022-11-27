@@ -160,12 +160,12 @@ if(isset($_POST['addstudent']))
     $stud_memail = $JAMES->sanitizeInput($_POST['memail']);
     $stud_mcontact = $JAMES->sanitizeInput($_POST['mcontact']);
 
-    $sql = "select * from Students where spid='$stud_spid' OR email='$stud_email';";
+    $sql = "select A.*B.* from Students A,Rfid_spid_uid_map where A.spid=B.spid and  B.uid='$stud_rfidno' OR A.spid='$stud_spid' OR A.email='$stud_email';";
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
 
     if(mysqli_num_rows($result)==1)
     {    
-        $error="<span id='response_msg' style='color:red;float:right;'>SPID or Email Already Registered!</span>";
+        $error="<span id='response_msg' style='color:red;float:right;'>RFID UID/SPID/Email Already Registered!</span>";
         $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
     }
     else
@@ -222,13 +222,13 @@ if(isset($_POST['addstudent']))
                     }
                     else
                     { 
-                        $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add!</span>";
+                        $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add Rfid!</span>";
                         $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
                     }
                 }
                 else
                 {
-                    $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add!</span>";
+                    $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add Students!</span>";
                     $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
                 }
 
