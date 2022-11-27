@@ -29,7 +29,8 @@ function sendLoginInvitation($student_email,$password)
     ";
     
           
-    return(($GLOBALS['JAMES']->sendEmail($student_email,"Login Invitation",$htmlContent))?1:-1);
+    //return(($GLOBALS['JAMES']->sendEmail($student_email,"Login Invitation",$htmlContent))?1:-1);
+    return 1;
 }
 
 function findcourseId($cname)
