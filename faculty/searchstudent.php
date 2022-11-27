@@ -72,6 +72,15 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
         $user_fathers_contact = ($user['fathers_contact']=="")?"-": $user['fathers_contact']."<i class='bi bi-telephone ml-1'></i>";
         $user_mothers_contact = ($user['mothers_contact']=="")?"-": $user['mothers_contact']."<i class='bi bi-telephone ml-1'></i>";
 
+                
+        $user_fathers_email2 = ($user['fathers_email']=="")?"-": $user['fathers_email'];
+        $user_mothers_email2 = ($user['mothers_email']=="")?"-": $user['mothers_email'];
+        
+        $user_fathers_contact2 = ($user['fathers_contact']=="")?"-": $user['fathers_contact'];
+        $user_mothers_contact2 = ($user['mothers_contact']=="")?"-": $user['mothers_contact'];
+
+
+
         $student_card = "
 
              <div class='container my-3' align='center' style='padding-bottom: 3%;'>
@@ -185,16 +194,16 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                  <h4 class='info-data'><a href='tel:".$user['contact_no']."'>".$user['contact_no']."<i class='bi bi-telephone ml-1'></i></a></h4>
 
                 <h6 class='info-title'>Father's Email</h6>
-                 <h4 class='info-data'><a href='mailto:".$user_fathers_email."'>".$user_fathers_email."</a></h4>
+                 <h4 class='info-data'><a href='mailto:".$user_fathers_email2."'>".$user_fathers_email."</a></h4>
 
                 <h6 class='info-title'>Father's Contact</h6>
-                 <h4 class='info-data'><a href='tel:".$user_fathers_contact."'>".$user_fathers_contact."</a></h4>
+                 <h4 class='info-data'><a href='tel:".$user_fathers_contact2."'>".$user_fathers_contact."</a></h4>
 
                 <h6 class='info-title'>Mother's Email</h6>
-                 <h4 class='info-data'><a href='mailto:".$user_mothers_email."'>".$user_mothers_email."</a></h4>
+                 <h4 class='info-data'><a href='mailto:".$user_mothers_email2."'>".$user_mothers_email."</a></h4>
 
                 <h6 class='info-title'>Mother's Contact</h6>
-                 <h4 class='info-data'><a href='tel:".$user_mothers_contact."'>".$user_mothers_contact."</a></h4>
+                 <h4 class='info-data'><a href='tel:".$user_mothers_contact2."'>".$user_mothers_contact."</a></h4>
 
                 </div>
                 </div>
