@@ -20,14 +20,14 @@ if(isset($_POST['_sb'])&&isset($_POST['_rn'])&&isset($_POST['_ct'])&&$_POST['_ct
         
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
-            $error = "<span style='color:green;float:right;'>New role added successfully !</span>";
+            $error = "<span id='response_msg' style='color:green;float:right;'>New role added successfully !</span>";
         }
         else
         {
-            $error = "<span style='color:red;float:right;'>New role couldn't be added!</span>"; 
+            $error = "<span id='response_msg' id=style='color:red;float:right;'>New role couldn't be added!</span>"; 
         }
 
-        $error.="<script>setTimeout(function(){window.location.href='facrolesregistration.php';},3000);</script>";
+        $error.="<script>setTimeout(function(){ $('#response_msg').html('');},3000);</script>";
          
 }
 

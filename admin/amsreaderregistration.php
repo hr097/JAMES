@@ -20,14 +20,14 @@ if(isset($_POST['_sb'])&&isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_c
         
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
-            $error = "<span style='color:green;float:right;'>reader added successfully !</span>";
+            $error = "<span id='response_msg' style='color:green;float:right;'>reader added successfully !</span>";
         }
         else
         {
-            $error = "<span style='color:red;float:right;'>reader couldn't be added!</span>"; 
+            $error = "<span id='response_msg' style='color:red;float:right;'>reader couldn't be added!</span>"; 
         }
 
-        $error.="<script>setTimeout(function(){window.location.href='amsreaderregistration.php';},3000);</script>";
+        $error.="<script>setTimeout(function(){ $('#response_msg').html('');},3000);</script>";
          
 }
 

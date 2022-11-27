@@ -165,7 +165,7 @@ if(isset($_GET["spid"]))
     else
     {
        $error="<span id='response_msg' style='color:red;float:right;'>SPID Not Found!</span>";
-       $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
+       $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
     }
 
 }
