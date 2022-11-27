@@ -354,10 +354,11 @@ $division_html.= "</select>";
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
+                        <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
                             <h4 class="card-title">Student Regisration <?php echo $error;?></h4>
                             <form autocomplete="off" class="forms-sample" name="addstudents" action='studentregistration.php' method="POST" enctype="multipart/form-data">
 
-                                <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
+                              
 
                                 <!-- SPID and Email -->
                                 <div class="row">
