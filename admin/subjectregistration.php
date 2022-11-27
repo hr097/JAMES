@@ -62,7 +62,7 @@ if(isset($_POST["addsubject"]))
     {   
         $sub_id = getSubjectId($sub_code,$sub_name);
 
-        $sql= "insert into Course_Subject_map(course_id,subject_id) values($cid,$sub_id);";
+        $sql= "insert into Course_subject_map(course_id,subject_id) values($cid,$sub_id);";
         
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         { 
