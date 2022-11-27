@@ -259,7 +259,7 @@ class AMS
         //Enable SMTP debugging.
          //$mail->SMTPDebug = 3;         //for debugging on only                      
         //Set PHPMailer to use SMTP.
-        //$mail->isSMTP();           //@comment it as vnsgu server can't send SMTP email it will send it from root domain    
+        //  $mail->isSMTP();           //@comment it as vnsgu server can't send SMTP email it will send it from root domain    
         //Set SMTP host name                          
         $mail->Host = "smtp.gmail.com";
         //Set this to true if SMTP host requires authentication to send email
@@ -284,9 +284,13 @@ class AMS
 
         $mail->AltBody = "No email body!";
 
-        $mail->addCC($cc);
-        $mail->addCC($cc2);
+        if($cc!=""&&$cc2!="")
+        {
+            $mail->addCC($cc);
+            $mail->addCC($cc2);
+        }
 
+  
         try {
             $mail->send(); 
             return (true);
