@@ -45,6 +45,7 @@ function getSubjectId($scode,$sname)
     }
 }
 
+
 if(isset($_POST["addsubject"]))
 {
     $course = $_POST['course_selection'];
@@ -108,21 +109,11 @@ $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)>0)
 {
-    $course_html = "<select name='course_selection' id='course_selection' class='form-control' required><option value=''>Not Selected</option></option>";
-
+    $course_html = "<select name='course_selection' id='course_selection' class='form-control'  required><option value=''>Not Selected</option></option>";
+    
     //course
     while($record = mysqli_fetch_assoc($result))
     { 
-    //   $select="";
-    //   if($student['course_name']==$record['course_name'])
-    //   {
-    //     $select="selected";
-
-    //     //semester
-    //     $ts = $student['total_semester'];
-
-    //   }
-
       $course_html.="<option value='".$record['total_semester']."_".$record['course_name']."' >".$record['course_name']."</option>";
     }
 
@@ -132,7 +123,7 @@ else
 {
   $course_html = 
   "
-  <select name='course_Selection' class='form-control' required>
+  <select name='course_selection' class='form-control' required>
     <option value=''>Not Selected</option>
   </select>
   ";
@@ -144,7 +135,7 @@ $i = 1;
 while($i<=$ts)
 {    
     $s2="";
-    if($student['cur_semester']==$i)
+    if($sub_semester==$i)
     {
         $s2="selected";
     }
@@ -204,7 +195,7 @@ $sem_html.="</select>";
                                 </div>
                                 <div class="form-group">
                                     <label for="sub_name">Subject Name</label>
-                                    <input class="form-control" name="subject_name" type="text" id="sub_name" placeholder="Subject Name" required>
+                                    <input class="form-control" name="subject_name" type="text" id="sub_name" placeholder="Subject Name"  required>
                                 </div>
 
                                 <?php echo $button; ?>

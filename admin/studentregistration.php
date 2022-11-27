@@ -20,10 +20,10 @@ $update_email = "";
 function sendLoginInvitation($student_email,$password)
 {
     //$GLOBALS['JAMES']->todayTime =  date("h:i:s A",  time()); // fetch latest time 
-
+    //!remaining
     $htmlContent = "
 
-    <h1>Your username is : ".$student_email."</h1><br>
+    <h1>Your username is : ".$student_email."</h1><br> 
     <h1>Your Password is : ".$password."</h1>
      
     ";

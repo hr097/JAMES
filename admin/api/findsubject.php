@@ -18,7 +18,9 @@ function findSubject($scode)
     {
         $subject = "";
         while($record = mysqli_fetch_assoc($result))
-        {
+        {  
+            //     <button id='".$record['subject_id']."' type='button' class='btn updatebtn rounded px-3 py-2 mr-2'><i
+            //class='ti-pencil'></i></button>
             $subject.=
             "
             <tr class='subject'>
@@ -27,8 +29,6 @@ function findSubject($scode)
             <td>".$record['subject_code']."</td>
             <td>".$record['semester']."</td>
             <td>
-            <button id='".$record['subject_id']."' type='button' class='btn updatebtn rounded px-3 py-2 mr-2'><i
-                    class='ti-pencil'></i></button>
             <button id='".$record['subject_id']."' type='button' class='btn deletstudbtn btn-danger rounded px-3 py-2'><i
                     class='ti-trash'></i></button>
             </td>

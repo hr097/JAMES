@@ -63,9 +63,9 @@ $(document).ready(function(){
           {
            $("#subjectstable").html(data);
 
-            $(".updatebtn").click(function(){
-            window.location.href = `subjectregistration.php?subject_id=${$(this).attr('id')}&opt=updt`;
-            });
+            // $(".updatebtn").click(function(){
+            // window.location.href = `subjectregistration.php?subject_id=${$(this).attr('id')}&opt=updt`;
+            // });
             
             $(".deletstudbtn").click(function(){
                 window.location.href = `subjectregistration.php?subject_id=${$(this).attr('id')}&opt=dlt`;
