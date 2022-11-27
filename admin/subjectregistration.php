@@ -87,8 +87,6 @@ if(isset($_GET["opt"])&&$_GET["subject_id"]&&$_GET["opt"]=="dlt") // delete subj
 {  
     $sid = $JAMES->sanitizeInput($_GET["subject_id"]);
 
-    $sql= "delete from Course_subject_map where subject_id=$sid;";
-
     $sql= "delete from Subjects where subject_id=$sid;";
     
     if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
