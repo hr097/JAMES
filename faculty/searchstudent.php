@@ -179,10 +179,10 @@ if(isset($_POST['_spid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_
                  <!-- <span id='mode'>
                     <i class='ti-pencil email_edit_icon d-flex justify-content-end' style='position:relative;bottom:10px;' id='edit_icon'></i>
                 </span> --> 
-                 <h4 id='para_email' class='email_edit_para info-data'><a href='mailto:".$user_email."'>".$user_email."<i class='bi bi-envelope-fill ml-1'></i></a></h4> 
+                 <h4 id='para_email' class='email_edit_para info-data'><a href='mailto:".$user['email']."'>".$user['email']."<i class='bi bi-envelope-fill ml-1'></i></a></h4> 
                  <input type='hidden' id='csrfToken' name='_csrfToken' value='".$JAMES->generateCsrfToken()."'> 
                 <h6 class='info-title'>Student Contact</h6>
-                 <h4 class='info-data'><a href='tel:".$user_contact_no."'>".$user_contact_no."<i class='bi bi-telephone ml-1'></i></a></h4>
+                 <h4 class='info-data'><a href='tel:".$user['contact_no']."'>".$user['contact_no']."<i class='bi bi-telephone ml-1'></i></a></h4>
 
                 <h6 class='info-title'>Father's Email</h6>
                  <h4 class='info-data'><a href='mailto:".$user_fathers_email."'>".$user_fathers_email."<i class='bi bi-envelope-fill ml-1'></i></a></h4>
