@@ -10,13 +10,139 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 }
 
 $error = "";
-$student = array("spid"=>"","name"=>"","gender"=>"","dob"=>"","email"=>"","contact_no"=>"","course_name"=>"","joining_year"=>"","cur_semester"=>"","cur_division"=>"","cur_roll_no"=>"","stud_status"=>"","fathers_name"=>"-","fathers_email"=>"-","fathers_contact"=>"-","mothers_name"=>"-","mothers_email"=>"-","mothers_contact"=>"-","uid"=>"");
+$student = array("spid"=>"","name"=>"","gender"=>"","dob"=>"","email"=>"","contact_no"=>"","course_name"=>"","joining_year"=>"","cur_semester"=>"","cur_division"=>"","cur_roll_no"=>"","stud_status"=>"","fathers_name"=>"","fathers_email"=>"","fathers_contact"=>"","mothers_name"=>"","mothers_email"=>"","mothers_contact"=>"","uid"=>"");
 $div_array = array("A","B","C","D","E","F","G","H","I");
 $arr_length = count($div_array);
 $button = "";
+$update_email = "";
+
+
+function findcourseId($cname)
+{
+    $sql= "select * from Courses where course_name='$cname';";//query
+    $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
+
+    if(mysqli_num_rows($result)>0)
+    {
+        $course = mysqli_fetch_assoc($result);
+        return $course['course_id'];
+    }
+    else
+    {
+        return 0;
+    }
+}  
+
+//update student
+if(isset($_POST['updatestudent']))
+{
+
+    $course = $_POST['course_selection'];
+    $course = substr($course,strpos($course,"_")+1);
+    
+    //PERSONAL
+    $stud_spid = $_POST['studspid'];
+    $stud_email = $_POST['studemail'];
+    $stud_name = $_POST['studname'];
+    $stud_gender = $_POST['studgender'];
+    $stud_dob = $_POST['studdob'];
+    $stud_contact = $_POST['studcontact'];
+    $stud_joinyear = $_POST['studjoiningyear'];
+    $stud_status = $_POST['studstatus'];
+    $stud_rfidno = $_POST['studrfidno'];
+
+    //ACADEMIC
+    $course; 
+    $stud_sem = $_POST['sem_selection'];
+    $stud_div = $_POST['division_selection'];
+    $stud_rollno = $_POST['rollno_selection'];
+
+    //PARENTAL
+    $stud_fname = $_POST['fname'];
+    $stud_femail = $_POST['femail'];
+    $stud_fcontact = $_POST['fcontact'];
+    $stud_mname = $_POST['mname'];
+    $stud_memail = $_POST['memail'];
+    $stud_mcontact = $_POST['mcontact'];
+
+
+    $cid = findcourseId($course);
+
+    $sql= "update Students set
+    
+    name='$stud_name',
+    gender='$stud_gender',
+    dob='$stud_dob',
+    contact_no='$stud_contact',
+    name='$stud_name',
+    name='$stud_name',
+    name='$stud_name',
+    joining_year=$stud_joinyear,
+    course_id=$cid,
+    cur_semester=$stud_sem,
+    cur_division='$stud_div',
+    cur_roll_no=$stud_rollno,
+    stud_status=$stud_status,
+    fathers_name='$stud_fname',
+    fathers_email='$stud_femail',
+    fathers_contact='$stud_fcontact',
+    mothers_name='$stud_mname',
+    mothers_email='$stud_memail',
+    mothers_contact='$stud_mcontact',
+    where spid='$stud_spid' and email='$stud_email';";
+
+    $sql.="update Rfid_uid_spid_map set uid='$stud_rfidno' where spid='$stud_spid';";
+    
+    if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+    {
+        $error="<span style='color:green;float:right;'>Student Updated!</span>";
+        $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
+    }
+    else
+    {
+        $error="<span style='color:red;float:right;'>Failed to Updated!</span>";
+        $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
+    }
+}
+
+//ADD student
+if(isset($_POST['addstudent']))
+{
+
+    $course = $_POST['course_selection'];
+    $course = substr($course,strpos($course,"_")+1);
+
+    //PERSONAL
+    $stud_spid = $_POST['studspid'];
+    $stud_email = $_POST['studemail'];
+    $stud_name = $_POST['studname'];
+    $stud_gender = $_POST['studgender'];
+    $stud_dob = $_POST['studdob'];
+    $stud_contact = $_POST['studcontact'];
+    $stud_joinyear = $_POST['studjoiningyear'];
+    $stud_status = $_POST['studstatus'];
+    $stud_rfidno = $_POST['studrfidno'];
+
+    //ACADEMIC
+    $course;
+    $stud_sem = $_POST['sem_selection'];
+    $stud_div = $_POST['division_selection'];
+    $stud_rollno = $_POST['rollno_selection'];
+
+    //PARENTAL
+    $stud_fname = $_POST['fname'];
+    $stud_femail = $_POST['femail'];
+    $stud_fcontact = $_POST['fcontact'];
+    $stud_mname = $_POST['mname'];
+    $stud_memail = $_POST['memail'];
+    $stud_mcontact = $_POST['mcontact'];
+
+}
 
 if(isset($_GET["spid"]))
 {   
+
+    $update_email = "readonly='true'";
     $spid = $_GET["spid"];
 
     $sql= "select A.*,B.*,C.uid from Students A,Courses B,Rfid_uid_spid_map C where A.spid=C.spid and A.course_id=B.course_id AND A.spid='$spid';";
@@ -26,7 +152,7 @@ if(isset($_GET["spid"]))
     if(mysqli_num_rows($result)==1)
     {
         $student = mysqli_fetch_assoc($result);
-        $button = "<button type='submit' id='updtstud' name='updtstud' class='btn btn-primary mr-2 mt-3'>Update Student</button>";
+        $button = "<button type='submit' id='updatestudent' name='updatestudent' class='btn btn-primary mr-2 mt-3'>Update Student</button>";
     }
     else
     {
@@ -37,7 +163,7 @@ if(isset($_GET["spid"]))
 }
 else
 {
-    $button = " <button type='submit' id='addstud' name='addstud' class='btn btn-primary mr-2 mt-3'>Add Student</button>";
+    $button = " <button type='submit' id='addstudent' name='addstudent' class='btn btn-primary mr-2 mt-3'>Add Student</button>";
 }
 
 
@@ -88,9 +214,9 @@ if($student['stud_status']==1)
 {
 
     $statusBox = "
-    <select name='status' class='form-control'required>
-        <option value='1' selected>Active</option>
-        <option value='0' >InActive</option>
+    <select name='studstatus' class='form-control'required>
+        <option value='true' selected>Active</option>
+        <option value='false' >InActive</option>
     </select>
     ";
 
@@ -99,9 +225,9 @@ else if($student['stud_status']==0&&$student['stud_status']!="")
 {
 
     $statusBox = "
-    <select name='status' class='form-control'required>
-        <option value='1' >Active</option>
-        <option value='0' selected>InActive</option>
+    <select name='studstatus' class='form-control'required>
+        <option value='true' >Active</option>
+        <option value='false' selected>InActive</option>
     </select>
     ";
 
@@ -109,9 +235,9 @@ else if($student['stud_status']==0&&$student['stud_status']!="")
 else
 {
     $statusBox = "
-    <select name='status' class='form-control' required>
-            <option value='1' selected>Active</option>
-            <option value='0'>InActive</option>
+    <select name='studstatus' class='form-control' required>
+            <option value='true' selected>Active</option>
+            <option value='false'>InActive</option>
     </select>
     ";
 }
@@ -122,7 +248,7 @@ if($student['gender']=='Male')
     $genderBox= "
     <div class='form-group col-sm-6 col-md-6 col-lg-6'>
         <label>Gender</label>
-        <select name='gender' class='form-control' required>
+        <select name='studgender' class='form-control' required>
             <option value=''>Not Selected</option>
             <option value='Male' selected>Male</option>
             <option value='Female'>Female</option>
@@ -137,7 +263,7 @@ else if($student['gender']=='Female')
     $genderBox= "
     <div class='form-group col-sm-6 col-md-6 col-lg-6'>
         <label>Gender</label>
-        <select name='gender' class='form-control' required>
+        <select name='studgender' class='form-control' required>
             <option value=''>Not Selected</option>
             <option value='Male'>Male</option>
             <option value='Female'selected>Female</option>
@@ -151,7 +277,7 @@ else
     $genderBox= "
         <div class='form-group col-sm-6 col-md-6 col-lg-6'>
             <label>Gender</label>
-            <select name='gender' class='form-control' required>
+            <select name='studgender' class='form-control' required>
                 <option value=''>Not Selected</option>
                 <option value='Male'>Male</option>
                 <option value='Female'>Female</option>
@@ -240,19 +366,19 @@ $division_html.= "</select>";
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>SPID</label>
-                                        <input type="number" name="studspid" pattern="[0-9]{10}" minlength="10"  maxlength="10" class="form-control" id="studspid" placeholder="XXXXXXXXXX" value="<?php echo $student['spid'];?>" required>
+                                        <input type="text" autocomplete="off" name="studspid" pattern="[0-9]{10}" minlength="10"  maxlength="10" class="form-control" id="studspid" placeholder="XXXXXXXXXX" value="<?php echo $student['spid'];?>" <?php echo $update_email;?> required>
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Email</label>
-                                        <input type="email" name="studemail" minlength="13"  maxlength="256" class="form-control" id="studemail" placeholder="example@vnsgu.ac.in" value="<?php echo $student['email'];?>" required>
+                                        <input type="email" autocomplete="off" name="studemail" minlength="13"  maxlength="256" class="form-control" id="studemail" placeholder="example@vnsgu.ac.in" value="<?php echo $student['email'];?>" <?php echo $update_email;?> required>
                                     </div>
                                 </div>
 
                                 <!-- Name-->
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" name="studname" minlength="10"  maxlength="256" class="form-control" id="studname" placeholder="Enter Student Name" value="<?php echo $student['name'];?>" required>
+                                    <input type="text" autocomplete="off" name="studname" minlength="10"  maxlength="256" class="form-control" id="studname" placeholder="Enter Student Name" value="<?php echo $student['name'];?>" required>
                                 </div>
 
 
@@ -262,7 +388,7 @@ $division_html.= "</select>";
 
                                     <div class="form-group col-md-6">
                                         <label>Birthdate</label>
-                                        <input type="date" name="dob" class="form-control" id="studdob" value="<?php echo $student['dob'];?>" required>
+                                        <input type="date" name="studdob" class="form-control" id="studdob" value="<?php echo $student['dob'];?>" required>
                                     </div>
                                 </div>
 
@@ -270,13 +396,13 @@ $division_html.= "</select>";
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Contact No</label>
-                                        <input type="text"  name="studcontact" minlength="14"  maxlength="14" class="form-control" id="studcontact" value="<?php echo $student['contact_no'];?>" placeholder="+91 XXXXXXXXXX" required>
+                                        <input type="text" autocomplete="off"  name="studcontact" minlength="14"  maxlength="14" class="form-control" id="studcontact" value="<?php echo $student['contact_no'];?>" placeholder="+91 XXXXXXXXXX" required>
                                             
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Joining Year</label>
-                                        <input type="text" pattern="[0-9]{4}" name="join_year" minlength="4"  maxlength="4" class="form-control" id="studjoinyear" value="<?php echo $student['joining_year'];?>" placeholder="XXXX" required>
+                                        <input type="number" autocomplete="off" pattern="[0-9]{4}" name="studjoiningyear" minlength="4"  maxlength="4" class="form-control" id="studjoinyear" value="<?php echo $student['joining_year'];?>" placeholder="XXXX" required>
                                     </div>
                                 </div>
 
@@ -289,7 +415,7 @@ $division_html.= "</select>";
 
                                 <div class="form-group mb-5 col-sm-6 col-md-6 col-lg-6">
                                     <label>RFID Tag Number</label>
-                                    <input type="text" name="rfid_no" minlength="11" pattern="[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}"  maxlength="11" class="form-control" id="studrfid" value="<?php echo $student['uid'];?>" placeholder="XX XX XX XX" required>
+                                    <input type="text" autocomplete="off" name="studrfidno" minlength="11" pattern="[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}"  maxlength="11" class="form-control" id="studrfid" value="<?php echo $student['uid'];?>" placeholder="XX XX XX XX" required>
                                 </div>
 
                                 </div>
@@ -306,7 +432,7 @@ $division_html.= "</select>";
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Current Roll No</label>
-                                        <input type="number" pattern="[0-9]{1,4}" name="cur_rollno" minlength="1"  maxlength="4" name="studrollno" class="form-control" id="studrollno" value="<?php echo $student['cur_roll_no'];?>" placeholder="Enter Roll No" required> 
+                                        <input type="number" autocomplete="off" name="rollno_selection" minlength="1"  maxlength="4" name="studrollno" class="form-control" id="studrollno" value="<?php echo $student['cur_roll_no'];?>" placeholder="Enter Roll No" required> 
                                     </div>
                                 </div>
 
@@ -329,40 +455,40 @@ $division_html.= "</select>";
 
                                 <div class="form-group">
                                     <label>Father's Name</label>
-                                    <input type="text" name="fname" minlength="10"  maxlength="256" class="form-control dash"   value="<?php echo $student['fathers_name'];?>" placeholder="Enter Father's Name">
+                                    <input type="text" autocomplete="off" name="fname" minlength="10"  maxlength="256" class="form-control dash"   value="<?php echo $student['fathers_name'];?>" placeholder="Enter Father's Name">
                                 </div>
 
 
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Father's Email</label>
-                                        <input type="email" name="femail" minlength="13"  maxlength="256" class="form-control dash" id="femail"  value="<?php echo $student['fathers_email'];?>"  placeholder="example@gmail.com">
+                                        <input type="email"  autocomplete="off" name="femail" minlength="13"  maxlength="256" class="form-control dash" id="femail"  value="<?php echo $student['fathers_email'];?>"  placeholder="example@gmail.com">
                                            
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Father's Contact</label>
-                                        <input type="text" name="fcontact" minlength="14"  maxlength="14" class="form-control dash" id="fcontact"  value="<?php echo $student['fathers_contact'];?>" placeholder="+91 XXXXXXXXXX">
+                                        <input type="text" autocomplete="off" name="fcontact" minlength="14"  maxlength="14" class="form-control dash" id="fcontact"  value="<?php echo $student['fathers_contact'];?>" placeholder="+91 XXXXXXXXXX">
                                             
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Mother's Name</label>
-                                    <input type="text" name="mname" minlength="10"  maxlength="256" class="form-control dash" id="mname" placeholder="Enter Mother's Name"  value="<?php echo $student['mothers_name'];?>">
+                                    <input type="text" autocomplete="off" name="mname" minlength="10"  maxlength="256" class="form-control dash" id="mname" placeholder="Enter Mother's Name"  value="<?php echo $student['mothers_name'];?>">
                                 </div>
 
 
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Mother's Email</label>
-                                        <input type="email" name="memail" minlength="13"  maxlength="256" class="form-control dash" id="memail"  value="<?php echo $student['mothers_email'];?>" placeholder="example@vnsgu.ac.in">
+                                        <input type="email" autocomplete="off" name="memail" minlength="13"  maxlength="256" class="form-control dash" id="memail"  value="<?php echo $student['mothers_email'];?>" placeholder="example@vnsgu.ac.in">
                                             
                                     </div>
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>Mother's Contact</label>
-                                        <input type="text" class="form-control dash" minlength="14"  maxlength="14" id="mcontact"  value="<?php echo $student['mothers_contact'];?>" placeholder="+91 XXXXXXXXXX">
+                                        <input type="text" autocomplete="off"  name="mcontact" class="form-control dash" minlength="14"  maxlength="14" id="mcontact"  value="<?php echo $student['mothers_contact'];?>" placeholder="+91 XXXXXXXXXX">
                                             
                                     </div>
 
@@ -386,7 +512,7 @@ $division_html.= "</select>";
                                 <div class="row">
                                     <div class="form-group col-md-10">
                                         <label>Search Student</label>
-                                        <input type="number" name="spidsearch" pattern="[0-9]{10}" autocomplete="off" id="Stud_spid" minlength="10" maxlength="10" class="form-control" placeholder="Enter Student SPID">
+                                        <input type="text" name="spidsearch" pattern="[0-9]{10}" autocomplete="off" id="Stud_spid" minlength="10" maxlength="10" class="form-control" placeholder="Enter Student SPID">
                                     </div>
 
                                     <div class="form-group col-md-2 ">

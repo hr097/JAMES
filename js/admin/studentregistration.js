@@ -24,23 +24,24 @@ document.getElementById("no-button").onclick = function() { // no-> same page
 
 $(document).ready(function(){
 
-    $(".dash").focus(function()
-    {
-      if($(this).attr("value")=="-")
-      {
-        $(this).attr("value","");
-      }
-    });
+    // $(".dash").focus(function()
+    // {
+    //   if($(this).attr("value")=="-")
+    //   {
+    //     $(this).attr("value","");
+    //   }
+    // });
 
-    $(".dash").blur(function()
-    {
-      if($(this).attr("value")=="")
-      {
-        $(this).attr("value","-");
-      }
-    });
+    // $(".dash").blur(function()
+    // {
+    //   if($(this).attr("value")=="")
+    //   {
+    //     $(this).attr("value","-");
+    //   }
+    // });
 
     $("#course_selection").change(function () {
+      
     $("#sem_selection").empty();
     $("#sem_selection").append("<option value=''>Not Selected</option>");
 
