@@ -100,7 +100,7 @@ if(isset($_POST['updatestudent']))
         //$error="<span style='color:red;float:right;'>Failed to Update!</span>";
         $error .= $sql;
         $GLOBALS['JAMES']->Debug();
-        echo "<script>.console.log(".mysqli_error().");</script>";
+        echo "<script>.console.log(".mysqli_error($GLOBALS['JAMES']->connection()).");</script>";
         //$error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
     }
 }
