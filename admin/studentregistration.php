@@ -58,12 +58,12 @@ if(isset($_POST['updatestudent']))
     $stud_rollno = $_POST['rollno_selection'];
 
     //PARENTAL
-    $stud_fname = $_POST['fname'] ?? "-";
-    $stud_femail = $_POST['femail'];
-    $stud_fcontact = $_POST['fcontact'];
-    $stud_mname = $_POST['mname'];
-    $stud_memail = $_POST['memail'];
-    $stud_mcontact = $_POST['mcontact'];
+    $stud_fname = (empty($_POST['fname']))?"-":$_POST['fname'];
+    $stud_femail =(empty($_POST['femail']))?"-":$_POST['femail'];
+    $stud_fcontact = (empty($_POST['fcontact']))?"-":$_POST['fcontact'];
+    $stud_mname = (empty($_POST['mname']))?"-":$_POST['mname'];
+    $stud_memail = (empty($_POST['memail']))?"-":$_POST['memail'];
+    $stud_mcontact = (empty($_POST['mcontact']))?"-":$_POST['mcontact'];
 
 
     $cid = findcourseId($course);
