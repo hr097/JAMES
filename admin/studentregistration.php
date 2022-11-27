@@ -88,7 +88,7 @@ if(isset($_POST['updatestudent']))
     mothers_contact='$stud_mcontact'
     where spid='$stud_spid' and email='$stud_email';";
 
-    $sql.="update Rfid_uid_spid_map set uid='$stud_rfidno' where spid='$stud_spid';";
+   // $sql.="update Rfid_uid_spid_map set uid='$stud_rfidno' where spid='$stud_spid';";
     
     if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
     {
