@@ -101,7 +101,7 @@ if(isset($_POST['updatestudent']))
     else
     {
         $error="<span style='color:red;float:right;'>Failed to Updated!</span>";
-        $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
+       // $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
     }
 }
 
