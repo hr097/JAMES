@@ -58,7 +58,7 @@ if(isset($_POST['updatestudent']))
     $stud_rollno = $_POST['rollno_selection'];
 
     //PARENTAL
-    $stud_fname = $_POST['fname'];
+    $stud_fname = $_POST['fname'] ?? "-";
     $stud_femail = $_POST['femail'];
     $stud_fcontact = $_POST['fcontact'];
     $stud_mname = $_POST['mname'];
