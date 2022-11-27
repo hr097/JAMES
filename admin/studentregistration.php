@@ -199,8 +199,7 @@ if(isset($_POST['addstudent']))
                 '$stud_fcontact',
                 '$stud_mname',
                 '$stud_memail',
-                '$stud_mcontact'
-                ;";
+                '$stud_mcontact');";
 
             
                 if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
@@ -216,13 +215,13 @@ if(isset($_POST['addstudent']))
                         }
                         else
                         {
-                            $error="<span id='response_msg' style='color:blue;float:right;'>Failed to Send an Invitation!</span>";
+                            $error="<span id='response_msg' style='color:red;float:right;'>Failed to Send an Invitation!</span>";
                             $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
                         }
                     }
                     else
                     { 
-                        $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add Rfid!</span>";
+                        $error="<span id='response_msg' style='color:red;float:right;'>Failed to Map Rfid!</span>";
                         $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
                     }
                 }
@@ -235,7 +234,7 @@ if(isset($_POST['addstudent']))
         }
         else
         {
-            $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add!</span>";
+            $error="<span id='response_msg' style='color:red;float:right;'>Failed to Add Users!</span>";
             $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
         }
        
