@@ -74,9 +74,6 @@ if(isset($_POST['updatestudent']))
     gender='$stud_gender',
     dob='$stud_dob',
     contact_no='$stud_contact',
-    name='$stud_name',
-    name='$stud_name',
-    name='$stud_name',
     joining_year=$stud_joinyear,
     course_id=$cid,
     cur_semester=$stud_sem,
@@ -91,7 +88,7 @@ if(isset($_POST['updatestudent']))
     mothers_contact='$stud_mcontact',
     where spid='$stud_spid' and email='$stud_email';";
 
-    //$sql.="update Rfid_uid_spid_map set uid='$stud_rfidno' where spid='$stud_spid';";
+    $sql.=" update Rfid_uid_spid_map set uid='$stud_rfidno' where spid='$stud_spid';";
     
     if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
     {
@@ -100,7 +97,8 @@ if(isset($_POST['updatestudent']))
     }
     else
     {
-        $error="<span style='color:red;float:right;'>Failed to Updated!</span>";
+        //$error="<span style='color:red;float:right;'>Failed to Update!</span>";
+        $error = $sql;
        // $error.="<script>setTimeout(function(){window.location.href='studentregistration.php';},3000);</script>";
     }
 }
@@ -360,7 +358,7 @@ $division_html.= "</select>";
                             <h4 class="card-title">Student Regisration <?php echo $error;?></h4>
                             <form autocomplete="off" class="forms-sample" name="addstudents" action='studentregistration.php' method="POST" enctype="multipart/form-data">
 
-                                <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
+                                <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
 
                                 <!-- SPID and Email -->
                                 <div class="row">
