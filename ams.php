@@ -131,7 +131,7 @@ class AMS
         $data0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $data1 = "abcdefghijklmnopqrstuvwxyz";
         $data2 = '1234567890';
-        $data3 = "!@#$%^&*()";
+        $data3 = "!@#$%^";
 
         $rnd  =  substr(str_shuffle($data0), 0,2);
         $rnd  .= substr(str_shuffle($data1), 0,2);
