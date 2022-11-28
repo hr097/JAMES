@@ -139,7 +139,7 @@ function sendLoginInvitation($stud_name,$student_email,$password)
                                 <p style='margin: 0; '><span style='font-size: 20px;'>Welcome ,<br><b>Mr./Ms. ".$stud_name."</b></span>,<br><br>This is to notify that you're successfully registered as a <b>Student</b> on digital attendance platform of <b>Department of ICT,VNSGU</b>.<br>                               
                                 </p>
                                 <p style='margin-top:25px;font-size:18px;'><b>Your Credentials and Dashboard Link is Given Below:</b></p>
-                                <p style='margin-top:40px;'> <b>Username:    </b>  <em>".$stud_email."</em> </p>
+                                <p style='margin-top:40px;'> <b>Username:    </b>  <em>".$student_email."</em> </p>
                                 <p> <b>Password:    </b>   <em> ".$password." </em> </p>
                                 <p> <b>Dashboard:   </b>   <a href='http://ams.vnsguit.org/login.php'> http://ams.vnsguit.org/login.php </a></p>
                             </td>
