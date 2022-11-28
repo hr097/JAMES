@@ -321,7 +321,7 @@ if(isset($_POST['addstudent']))
     $stud_memail = $JAMES->sanitizeInput($_POST['memail']);
     $stud_mcontact = $JAMES->sanitizeInput($_POST['mcontact']);
 
-    $sql = "select A.*B.* from Students A,Rfid_spid_uid_map where A.spid=B.spid and  B.uid='$stud_rfidno' OR A.spid='$stud_spid' OR A.email='$stud_email';";
+    $sql = "select A.*,B.* from Students A,Rfid_spid_uid_map B where A.spid=B.spid and  B.uid='$stud_rfidno' OR A.spid='$stud_spid' OR A.email='$stud_email';";
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
 
     if(mysqli_num_rows($result)==1)
