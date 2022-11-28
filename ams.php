@@ -127,9 +127,19 @@ class AMS
     }
 
     public function generatePassword()// to debug error on production
-    {
-        $data = '12$3890ABC@DJKL4567MNOPQlmnop@qrsRSTUV!WXYZaEF^GHIbce%fghijktuvw-xyz';
-        return substr(str_shuffle($data), 0,10);
+    {   
+        $data0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $data1 = "abcdefghijklmnopqrstuvwxyz";
+        $data2 = '1234567890';
+        $data3 = "!@#$%^&*()";
+
+        $rnd  =  substr(str_shuffle($data0), 0,2);
+        $rnd  .= substr(str_shuffle($data1), 0,2);
+        $rnd  .= substr(str_shuffle($data2), 0,2);
+        $rnd  .= substr(str_shuffle($data3), 0,2);
+
+        return $rnd;
+        ;
     }
 
     public function sanitizeInput($data) // to prevent XSS atatcks and SQL injection atatcks;
