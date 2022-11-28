@@ -136,9 +136,9 @@ function sendLoginInvitation($stud_name,$student_email,$password)
                     <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                         <tr>
                             <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 20px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
-                                <p style='margin: 0; '><span style='font-size: 20px;'>Welcome ,<br><b>Mr./Ms. ".$stud_name."</b></span>,<br><br>This is to notify that you're successfully registered as a <b>Student</b> on digital attendance platform of <b>Department of ICT,VNSGU</b>.<br>                               
+                                <p style='margin: 0; '><span style='font-size: 20px;'>Welcome ,<br><b>Mr./Ms. ".$stud_name."</b></span>,<br><br>This is to notify that you're successfully registered as a <b>student</b> on digital attendance platform of <b>Department of ICT,VNSGU</b>.<br>                               
                                 </p>
-                                <p style='margin-top:25px;font-size:18px;'><b>Your Credentials and Dashboard Link is Given Below:</b></p>
+                                <p style='margin-top:25px;font-size:18px;'><b>Your credentials are given below: </b></p>
                                 <p style='margin-top:40px;'> <b>Username:    </b>  <em>".$student_email."</em> </p>
                                 <p> <b>Password:    </b>   <em> ".$password." </em> </p>
                                 <p> <b>Dashboard:   </b>   <a href='http://ams.vnsguit.org/login.php'> http://ams.vnsguit.org/login.php </a></p>
@@ -157,7 +157,7 @@ function sendLoginInvitation($stud_name,$student_email,$password)
                   <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                       <tr>
                           <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
-                              <p style='margin: 0;margin-top:20px; '><b style='text-decoration:underline;'>NOTE: You are requested to login into your respective dashboard and change your password once.For any kind of difficulties related to your dashboard/login,please feel free to contact <a style='color:black;' href='mailto:ams.jpd@gmail.com' >JPD AMS Admin</a> </b>
+                              <p style='margin: 0;margin-top:20px; '><b style='text-decoration:underline;'>NOTE: You are requested to login into your respective dashboard and change your password as soon as you receive an invitation letter.Additionally,for any kind of difficulties related to your dashboard/login, please feel free to contact <a style='color:black;' href='mailto:ams.jpd@gmail.com' >JPD AMS Admin</a> </b>
                               </p><br/>
 
                               <!-- <em>Please be noted that in your upcoming academic years, your lecture and lab attendances will be taken digitally and reflected into your dedicated account given by institution on its portal.
