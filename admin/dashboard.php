@@ -65,7 +65,7 @@
                             <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Backup Student</h4>
+                                        <h4 class="card-title">Student Details</h4>
                                         <div class="table-responsive mt-4">
                                             <table id="order-listing" class="table">
                                                 <thead>
