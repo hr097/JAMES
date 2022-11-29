@@ -133,4 +133,7 @@
                         </a>
                     </li>
             </nav>
+
+            <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
+
             <!-------------------------------------------------------Side Nav-Bar End------------------------------------------------------->
