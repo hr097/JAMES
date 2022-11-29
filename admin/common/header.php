@@ -114,6 +114,12 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="./transfersem.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-stats-up"></i>
+                            <span class="menu-title">Transfer Student</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="./classbckup.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-cloud-down"></i>
                             <span class="menu-title">Backup</span>
