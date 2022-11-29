@@ -86,8 +86,6 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <button type="button" id=""class="btn btn-primary mr-2 mt-3">Backup Students</button>
-                                        <button type="reset" class="btn btn-light mt-3">Clear</button>
                                     </div>
                                 </div>
                             </div>
