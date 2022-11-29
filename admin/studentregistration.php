@@ -157,7 +157,7 @@ function sendLoginInvitation($stud_name,$student_email,$password)
                   <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                       <tr>
                           <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
-                              <p style='margin: 0;margin-top:20px; '><b style='text-decoration:underline;'>NOTE: You are requested to login into your respective dashboard and change your password as soon as you receive an invitation letter.Additionally,for any kind of difficulties related to your dashboard/login, please feel free to contact <a style='color:black;' href='mailto:ams.jpd@gmail.com' >JPD AMS Admin</a> </b>
+                              <p style='margin: 0;margin-top:20px; '><b style='text-decoration:underline;'>NOTE: You are requested to login into dashboard and change your password as soon as you receive an invitation email.<a style='color:black;' href='mailto:ams.jpd@gmail.com' >JPD AMS Admin</a> </b>
                               </p><br/>
 
                               <!-- <em>Please be noted that in your upcoming academic years, your lecture and lab attendances will be taken digitally and reflected into your dedicated account given by institution on its portal.
@@ -174,9 +174,9 @@ function sendLoginInvitation($stud_name,$student_email,$password)
                 <td bgcolor='#f4f4f4' align='center' style='padding: 30px 10px 40px 10px;'>
                     <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                         <tr>
-                            <td align='center' style='background-color:#5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
-                                <h2 style='font-size:18px; font-weight: 400; color: #111111; margin: 0;'>Have any questions for us or need more information ? </h2>
-                                <p style='margin: 0;'><a href='mailto:ams.jpd@gmail.com' target='_blank' style='color: black;'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#000000;font-size:16px;' ><br>ams.jpd@gmail.com</a></p>
+                            <td align='center' style='color: white!important;background-color:#5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
+                                <h2 style='font-size:18px; font-weight: 400; color: white!important; margin: 0;'>Have any questions for us or need more information ? </h2>
+                                <p style='margin: 0;'><a href='mailto:ams.jpd@gmail.com' target='_blank' style='color: white !important;text-decoration:underline;'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#000000;font-size:16px;' ><br>ams.jpd@gmail.com</a></p>
                             </td>
                         </tr>
                     </table>
