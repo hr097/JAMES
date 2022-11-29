@@ -31,7 +31,7 @@ $JAMES->init_user_session();
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Student Backup</h4>
+                            <h4 class="card-title">Student Search</h4>
                             <form class="forms-sample">
 
                                 <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
@@ -110,27 +110,24 @@ $JAMES->init_user_session();
                                 <table id="" class="table">
                                     <thead>
                                         <tr>
-                                            <th>Subject Code</th>
-                                            <th>Subject Name</th>
-                                            <th>Semester</th>
-                                            <th>Action</th>
-
+                                            <th><input type="checkbox" class="mr-3">Select All</th>
+                                            <th>SPID</th>
+                                            <th>Student Name</th>
+                                            <th>Student Email</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td colspan="4" style="text-align:center;font-size:1.2em;">No data</td>
-                                            <!-- <td>
-                                                <button type='button' class='btn updatebtn rounded px-3 py-2 mr-2'><i
-                                                        class="ti-pencil"></i></button>
-                                                <button type='button' class='btn btn-danger rounded px-3 py-2'><i
-                                                        class="ti-trash"></i></button>
-                                            </td> -->
+                                            <td><input type="checkbox" class="mr-3"></td>
+                                            <td>202003456</td>
+                                            <td>Archit Ghevariya</td>
+                                            <td>archit@gmail.com</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
+                            <button type="button" id=""class="btn btn-primary mr-2 mt-3">Backup Students</button>
+                            <button type="reset" class="btn btn-light mt-3">Clear</button>
                         </div>
                     </div>
                 </div>
