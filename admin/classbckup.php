@@ -89,25 +89,8 @@ $JAMES->init_user_session();
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Backup Student</h4>
-                            <form class="forms-sample">
-
-                                <!-- FID and Role -->
-                                <div class="row">
-                                    <div class="form-group col-md-10">
-                                        <label>Search SPID</label>
-                                        <input type="text" class="form-control" placeholder="Enter Student SPID">
-                                    </div>
-
-                                    <div class="form-group col-md-2 ">
-                                        <button type="button" id=""
-                                            class="btn btn-primary searchbtn mt-4">Search</button>
-                                    </div>
-                                </div>
-
-                            </form>
-
                             <div class="table-responsive mt-4">
-                                <table id="" class="table">
+                                <table id="order-listing" class="table">
                                     <thead>
                                         <tr>
                                             <th><input type="checkbox" class="mr-3">Select All</th>
