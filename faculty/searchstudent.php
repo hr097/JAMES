@@ -312,7 +312,7 @@ else
 
                                     <div class="form-group">
                                     <label>Student SPID</label>
-                                    <input type="text" maxlength="10" minlength="10" name="_spid" class="form-control" id="Stud_spid" placeholder="Enter student SPID" required>
+                                    <input type="number" maxlength="10" minlength="10" name="_spid" class="form-control" id="Stud_spid" placeholder="Enter student SPID" required>
                                     <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >  
                                   </div>
 
