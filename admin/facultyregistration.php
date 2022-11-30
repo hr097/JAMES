@@ -137,7 +137,7 @@ function sendLoginInvitation($fac_name,$faculty_email,$password)
                     <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                         <tr>
                             <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 20px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
-                                <p style='margin: 0; '><span style='font-size: 20px;'>Welcome ,<br><b>Sir/Madam ".$fac_name."</b></span>,<br><br>This is to notify that you're successfully registered as a <b>Faculty</b> on digital attendance platform of <b>Department of ICT,VNSGU</b>.<br>                               
+                                <p style='margin: 0; '><span style='font-size: 20px;'>Welcome ,Sir/Madam <br><b>".$fac_name."</b></span>,<br><br>This is to notify that you're successfully registered as a <b>faculty</b> on digital attendance platform of <b>Department of ICT,VNSGU</b>.<br>                               
                                 </p>
                                 <p style='margin-top:25px;font-size:18px;'><b>Your credentials are given below: </b></p>
                                 <p style='margin-top:40px;'> <b>Username:    </b>  <em>".$faculty_email."</em> </p>
