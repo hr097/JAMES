@@ -49,3 +49,9 @@
         </div>
     </body>
 </html>
+
+<script type="text/javascript">
+
+window.addEventListener("blur",function(){window.location.replace("../php/logout.php")}); // Exit on loosing focus of window
+
+</script>
