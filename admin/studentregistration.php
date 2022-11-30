@@ -19,8 +19,7 @@ $update_email = "";
 
 function sendLoginInvitation($stud_name,$student_email,$password)
 {
-    //$GLOBALS['JAMES']->todayTime =  date("h:i:s A",  time()); // fetch latest time 
-    //!remaining
+    
     $htmlContent = "
 
    
@@ -601,7 +600,7 @@ $division_html.= "</select>";
 ?>
 
     <!-- css -->
-    <link rel="stylesheet" href="../css/alert.css">
+    <!-- <link rel="stylesheet" href="../css/alert.css"> -->
     
     <link rel="stylesheet" href="../css/modal.css">
 
@@ -763,7 +762,7 @@ $division_html.= "</select>";
 
                                 </div>
 
-                               <?php echo $button; ?>
+                                <?php echo $button; ?>
                                 <button type="reset" class="btn btn-light mt-3">Clear</button>
                             </form>
                         </div>
@@ -807,7 +806,6 @@ $division_html.= "</select>";
                                     <tbody id="searchstudent">
                                         <tr>
                                             <td  colspan='6' style='font-size:1.2em;text-align:center;'>No Data</td>
-                                           
                                         </tr>
                                     </tbody>
                                 </table>
@@ -838,9 +836,9 @@ $division_html.= "</select>";
 
     <!-- including footer -->
     <?php
-require_once('./common/footer.php');
-?>
-    <script src="../js/admin/alert.js" type="text/javascript" defer=true></script>
+    require_once('./common/footer.php');
+    ?>
+    <!-- <script src="../js/admin/alert.js" type="text/javascript" defer=true></script> -->
 </body>
 
 
