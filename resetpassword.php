@@ -114,7 +114,7 @@ else
                                     </div>
                                 </form>
                                 <!-- Form : End -->
-
+                                <p class ="unselectable mt-4" style="text-align:center;text-decoration:none;color:black;margin-top:10px;font-size:0.7em;"><span style="font-weight:bold;">NOTE:</span> Password should contain atleast 1 Uppercase & Lowercase letter with 1 Digit and special character and must be 8-16 character long.</p>
                             </div>
                             
                             <!-- Loading Screen : Start -->
