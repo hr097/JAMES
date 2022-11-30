@@ -21,7 +21,7 @@ if(mysqli_num_rows($result)==1)
 }
 else
 {
-    $JAMES->ams_redirect("../login.php");
+   $JAMES->ams_redirect("../error/accountsuspended.php");
 }
 
 $fid = $user['fid'];
