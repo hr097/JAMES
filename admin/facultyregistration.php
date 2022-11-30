@@ -265,7 +265,7 @@ if(isset($_POST['addfaculty']))
         $password = $GLOBALS['JAMES']->generatePassword();
         $password_enc = crypt($password,'$2a$10$1qAz2wSx3eDc4rFv5tGb5t');
 
-        $sql = "insert into Users (username,password,user_type) values('$stud_email','$password_enc',2);";
+        $sql = "insert into Users (username,password,user_type) values('$fac_email','$password_enc',2);";
 
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {    
