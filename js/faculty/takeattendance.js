@@ -20,7 +20,7 @@ window.onclick = function (event) {
 document.getElementById("yes-button").onclick = function () {
   // yes-> redirect to deletion api request
 
-  if (submit_flag) {
+  if (submit_flag==true) {
     let i = 0;
     const stud_len = $(".student").length;
     const students_list1 = [];
@@ -34,7 +34,7 @@ document.getElementById("yes-button").onclick = function () {
       }
     }
 
-    if (students_list1.length > 1 || students_list2.length > 1) {
+    if (students_list1.length >= 1 || students_list2.length >= 1) {
       let csrfToken = $("#csrfToken").val();
       let classroomid = $("#classroomid").val();
       let fid = $("#fid").val();
