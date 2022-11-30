@@ -287,7 +287,6 @@ if(isset($_POST['addfaculty']))
                 if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
                 {    
 
-                 
                         if(sendLoginInvitation($fac_name,$fac_email,$password))
                         {
                             $error="<span id='response_msg' style='color:green;float:right;'>Faculty Added Successfully!</span>";
@@ -503,7 +502,7 @@ else
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>FID</label>
-                                        <input type="text" autocomplete="off" name="facfid" pattern="[FID]{3}[0-9]{5,7}" minlength="10"  maxlength="10" class="form-control" id="fid" placeholder="FIDXXXXX" value="<?php echo $faculty['fid'];?>" <?php echo $update_email;?> required>
+                                        <input type="text" autocomplete="off" name="facfid" pattern="[FID]{3}[0-9]{5,7}"  maxlength="10" minlength="7" class="form-control" id="fid" placeholder="FIDXXXXX" value="<?php echo $faculty['fid'];?>" <?php echo $update_email;?> required>
                                     </div>
 
                                     <div class="form-group col-md-6">
