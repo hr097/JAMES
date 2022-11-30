@@ -272,7 +272,7 @@ if(isset($_POST['updatestudent']))
         $sql="update Rfid_uid_spid_map set uid='$stud_rfidno' where spid='$stud_spid';";
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {   
-            $error="<span id='response_msg' style='color:green;float:right;'>Student Updated!</span>";
+            $error="<span id='response_msg' style='color:green;float:right;'>Student Details Updated!</span>";
             $error.="<script>setTimeout(function(){ $('#response_msg').html(''); },3000);</script>";
         }
         else
