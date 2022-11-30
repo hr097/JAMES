@@ -646,7 +646,7 @@ $division_html.= "</select>";
                                 <!-- Name-->
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" autocomplete="off" name="studname" minlength="10"  maxlength="256" class="form-control" id="studname" placeholder="Enter Student's Full Name e.g. Stephan Guissippe Salvatore" value="<?php echo $student['name'];?>" required>
+                                    <input type="text" autocomplete="off" name="studname" minlength="10"  maxlength="256" class="form-control" id="studname" placeholder="Enter Student's Full Name" value="<?php echo $student['name'];?>" required>
                                 </div>
 
 
