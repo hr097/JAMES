@@ -11,13 +11,14 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 
 $error = "";
 
+
+
 if(isset($_POST['_sb'])&&isset($_POST['_rno'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
 {
         $r_no = $JAMES->sanitizeInput($_POST['_rno']);
 
         
         $sql= "insert into Ams_readers(reader_no) values($r_no);";
-        
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
         {
             $error = "<span id='response_msg' style='color:green;float:right;'>reader added successfully !</span>";
@@ -88,12 +89,16 @@ else
 <body>
     <!-------------------------------------------------------Main Content------------------------------------------------------->
     <div class="main-panel">
+   
         <div class="content-wrapper">
             <div class="row">
+            
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
+                
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">AMS Reader Regisration <?php echo $error;?></h4>
+                            <h4 class="card-title">AMS Reader Regisration  <?php echo $error;?></h4>
+                            
                             <form class="forms-sample" action="amsreaderregistration.php" method="POST">
 
                                 <input type="hidden" id="csrfToken" name="_ct" value="<?php echo $JAMES->generateCsrfToken();?>" >

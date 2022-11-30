@@ -87,3 +87,14 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }   
+
+@media (max-width:640px){
+  #response_msg{
+    color: red;
+    float: none !important;
+    display: block;
+    padding-top: 15px;
+    font-size: 17px;
+    text-align: center;
+  }
+}
