@@ -3,7 +3,48 @@
 require_once("../ams.php");
 $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
+$error = "";
+$course_html = "";
+$sql= "select * from Courses;";//query
+$result = mysqli_query($JAMES->connection(),$sql);
+if(mysqli_num_rows($result)>0)
+{
+    $course_html = "<option value=''>Not Selected</option>";
 
+    //course
+    while($record = mysqli_fetch_assoc($result))
+    { 
+      $course_html.="<option value='".$record['course_id']."' data-count='".$record['total_semester']."'>".$record['course_name']."</option>";
+    }
+
+}
+else
+{
+  $course_html = 
+  "
+  <select name='course_Selection' class='form-control' required>
+    <option value=''>Not Selected</option>
+  </select>
+  ";
+}
+if(isset($_POST['transfer']))
+{
+    $cid = $_POST['course_selection'];
+    $sem = $_POST['sem_selection'];
+    $sql= "update students set cur_semester = cur_semester + 1 where course_id =  $cid and cur_semester = $sem ";//query
+    if(mysqli_query($GLOBALS['JAMES']->connection(),$sql) && mysqli_affected_rows($GLOBALS['JAMES']->connection()) > 0)
+    {
+        $error = "<span id='response_msg' style='color:green;float:right;'>Students have been transfered successfully !</span>";
+    }
+    else
+    {
+        $error = "<span id='response_msg' style='color:red;float:right;'>Students couldn't be transfered!</span>"; 
+    }
+
+    $error.="<script>setTimeout(function(){ $('#response_msg').html('');},3000);</script>";
+     
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +57,7 @@ $JAMES->init_user_session();
 ?>
 
     <!-- js  -->
+    <script src="../js/admin/transfersem.js" type="text/javascript" defer=true></script>
     <script src="../js/admin/feedbackstats.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
@@ -26,35 +68,25 @@ $JAMES->init_user_session();
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Select Classroom</h4>
-                            <form class="forms-sample">
+                            <h4 class="card-title">Select Classroom    <?php echo $error;?></h4>
+                            <form method="post" class="forms-sample">
 
                                 <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
 
                                 <div class="form-group">
-                                        <label for="course_name">Course Name</label>
-                                        <select id="course_name" class="form-control">
-                                            <option>Select Course Name</option>
+                                        <label for="course_selection">Course Name</label>
+                                        <select id="course_selection" data-count="" name='course_selection' required class="form-control">
+                                        <?php echo $course_html;?>
                                         </select>
                                 </div>
                                 <div class="form-group">
-                                        <label for="semester">Semester</label>
-                                        <select id="semester" class="form-control">
-                                            <option>Select Semester</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                            <option>8</option>
-                                            <option>9</option>
-                                            <option>10</option>
+                                        <label for="sem_selection">Semester</label>
+                                        <select id="sem_selection" name='sem_selection' required  class="form-control">
+                                        <option value='' >Not Selected</option>
                                         </select>
                                     </div>
 
-                                <button type="button" id="" class="btn btn-primary mr-2 mt-3">Transfer</button>
+                                <button name="transfer" class="btn btn-primary mr-2 mt-3">Transfer</button>
                                 <button class="btn btn-light mt-3">Clear</button>
                             </form>
                         </div>
