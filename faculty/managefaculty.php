@@ -104,7 +104,7 @@ if(isset($_GET['classroomid']))
 
                         <div class="form-group">
                           <label>Faculty FID</label>
-                          <input type="text" class="form-control" id="Fac_fid" placeholder="Enter Faculty FID">
+                          <input type="text" minlength="7" maxlength="10" class="form-control" id="Fac_fid" placeholder="Enter FID">
                         </div>
 
                       </div>

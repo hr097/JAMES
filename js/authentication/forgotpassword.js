@@ -55,7 +55,7 @@ function startReqTimer() // rerequest otp timer 60 seconds
   $("#resendotplink").text("You can rerequest code after "+seconds + " seconds");
   if (distance < 0) {
     clearInterval(x);
-    $("#resendotplink").text("Rerequest Code?");
+    $("#resendotplink").html("<span style='text-decoration:none;'>Rerequest Code?</span>");
     $("#resendotplink").css("pointer-events","auto");
   }
 },1000);
