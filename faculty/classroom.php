@@ -98,6 +98,10 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
 <html lang="en">
 
 <head>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/b-print-2.3.3/datatables.min.css"/>
+ 
+ 
+ 
     <!-- including footer -->
     <?php
           include './common/header.php'
@@ -109,8 +113,10 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
     <!-- css  -->
     <link rel="stylesheet" href="../css/faculty.css">
     <link rel="stylesheet" href="../css/modal.css">
+    
 
     <!-- js  -->
+   
     <script src="../js/faculty/classroom.js" type="text/javascript" defer=true></script>
 
 </head>
@@ -212,7 +218,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive">
-                                        <table id="order-listing" class="table" id="tbl">
+                                        <table id="order-listing-export" class="table" id="tbl">
                                             <thead>
                                                 <tr>
                                                     <th>Roll Number</th>
@@ -238,11 +244,14 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
                 </div>
             </div>
 
+            <div id="report_export">
+
+            </div>
                <!--Table End-->
-            <button type="button" class="btn download-btn btn-icon-text mb-1 " id="generatereport">
+            <!-- <button type="button" class="btn download-btn btn-icon-text mb-1 " id="generatereport">
                                 <i class="ti-import btn-icon-prepend"></i>
                                 Download Report
-            </button>
+            </button> -->
 
         </div>                    
     </div>
@@ -265,8 +274,52 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
     <?php
     include './common/footer.php'
 ?>
-
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/b-print-2.3.3/datatables.min.js"></script>
+<script>
+    <?php
+    
+    if($student_list != "<tr><td  colspan='7' style='font-size:1.2em;text-align:center;'>No Student Enrollment Yet!</td></tr>")
+    {
+        echo <<<EOL
+    var table = $('#order-listing-export').DataTable({
+        "aLengthMenu": [
+          [5, 10, 15, -1],
+          [5, 10, 15, "All"]
+        ],
+        "iDisplayLength": 10,
+        "language": {
+          search: ""
+        },
+        buttons:[{ 
+              extend: 'excel', 
+              title: 'Attendance Report of Class-$classroom_id',
+              text: ' <i class="ti-import btn-icon-prepend" style="padding-right:10px"></i> Download Report',
+              exportOptions: {
+                      columns: [ 0, 1, 2, 3, 4, 5]
+              },
+              filename: 'AMS_Report-$classroom_id'
+              
+          }]
+      });
+      table.buttons().container().appendTo('#report_export');
+      $('#order-listing-export').each(function() {
+        var datatable = $(this);
+        // SEARCH - Add the placeholder for Search and Turn this into in-line form control
+        var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+        search_input.attr('placeholder', 'Search');
+        search_input.removeClass('form-control-sm');
+        // LENGTH - Inline-Form control
+        var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+        length_sel.removeClass('form-control-sm');
+    });
+    EOL;
+    }
+    
+    ?>
+    
+</script>
 </body>
 
 </html>
