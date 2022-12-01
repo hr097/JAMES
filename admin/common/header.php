@@ -113,12 +113,21 @@
                             </ul>
                         </div>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./searchstudent.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-search"></i>
+                            <span class="menu-title">Search</span>
+                        </a>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="./transfersem.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-stats-up"></i>
-                            <span class="menu-title">Transfer Student</span>
+                            <span class="menu-title">Transfer Students</span>
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="./classbckup.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-cloud-down"></i>
