@@ -22,6 +22,31 @@ document.getElementById("no-button").onclick = function() { // no-> same page
 
 /* END::MODAL */
 
+
+function getRfidNumber(str)
+{   
+    var h = 0;
+    var r = h+1;
+
+    str = str.split("");
+
+    while(r<str.length)
+    {
+      let tmp = str[h];
+      str[h] = str[r];
+      str[r] = tmp;
+      h+=2;
+      r+=2;
+    }
+
+    str.splice(2,0," ");
+    str.splice(5,0," ");
+    str.splice(8,0," ");
+
+    str = str.join("");
+    return str;
+}
+
 $(document).ready(function(){
 
     // $(".dash").focus(function()
@@ -39,6 +64,25 @@ $(document).ready(function(){
     //     $(this).attr("value","-");
     //   }
     // });
+
+    var count = 0;
+
+    $("#studrfid").keyup(function() 
+    { 
+      count++;
+      if(count==10)
+      {
+        $(this).val(parseInt(($(this).val())).toString(16).toUpperCase());
+        $(this).val(getRfidNumber(($(this).val()).split("").reverse().join("")));
+        count=0;
+      }
+      
+    });
+
+    $("#studrfid").focus(function() 
+    { 
+        $(this).val("");
+    });
 
     $("#course_selection").change(function () {
       
