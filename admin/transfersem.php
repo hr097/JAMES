@@ -31,16 +31,27 @@ if(isset($_POST['transfer']))
 {
     $cid = $_POST['course_selection'];
     $sem = $_POST['sem_selection'];
-    $sql= "update students set cur_semester = cur_semester + 1 where course_id =  $cid and cur_semester = $sem ";//query
-    if(mysqli_query($GLOBALS['JAMES']->connection(),$sql) && mysqli_affected_rows($GLOBALS['JAMES']->connection()) > 0)
+    $sql = "select total_semester from courses where course_id = $cid";
+    $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
+    $record = mysqli_fetch_assoc($result);
+    $tsem = $record['total_semester'];
+    if($sem < $tsem)
     {
-        $error = "<span id='response_msg' style='color:green;float:right;'>Students have been transfered successfully !</span>";
+        $sql= "update students set cur_semester = cur_semester + 1 where course_id =  $cid and cur_semester = $sem ";//query
+        if(mysqli_query($GLOBALS['JAMES']->connection(),$sql) && mysqli_affected_rows($GLOBALS['JAMES']->connection()) > 0)
+        {
+            $error = "<span id='response_msg' style='color:green;float:right;'>Students have been transferred successfully to the next semester</span>";
+        }
+        else
+        {
+            $error = "<span id='response_msg' style='color:red;float:right;'>Students couldn't be transferred!</span>"; 
+        }
     }
     else
     {
-        $error = "<span id='response_msg' style='color:red;float:right;'>Students couldn't be transfered!</span>"; 
+        $error = "<span id='response_msg' style='color:red;float:right;'>Students couldn't be transferred!</span>"; 
     }
-
+    
     $error.="<script>setTimeout(function(){ $('#response_msg').html('');},3000);</script>";
      
 
@@ -87,7 +98,7 @@ if(isset($_POST['transfer']))
                                     </div>
 
                                 <button name="transfer" class="btn btn-primary mr-2 mt-3">Transfer</button>
-                                <button class="btn btn-light mt-3">Clear</button>
+                                <button type="reset" class="btn btn-light mt-3">Clear</button>
                             </form>
                         </div>
                     </div>
