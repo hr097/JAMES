@@ -25,6 +25,8 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
 
   <!-- js  -->
   <script src="../js/student/eattendance.js" type="text/javascript" defer=true></script>
+  <script src="../js/student/qrcode-scanner.js"></script>
+
 
   <!-- QR CODE  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -65,14 +67,14 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
                     <div class="row mt-4 mb-4" style="justify-content:center">
                       <div>
                       <div class="qr-code-container" style="margin-top:-50px;">
-                          <div >
-                          <h4 style="margin:auto;font-weight:700;">COMING SOON!</h4>
-                          </div>
+                      <div style="width:500px;" id="reader"></div>
                           <!-- <div class="qr-code mb-4"></div>
                           <div><h4 style="text-align:center;font-weight:700;">SCAN THIS CODE!</h4></div> -->
                       </div>
                       </div>
                     </div>
+                    <h4>SCAN RESULT</h4>
+    <div id="result">Result Here</div>
                    
 
 
@@ -109,6 +111,18 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
     <?php
     require_once('./common/footer.php');
     ?>
+
+<script type="text/javascript">
+function onScanSuccess(qrCodeMessage) {
+    document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
+}
+function onScanError(errorMessage) {
+  //handle scan error
+}
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess, onScanError);
+</script>
 
 
   
