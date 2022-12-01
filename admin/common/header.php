@@ -135,6 +135,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="./archivesearch.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-zoom-in"></i>
+                            <span class="menu-title">Archive Search</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="./feedbackstats.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-comment-alt"></i>
                             <span class="menu-title">Feedback Stats</span>

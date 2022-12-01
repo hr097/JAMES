@@ -46,30 +46,6 @@
                                 <h3 class="font-weight-bold greet">Welcome AMS Admin,</h3>
                                 <h6 id="daymode" class="font-weight-normal mb-10"></h6>
                             </div>
-                            <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Search Student</h4>
-                                        <form class="forms-sample" method="post">
-
-                                            
-                                            <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
-                                            <div class="form-group">
-                                                    <label for="spid">SPID</label>
-                                                    <input type="text" autocomplete="off" id="studspid" name="studspid" pattern="[0-9]{10}" minlength="10"  maxlength="10" class="form-control" id="studspid" placeholder="XXXXXXXXXX" value=""  required>
-                                                </div>
-
-                                            <button type="button" id="search" class="btn btn-primary mr-2 mt-3">Search</button>
-                                            
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                           
-                        </div>
-                        <div class="row" id="searchstudprof">
-                            <p style='font-size:1.5em;margin:auto;margin-top:100px;'>No Student Data</p>
-                        </div>  
                     </div>
                 </div>
 

@@ -11,7 +11,7 @@ $JAMES->init_user_session();
 function findStudents($spid) 
 { 
     $sql= "select DATE_FORMAT(A.dob,'%d-%m-%Y')AS fdob,(round(( (p_days) / (p_days + a_days)*100))) As att_percentage, A.spid,A.*,B.*,C.*,E.*,F.*
-    from students A, ams_setup_students_map B, ams_setup_course_subject_map C , course_subject_map D, subjects E, courses F
+    from bckp_students A, bckp_ams_setup_students_map B, ams_setup_course_subject_map C , course_subject_map D, subjects E, courses F
     where A.spid = B.spid AND B.ams_setup_id = C.ams_setup_id AND C.cs_id = D.cs_id AND D.subject_id = E.subject_id AND A.course_id = F.course_id AND
     A.spid = $spid;";
 
@@ -26,26 +26,26 @@ function findStudents($spid)
             $name = $record['name'];
             $email = $record['email'];
             $gender = $record['gender'];
-            $division = $record['cur_division'];
-            $rollno = $record['cur_roll_no'];
+            $division = $record['last_division'];
+            $rollno = $record['last_roll_no'];
             $dob = $record['fdob'];
             $jyear = $record['joining_year'];
             $att_pr = $record['att_percentage'];
-            if($record['cur_semester'] == 1)
+            if($record['last_semester'] == 1)
             {
                 $semester = "1<sup>st</sup>";
             }
-            else if($record['cur_semester'] == 2)
+            else if($record['last_semester'] == 2)
             {
                 $semester = "2<sup>nd</sup>";
             }
-            else if($record['cur_semester'] == 3)
+            else if($record['last_semester'] == 3)
             {
                 $semester = "3<sup>rd</sup>";
             }
             else
             {
-                $semester = $record['cur_semester']."<sup>th</sup>";
+                $semester = $record['last_semester']."<sup>th</sup>";
             }
             if ($record['att_percentage']>=80) {
                 $att_pr=" <td><button type='button' class='btn btn-success rounded px-3 py-2'>".$record['att_percentage']."%</button></td>";
