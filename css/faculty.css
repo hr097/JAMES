@@ -337,3 +337,12 @@ margin-top: 27px;
   text-align: center;
 }
 }
+/*------------------------------------------------ Data table -------------------------------------------*/
+.dt-buttons > button{
+  background-color: #4c5773;
+  color: white;
+}
+.dt-buttons > button:hover{
+  background-color: #363e53;
+}
+
