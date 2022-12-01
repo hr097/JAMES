@@ -24,9 +24,12 @@
 
         <!-- css  -->
         <link rel="stylesheet" href="../css/admin.css">
+        <link rel="stylesheet" href="../css/student.css">
         
         <!-- js  -->
         <script src="../js/admin/dashboard.js" type="text/javascript" defer=true></script>
+        
+        
 
         <!-- page information-->
         <title>AMS | Admin Dashboard</title>
@@ -38,7 +41,7 @@
                 <!-------------------------------------------------------Main Content------------------------------------------------------->
                 <div class="main-panel">
                     <div class="content-wrapper">
-                        <div class="row">
+                        <div class="row" >
                             <div class="col-12 col-xl-8 mb-4 mb-xl-50">
                                 <h3 class="font-weight-bold greet">Welcome AMS Admin,</h3>
                                 <h6 id="daymode" class="font-weight-normal mb-10"></h6>
@@ -62,37 +65,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Student Details</h4>
-                                        <div class="table-responsive mt-4">
-                                            <table id="order-listing" class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>SPID</th>
-                                                        <th>Student Name</th>
-                                                        <th>Student Email</th>
-                                                        <th>Course Name</th>
-                                                        <th>Subject Code</th>
-                                                        <th>Subject Name</th>
-                                                        <th>Present Days</th>
-                                                        <th>Absent Days</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="studattdata">
-                                                    <tr>
-                                                    <td  colspan='8' style='font-size:1.2em;text-align:center;'>SPID Not Found!</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
-
-
+                        <div class="row" id="searchstudprof">
+                            <p style='font-size:1.5em;margin:auto;margin-top:100px;'>No Student Data</p>
+                        </div>  
                     </div>
                 </div>
 
