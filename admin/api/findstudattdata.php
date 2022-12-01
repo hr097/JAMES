@@ -31,6 +31,7 @@ function findStudents($spid)
             $dob = $record['fdob'];
             $jyear = $record['joining_year'];
             $att_pr = $record['att_percentage'];
+            $cnumber = $record['contact_no'];
             if($record['last_semester'] == 1)
             {
                 $semester = "1<sup>st</sup>";
@@ -131,6 +132,9 @@ function findStudents($spid)
 
                         <h6 class="info-title">Email</h6>
                         <h4 class="info-data">$email</h4>
+
+                        <h6 class="info-title">Contact No.</h6>
+                        <h4 class="info-data">$cnumber</h4>
 
                         </div>
                     </div>
