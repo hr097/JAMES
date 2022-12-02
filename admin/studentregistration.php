@@ -140,7 +140,7 @@ function sendLoginInvitation($stud_name,$student_email,$password)
                                 <p style='margin-top:25px;font-size:18px;'><b>Your credentials are given below: </b></p>
                                 <p style='margin-top:40px;'> <b>Username:    </b>  <em>".$student_email."</em> </p>
                                 <p> <b>Password:    </b>   <em> ".$password." </em> </p>
-                                <p> <b>Dashboard:   </b>   <a href='http://ams.vnsguit.org/login.php'> login here  </a></p>
+                                <p> <b>Dashboard:   </b>   <a href='https://ams.vnsguit.org/login.php'> login here  </a></p>
                             </td>
                         </tr>
                     </table>
