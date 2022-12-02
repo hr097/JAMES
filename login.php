@@ -114,7 +114,7 @@ if($JAMES->checkSession()===true) // if session active than redirect user to his
                             </form>
                             <!-- Form : End -->
                         </div>
-                        <p style="text-align:center;font-size:0.5em;position:relative;top:30px;">© <?php echo date("Y") ?> <a style='text-decoration:none;color:black;' href="https://amsdevelopers.php">Team JAMES</a> | Developed by <a href="amsdevelopers.php">JAMES</a></p> 
+                        <p style="text-align:center;font-size:0.5em;position:relative;top:30px;">© <?php echo date("Y") ?> <a style='text-decoration:none;color:black;' href="https://ams.vnsguit.org/amsdevelopers.php">Team JAMES</a> | Developed by <a href="amsdevelopers.php">JAMES</a></p> 
                     </div>
                </div>
            </div>
