@@ -10,7 +10,12 @@ if (!($JAMES->checkSession()&&$_SESSION["_userType"]==="2")) {
 
 $classroom_status="-";
 $classroom_id="";
-
+$course = "";
+$sem = "";
+$year = "";
+$subject_code = "";
+$div = "";
+$reportname = "";
 if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset($_GET['semester'])&&isset($_GET['division'])) {
     $fid = $_SESSION['_fid'];
     $sem = $_GET['semester'];
@@ -18,7 +23,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
     $div = $_GET['division'];
     $course = $_GET['course'];
     $subject = $_GET['subject'];
-
+    
     //Archive and Unarchive
 
     //query
@@ -294,12 +299,12 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
         },
         buttons:[{ 
               extend: 'excel', 
-              title: 'Attendance Report of Class-$classroom_id',
+              title: '',
               text: ' <i class="ti-import btn-icon-prepend" style="padding-right:10px"></i> Download Report',
               exportOptions: {
                       columns: [ 0, 1, 2, 3, 4, 5]
               },
-              filename: 'AMS_Report-$classroom_id'
+              filename: 'AMS_Report_$classroom_id'
               
           }]
       });
