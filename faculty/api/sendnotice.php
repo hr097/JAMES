@@ -198,7 +198,7 @@ function sendEmailNotice($student,$email)
                         <tr>
                             <td align='center' style='background : #5755a5;padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: poppins; font-size: 18px; font-weight: 400; line-height: 30px;'>
                                 <h2 style='font-size:16px; font-weight: 400; color: #ffffff; margin: 0;'>Have any questions for us or need more information ? 
-                                <p style='margin: 0;'><a href='mailto:ams.jpd@gmail.com' target='_blank' style='color: rgb(255, 255, 255);'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#ffffff;font-size:16px;'><br>admin.jpd.ams@gmail.com</a></p>
+                                <p style='margin: 0;'><a href='mailto:ams.jpd@gmail.com' target='_blank' style='color: rgb(255, 255, 255);'><b>Just shoot us an email!<br> We are always here to help.</b></a><a style='color:#ffffff;font-size:16px;'><br>ams.jpd@gmail.com</a></p>
                             </td>
                         </tr>
                     </table>
