@@ -683,7 +683,7 @@ $division_html.= "</select>";
 
                                 <div class="form-group mb-5 col-sm-6 col-md-6 col-lg-6">
                                     <label>RFID Tag Number</label>
-                                    <input type="text" autocomplete="off" name="studrfidno" minlength="11" pattern="[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}"  maxlength="11" class="form-control" id="studrfid" value="<?php echo $student['uid'];?>" <?php echo $update_email;?> placeholder="XX XX XX XX" required>
+                                    <input style="<?php echo ($update_email!="")?"pointer-events: none;":"";?>" type="text" autocomplete="off" name="studrfidno" minlength="11" pattern="[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}"  maxlength="11" class="form-control" id="studrfid" value="<?php echo $student['uid'];?>" <?php echo $update_email;?> placeholder="XX XX XX XX" required>
                                 </div>
 
                                 </div>

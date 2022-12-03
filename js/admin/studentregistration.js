@@ -67,22 +67,26 @@ $(document).ready(function(){
 
     var count = 0;
 
-    $("#studrfid").keyup(function() 
-    { 
-      count++;
-      if(count==10)
-      {
-        $(this).val(parseInt(($(this).val())).toString(16).toUpperCase());
-        $(this).val(getRfidNumber(($(this).val()).split("").reverse().join("")));
-        count=0;
-      }
-      
-    });
+    
 
-    $("#studrfid").focus(function() 
-    { 
-        $(this).val("");
-    });
+      $("#studrfid").keyup(function() 
+      { 
+        count++;
+        if(count==10)
+        {
+          $(this).val(parseInt(($(this).val())).toString(16).toUpperCase());
+          $(this).val(getRfidNumber(($(this).val()).split("").reverse().join("")));
+          count=0;
+        }
+        
+      });
+
+      $("#studrfid").focus(function() 
+      {  
+          $(this).val("");
+      });
+
+    
 
     $("#course_selection").change(function () {
       

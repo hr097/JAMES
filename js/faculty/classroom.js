@@ -125,28 +125,31 @@ $("#takeattendance").click(function(){
   window.location.href = `takeattendance.php?classroomid=${classroomid}`;
 });
 
-// $("#generatereport").click(function(){
+/* 
 
-//   let csrfTokenVal = $("#csrfToken").val();
+NOTE: download report using php excel module and using api
+$("#generatereport").click(function(){
 
-//     $.post("api/downloadreport.php",
-//     {
-//     _cid:$("#classroomid").val(),
-//     _ct:csrfTokenVal,
-//     },
-//     function(data){
+  let csrfTokenVal = $("#csrfToken").val();
+
+    $.post("api/downloadreport.php",
+    {
+    _cid:$("#classroomid").val(),
+    _ct:csrfTokenVal,
+    },
+    function(data){
   
-//         if(data==0)
-//         {
-//             window.location.reload();
-//         }
-//         else
-//         { 
-//             window.location.replace(data);
-//         } 
-//     },"text");  // must specify text
-// });
-
+        if(data==0)
+        {
+            window.location.reload();
+        }
+        else
+        { 
+            window.location.replace(data);
+        } 
+    },"text");  // must specify text
+});
+*/
 $("#deleteclass").click(function(){
     $("#modalmsg").html("Deletion of this classroom includes deletetion of relevant data of students,faculty and attendances!<br><br><span style='color:red;text-align:center;'>NOTE: This operation cannot be undone.</span><br><br>Do you confirm it?");
     $("#modal").css("display", "flex");

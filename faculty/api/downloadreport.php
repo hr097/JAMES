@@ -10,10 +10,9 @@ $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
 
     function generateReport()
-    {   /* Nupur write your excel generation code <here></here>*/
-        /* Apart from that when you need data from database just inform me I will write query */
-        
-       return "https://ams.vnsguit.org/reportgeneration/test.xlsx"; //! remove it
+    {   
+        // logic for excel creattion and query for database data fetching
+        return 0; //! remove it
     }
 
     if(isset($_POST['_cid'])&&isset($_POST['_ct'])&&$_POST['_ct']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
