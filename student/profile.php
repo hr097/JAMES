@@ -12,7 +12,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
 $u = $_SESSION["_userId"];
 
 //@query
-$sql = "select Students.*,DATE_FORMAT(Students.dob,'%d-%m-%Y') AS dob,Course.course_name from Students,Courses where Courses.course_id=Students.course_id and email='$u';"; 
+$sql = "select Students.*,DATE_FORMAT(Students.dob,'%d-%m-%Y') AS dob,Courses.course_name from Students,Courses where Courses.course_id=Students.course_id and email='$u';"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)===1)

@@ -113,7 +113,7 @@ $result = mysqli_query($JAMES->connection(),$sql);
     }
     else
     {
-        $subjects_html.="<p style='font-size:1.5em;margin:auto;'>No Classroom enrolled yet</p>";
+        $subjects_html.="<p style='font-size:1.0em;margin:auto;'>No Classroom Enrolled Yet</p>";
     }
 
 
