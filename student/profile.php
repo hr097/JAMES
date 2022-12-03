@@ -12,7 +12,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="1"))
 $u = $_SESSION["_userId"];
 
 //@query
-$sql = "select *,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from vw_students where email='$u';"; 
+$sql = "select *,DATE_FORMAT(dob,'%d-%m-%Y')AS dob from Students where email='$u';"; 
 $result = mysqli_query($JAMES->connection(),$sql);
 
 if(mysqli_num_rows($result)===1)
