@@ -13,7 +13,6 @@ $(document).ready(function(){
               {
                   $('#searchstudprof').html(data);
               }
-              
               $('#order-listing').DataTable({
                   "aLengthMenu": [
                     [5, 10, 15, -1],
