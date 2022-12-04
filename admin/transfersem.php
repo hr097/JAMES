@@ -34,17 +34,17 @@ if(isset($_POST['transfer']))
 {
     $cid = $_POST['course_selection'];
     $sem = $_POST['sem_selection'];
-    $sql = "select total_semester from courses where course_id = $cid";
+    $sql = "select total_semester from Courses where course_id = $cid";
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     $record = mysqli_fetch_assoc($result);
     $tsem = $record['total_semester'];
     if($sem < $tsem)
     {
-        $sql= "update students set cur_semester = cur_semester + 1 where course_id =  $cid and cur_semester = $sem ";//query
+        $sql= "update Students set cur_semester = cur_semester + 1 where course_id =  $cid and cur_semester = $sem ";//query
         if(mysqli_query($GLOBALS['JAMES']->connection(),$sql) && mysqli_affected_rows($GLOBALS['JAMES']->connection()) > 0)
         {
             $error = "<span id='response_msg' style='color:green;float:right;'>Students have been transferred successfully to the next semester</span>";
-            $sql= "select * from students where course_id =  $cid and cur_semester = $sem+1";
+            $sql= "select * from Students where course_id =  $cid and cur_semester = $sem+1";
             $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
             $stud_data = "";
             if(mysqli_num_rows($result)>0)

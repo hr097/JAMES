@@ -34,20 +34,20 @@ if(isset($_POST['backup']))
 {
     $cid = $_POST['course_selection'];
     $sem = $_POST['sem_selection'];
-    $sql = "select email from students where course_id = $cid and cur_semester = $sem";
+    $sql = "select email from Students where course_id = $cid and cur_semester = $sem";
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
     $record = array_column($record,'email');
     $emails = "'".implode("','",array_values($record))."'";
 
-    $sql= "delete from users where username in($emails)";//query
+    $sql= "delete from Users where username in($emails)";//query
     if(mysqli_query($GLOBALS['JAMES']->connection(),$sql) && mysqli_affected_rows($GLOBALS['JAMES']->connection()) > 0)
     {
         $error = "<span id='response_msg' style='color:green;float:right;'>Students have been backed up</span>";
     }
     else
     {
-        $error = "<span id='response_msg' style='color:red;float:right;'>Students couldn't be backed up!</span>".mysqli_error($GLOBALS['JAMES']->connection()); 
+        $error = "<span id='response_msg' style='color:red;float:right;'>Students couldn't be backed up!</span>"; 
     }
     $error.="<script>setTimeout(function(){ $('#response_msg').html('');},3000);</script>";
 

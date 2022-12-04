@@ -10,7 +10,7 @@ $JAMES->init_user_session();
 
 function findStudents($course,$semester) 
 { 
-    $sql= "select * from students where course_id = $course and cur_semester = $semester";
+    $sql= "select * from Students where course_id = $course and cur_semester = $semester";
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     $student = "";
     if(mysqli_num_rows($result)>0)

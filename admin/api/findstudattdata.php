@@ -11,7 +11,7 @@ $JAMES->init_user_session();
 function findStudents($spid) 
 { 
     $sql= "select DATE_FORMAT(A.dob,'%d-%m-%Y')AS fdob,(round(( (p_days) / (p_days + a_days)*100))) As att_percentage, A.spid,A.*,B.*,C.*,E.*,F.*
-    from bckp_students A, bckp_ams_setup_students_map B, ams_setup_course_subject_map C , course_subject_map D, subjects E, courses F
+    from Bckp_Students A, Bckp_Ams_setup_students_map B, Ams_setup_course_subject_map C , Course_subject_map D, Subjects E, Courses F
     where A.spid = B.spid AND B.ams_setup_id = C.ams_setup_id AND C.cs_id = D.cs_id AND D.subject_id = E.subject_id AND A.course_id = F.course_id AND
     A.spid = $spid;";
 
