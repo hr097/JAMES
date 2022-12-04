@@ -30,31 +30,25 @@ else
     </select>
     ";
 }
-if(isset($_POST['transfer']))
+if(isset($_POST['backup']))
 {
     $cid = $_POST['course_selection'];
     $sem = $_POST['sem_selection'];
-    $sql = "select total_semester from courses where course_id = $cid";
+    $sql = "select email from students where course_id = $cid and cur_semester = $sem";
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
-    $record = mysqli_fetch_assoc($result);
-    $tsem = $record['total_semester'];
-    if($sem < $tsem)
+    $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    $record = array_column($record,'email');
+    $emails = "'".implode("','",array_values($record))."'";
+
+    $sql= "delete from users where username in($emails)";//query
+    if(mysqli_query($GLOBALS['JAMES']->connection(),$sql) && mysqli_affected_rows($GLOBALS['JAMES']->connection()) > 0)
     {
-        $sql= "update students set cur_semester = cur_semester + 1 where course_id =  $cid and cur_semester = $sem ";//query
-        if(mysqli_query($GLOBALS['JAMES']->connection(),$sql) && mysqli_affected_rows($GLOBALS['JAMES']->connection()) > 0)
-        {
-            $error = "<span id='response_msg' style='color:green;float:right;'>Students have been transferred successfully to the next semester</span>";
-        }
-        else
-        {
-            $error = "<span id='response_msg' style='color:red;float:right;'>Students couldn't be transferred!</span>"; 
-        }
+        $error = "<span id='response_msg' style='color:green;float:right;'>Students have been backed up</span>";
     }
     else
     {
-        $error = "<span id='response_msg' style='color:red;float:right;'>Students couldn't be transferred!</span>"; 
+        $error = "<span id='response_msg' style='color:red;float:right;'>Students couldn't be backed up!</span>".mysqli_error($GLOBALS['JAMES']->connection()); 
     }
-    
     $error.="<script>setTimeout(function(){ $('#response_msg').html('');},3000);</script>";
 
 
@@ -80,13 +74,24 @@ if(isset($_POST['transfer']))
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
+            <button type='button' onclick="window.history.back()"
+                        style="vertical-align:middle;padding:9px;width:90px;height:40px;float:left;position:relative;bottom:10px;display:inline;border-radius:12px;"
+                        class='btn form-control btn-primary btn-icon-text ml-3 mb-2'>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                        </svg>
+                        Back
+                </button>
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Student Search</h4>
-                            <form class="forms-sample">
+                            <h4 class="card-title">Backup Students<?php echo $error;?></h4>
+                            <form method="post" class="forms-sample">
 
-                                <!-- <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" > -->
+                                <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >
 
                                 <div class="form-group">
                                         <label for="course_selection">Course Name</label>
@@ -103,25 +108,10 @@ if(isset($_POST['transfer']))
                                 </div>
 
                                 <!-- Total Semester-->
-                                <div class="form-group">
-                                    <label for="division">Div</label>
-                                    <select id="division" class="form-control">
-                                            <option>Select Division</option>
-                                            <option>A</option>
-                                            <option>B</option>
-                                            <option>C</option>
-                                            <option>D</option>
-                                            <option>E</option>
-                                            <option>F</option>
-                                            <option>G</option>
-                                            <option>H</option>
-                                            <option>I</option>
-                                        </select>
-                                </div>
                     
 
-                                <button type="button" id="" class="btn btn-primary mr-2 mt-3">Search</button>
-                                <button class="btn btn-light mt-3">Clear</button>
+                                <button name="backup" class="btn btn-primary mr-2 mt-3">Backup Students</button>
+                                <!-- <button type="reset" class="btn btn-light mt-3">Clear</button> -->
                             </form>
                         </div>
                     </div>
@@ -131,29 +121,24 @@ if(isset($_POST['transfer']))
                 <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Backup Student</h4>
+                            <h4 class="card-title">Student list</h4>
                             <div class="table-responsive mt-4">
-                                <table id="order-listing" class="table">
+                                <table id="backup_stud_data" class="table">
                                     <thead>
                                         <tr>
-                                            <th><input type="checkbox" class="mr-3">Select All</th>
                                             <th>SPID</th>
-                                            <th>Student Name</th>
-                                            <th>Student Email</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Division</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input type="checkbox" class="mr-3"></td>
-                                            <td>202003456</td>
-                                            <td>Archit Ghevariya</td>
-                                            <td>archit@gmail.com</td>
-                                        </tr>
+                                    <tbody id="backupstudent">
+                                        
                                     </tbody>
                                 </table>
                             </div>
-                            <button type="button" id=""class="btn btn-primary mr-2 mt-3">Backup Students</button>
-                            <button type="reset" class="btn btn-light mt-3">Clear</button>
+                            
+                            
                         </div>
                     </div>
                 </div>

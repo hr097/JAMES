@@ -197,7 +197,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
-                <button type='button' onclick="window.history.back()"s
+                <button type='button' onclick="window.history.back()"
                         style="vertical-align:middle;padding:9px;width:90px;height:40px;float:left;position:relative;bottom:10px;display:inline;border-radius:12px;"
                         class='btn form-control btn-primary btn-icon-text ml-3 mb-2'>
 
