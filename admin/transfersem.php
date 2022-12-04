@@ -3,6 +3,10 @@
 require_once("../ams.php");
 $JAMES = new AMS("Admin");
 $JAMES->init_user_session();
+if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+{
+    $JAMES->ams_redirect("../login.php");
+}
 $error = "";
 $course_html = "";
 $stud_data = "";
@@ -112,7 +116,7 @@ if(isset($_POST['transfer']))
                                 <div class="form-group">
                                         <label for="sem_selection">Semester</label>
                                         <select id="sem_selection" name='sem_selection'  required  class="form-control">
-                                        <option value='' >Not Selected</option>
+                                        <option value='' selected >Not Selected</option>
                                         </select>
                                     </div>
 

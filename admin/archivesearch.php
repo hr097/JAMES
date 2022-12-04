@@ -1,16 +1,16 @@
 <?php
 
- require_once("../ams.php");
- $JAMES = new AMS("Admin");
- $JAMES->init_user_session();
+    require_once("../ams.php");
+    $JAMES = new AMS("Admin");
+    $JAMES->init_user_session();
 
 
- if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
- {
-  $JAMES->ams_redirect("../login.php");
- }
- 
- ?>
+    if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
+    {
+    $JAMES->ams_redirect("../login.php");
+    }
+    
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +46,7 @@
                             <div class="col-sm-12  col-md-12  col-lg-12  grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">Search Student</h4>
+                                        <h4 class="card-title">Search Archived Student</h4>
                                         <form class="forms-sample" method="post">
 
                                             

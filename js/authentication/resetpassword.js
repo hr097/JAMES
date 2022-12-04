@@ -70,7 +70,7 @@ var csrfToken= $("#csrfToken");
 
 function showError(message)
 {     
-    $(".error-message").css("display","block"); 
+    $(".error-message").css("display","flex"); 
     $(".message").text(message); 
     setTimeout(function(){$(".message").text("");$(".error-message").css("display", "none");},2000); //remove error message
 }
