@@ -293,7 +293,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
           [5, 10, 15, -1],
           [5, 10, 15, "All"]
         ],
-        "iDisplayLength": All,
+        "iDisplayLength": "All",
         "language": {
           search: ""
         },
