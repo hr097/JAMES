@@ -65,9 +65,8 @@ $(document).ready(function(){
     //   }
     // });
 
-      //var count = 0;
+      var count = 0;
 
-    
 
       // $("#studrfid").keyup(function() 
       // { 

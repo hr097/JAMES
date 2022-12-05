@@ -152,7 +152,7 @@ $(document).ready(function () {
 
               for (let i = 0; i < st_ls_len; i++) {
                 $(`#${student_list.response[i]}`).attr("checked", true);
-                $(`#${student_list.response[i]}`).siblings()[0].innerHTML = "1";
+               // $(`#${student_list.response[i]}`).siblings()[0].innerHTML = "1";
               }
             }
           }
