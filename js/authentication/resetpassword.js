@@ -111,7 +111,7 @@ function sendApiReq()
                        setCookie("5f70737764","",-1);
                        password1.val("");
                        password2.val("");
-                       $("#modal").css("display","block");
+                       $("#modal").css("display","flex");
                        setTimeout(function(){window.location.replace("./login.php");},3000);
                   }
                   else
