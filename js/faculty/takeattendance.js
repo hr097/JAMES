@@ -184,7 +184,7 @@ $(document).ready(function () {
       [5, 10, 15, "All"]
     ],
     order: [],
-    iDisplayLength: All,
+    iDisplayLength: 10,
     language: {
       search: ""
     }
