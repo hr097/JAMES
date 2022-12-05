@@ -106,8 +106,8 @@ function sendEmailNotice($student,$email)
                     <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                         <tr>
                             <td bgcolor='#ffffff' align='center' style='padding: 20px 30px 20px 30px; color: #000000; font-family: Poppins; font-size: 14px; font-weight: 400; line-height: 30px;'>
-                                <p style='margin: 0; '><span style='font-size: 18px;font-weight:900;'>Dear ".$student['name'].",</span><br><br>Your total attendance performance calculated till date in below mentioned subject is depicted below. In order to maintain healthy attendance score <span style='font-weight:900;'> (80% and above)</span>, you must attend the upcoming lectures conducted by respective subject faculties.
-                                  </p>
+                            <!--<p style='margin: 0; '><span style='font-size: 18px;font-weight:900;'>Dear ".$student['name'].",</span><br><br>Your total attendance performance calculated till date in below mentioned subject is depicted below. In order to maintain healthy attendance score <span style='font-weight:900;'> (80% and above)</span>, you must attend the upcoming lectures conducted by respective subject faculties.
+                                  </p>-->
                             </td>
                         </tr>
                     </table>
@@ -181,8 +181,8 @@ function sendEmailNotice($student,$email)
                   <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
                       <tr>
                           <td bgcolor='#ffffff' align='center' style='padding: 0px 30px 40px 30px; color: #000000; font-family: poppins; font-size: 14px; font-weight: 400; line-height: 28px;'>
-                              <p style='margin: 0; '> <span style='color:#000 !important;font-weight:900;font-size:15px;' >NOTE: </span> If your total subject attendance will be <span style='font-weight:700;'>less than 60% </span>then you may not be eligible to sit in examination held by department/university.
-                                  </p>
+                          <!--<p style='margin: 0; '> <span style='color:#000 !important;font-weight:900;font-size:15px;' >NOTE: </span> If your total subject attendance will be <span style='font-weight:700;'>less than 60% </span>then you may not be eligible to sit in examination held by department/university.
+                                  </p>-->
                               <p style='color:#000 !important;margin:0;text-align: center;'><br><b style='font-size: 16px;'>".$student['fname'].",</b><br><b>(".$student['role_name'].")</b><br>
     
                                 <a style='text-decoration:none;color:#5755a5;' href='https://vnsguit.org' target='_blank'>Department of Information & Communication Technology</a>,<br><a style='text-decoration:none;color:#5755a5;' href='https://www.vnsgu.ac.in/' target='_blank'>Veer Narmad South Gujarat University</a>,<br>Surat-395007.<br></p>
