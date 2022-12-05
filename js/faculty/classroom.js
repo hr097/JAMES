@@ -64,13 +64,11 @@ $(document).ready(function(){
         function()
         {      
             let email = $(this).attr("id");
-            email = email.substring(1);
-            console.log(email);
             let classroomid = $("#classroomid").val();
             let csrfTokenVal = $("#csrfToken").val();
 
             $.post(
-                "api/sendnotice2.php",
+                "api/sendnotice.php",
                 {
                   _cid: classroomid,
                   _eid: email,
