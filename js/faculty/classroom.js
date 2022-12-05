@@ -70,7 +70,7 @@ $(document).ready(function(){
             let csrfTokenVal = $("#csrfToken").val();
 
             $.post(
-                "api/sendnotice.php",
+                "api/sendnotice2.php",
                 {
                   _cid: classroomid,
                   _eid: email,
