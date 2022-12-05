@@ -10,7 +10,7 @@ $JAMES->init_user_session();
 
 function findStudent($fid,$classroomid) 
 {   
-    $sql= "select vw_faculties.*,DATE_FORMAT(vw_faculties.dob,'%d-%m-%Y')AS dob from vw_faculties where (fid like '$fid%' OR  fid email '$fid%') and fid NOT IN(select fid from Ams_setup_faculties_map where ams_setup_id=$classroomid);";
+    $sql= "select vw_faculties.*,DATE_FORMAT(vw_faculties.dob,'%d-%m-%Y')AS dob from vw_faculties where fid like '$fid%' and fid NOT IN(select fid from Ams_setup_faculties_map where ams_setup_id=$classroomid);";
 
     $result = mysqli_query($GLOBALS['JAMES']->connection(),$sql);
     
