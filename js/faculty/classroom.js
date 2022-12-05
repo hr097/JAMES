@@ -127,6 +127,7 @@ $("#takeattendance").click(function(){
   window.location.href = `takeattendance.php?classroomid=${classroomid}`;
 });
 
+
 /* 
 
 NOTE: download report using php excel module and using api

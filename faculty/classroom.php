@@ -223,7 +223,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive">
-                                        <table id="order-listing-export" class="table" id="tbl">
+                                        <table id="order-listing-export" class="table">
                                             <thead>
                                                 <tr>
                                                     <th>Roll Number</th>
@@ -293,7 +293,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
           [5, 10, 15, -1],
           [5, 10, 15, "All"]
         ],
-        "iDisplayLength": 10,
+        "iDisplayLength": All,
         "language": {
           search: ""
         },
