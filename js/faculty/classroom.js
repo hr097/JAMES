@@ -63,7 +63,7 @@ $(document).ready(function(){
     $(".sendnotice").click(
         function()
         {
-            let email = $(this).attr("id");
+            let email = $(this)[0].attr("id");
             let classroomid = $("#classroomid").val();
             let csrfTokenVal = $("#csrfToken").val();
 
