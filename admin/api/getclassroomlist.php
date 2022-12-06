@@ -39,8 +39,8 @@ function getClassrooms($year)
             <td>".$record['ams_setup_id']."</td>
             <td>".$record['course_name']."</td>
             <td>".$record['subject_code']."</td>
-            <td>".$record['division']."</td>
             <td>".$record['semester']."</td>
+            <td>".$record['division']."</td>
             <td>".$record['year']."</td>
             <td>".$record['email']."</td>
             </tr>
@@ -51,7 +51,7 @@ function getClassrooms($year)
     else
     {
         return "
-        <tr><td  colspan='5' style='font-size:1.2em;text-align:center;'>No Classrooms Data Found!</td></tr>";
+        <tr><td  colspan='7' style='font-size:1.2em;text-align:center;'>No Classrooms Data Found!</td></tr>";
     }
 }
 
