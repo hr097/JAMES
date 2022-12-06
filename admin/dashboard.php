@@ -16,7 +16,7 @@
 
  function getClassrooms($y) 
  { 
-     $sql= "select A.*,C.course_name,S.subject_code,F.email from Ams_setup_course_subject_map A,
+     $sql= "select A.*,C.course_name,S.semester,S.subject_code,F.email from Ams_setup_course_subject_map A,
      Courses C,
      Subjects S,
      Course_subject_map CSM,
@@ -44,6 +44,8 @@
              <td>".$record['ams_setup_id']."</td>
              <td>".$record['course_name']."</td>
              <td>".$record['subject_code']."</td>
+             <td>".$record['division']."</td>
+             <td>".$record['semester']."</td>
              <td>".$record['year']."</td>
              <td>".$record['email']."</td>
              </tr>
