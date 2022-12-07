@@ -9,7 +9,7 @@
     Automatic RFID Based Attendance Management System With ERP features
     <br />
   </p>
-  <a target="_blank" href="https://ams.vnsguit.org/login.php">View Demo</a>
+  <a  href="https://ams.vnsguit.org/login.php" target="_blank" >View Demo</a>
 </div>
 
 <br>
