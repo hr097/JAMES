@@ -2,7 +2,7 @@
 self.addEventListener("install",e=>{
     e.waitUntil(
       caches.open("static").then(cache=>{
-        return cache.addAll(["./",'assets/pwa-logos/192_logo.png']);
+        return cache.addAll(["./",'assets/pwa-logos/logo_192.png']);
       })
     );
   });
