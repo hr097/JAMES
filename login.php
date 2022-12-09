@@ -59,7 +59,7 @@ if($JAMES->checkSession()===true) // if session active than redirect user to his
 
     <!-- pwa application -->
     <link rel="manifest" href="manifest.json">
-    <script src="pwa.js" type="text/javascript" defer=true></script>
+    <script src="index.js" type="text/javascript" defer=true></script>
 
 </head>
 
