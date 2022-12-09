@@ -87,8 +87,8 @@ class AMS
                         }
                 default: 
                     {
-                        $this->userName = "shubham"; // localhost credentials
-                        $this->password = "shubham";
+                        $this->userName = "root"; // localhost credentials
+                        $this->password = "";
                         break; 
                     }
             }
