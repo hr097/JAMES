@@ -62,17 +62,20 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 
                                 <!-- email & Search Button-->
                                 <div class="row">
-                                <div class="col-lg-10 col-md-9 col-sm-12">
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-md-6 col-lg-6">
+                                        <label>SPID</label>
+                                        <input type="text" autocomplete="off" name="studspid" pattern="[0-9]{10}" minlength="10"  maxlength="10" class="form-control" id="studspid" placeholder="XXXXXXXXXX" required>
+                                    </div>
 
-                                    <div class="form-group">
-                                    <label>SPID</label>
-                                    <input type="email"  autocomplete="off" maxlength="256" minlength="13" name="_em" class="form-control" id="studemail" placeholder="example@domain.com" required>
-                                    <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >  
-                                  </div>
-
+                                    <div class="form-group col-sm-6 col-md-6 col-lg-6">
+                                        <label>UID</label>
+                                        <input type="textbox" autocomplete="off" name="uid" minlength="13"  maxlength="256" class="form-control"  placeholder="XX XX XX XX" required>
+                                    </div>
                                 </div>
+
                                 <div class="form-group search_fetch_btn col-lg-2 mt-3 col-sm-12">
-                                    <button type="submit" id="restore" class="btn btn-primary mr-2 mt-3">Restore
+                                    <button type="submit" id="reissuecard" class="btn btn-primary mr-2 mt-3">Reissue Card
                                     </button>
                                 </div>
                                 </div>
