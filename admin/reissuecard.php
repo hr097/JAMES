@@ -72,11 +72,12 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
                                         <label>UID</label>
                                         <input type="textbox" autocomplete="off" name="uid" minlength="13"  maxlength="256" class="form-control"  placeholder="XX XX XX XX" required>
                                     </div>
-                                </div>
+                            
 
                                 <div class="form-group search_fetch_btn col-lg-2 mt-3 col-sm-12">
                                     <button type="submit" id="reissuecard" class="btn btn-primary mr-2 mt-3">Reissue Card
                                     </button>
+                                </div>
                                 </div>
                                 
                             </form>
