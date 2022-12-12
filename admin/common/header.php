@@ -135,6 +135,14 @@
                             <span class="menu-title">Backup</span>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./resetaccount.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-support"></i>
+                            <span class="menu-title">Restore Account</span>
+                        </a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="./archivesearch.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-zoom-in"></i>
