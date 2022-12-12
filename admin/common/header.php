@@ -145,7 +145,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="./reissuecard.php" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="icon-head menu-icon ti-support"></i>
+                            <i class="icon-head menu-icon ti-reload"></i>
                             <span class="menu-title">Reissue Card</span>
                         </a>
                     </li>
