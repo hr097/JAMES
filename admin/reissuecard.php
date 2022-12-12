@@ -61,7 +61,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
                             <form class="forms-sample" action="resetaccount.php" method="post" autocomplete="off">
 
                                 <!-- email & Search Button-->
-                                <div class="row">
+                                
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>SPID</label>
@@ -78,7 +78,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
                                     <button type="submit" id="reissuecard" class="btn btn-primary mr-2 mt-3">Reissue Card
                                     </button>
                                 </div>
-                                </div>
+                                
                             </form>
                         </div>
                     </div>
