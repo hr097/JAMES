@@ -121,6 +121,9 @@ if(isset($_POST['_em'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_SE
                                     <button type="submit" id="restore" class="btn btn-primary mr-2 mt-3">Restore
                                     </button>
                                 </div>
+                                <div  class="form-group search_fetch_btn col-lg-12 mt-12 col-sm-12">
+                                <label>Default Password: <b>Mscit@2020</b></label>
+                                </div>
                                 </div>
                             </form>
                         </div>

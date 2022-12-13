@@ -8,6 +8,46 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 {
  $JAMES->ams_redirect("../login.php");
 }
+
+$error = "";
+
+if(isset($_POST['studrfidno'])&&isset($_POST['studspid'])&&isset($_POST['_csrfToken'])&&$_POST['_csrfToken']==$_SESSION['_csrfToken']&&isset($_SESSION['_userId']))
+{
+    $spid = $JAMES->sanitizeInput($_POST['studspid']);
+    $uid = $JAMES->sanitizeInput($_POST['studrfidno']);
+
+    //@query
+    $sql = "select * from Rfid_uid_spid_map where spid='$spid';"; 
+    $result = mysqli_query($JAMES->connection(),$sql);
+    
+    if(mysqli_num_rows($result)===1)
+    {        
+            
+            
+            //@query
+            $sql = "update Rfid_uid_spid_map set uid='$uid' where spid='$spid';"; 
+
+            if(mysqli_query($GLOBALS['JAMES']->connection(),$sql))
+            {
+              $error = "<span id='response_msg' style='color:green;float:right;'>Uid Updated Successfully !</span>";
+            }
+            else
+            {
+              $error = "<span id='response_msg' style='color:red;float:right;'>Unable to Update Try Again Later!</span>";
+            }
+
+            $error.="<script>setTimeout(function(){ $('#response_msg').html('');},3000);</script>";
+
+    }
+    else
+    {    
+        $error = "<span id='response_msg' style='color:red;float:right;'>Spid Not Found!</span>"; 
+        $error.="<script>setTimeout(function(){ $('#response_msg').html('');},3000);</script>";
+    }
+
+
+}
+
 ?>
 
 
@@ -28,7 +68,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <!-- js  -->
-    <script src="../js/admin/resetaccount.js" type="text/javascript" defer=true></script>
+    <script src="../js/admin/reissuecard.js" type="text/javascript" defer=true></script>
 
     <!-- page information-->
     <title>AMS | Reissue Card</title>
@@ -58,11 +98,13 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Reissue Card <?php echo $error;?></h4>
-                            <form class="forms-sample" action="resetaccount.php" method="post" autocomplete="off">
+                            <form class="forms-sample" action="reissuecard.php" method="post" autocomplete="off">
 
                                 <!-- email & Search Button-->
                                 
                                 <div class="row">
+                                <input type="hidden" id="csrfToken" name="_csrfToken" value="<?php echo $JAMES->generateCsrfToken();?>" >  
+
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>SPID</label>
                                         <input type="text" autocomplete="off" name="studspid" pattern="[0-9]{10}" minlength="10"  maxlength="10" class="form-control" id="studspid" placeholder="XXXXXXXXXX" required>
@@ -70,14 +112,19 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="3"))
 
                                     <div class="form-group col-sm-6 col-md-6 col-lg-6">
                                         <label>UID</label>
-                                        <input type="textbox" autocomplete="off" name="uid" minlength="13"  maxlength="256" class="form-control"  placeholder="XX XX XX XX" required>
+                                        <input  type="text" autocomplete="off" name="studrfidno" minlength="11" pattern="[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}[ ]{1}[A-Za-z0-9]{2}"  maxlength="11" class="form-control" id="studrfid" placeholder="XX XX XX XX" required>
                                     </div>
                             
 
                                 <div class="form-group search_fetch_btn col-lg-2 mt-3 col-sm-12">
-                                    <button type="submit" id="reissuecard" class="btn btn-primary mr-2 mt-1">Reissue Card
+                                    <button type="submit" id="reissuecard" class="btn btn-primary mr-2 mt-1">Reissue
                                     </button>
                                 </div>
+
+                                <div  class="form-group search_fetch_btn col-lg-12 mt-12 col-sm-12">
+                                <label><b>NOTE: </b> Additional charges are applicable (50 Rupees) for each reissuing card.</label>
+                                </div>
+
                                 </div>
                                 
                             </form>
