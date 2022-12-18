@@ -427,7 +427,7 @@
                     <div class="card-footer">
                         <p class="mb-0 font-weight-bolder">Krish Bhanderi</p>
                         <small class="text-muted">
-                             Backend Developer
+                             Android & Backend Developer
                         </small>
                     </div>
                 </div>
