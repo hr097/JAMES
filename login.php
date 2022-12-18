@@ -112,6 +112,7 @@ if($JAMES->checkSession()===true) // if session active than redirect user to his
 
                                     <div class="mt-2 text-center">
                                         <input type="button" class="btn btn-primary btn-icon-text" name="login" id="login" style="width:150px;height:46px;" value="Login">
+                                        <p style="text-align:center;font-size:0.5em;position:relative;top:30px;"><a style='text-decoration:none;color:black;' href="https://ams.vnsguit.org/android-app/james.apk">Download an Android App</a></p> 
                                     </div>
                                     
                                     <!-- Remember me , forgot password and  login button : End -->
