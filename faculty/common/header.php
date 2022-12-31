@@ -135,6 +135,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="./updateattendance.php" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="icon-head menu-icon ti-eraser"></i>
+                            <span class="menu-title">Update Attendance</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="./takeeattendance.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-check-box"></i>
                             <span class="menu-title">e-Attendance</span>
