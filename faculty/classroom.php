@@ -52,7 +52,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
         //to fetch students who have enrolled in particular classroom
 
         //@query
-        $sql = "select S.email,S.spid,S.cur_roll_no,S.name,ASSM.spid,ASSM.p_days,ASSM.a_days,(round(((ASSM.p_days / (ASSM.p_days + a_days))*100 ))) As att_percentage from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroom_id;";
+        $sql = "select S.email,S.spid,S.cur_roll_no,S.name,ASSM.spid,ASSM.p_days,ASSM.a_days,(round(((ASSM.p_days / (ASSM.p_days + ASSM.a_days))*100 ))) As att_percentage from Students S,Ams_setup_students_map ASSM where ASSM.spid=S.spid and ams_setup_id=$classroom_id;";
         $result = mysqli_query($JAMES->connection(), $sql);
 
         $student_list = "";
@@ -64,7 +64,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
                 } elseif ($record['att_percentage']>=50) {
                     $att_pr=" <td><button type='button' class='btn btn-warning rounded px-3 py-2'>".$record['att_percentage']."%</button></td>";
                 } else {
-                    $att_pr=" <td><button type='button' class='btn btn-danger rounded px-3 py-2'>0%</button></td>";
+                    $att_pr=" <td><button type='button' class='btn btn-danger rounded px-3 py-2'>".$record['att_percentage']."%</button></td>";
                 }
 
 
