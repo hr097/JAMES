@@ -99,6 +99,7 @@ function getRecords($rn,$spid,$name)
     }
     else
     {   
+        $i=3;
         while($i<=$GLOBALS['total_count'])
         {   
             
@@ -141,7 +142,7 @@ if(isset($_GET["classid"]))
         }
         else
         {
-            $student_list.="<tr><td  colspan='3' style='font-size:1.2em;text-align:center;'>No Student Attendance Found Yet!</td></tr>";
+            $student_list.="<tr><td  colspan='3' style='font-size:1.2em;text-align:center;'>No Student Attendance Found!</td></tr>";
         }
 
 }
@@ -256,9 +257,17 @@ else
 
 <script>
     <?php
+
+
+    $i=0;
+    while($i<$GLOBALS['total_count'])
+    {   
+        $arrayOfExcelCol[$i] = $i;
+        $i++;
+    }
     
-    if($student_list != "<tr><td  colspan='7' style='font-size:1.2em;text-align:center;'>No Student Enrollment Yet!</td></tr>")
-    {
+    if($student_list != "<tr><td  colspan='3' style='font-size:1.2em;text-align:center;'>No Student Attendance Found!</td></tr>")
+    {   
         echo <<<EOL
     var table = $('#order-listing-export').DataTable({
         "aLengthMenu": [
@@ -274,9 +283,9 @@ else
               title: '',
               text: ' <i class="ti-import btn-icon-prepend" style="padding-right:10px"></i> Download Full Report',
               exportOptions: {
-                      columns: [ 0, 1, 2, 3, 4, 5]
+                      columns: $arrayOfExcelCol
               },
-              filename: 'AMS_Full_Report_$cc'
+              filename: 'AMS_Full_Report_Class_Code_$cc'
               
           }]
       });
