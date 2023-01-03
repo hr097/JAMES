@@ -315,7 +315,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
               exportOptions: {
                       columns: [ 0, 1, 2, 3, 4, 5]
               },
-              filename: 'AMS_Report_$classroom_id'
+              filename: 'AMS_Summary_Report_$classroom_id'
               
           }]
       });
