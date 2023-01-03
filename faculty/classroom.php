@@ -110,7 +110,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
     <!-- including footer -->
     <?php
           include './common/header.php'
-?>
+    ?>
 
     <!-- Page info -->
     <title>AMS | Classroom</title>
@@ -249,19 +249,25 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
                 </div>
             </div>
 
-            <div id="report_export">
+            <button type="button" style="background-color:#4B49AC;color:white;" class="btn btn-icon-text mb-1 mr-2" id="viewreport">
+                <i class="ti-eye btn-icon-prepend"></i>View Full Report
+            </button>
+
+
+
+            <div style="display:inline-block;" id="report_export">
 
             </div>
                <!--Table End-->
-            <!-- <button type="button" class="btn download-btn btn-icon-text mb-1 " id="generatereport">
-                                <i class="ti-import btn-icon-prepend"></i>
-                                Download Report
-            </button> -->
+
+
 
         </div>                    
     </div>
     </div>
     </div>
+
+
 
     <!-- modal -->
     <div id="modal" class="modal">
@@ -275,13 +281,18 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
     </div>
     </div>
 
+
+
+
     <!-- including footer -->
     <?php
     include './common/footer.php'
     ?>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/b-print-2.3.3/datatables.min.js"></script>
+
 <script>
     <?php
     
@@ -300,7 +311,7 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
         buttons:[{ 
               extend: 'excel', 
               title: '',
-              text: ' <i class="ti-import btn-icon-prepend" style="padding-right:10px"></i> Download Report',
+              text: ' <i class="ti-import btn-icon-prepend" style="padding-right:10px"></i> Download Summary',
               exportOptions: {
                       columns: [ 0, 1, 2, 3, 4, 5]
               },
@@ -325,6 +336,8 @@ if (isset($_GET['course'])&&isset($_GET['year'])&&isset($_GET['subject'])&&isset
     ?>
     
 </script>
+
+
 </body>
 
 </html>

@@ -59,6 +59,11 @@ document.getElementById("no-button").onclick = function() { // no-> same page
 
 $(document).ready(function(){
   
+    
+  $("#viewreport").click(function(){
+    const classcode = $("#classroomid").val();
+    window.location.href = `./viewreport.php?classid=${classcode}`;
+  });
 
     $(".sendnotice").click(
         function()
