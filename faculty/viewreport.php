@@ -76,14 +76,14 @@ function getRecords($rn,$spid,$name)
             {
                 $row_header_list.=
                 "
-                <td>Present</td>
+                <td>1</td>
                 ";
             }
             else if($record['att_status']==0)
             {
                 $row_header_list.=
                 "
-                <td>Absent</td>
+                <td>0</td>
                 ";
             }
             else
