@@ -346,3 +346,38 @@ margin-top: 27px;
   background-color: #363e53;
 }
 
+/* Classroom theater start */
+.class_title{
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: rgb(87, 87, 87);
+}
+
+.students_list{
+  margin-top: 30px;
+  margin-left: 2%;
+}
+
+.student_list_col{
+  padding: 10px 50px;
+}
+
+.student_btn_present{
+  background-color: #5eba7d;
+  border: none;
+  /* padding: 0.8px 15px; */
+  width:32px;
+  border-radius:3px;
+  color:rgb(255, 255, 255);
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.student_btn_present:hover{
+  background-color: #3bb865;
+
+}
+/* Classroom theater end */
+
+
