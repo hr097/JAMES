@@ -11,7 +11,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 // find related classroom students data
 $classroomid="";
 $fid="";
-$totalStudent = "";
+$totalStudent = 0;
 $student_list = "";
 
 if(isset($_GET['classroomid']))
