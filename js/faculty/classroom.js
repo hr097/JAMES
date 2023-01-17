@@ -28,7 +28,7 @@ document.getElementById("yes-button").onclick = function () {
   }
   else
   {
-  let csrfTokenVal = $("#csrfToken").val();
+    let csrfTokenVal = $("#csrfToken").val();
     $.post("api/deleteclassroom.php",
     {
     _cid:$("#classroomid").val(),

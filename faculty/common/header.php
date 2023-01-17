@@ -149,13 +149,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="./classroomtheater.php" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="icon-head menu-icon ti-check-box"></i>
-                            <span class="menu-title">Classroom theater</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" href="./searchstudent.php" aria-expanded="false" aria-controls="ui-basic">
                             <i class="icon-head menu-icon ti-search"></i>
                             <span class="menu-title">Search</span>

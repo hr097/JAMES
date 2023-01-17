@@ -8,6 +8,7 @@ if(!($JAMES->checkSession()&&$_SESSION["_userType"]==="2"))
 {
  $JAMES->ams_redirect("../login.php");
 }
+
 $classroomid="";
 
 if(isset($_GET['classroomid']))

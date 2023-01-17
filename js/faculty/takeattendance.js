@@ -59,7 +59,7 @@ document.getElementById("yes-button").onclick = function () {
         function (data, status) {
           if (status == "success") {
             if ((data == 11) | (data == 1)) {
-              $("#modalmsg").text("Student attendance submitted successfully.");
+             $("#modalmsg").text("Student attendance submitted successfully.");
              $("#modal").css("display", "flex");
               submit_flag = false;
             } else {
@@ -94,7 +94,7 @@ $(document).ready(function () {
   $("#submitattendance").click(function () {
     submit_flag = true;
     $("#modalmsg").html(
-      "Are you sure about this? Attendance cannot be modified once submitted.<br><br>Do you confirm it?"
+      "Are you sure about this? Attendances cannot be reverted once submitted.<br><br>Do you confirm it?"
     );
    $("#modal").css("display", "flex");
   });
