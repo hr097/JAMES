@@ -41,7 +41,7 @@ if(isset($_GET['classroomid']))
 
             $tooltip = $record['p_days']." Present | ".$record['a_days']." Absent | ".$record['att_percentage']." %";
             $counter++;
-            $student_list.="<td title='".$tooltip."'><input class='studbtn' type='button' style='height:80px;width:80px;font-size:43px;background-color:green;color:white;border:2px solid grey;' data='1' value='".$record['cur_roll_no']."' id='".$record['spid']."'></td>";
+            $student_list.="<td title='".$tooltip."'><input class='studbtn student_btn_effect' type='button' data='1' value='".$record['cur_roll_no']."' id='".$record['spid']."'></td>";
 
             if($counter%10==0) 
             {
@@ -112,6 +112,15 @@ else
     {
       padding:10px;
     }
+    .student_btn_effect{
+      height:50px;width:50px;
+      font-size:23px;
+      background-color:green;
+      color:white;
+      border:none;
+      border-radius:3px;
+    }
+
   </style>
 
 </head>
