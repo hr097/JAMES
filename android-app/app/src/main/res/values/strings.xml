@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">AMS</string>
-    <string name="noInternetConnection">No internet connection</string>
-    <string name="keySendInternetStatus">Broadcast_Internet_Status</string>
-    <string name="cancel">Cancel</string>
-    <string name="retry">Retry</string>
-    <string name="please_wait">Please Wait</string>
-</resources>
