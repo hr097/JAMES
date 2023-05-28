@@ -1,7 +1,7 @@
 {
     "name": "JPD AMS", 
     "short_name": "JPD AMS", 
-    "start_url": ".",
+    "start_url": "./login.php",
     "theme_color": "#4287f5",
     "background_color": "#ffffff",
     "display": "standalone",
