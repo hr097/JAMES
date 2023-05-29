@@ -58,8 +58,8 @@ if($JAMES->checkSession()===true) // if session active than redirect user to his
     <link rel="shortcut icon" href="./assets/logos/favicon.ico">
 
     <!-- pwa application -->  
-    <link rel="manifest" href="manifest.json">
-    <script src="pwa.js"></script> 
+    <!--<link rel="manifest" href="manifest.json">
+    <script src="pwa.js"></script> -->
 
 </head>
 
