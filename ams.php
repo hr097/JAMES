@@ -77,12 +77,12 @@ class AMS
             {
                 case 1:{
                         $this->userName = "vnsguit_james_admin";
-                        $this->password = "dwvg?Z^qSK9";
+                        $this->password = "_random_password_";
                         break;
                         }
                 case 2:{
                         $this->userName = "vnsguit_james_user";
-                        $this->password = "bfrq_f+UwGSr";
+                        $this->password = "_random_password_";
                         break;
                         }
                 default: 
@@ -276,7 +276,7 @@ class AMS
         $mail->SMTPAuth = true;                          
         //Provide username and password     
         $mail->Username = "ams.jpd@gmail.com";                 
-        $mail->Password = "wlvbwdxvlbkotlik";     //token for app p @ s s w o r d                       
+        $mail->Password = "_random_password_";     //token for app p @ s s w o r d                       
         //If SMTP requires TLS encryption then set it
         $mail->SMTPSecure = "tls";                           
         //Set TCP port to connect to
